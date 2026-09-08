@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#123f46"><title>Wild Encounters · Fakemon Field Demo</title>
+<style>[hidden]{display:none!important}
+:root{--deep:#123f46;--sea:#278d96;--paper:#fff9e8;--ink:#17353a;--line:#b9ac83;--gold:#f0c85c;--leaf:#87b75d}*{box-sizing:border-box}body{margin:0;min-height:100dvh;background:radial-gradient(circle at 50% -20%,#33828a,#082d34 72%);font:15px/1.4 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink)}button{font:inherit;font-weight:800;color:var(--ink);background:#fffdf3;border:2px solid #9fa78b;border-radius:9px;min-height:40px;padding:7px 10px;cursor:pointer;box-shadow:0 2px #6e765f;touch-action:manipulation}button:hover{background:#f7e9bb}button:active{transform:translateY(2px);box-shadow:none}button:focus-visible{outline:4px solid #ffdc6b;outline-offset:2px}.primary{background:#17747c;color:white;border-color:#09545b}.danger{color:#a83a31}.row{display:flex;gap:8px;flex-wrap:wrap}.row button{flex:1}.eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:#19757d}#app{width:min(1140px,100%);margin:auto;padding:12px}.mast{display:flex;align-items:center;gap:10px;color:#fff9e8}.seal{border:2px solid #f0cf78;border-radius:50%;display:grid;place-items:center;width:43px;height:43px;font:900 25px Georgia;color:#f0cf78}.title{flex:1}.title span,.title b{display:block}.title span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#bfe6db}.title b{font-size:clamp(18px,3vw,26px)}.mast button{color:white;background:#ffffff12;border-color:#ffffff55;box-shadow:none;font-size:11px;min-height:34px}.shell{margin-top:10px;overflow:hidden;border:2px solid #eee2b8;border-radius:16px;background:var(--paper);box-shadow:0 20px 65px #001d2280}.mission{padding:10px 14px;background:linear-gradient(#fffceb,#eee1b7);border-bottom:2px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}.mission b{font-size:15px}.mission span{font-size:12px;color:#506863}.progress{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:800}.bar{width:72px;height:8px;background:#d2d0af;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:#2b9e95}.play{display:grid;grid-template-columns:minmax(0,1fr) 250px;background:#123f46}.stage{position:relative}.stage canvas{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:pixelated}.caption{position:absolute;left:12px;bottom:12px;max-width:90%;background:#093138e8;color:#fff9e8;border:1px solid #b7e4d7;border-radius:14px;padding:6px 10px;font-size:11px;font-weight:700}.side{background:linear-gradient(90deg,#eee2c3,#fff9e8 15%);border-left:2px solid var(--line);padding:10px;display:flex;flex-direction:column;gap:8px}.side h2{font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:0;color:#536b62}.habitats{display:grid;gap:5px}.habitat{min-height:48px;text-align:left;display:grid;grid-template-columns:29px 1fr;column-gap:6px;padding:5px;background:#fffdf3}.habitat.selected{background:#dff2df;border-color:#167d85}.habitat span{grid-row:1/3;font-size:22px}.habitat b,.habitat small{display:block}.habitat b{font-size:11px}.habitat small{font-size:9px;color:#5d706a}.actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.actions button{min-height:47px;font-size:11px}.status{margin-top:auto;background:#173f42;color:#fff7d7;border:2px solid #2b6768;border-radius:9px;padding:8px;font-size:11px;min-height:56px;display:flex;align-items:center}.camp{padding:8px 12px 12px;background:#edf1dd;border-top:2px solid var(--line)}.camp-head{display:flex;justify-content:space-between;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}.camp-row{display:flex;gap:9px;margin-top:7px}.camp-pal{width:55px;text-align:center;opacity:.38;font-size:9px;font-weight:800}.camp-pal.friend{opacity:1}.camp-pal img,.camp-pal .sprite-fallback{display:block;width:48px;height:42px;object-fit:contain;image-rendering:pixelated;font-size:30px}.touch{display:none;padding:8px;background:#f4e8cb;border-top:2px solid var(--line);gap:6px}.touch .dpad{display:grid;grid-template-columns:repeat(3,42px);gap:4px}.dpad [data-dir=north]{grid-column:2}.touch .small-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;flex:1}.touch button{min-height:39px;padding:3px;font-size:10px}.overlay{position:fixed;inset:0;z-index:20;background:#06272de8;display:grid;place-items:center;padding:15px}.panel{width:min(660px,100%);max-height:calc(100dvh - 30px);overflow:auto;background:var(--paper);border:3px solid #ead18a;border-radius:15px;padding:19px;box-shadow:0 20px 70px #00171a}.panel h2{margin:2px 0 8px;font-size:27px;line-height:1.08}.panel p{margin:8px 0}.prof{display:grid;grid-template-columns:116px 1fr;align-items:center;gap:14px}.prof img,.prof .sprite-fallback{width:110px;height:130px;object-fit:contain;image-rendering:pixelated;font-size:65px}.guide-scene{min-height:135px;padding:12px;display:grid;grid-template-columns:110px 1fr;background:#dff0d7;border:1px solid #b5c99d;border-radius:10px;align-items:center}.guide-scene img,.guide-scene .sprite-fallback{width:96px;height:90px;object-fit:contain;image-rendering:pixelated;font-size:55px}.guide-scene b,.guide-scene span{display:block}.guide-scene b{font-size:18px}.guide-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.guide-cards div{border:1px solid #c6c19e;border-radius:8px;padding:8px;background:#fffdf3}.guide-cards b,.guide-cards span{display:block}.guide-cards b{font-size:12px}.guide-cards span{font-size:11px;color:#5a6d68}@media(max-width:760px){#app{padding:7px}.play{display:block}.side{border-left:0;border-top:2px solid var(--line)}.side h2{display:none}.habitats{grid-template-columns:repeat(3,1fr)}.habitat{display:block;text-align:center}.habitat span{display:none}.actions{grid-template-columns:repeat(4,1fr)}.actions button{min-height:40px;font-size:9px;padding:3px}.status{min-height:38px}.touch{display:flex}.mission{grid-template-columns:1fr auto}.mission span{grid-column:1/-1;grid-row:2}.prof{grid-template-columns:80px 1fr}.prof img,.prof .sprite-fallback{width:76px;height:100px}.guide-cards{grid-template-columns:1fr}.mast .seal{width:35px;height:35px;font-size:21px}.mast button{font-size:9px;padding:4px}}
+.behavior{padding:8px 12px;min-height:40px;background:#fff9e8;border-top:2px solid #bed2a9;font-size:14px;line-height:1.35;color:#183c42}.behavior.warning{background:#ffe4db;color:#8c312b;font-weight:800}.caption{position:static;max-width:none;margin:5px 9px 9px;font-size:12px}</style></head><body><div id="app"><header class="mast"><div class="seal">Ω</div><div class="title"><span>A Fakemon field experiment</span><b>Wild Encounters</b></div><button id="guideBtn">Field guide</button><button id="menuBtn">Save &amp; more</button></header><main class="shell"><section class="mission"><div><b id="areaName">Toygrass Terrace</b></div><span id="objective"></span><div class="progress"><span id="friendCount">0 of 3 friends</span><span class="bar"><i id="friendBar"></i></span></div></section><div class="play"><section class="stage"><canvas id="world" width="768" height="480" tabindex="0" aria-label="Wild Encounters field. Use WASD or arrow keys to walk."></canvas><div id="behavior" class="behavior" role="status" aria-live="polite"></div><div class="caption" id="status" role="status" aria-live="polite"></div></section><aside class="side"><h2>Choose a habitat</h2><div class="habitats" id="habitats"></div><div class="actions" id="actions"><button data-action="observe">Observe<br><small>O</small></button><button data-action="environment" class="primary">Change surroundings<br><small>C</small></button><button data-action="space">Give space<br><small>Q</small></button><button data-action="approach">Wait for approach<br><small>Space</small></button></div></aside></div><section class="touch" id="touch" aria-label="Touch controls"><div class="dpad"><button data-action="move" data-dir="north" aria-label="Move north">▲</button><button data-action="move" data-dir="west" aria-label="Move west">◀</button><button data-action="move" data-dir="south" aria-label="Move south">▼</button><button data-action="move" data-dir="east" aria-label="Move east">▶</button></div><div class="small-actions"><button data-action="observe">Observe</button><button data-action="environment">Change</button><button data-action="space">Space</button><button data-action="approach">Wait</button><button data-action="guide">Guide</button><button data-action="menu">Save</button></div></section><section class="camp"><div class="camp-head"><span id="campLabel">Camp</span><span>Friends choose to visit</span></div><div class="camp-row" id="camp"></div></section></main></div><div class="overlay" id="overlay" hidden><section class="panel" id="modal" role="dialog" aria-modal="true" aria-label="Wild Encounters guide"></section></div><input id="importInput" type="file" accept="application/json,.json" hidden><script>const ECHO_ASSETS = {"pug": "../../assets/b0991b363e363dae322ffef642a504057604bc58c07b64a37b0c0ff8619506f9.png", "octopus": "../../assets/87c4a51b9af12bf79395e81c0f2cd11c0534b6aa9b553d9e514d460a6f3669c6.png", "minotaur": "../../assets/2e225617fb11469b161ff1d34936b0de223ecd56274ea4c6cd9f5794e06142ab.png", "siren": "../../assets/62e5d178c154a36e799cce167d6c10a663a0434eec0adb1edbdcbef6a5a1d0dd.png", "nautilus": "../../assets/b51f5f95e1eaf5745ff8b42c0286ffa87a8b40a1574849959c68f9614520873c.png", "professor": "../../assets/eb209755957154d301d41ed7dc6a389f01f4b5729103f9810468aa672a13a147.png", "rockman": "../../assets/276d100b62c5c2fe0a3933b975ccb5e31202fa7b67b8d671c694497f7095b099.png"};</script><script>/* Wild Encounters: pure encounter rules plus a small, dependency-free browser shell. */
+const WildEncounters = (() => {
+  'use strict';
+  const VERSION = 2;
+  const RELEASE = 'wild-encounters-demo';
+  const AREAS = Object.freeze({
+    pug: {id:'pug', name:'Toygrass Terrace', creature:'pug', goal:'Watch how Pug reacts near the marble path.'},
+    octopus: {id:'octopus', name:'Blue Channel', creature:'octopus', goal:'The channel is blocked near the quiet bank.'},
+    nautilus: {id:'nautilus', name:'Shell Cove', creature:'nautilus', goal:'An exposed shell shelter needs care.'}
+  });
+  const ORDER = ['pug','octopus','nautilus'];
+  const DIRECTION = Object.freeze({north:{x:0,y:-1},east:{x:1,y:0},south:{x:0,y:1},west:{x:-1,y:0}});
+  const SPAWNS = Object.freeze({pug:{x:3,y:7},octopus:{x:3,y:7},nautilus:{x:3,y:7}});
+  const CREATURES = Object.freeze({
+    pug:{x:12,y:6, ring:3, conditions:['toyPlaced','spaceGiven'], environment:'toyPlaced', distance:'spaceGiven', target:{x:8,y:6,label:'soft thyme patch'}},
+    octopus:{x:13,y:6, ring:3, conditions:['channelCleared','quietBank'], environment:'channelCleared', distance:'quietBank', target:{x:9,y:6,label:'blocked channel'}},
+    nautilus:{x:13,y:6, ring:3, conditions:['shelterRestored','spaceGiven'], environment:'shelterRestored', distance:'spaceGiven', target:{x:9,y:6,label:'loose shelter shells'}}
+  });
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const validArea = value => Object.prototype.hasOwnProperty.call(AREAS, value);
+  const validDirection = value => Object.prototype.hasOwnProperty.call(DIRECTION, value);
+  const message = (kind, text, extra) => Object.assign({kind, text}, extra || {});
+  const count = value => Object.values(value).filter(Boolean).length;
+
+  function habitat() { return {observed:false, toyPlaced:false, spaceGiven:false, channelCleared:false, quietBank:false, shelterRestored:false, comfort:0, setbacks:0}; }
+  function fresh() {
+    return {version:VERSION, release:RELEASE, area:'pug', player:{x:3,y:7,facing:'east'}, time:0,
+      tutorial:'intro', friendships:{pug:false,octopus:false,nautilus:false}, habitats:{pug:habitat(),octopus:habitat(),nautilus:habitat()}};
+  }
+  function normalize(raw) {
+    if (!raw || typeof raw !== 'object' || raw.version !== VERSION || raw.release !== RELEASE) return null;
+    const state = fresh();
+    state.area = validArea(raw.area) ? raw.area : state.area;
+    const player = raw.player || {};
+    state.player = {x:Number.isInteger(player.x) && player.x >= 1 && player.x <= 15 ? player.x : SPAWNS[state.area].x,
+      y:Number.isInteger(player.y) && player.y >= 1 && player.y <= 9 ? player.y : SPAWNS[state.area].y,
+      facing:validDirection(player.facing) ? player.facing : 'east'};
+    state.time = Number.isInteger(raw.time) && raw.time >= 0 && raw.time <= 9999 ? raw.time : 0;
+    state.tutorial = ['intro','demo','practice','complete'].includes(raw.tutorial) ? raw.tutorial : 'intro';
+    for (const id of ORDER) {
+      const saved = raw.habitats && raw.habitats[id] || {};
+      const target = CREATURES[id];
+      state.friendships[id] = raw.friendships && raw.friendships[id] === true;
+      state.habitats[id].observed = saved.observed === true;
+      for (const key of target.conditions) state.habitats[id][key] = saved[key] === true;
+      state.habitats[id].comfort = Number.isInteger(saved.comfort) && saved.comfort >= 0 && saved.comfort <= 2 ? saved.comfort : 0;
+      state.habitats[id].setbacks = Number.isInteger(saved.setbacks) && saved.setbacks >= 0 && saved.setbacks <= 99 ? saved.setbacks : 0;
+      if (state.friendships[id]) { for (const key of target.conditions) state.habitats[id][key] = true; state.habitats[id].comfort = 2; }
+    }
+    if (state.friendships.pug && state.tutorial !== 'complete') state.tutorial = 'complete';
+    return state;
+  }
+  function active(state) { return state.habitats[state.area]; }
+  function creature(state) { return CREATURES[state.area]; }
+  function conditionsMet(state) { const h = active(state), c = creature(state); return c.conditions.every(key => h[key]); }
+  function distanceToCreature(state) { const c = creature(state), p = state.player; return Math.abs(p.x-c.x)+Math.abs(p.y-c.y); }
+  function insideComfortRing(state) { return distanceToCreature(state) <= creature(state).ring; }
+  function nearCreature(state) { return distanceToCreature(state) <= 7; }
+  function nearEnvironment(state) { const t = creature(state).target, p = state.player; return Math.abs(p.x-t.x)+Math.abs(p.y-t.y) <= 1; }
+  function inWatchingBand(state) { const distance = distanceToCreature(state); return distance > creature(state).ring && distance <= 7; }
+  function isWalkable(source, x, y) {
+    const state=normalize(source); if (!state || x < 1 || x > 15 || y < 1 || y > 9) return false;
+    return !((state.area === 'octopus' || state.area === 'nautilus') && x >= 11 && y >= 2 && y <= 8);
+  }
+  function nextState(state, change) { const result = normalize(state) || fresh(); change(result); return normalize(result) || fresh(); }
+  function behavior(state, id) {
+    if (state.friendships[id]) return id === 'pug' ? 'visiting camp' : id === 'octopus' ? 'curling a friendly tentacle at camp' : 'resting safely at camp';
+    const h = state.habitats[id];
+    if (h.setbacks && h.comfort === 0) return id === 'pug' ? 'Pug ducks behind thyme after the sudden step' : id === 'octopus' ? 'Octopus tucks behind a stone after the noisy moment' : 'Nautilus slips behind its shell after the close step';
+    if (id === 'pug') return h.toyPlaced && h.spaceGiven ? 'trotting toward the toy from a calm distance' : h.toyPlaced ? 'sniffing the toy and checking your distance' : 'pawing an empty thyme patch';
+    if (id === 'octopus') return h.channelCleared && h.quietBank ? 'gliding through the open channel from the quiet bank' : h.channelCleared ? 'testing the newly clear channel' : 'bumping the reed-blocked channel, then slipping back';
+    return h.shelterRestored && h.spaceGiven ? 'emerging beside the restored shelter' : h.shelterRestored ? 'settling by its sheltered shell' : 'retreating from open water beside loose shelter shells';
+  }
+  function step(source, command) {
+    const state = normalize(source) || fresh();
+    const action = command && command.type;
+    const response = {state, events:[]};
+    if (!action) { response.events.push(message('info','Choose an action when you are ready.')); return response; }
+    let event;
+    const moved = action === 'move' || ['observe','environment','space','approach'].includes(action);
+    response.state = nextState(state, next => {
+      if (moved) next.time += 1;
+      const resetComfort = h => { h.comfort=0; h.spaceGiven=false; h[creature(next).distance]=false; h.setbacks+=1; };
+      const setback = text => { const h = active(next); resetComfort(h); event=message('wrong',`${text} Comfort resets, but helpful habitat changes stay.`); };
+      if (action === 'move') {
+        const direction = command.direction;
+        if (!validDirection(direction)) { event = message('wrong','That direction is not available.'); return; }
+        next.player.facing = direction;
+        const d = DIRECTION[direction], x = next.player.x + d.x, y = next.player.y + d.y;
+        if (!isWalkable(next,x,y)) event = message('wrong',(x < 1 || x > 15 || y < 1 || y > 9) ? 'A low marble wall marks the edge of this habitat.' : 'The water begins beyond this sandy bank.');
+        else { next.player.x=x; next.player.y=y; if (insideComfortRing(next)) { const h=active(next); resetComfort(h); event=message('wrong',`${next.area==='pug'?'Pug backs behind the thyme.':next.area==='octopus'?'Octopus folds into a crevice.':'Nautilus slips behind its shell.'} You are inside the red comfort ring.`); } else event=message('move','You take a quiet step.'); }
+        return;
+      }
+      if (action === 'travel') {
+        if (!validArea(command.area)) { event=message('wrong','That habitat is not on the field map.'); return; }
+        next.area=command.area; next.player=Object.assign({facing:'east'},SPAWNS[command.area]); event=message('move',`You arrive at ${AREAS[command.area].name}.`); return;
+      }
+      if (action === 'tutorial') {
+        if (command.stage === 'demo') { next.tutorial='demo'; event=message('tutorial','Professor Thales places a soft toy. Pug sniffs it, then pauses when he steps back.'); }
+        else if (command.stage === 'practice') { next.tutorial='practice'; next.area='pug'; next.player={x:7,y:6,facing:'east'}; event=message('tutorial','Your turn: use Observe from the turquoise watching band. There is no hurry.'); }
+        else if (command.stage === 'complete') { next.tutorial='complete'; event=message('tutorial','The guide stays available from the Field guide button.'); }
+        else event=message('wrong','Choose the next guide card.');
+        return;
+      }
+      const h = active(next), id = next.area, c = creature(next);
+      if (action === 'observe') {
+        if (!nearCreature(next)) { event=message('info','You cannot read the signal from here. Walk into the turquoise watching band, then observe.'); return; }
+        h.observed = true;
+        if (next.tutorial === 'practice' && id === 'pug') next.tutorial='complete';
+        event = message('right', id === 'pug' ? 'Pug checks the path, then looks at anything soft left nearby.' : id === 'octopus' ? 'The Octopus keeps one eye on the narrow channel and another on the bank.' : 'Nautilus stays close to a place where its shell can rest safely.');
+        return;
+      }
+      if (action === 'environment') {
+        if (!nearEnvironment(next)) { setback(`The useful place is nearby, but not here. Look for the marked ${c.target.label}.`); return; }
+        h[c.environment] = true;
+        event = message('right', id === 'pug' ? 'You set down the soft toy without tossing it. Pug notices.' : id === 'octopus' ? 'You clear reeds from the channel. Water can pass again.' : 'You fit the loose shell pieces into a shaded shelter.');
+        return;
+      }
+      if (action === 'space') {
+        if (!inWatchingBand(next)) { setback(insideComfortRing(next) ? 'The creature needs more room before it can settle.' : 'Step close enough to watch, but stay outside the red comfort ring.'); return; }
+        h.spaceGiven = true; h[c.distance] = true; h.comfort=2;
+        event = message('right', id === 'octopus' ? 'You wait on the quiet bank. The water settles.' : 'You make room and wait without following.');
+        return;
+      }
+      if (action === 'approach') {
+        if (!inWatchingBand(next)) { setback(insideComfortRing(next) ? 'You stepped inside the comfort ring instead of waiting for an approach.' : 'Move to the turquoise watching band before waiting.'); return; }
+        if (conditionsMet(next)) { next.friendships[id]=true; h.comfort=2; const allFriends=count(next.friendships)===ORDER.length; event=message('friend',`${id === 'pug' ? 'Pug trots' : id === 'octopus' ? 'Octopus glides' : 'Nautilus emerges'} over by choice. ${allFriends?'All three friends chose camp — field study complete!':'A new friend joins the camp!'}`,{friend:id,complete:allFriends}); }
+        else setback('They are not ready yet. Watch their signal, help the marked place, then give space.');
+        return;
+      }
+      event=message('wrong','That field action is not available.');
+    });
+    response.events.push(event || message('info','The habitat stays calm.'));
+    return response;
+  }
+  function view(source) {
+    const state = normalize(source) || fresh(), h = active(state), c = creature(state);
+    return {version:VERSION, release:RELEASE, state:clone(state), area:AREAS[state.area],
+      behavior:behavior(state,state.area), near:nearCreature(state), ready:conditionsMet(state), complete:count(state.friendships) === ORDER.length,
+      distance:distanceToCreature(state), insideRing:insideComfortRing(state), nearEnvironment:nearEnvironment(state), watchingBand:inWatchingBand(state), target:clone(c.target), hint:h.setbacks >= 2 ? (state.area === 'pug' ? 'Pug keeps pawing the marked thyme patch. A calm watcher helps after a soft toy is set down.' : state.area === 'octopus' ? 'The marked reeds block the channel. Clear them, then wait from the quiet bank.' : 'The marked loose shells can make a shaded shelter. Then wait outside the ring.') : null,
+      progress:{friends:count(state.friendships), total:ORDER.length, currentConditions:c.conditions.map(key=>({key,done:h[key]}))},
+      camp:ORDER.map(id=>({id,friend:state.friendships[id],behavior:behavior(state,id)}))};
+  }
+  function demoFrames() { return [
+    {stage:'notice', pug:'pawing an empty thyme patch'}, {stage:'toy', pug:'sniffing a softly placed toy'},
+    {stage:'space', pug:'relaxing while Professor Thales steps back'}, {stage:'practice', pug:'waiting for a careful observer'}
+  ]; }
+  return {VERSION, RELEASE, AREAS, fresh, normalize, step, view, demoFrames, behavior, distanceToCreature, insideComfortRing, nearEnvironment, isWalkable};
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = WildEncounters;
+
+/* The rest of this file only runs in the self-contained browser demo. */
+if (typeof window !== 'undefined' && typeof document !== 'undefined') (() => {
+  'use strict';
+  const Core = WildEncounters, SAVE_KEY='fakemon-wild-encounters-v2';
+  const $ = id => document.getElementById(id);
+  let state=Core.fresh(), last='Professor Thales is ready to show a careful field method.', modalMode='';
+  const esc = text => String(text).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const assets = () => typeof ECHO_ASSETS !== 'undefined' ? ECHO_ASSETS : (window.ECHO_ASSETS || {});
+  const image = id => assets()[id];
+  const imageCache = {};
+  function spriteImage(id) {
+    const src=image(id); if (!src) return null;
+    if (!imageCache[id] || imageCache[id].getAttribute('src') !== src) { const pic=new Image(); pic.onload=()=>render(); pic.src=src; imageCache[id]=pic; }
+    return imageCache[id].complete ? imageCache[id] : null;
+  }
+  function asset(id) { const src=image(id); return src ? `<img src="${src}" alt="" aria-hidden="true">` : `<span class="sprite-fallback">${id === 'pug' ? '🐶' : id === 'octopus' ? '🐙' : id === 'nautilus' ? '🐚' : '★'}</span>`; }
+  function persist() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); return true; } catch (_) { return false; } }
+  function restore() { try { const recovered=Core.normalize(JSON.parse(localStorage.getItem(SAVE_KEY))); if (recovered) state=recovered; } catch (_) {} }
+  function run(command) { const result=Core.step(state,command); state=result.state; last=result.events[0].text; persist(); render(); }
+  function progress(){ return Core.view(state).progress; }
+  function renderNav() { const v=Core.view(state); $('habitats').innerHTML=Object.values(Core.AREAS).map(area=>`<button class="habitat ${area.id===state.area?'selected':''}" data-area="${area.id}"><span>${area.id==='pug'?'🌿':area.id==='octopus'?'🌊':'🐚'}</span><b>${esc(area.name)}</b><small>${state.friendships[area.id]?'Friend at camp':'Explore'}</small></button>`).join(''); }
+  function renderCamp() { $('camp').innerHTML=Core.view(state).camp.map(item=>`<div class="camp-pal ${item.friend?'friend':''}">${asset(item.id)}<span>${item.friend ? item.id[0].toUpperCase()+item.id.slice(1) : '…'}</span></div>`).join(''); }
+  function render() { const v=Core.view(state), p=v.progress; $('areaName').textContent=v.area.name; $('objective').textContent=v.complete ? 'All three creatures chose camp. Field study complete!' : state.friendships[state.area] ? 'This friend has a safe place at camp. Explore another habitat.' : v.area.goal;
+    $('behavior').textContent=v.insideRing ? 'Too close — step outside the red comfort zone.' : `${state.area[0].toUpperCase()+state.area.slice(1)}: ${v.behavior}.`; $('behavior').classList.toggle('warning',v.insideRing);
+    $('status').textContent=v.hint ? `${last} Hint: ${v.hint}` : last; $('friendCount').textContent=`${p.friends} of ${p.total} friends`; $('friendBar').style.width=`${(p.friends/p.total)*100}%`; $('campLabel').textContent=p.friends===3?'Camp is full of friends!':'Camp';
+    renderNav(); renderCamp(); draw(v); if (state.tutorial==='intro') openGuide('intro');
+  }
+  function tile(ctx,x,y,color){ctx.fillStyle=color;ctx.fillRect(x*48,y*48,48,48);}
+  function draw(v) { const canvas=$('world'), ctx=canvas.getContext('2d'), area=state.area, c=Core.AREAS[area].creature, h=state.habitats[area], phase=state.time%4;
+    ctx.clearRect(0,0,canvas.width,canvas.height); ctx.imageSmoothingEnabled=false;
+    for(let y=0;y<10;y++)for(let x=0;x<16;x++){const water=(area==='octopus'||area==='nautilus')&&x>=11&&y>=2&&y<=8;tile(ctx,x,y,water?'#4aaeb5':area==='octopus'?'#d8c78b':area==='nautilus'?'#e7d29b':'#89b75c');}
+    if(area==='pug'){for(let y=0;y<10;y++){tile(ctx,8,y,'#e8d7a5');tile(ctx,9,y,'#e8d7a5');}for(let x=0;x<16;x+=2)tile(ctx,x,2,'#6fa44d'); if(h.toyPlaced){ctx.fillStyle='#c94f40';ctx.fillRect(390,285,24,18);ctx.fillStyle='#f3cf68';ctx.fillRect(396,290,12,8);}}
+    if(area==='octopus'){for(let x=0;x<16;x++){tile(ctx,x,1,'#dceac8');tile(ctx,x,9,'#dceac8');}ctx.fillStyle='#b8894a';ctx.fillRect(432,240,h.channelCleared?70:35,34); if(h.quietBank){ctx.fillStyle='#99c899';ctx.fillRect(100,310,70,15);}}
+    if(area==='nautilus'){for(let x=11;x<16;x++)tile(ctx,x,8,'#3c9ca8');for(let y=0;y<4;y++)tile(ctx,3,y,'#d8c48e');ctx.fillStyle=h.shelterRestored?'#9e774e':'#bb8b5a';ctx.fillRect(432,230,100,h.shelterRestored?72:22);ctx.fillStyle='#f4e4af';ctx.fillRect(457,255,48,38);}
+    for(let i=0;i<16;i++){ctx.fillStyle='#f5ebc4';ctx.fillRect(i*48,0,48,8);ctx.fillRect(i*48,472,48,8);} const cp=Core.view(state).state.player;
+    const creature=Core.view(state).state.friendships[area] ? null : {x:Core.AREAS[area].id==='pug'?12:13,y:6};
+    if(creature){for(let y=0;y<10;y++)for(let x=0;x<16;x++){const d=Math.abs(x-creature.x)+Math.abs(y-creature.y);if(d<=3){ctx.fillStyle='#e3534350';ctx.fillRect(x*48,y*48,48,48);}else if(d<=7){ctx.fillStyle='#66dcc045';ctx.fillRect(x*48,y*48,48,48);}} const target=v.target; if(!h[c==='pug'?'toyPlaced':c==='octopus'?'channelCleared':'shelterRestored']){ctx.fillStyle='#f3cf68';ctx.fillRect(target.x*48+16,target.y*48+16,16,16);ctx.fillStyle='#fff9e8';ctx.fillRect(target.x*48+21,target.y*48+9,6,30);} const bob=(phase===0||phase===2)?0:-3, pic=spriteImage(c); if(pic){ctx.drawImage(pic,creature.x*48-4,creature.y*48-12+bob,62,62);}else{ctx.font='38px system-ui';ctx.fillText(c==='pug'?'🐶':c==='octopus'?'🐙':'🐚',creature.x*48,creature.y*48+28+bob);}}
+    ctx.fillStyle='#173f42';ctx.fillRect(cp.x*48+13,cp.y*48+10,22,29);ctx.fillStyle='#f3cf68';ctx.fillRect(cp.x*48+17,cp.y*48+5,14,11);
+    // Behavior and proximity feedback are rendered as readable DOM text below the field.
+  }
+  function openGuide(mode='guide') { modalMode=mode; const step=state.tutorial; let body='';
+    if(mode==='intro' && step==='intro') body=`<div class="prof">${asset('professor')}<div><div class="eyebrow">Professor Thales's field method</div><h2>Notice. Help. Make room.</h2><p>Watch Pug first. A creature chooses whether to come closer. There are no battles here.</p><button class="primary" data-guide="demo">Watch the quick demonstration</button></div></div>`;
+    else if(mode==='intro' && step==='demo') body=`<div class="guide-scene">${asset('pug')}<b>Soft toy → Pug sniffs</b><span>Professor Thales steps back. Pug relaxes instead of being chased.</span></div><p>Try a safe observation yourself. You can replay this anytime.</p><button class="primary" data-guide="practice">Practice Observe</button>`;
+    else body=`<div class="eyebrow">Field guide</div><h2>Small choices, real signals</h2><div class="guide-cards"><div><b>Observe</b><span>Look for what the creature notices.</span></div><div><b>Change surroundings</b><span>Offer a useful, gentle change.</span></div><div><b>Give space</b><span>Wait without following.</span></div></div><p>Each habitat has two helpful conditions. Their order does not matter. A too-fast approach only resets comfort; nobody is lost.</p><div class="row"><button data-guide="close" class="primary">Return to field</button><button data-guide="replay">Replay Pug demo</button></div>`;
+    $('modal').innerHTML=body; $('overlay').hidden=false;
+  }
+  function closeGuide(){ $('overlay').hidden=true; modalMode=''; if(state.tutorial==='practice') run({type:'tutorial',stage:'complete'}); }
+  function saveMenu(){ const available=persist(); $('modal').innerHTML=`<div class="eyebrow">Field notebook</div><h2>Save &amp; more</h2><p>${available?'Progress saves on this device.':'Device storage is unavailable. Your current visit still works; export a notebook copy.'}</p><div class="row"><button data-menu="export" class="primary">Export notebook</button><button data-menu="import">Import notebook</button></div><div class="row"><button data-menu="restart" class="danger">Start again</button><button data-menu="close">Return</button></div>`; $('overlay').hidden=false; }
+  function exportSave(){ const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));link.download='wild-encounters-notebook.json';link.click();URL.revokeObjectURL(link.href); }
+  function importSave(){ $('importInput').click(); }
+  function bind() { document.addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey||e.target?.tagName==='INPUT'||!$('overlay').hidden)return;const key=e.key.toLowerCase(), dir={arrowup:'north',w:'north',arrowdown:'south',s:'south',arrowleft:'west',a:'west',arrowright:'east',d:'east'}[key];if(dir){e.preventDefault();run({type:'move',direction:dir});}else if(key==='e'||key==='o')run({type:'observe'});else if(key==='c')run({type:'environment'});else if(key==='q')run({type:'space'});else if(key===' ') {e.preventDefault();run({type:'approach'});} });
+    $('habitats').onclick=e=>{const b=e.target.closest('[data-area]');if(b)run({type:'travel',area:b.dataset.area});}; $('touch').onclick=e=>{const b=e.target.closest('button');if(!b)return;const action=b.dataset.action;if(action==='guide')openGuide();else if(action==='menu')saveMenu();else if(action==='move')run({type:'move',direction:b.dataset.dir});else if(action)run({type:action});}; $('actions').onclick=e=>{const b=e.target.closest('button');if(!b)return;run({type:b.dataset.action});}; $('guideBtn').onclick=()=>openGuide(); $('menuBtn').onclick=saveMenu;
+    $('overlay').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.guide==='demo')run({type:'tutorial',stage:'demo'}),openGuide('intro');else if(b.dataset.guide==='practice')run({type:'tutorial',stage:'practice'}),$('overlay').hidden=true;else if(b.dataset.guide==='replay')state.tutorial='demo',openGuide('intro');else if(b.dataset.guide==='close')closeGuide();else if(b.dataset.menu==='close')$('overlay').hidden=true;else if(b.dataset.menu==='export')exportSave();else if(b.dataset.menu==='import')importSave();else if(b.dataset.menu==='restart'){state=Core.fresh();persist();$('overlay').hidden=true;render();}};
+    $('importInput').onchange=e=>{const file=e.target.files&&e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const loaded=Core.normalize(JSON.parse(reader.result));if(!loaded)throw Error();state=loaded;last='Notebook imported safely.';persist();$('overlay').hidden=true;render();}catch(_){last='That notebook belongs to another demo or is unreadable.';render();}};reader.readAsText(file);}; }
+  restore(); bind(); render(); window.WildDemo={ready:true,snapshot:()=>Core.view(state),step:command=>{run(command);return Core.view(state);}};
+})();
+</script></body></html>

@@ -1,0 +1,1593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123f46">
+<title>Echo Ruins · A Fakemon Field Demo</title>
+<style>
+:root{--deep:#123f46;--sea:#147f89;--sea2:#36b7b5;--foam:#d9fff1;--marble:#f6e7bf;--paper:#fff9e8;--ink:#17353a;--muted:#5f716d;--gold:#e8b84b;--red:#b74638;--olive:#5c7938;--line:#b9b899;--shadow:#062a2f70}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#0c343a;color:var(--ink);font:15px/1.42 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{min-height:100dvh;background:radial-gradient(circle at 50% -20%,#2c7d81 0,#123f46 45%,#082c33 100%)}button{font:inherit;font-weight:800;color:var(--ink);background:#fffaf0;border:2px solid #9ea88c;border-radius:10px;min-height:42px;padding:8px 12px;cursor:pointer;box-shadow:0 2px 0 #6e765f;touch-action:manipulation}button:hover:not(:disabled){background:#f4e8bd}button:active:not(:disabled){transform:translateY(2px);box-shadow:none}button:focus-visible,canvas:focus-visible{outline:4px solid #ffd75b;outline-offset:2px}button:disabled{opacity:.42;cursor:default}.primary{color:white;background:#176d75;border-color:#0d5158;box-shadow:0 2px 0 #073c42}.primary:hover:not(:disabled){background:#22848b}.gold{background:#f3cf68;border-color:#a77b28}.quiet{background:#edf0df}.danger{color:#982f29}.tiny{min-height:32px;padding:5px 8px;font-size:11px}[hidden]{display:none!important}
+#app{width:min(1180px,100%);margin:auto;padding:12px 14px 28px}.mast{display:flex;align-items:center;gap:11px;color:#fff9e8;margin:3px 3px 10px}.seal{display:grid;place-items:center;width:44px;height:44px;flex:none;border:2px solid #f2d37e;border-radius:50%;color:#f2d37e;font:900 26px Georgia,serif;background:#0f4d54}.title{min-width:0;flex:1}.title b{display:block;font-size:clamp(17px,2.5vw,24px);letter-spacing:-.03em}.title span{display:block;color:#bde5dc;font-size:10px;text-transform:uppercase;letter-spacing:.18em}.mast button{color:white;background:#ffffff10;border-color:#ffffff50;box-shadow:none;font-size:11px;min-height:36px;padding:6px 9px}
+.shell{overflow:hidden;border:2px solid #eee2b8;border-radius:17px;background:var(--paper);box-shadow:0 20px 65px #001c2280}.mission{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:9px 14px;background:linear-gradient(#fffcec,#eee1b7);border-bottom:2px solid #bcae80}.room{font-weight:950;letter-spacing:.02em}.goal{font-size:13px;color:#435d59}.mission-actions{display:flex;gap:6px}.mission-actions button{min-height:32px;padding:5px 9px;font-size:11px}
+.play{display:grid;grid-template-columns:minmax(0,1fr) 286px;background:#143f43}.stage{position:relative;align-self:start;overflow:hidden;background:#153f44;min-width:0}canvas#world{display:block;width:100%;height:auto;aspect-ratio:21/13;image-rendering:pixelated;touch-action:none}.map-label{position:absolute;left:10px;top:10px;pointer-events:none;background:#fff9e8e8;border:2px solid #8e8668;border-radius:8px;padding:5px 9px;font-size:11px;font-weight:900;box-shadow:0 3px 10px #00252b50}.context{position:absolute;left:50%;bottom:10px;translate:-50% 0;max-width:94%;text-align:center;color:white;background:#092f35e8;border:1px solid #b6e4d8;border-radius:20px;padding:6px 12px;font-size:11px;font-weight:750;pointer-events:none}.side{min-width:0;background:linear-gradient(90deg,#f0e5c7,#fff9e8 14%);border-left:2px solid #b9ac83;padding:11px;display:flex;flex-direction:column;gap:9px}.side h2{font-size:11px;text-transform:uppercase;letter-spacing:.13em;margin:0;color:#536c63}.companions{display:grid;gap:6px}.companion{display:grid;grid-template-columns:43px 1fr auto;align-items:center;gap:7px;width:100%;text-align:left;padding:6px;min-height:56px;background:#fffdf3;border-color:#c6c2a3;box-shadow:0 2px 0 #aaa886}.companion.selected{border-color:#137e88;background:#def4e7;box-shadow:0 0 0 2px #31aeb3 inset,0 2px 0 #08717a}.portrait{width:41px;height:41px;border-radius:7px;background:#d8eee2;object-fit:contain;image-rendering:pixelated}.companion .words{min-width:0}.companion strong,.companion small{display:block}.companion strong{font-size:12px}.companion small{font-size:10px;color:#5c706a;font-weight:650}.num{font-size:10px;color:#52706a}.field-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.field-actions button{font-size:11px;min-height:39px;padding:6px}.field-actions .wide{grid-column:1/-1}.facing{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.facing button{min-width:0;padding:4px;min-height:34px}.feedback{min-height:55px;margin-top:auto;background:#173f42;color:#f7f1d4;border-radius:9px;border:2px solid #2c6968;padding:8px 10px;font-size:11px;display:flex;align-items:center}.feedback.pop{animation:feedback .2s ease-out}.keyline{font-size:9px;line-height:1.45;color:#60726c}.keyline kbd{display:inline-block;border:1px solid #aaa98e;border-bottom-width:2px;border-radius:4px;background:white;padding:0 4px;color:#27433f;font:700 9px system-ui}
+.mobile{display:none;border-top:2px solid #b9ac83;background:#f5ebd0;padding:8px;gap:8px;align-items:center}.dpad{display:grid;grid-template-columns:repeat(3,45px);grid-template-rows:repeat(2,42px);gap:4px}.dpad button{padding:3px;min-height:42px}.dpad [data-dir=north]{grid-column:2}.mobile-actions{display:grid;grid-template-columns:repeat(3,minmax(62px,1fr));gap:5px;flex:1}.mobile-actions button{min-height:42px;font-size:10px;padding:4px}.inventory{display:flex;gap:6px;flex-wrap:wrap}.chip{background:#e6edd8;border:1px solid #b4b998;border-radius:12px;padding:2px 7px;font-size:10px;font-weight:800}
+.overlay{position:fixed;z-index:50;inset:0;display:flex;justify-content:center;align-items:center;padding:16px;background:#05282ee6;backdrop-filter:blur(4px)}.panel{width:min(720px,100%);max-height:calc(100dvh - 32px);overflow:auto;background:var(--paper);border:3px solid #e9d18a;border-radius:16px;box-shadow:0 22px 90px #00161a;padding:20px}.panel h1,.panel h2,.panel h3,.panel p{margin:0 0 10px}.panel h1{font-size:clamp(25px,5vw,40px);line-height:1.04;letter-spacing:-.045em}.panel h2{font-size:23px}.panel h3{font-size:15px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.17em;font-weight:950;color:#19777d}.professor{display:grid;grid-template-columns:128px 1fr;gap:18px;align-items:center}.professor img{width:128px;height:150px;object-fit:contain;image-rendering:pixelated;background:radial-gradient(circle,#e8e1b6,#d0d9b2);border-radius:50%}.choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.choices button{flex:1 1 130px}.note{background:#e5f1df;border-left:5px solid #328c78;border-radius:5px;padding:10px 12px;font-size:12px}.demo-layout{display:grid;grid-template-columns:1fr 210px;gap:14px}.demo-stage{position:relative;background:#163f44;border:3px solid #aa9a6c;border-radius:11px;overflow:hidden}.demo-stage canvas{display:block;width:100%;aspect-ratio:16/10;image-rendering:pixelated}.demo-copy{display:flex;flex-direction:column;justify-content:center}.demo-copy strong{font-size:19px;line-height:1.15}.demo-copy p{font-size:13px;margin-top:8px}.progress{height:7px;background:#d8d5ba;border-radius:9px;overflow:hidden;margin:12px 0}.progress i{display:block;height:100%;background:#1d9492;transition:width .2s}.demo-controls{display:flex;gap:6px}.demo-controls button{flex:1;font-size:11px;min-height:36px}.guide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.guide-card{padding:10px;border:1px solid #bebc9e;border-radius:10px;background:#fffdf4}.guide-card b{display:block;font-size:12px}.guide-card p{font-size:11px;color:#5e6f6b;margin:3px 0}.menu-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid #cac4a7}.menu-row div{min-width:0}.menu-row b,.menu-row small{display:block}.menu-row small{color:#62716d;font-size:11px}.menu-row button{flex:none}
+.battle-card{width:min(680px,100%)}.battle-top{display:grid;grid-template-columns:1fr 1fr;gap:16px}.fighter{background:#e9eddc;border:2px solid #b5b999;border-radius:11px;padding:10px}.fighter.enemy{text-align:right}.fighter img{height:130px;width:100%;object-fit:contain;image-rendering:pixelated}.fighter b,.fighter small{display:block}.hp{height:10px;background:#b3b99e;border:2px solid #6d806c;border-radius:7px;overflow:hidden;margin-top:5px}.hp i{display:block;height:100%;background:#50a95d;transition:width .3s}.battle-log{margin:12px 0;background:#173f42;color:#fff8dc;border-radius:9px;padding:10px 12px;min-height:54px}.battle-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.battle-buttons button{font-size:12px}.battle-inventory{text-align:center;margin-top:8px;font-size:11px;color:#5d6e69}
+.toast{position:fixed;z-index:90;left:50%;bottom:18px;translate:-50% 18px;opacity:0;max-width:min(560px,92vw);padding:10px 15px;border:2px solid #a7c8b9;border-radius:12px;background:#0d3a40;color:#fff9e8;text-align:center;font-weight:750;font-size:12px;pointer-events:none;transition:.18s}.toast.show{translate:-50% 0;opacity:1}.shake{animation:shake .24s}.victory{animation:glow .8s 2}
+@keyframes feedback{from{transform:scale(.97)}to{transform:scale(1)}}@keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}@keyframes glow{50%{filter:brightness(1.3) saturate(1.35)}}
+@media(max-width:820px){#app{padding:7px}.play{display:block}.side{border-left:0;border-top:2px solid #b9ac83}.side h2,.keyline{display:none}.companions{grid-template-columns:repeat(4,minmax(0,1fr))}.companion{grid-template-columns:36px 1fr;padding:4px}.portrait{width:34px;height:34px}.companion .num{display:none}.field-actions{grid-template-columns:repeat(5,1fr)}.field-actions .wide{grid-column:auto}.feedback{min-height:39px}.mobile{display:flex}.demo-layout{grid-template-columns:1fr}.demo-copy{display:block}}
+@media(max-width:560px){.mast{gap:6px}.seal{width:35px;height:35px;font-size:21px}.title b{font-size:16px}.title span{font-size:8px}.mast button{padding:4px 6px;font-size:9px}.shell{border-radius:11px}.mission{grid-template-columns:1fr auto;padding:7px 9px}.goal{grid-column:1/-1;grid-row:2;font-size:11px}.room{font-size:12px}.mission-actions button{font-size:9px}.map-label{top:5px;left:5px;font-size:9px;padding:3px 6px}.side{padding:7px;gap:6px}.companions{gap:3px}.companion{display:block;text-align:center;min-width:0;min-height:70px}.portrait{width:38px;height:35px}.companion strong{font-size:9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.companion small{display:block;font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.field-actions button{font-size:9px;min-height:34px;padding:3px}.facing button{min-height:31px}.feedback{font-size:10px;padding:6px}.dpad{grid-template-columns:repeat(3,39px);grid-template-rows:repeat(2,39px)}.dpad button{min-height:39px}.mobile{gap:5px}.mobile-actions{grid-template-columns:repeat(3,1fr)}.mobile-actions button{font-size:9px;min-height:39px}.professor{grid-template-columns:84px 1fr;gap:10px}.professor img{width:84px;height:110px}.panel{padding:15px}.panel h1{font-size:26px}.guide-grid{grid-template-columns:1fr}.battle-top{gap:8px}.fighter img{height:95px}.battle-buttons{grid-template-columns:repeat(2,1fr)}.demo-stage canvas{aspect-ratio:16/11}}
+@media(min-width:821px) and (pointer:fine){.mobile{display:none}}@media(any-pointer:coarse){.mobile{display:flex}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="mast"><div class="seal" aria-hidden="true">Ω</div><div class="title"><span>A Fakemon field expedition</span><b>Echo Ruins</b></div><button id="guideBtn">Field guide</button><button id="menuBtn">Save &amp; more</button></header>
+  <main class="shell">
+    <div class="mission"><div class="room" id="roomName">Aegean Landing</div><div class="goal" id="objective">Meet the professor and explore the ruins.</div><div class="mission-actions"><button id="hintBtn">Hint</button><button id="undoBtn">Undo</button><button id="resetBtn">Reset room</button></div></div>
+    <div class="play">
+      <section class="stage" id="stage"><canvas id="world" width="1008" height="624" tabindex="0" aria-label="Echo Ruins map. Use arrow keys or WASD to explore."></canvas><div class="map-label" id="mapLabel">Aegean Landing</div><div class="context" id="contextHint">Move with WASD or the arrow buttons.</div></section>
+      <aside class="side" aria-label="Companion field controls">
+        <h2>Companions · choose one</h2><div class="companions" id="companions"></div>
+        <div class="inventory"><span class="chip" id="orbCount">8 Echo Orbs</span><span class="chip" id="potionCount">3 Tonics</span></div>
+        <div class="field-actions"><button id="placeBtn" class="primary">Place ahead <small>P</small></button><button id="useBtn" class="gold">Use power <small>Space</small></button><button id="interactBtn">Interact <small>E</small></button><button id="recallBtn">Recall <small>Q</small></button><button id="facePromptBtn">Turn ▸</button></div>
+        <div class="facing" id="facing" aria-label="Turn deployed companion"><button data-face="north" aria-label="Face north">▲</button><button data-face="west" aria-label="Face west">◀</button><button data-face="south" aria-label="Face south">▼</button><button data-face="east" aria-label="Face east">▶</button></div>
+        <div class="feedback" id="feedback" role="status" aria-live="polite">Professor Thales has a quick demonstration ready.</div>
+        <div class="keyline"><kbd>WASD</kbd> walk · <kbd>1–4</kbd> choose · <kbd>P</kbd> place · <kbd>Space</kbd> power · <kbd>E</kbd> interact · <kbd>Q</kbd> recall</div>
+      </aside>
+    </div>
+    <div class="mobile" aria-label="Touch controls"><div class="dpad"><button data-dir="north" aria-label="Move north">▲</button><button data-dir="west" aria-label="Move west">◀</button><button data-dir="south" aria-label="Move south">▼</button><button data-dir="east" aria-label="Move east">▶</button></div><div class="mobile-actions"><button data-mobile="place">Place</button><button data-mobile="use" class="gold">Power</button><button data-mobile="interact">Interact</button><button data-mobile="recall">Recall</button><button data-mobile="undo">Undo</button><button data-mobile="guide">Guide</button></div></div>
+  </main>
+</div>
+<div class="overlay" id="overlay"><section class="panel" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><input id="importInput" type="file" accept="application/json,.json" hidden>
+<script>const ECHO_ASSETS = {"pug": "../../assets/b0991b363e363dae322ffef642a504057604bc58c07b64a37b0c0ff8619506f9.png", "octopus": "../../assets/87c4a51b9af12bf79395e81c0f2cd11c0534b6aa9b553d9e514d460a6f3669c6.png", "minotaur": "../../assets/2e225617fb11469b161ff1d34936b0de223ecd56274ea4c6cd9f5794e06142ab.png", "siren": "../../assets/62e5d178c154a36e799cce167d6c10a663a0434eec0adb1edbdcbef6a5a1d0dd.png", "nautilus": "../../assets/b51f5f95e1eaf5745ff8b42c0286ffa87a8b40a1574849959c68f9614520873c.png", "professor": "../../assets/eb209755957154d301d41ed7dc6a389f01f4b5729103f9810468aa672a13a147.png", "rockman": "../../assets/276d100b62c5c2fe0a3933b975ccb5e31202fa7b67b8d671c694497f7095b099.png"};</script>
+<script>"use strict";
+
+// Pure combat rules. The browser runtime owns presentation, inventory and saves.
+const Combat = (() => {
+  let engineSequence = 0;
+  const copy = value => JSON.parse(JSON.stringify(value));
+  const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
+  const finite = (value, fallback) => Number.isFinite(value) ? value : fallback;
+  const dictionary = value => Array.isArray(value)
+    ? Object.fromEntries(value.map(entry => [entry.id, entry]))
+    : value || {};
+
+  function create(content, rng = Math.random, options = {}) {
+    const species = dictionary(content.species);
+    const moves = dictionary(content.moves);
+    const typeChart = content.typeChart || {};
+    const prefix = `${Date.now().toString(36)}-${++engineSequence}`;
+    let serial = 0;
+    const uid = kind => `${kind}-${prefix}-${++serial}`;
+    const roll = () => clamp(finite(rng(), 0.5), 0, 0.999999999999);
+    const event = (type, text, extra = {}) => ({type, text, ...extra});
+
+    function definition(id) {
+      if (!Object.prototype.hasOwnProperty.call(species, id)) {
+        throw new Error(`Unknown creature: ${id}`);
+      }
+      return species[id];
+    }
+
+    for (const [id, sp] of Object.entries(species)) {
+      if (!sp.base || !Number.isFinite(sp.base.hp) || sp.base.hp <= 0) {
+        throw new Error(`Invalid base HP for ${id}`);
+      }
+      if (!Array.isArray(sp.moves) || !sp.moves.length || sp.moves.length > 4 ||
+          sp.moves.some(move => !Object.prototype.hasOwnProperty.call(moves, move))) {
+        throw new Error(`Invalid move set for ${id}`);
+      }
+      if (sp.next) {
+        definition(sp.next);
+        const threshold = sp.evolveAt ?? sp.evolve;
+        if (!Number.isInteger(threshold) || threshold < 2 || threshold > 99) {
+          throw new Error(`Invalid evolution level for ${id}`);
+        }
+      }
+      const seen = new Set([id]);
+      let next = sp.next;
+      while (next) {
+        if (seen.has(next)) throw new Error(`Evolution cycle at ${id}`);
+        seen.add(next);
+        next = definition(next).next;
+      }
+    }
+    for (const [id, move] of Object.entries(moves)) {
+      if (!['attack', 'guard', 'heal'].includes(move.kind || 'attack')) {
+        throw new Error(`Invalid move kind for ${id}`);
+      }
+    }
+
+    function maxHp(mon) {
+      return Math.max(1, Math.floor(definition(mon.species).base.hp + clamp(mon.level, 1, 99) * 3));
+    }
+
+    function makeMon(id, level = 5) {
+      definition(id);
+      const mon = {uid: uid('mon'), species: id,
+        level: Math.floor(clamp(finite(level, 5), 1, 99)), xp: 0, hp: 0};
+      mon.hp = maxHp(mon);
+      return mon;
+    }
+
+    function moveIds(mon) {
+      const defaults = definition(mon.species).moves;
+      const selected = Array.isArray(mon.moves) && mon.moves.length ? mon.moves : defaults;
+      return selected.filter(id => Object.prototype.hasOwnProperty.call(moves, id)).slice(0, 4);
+    }
+
+    function cleanMon(raw) {
+      definition(raw.species);
+      const mon = copy(raw);
+      mon.uid = typeof raw.uid === 'string' && raw.uid ? raw.uid : uid('mon');
+      mon.level = Math.floor(clamp(finite(raw.level, 5), 1, 99));
+      mon.xp = Math.floor(clamp(finite(raw.xp, 0), 0, xpNeeded(mon.level) - 1));
+      mon.hp = Math.floor(clamp(finite(raw.hp, maxHp(mon)), 0, maxHp(mon)));
+      if (raw.moves) {
+        if (!Array.isArray(raw.moves) || !raw.moves.length || raw.moves.length > 4 ||
+            raw.moves.some(id => !Object.prototype.hasOwnProperty.call(moves, id))) {
+          throw new Error(`Invalid learned moves for ${mon.species}`);
+        }
+        mon.moves = [...raw.moves];
+      }
+      return mon;
+    }
+
+    function xpNeeded(level) {
+      return Math.max(7, Math.floor(level) * 7);
+    }
+
+    function applyExperience(raw, amount) {
+      const mon = cleanMon(raw);
+      const evolutions = [];
+      let levelsGained = 0;
+      if (mon.level >= 99) {
+        mon.xp = 0;
+        return {mon, evolutions, levelsGained};
+      }
+      mon.xp += Math.max(0, Math.floor(finite(amount, 0)));
+      while (mon.level < 99 && mon.xp >= xpNeeded(mon.level)) {
+        mon.xp -= xpNeeded(mon.level);
+        const previousMax = maxHp(mon);
+        mon.level++;
+        levelsGained++;
+        let sp = definition(mon.species);
+        while (sp.next && mon.level >= (sp.evolveAt ?? sp.evolve)) {
+          const from = mon.species;
+          mon.species = sp.next;
+          evolutions.push({from, to: mon.species, uid: mon.uid});
+          sp = definition(mon.species);
+        }
+        if (mon.hp > 0) mon.hp = Math.min(maxHp(mon), mon.hp + maxHp(mon) - previousMax);
+      }
+      if (mon.level === 99) mon.xp = 0;
+      return {mon, evolutions, levelsGained};
+    }
+
+    function teach(raw, moveId, slot) {
+      if (!Object.prototype.hasOwnProperty.call(moves, moveId)) throw new Error(`Unknown move: ${moveId}`);
+      const mon = cleanMon(raw);
+      const chosen = moveIds(mon);
+      if (!Number.isInteger(slot) || slot < 0 || slot >= Math.min(4, chosen.length + 1)) {
+        throw new Error('Choose a valid move slot.');
+      }
+      if (slot === 0 && moveId !== definition(mon.species).moves[0]) {
+        throw new Error('Keep the basic move in the first slot.');
+      }
+      if (chosen.includes(moveId) && chosen[slot] !== moveId) throw new Error('That move is already known.');
+      chosen[slot] = moveId;
+      mon.moves = chosen;
+      return mon;
+    }
+
+    function begin(party, encounter) {
+      if (!Array.isArray(party) || !party.length || party.length > 6) {
+        throw new Error('A battle requires a party of one to six creatures.');
+      }
+      const playerParty = party.map(cleanMon);
+      const playerIndex = playerParty.findIndex(mon => mon.hp > 0);
+      if (playerIndex < 0) throw new Error('Your team needs healing before a battle.');
+      const kind = encounter.kind || 'wild';
+      if (!['wild', 'trainer', 'gym'].includes(kind)) throw new Error(`Invalid battle kind: ${kind}`);
+      if (!Array.isArray(encounter.enemyTeam) || !encounter.enemyTeam.length ||
+          encounter.enemyTeam.length > 6 || (kind === 'wild' && encounter.enemyTeam.length !== 1)) {
+        throw new Error('Invalid opposing team.');
+      }
+      const enemyParty = encounter.enemyTeam.map(mon => {
+        const instance = makeMon(mon.species, mon.level);
+        if (mon.moves) instance.moves = [...mon.moves];
+        return cleanMon(instance);
+      });
+      return {
+        id: uid('battle'), playerParty, enemyParty, playerIndex, enemyIndex: 0,
+        phase: 'action', kind, trainerId: encounter.trainerId || null,
+        rewards: copy(encounter.rewards || {}), ballsUsed: 0, potionsUsed: 0,
+        playerGuard: false, enemyGuard: false,
+        participants: [playerParty[playerIndex].uid], turn: 0
+      };
+    }
+
+    function active(battle, side) {
+      return battle[`${side}Party`][battle[`${side}Index`]];
+    }
+    const name = mon => definition(mon.species).name;
+    const stat = (mon, field) => Math.max(1,
+      finite(definition(mon.species).base[field], 8) + mon.level * (field === 'speed' ? 1 : 1.2));
+    function effectiveness(move, defender) {
+      const row = typeChart[move.type] || {};
+      return Math.max(0, finite(row[definition(defender.species).type], 1));
+    }
+
+    function finish(battle, type, events, captured = null) {
+      const evolutions = [];
+      if (type === 'victory') {
+        const experience = battle.enemyParty.reduce((total, mon) => total + 18 + mon.level * 7, 0);
+        battle.playerParty = battle.playerParty.map(mon => {
+          if (mon.hp <= 0) return mon;
+          const amount = Math.floor(experience * (battle.participants.includes(mon.uid) ? 1 : 0.55));
+          const result = applyExperience(mon, amount);
+          evolutions.push(...result.evolutions);
+          events.push(event('experience', `${name(mon)} gained ${amount} experience.`, {
+            uid: mon.uid, amount, levelsGained: result.levelsGained
+          }));
+          if (result.levelsGained) events.push(event('level',
+            `${name(result.mon)} reached level ${result.mon.level}.`, {uid: mon.uid, level: result.mon.level}));
+          return result.mon;
+        });
+      }
+      battle.phase = 'end';
+      battle.playerGuard = false;
+      battle.enemyGuard = false;
+      const outcome = {
+        type, party: copy(battle.playerParty), ballsUsed: battle.ballsUsed,
+        potionsUsed: battle.potionsUsed,
+        rewards: type === 'victory' ? copy(battle.rewards) : {}, evolutions
+      };
+      if (captured) outcome.captured = copy(captured);
+      events.push(event(type, {
+        victory: battle.kind === 'wild' ? 'You won the battle!' : 'You defeated the opposing team!',
+        defeat: 'Your team needs a rest. You will return to a healing center.',
+        capture: `${captured ? name(captured) : 'The creature'} joined your collection!`,
+        run: 'You escaped safely.'
+      }[type]));
+      return outcome;
+    }
+
+    function checkFaint(battle, side, events) {
+      const mon = active(battle, side);
+      if (mon.hp > 0) return null;
+      events.push(event('faint', `${name(mon)} fainted.`, {side, uid: mon.uid}));
+      const party = battle[`${side}Party`];
+      const next = party.findIndex(candidate => candidate.hp > 0);
+      if (next < 0) return finish(battle, side === 'enemy' ? 'victory' : 'defeat', events);
+      battle[`${side}Guard`] = false;
+      if (side === 'player') {
+        battle.phase = 'forced-switch';
+        events.push(event('choose-switch', 'Choose a healthy companion to continue.'));
+      } else {
+        battle.enemyIndex = next;
+        events.push(event('send-out', `Your opponent sends out ${name(active(battle, 'enemy'))}!`, {side, index: next}));
+      }
+      return null;
+    }
+
+    function executeMove(battle, side, moveId, events, customMove = null) {
+      const targetSide = side === 'player' ? 'enemy' : 'player';
+      const mon = active(battle, side);
+      const target = active(battle, targetSide);
+      const move = customMove || moves[moveId];
+      const kind = move.kind || 'attack';
+      if (kind === 'guard') {
+        battle[`${side}Guard`] = true;
+        events.push(event('guard', `${name(mon)} guards against the next hit.`, {side, moveId}));
+        return null;
+      }
+      if (kind === 'heal') {
+        const configured = Number.isFinite(move.healRatio)
+          ? maxHp(mon) * clamp(move.healRatio, 0, 1)
+          : finite(move.heal, move.power > 0 ? move.power : maxHp(mon) * 0.28);
+        const amount = Math.max(1, Math.floor(configured));
+        const restored = Math.min(maxHp(mon) - mon.hp, amount);
+        mon.hp += restored;
+        events.push(event('heal', `${name(mon)} used ${move.name} and recovered ${restored} HP.`, {side, amount: restored, moveId}));
+        return null;
+      }
+      let accuracy = finite(move.accuracy, 1);
+      if (accuracy > 1) accuracy /= 100;
+      accuracy = clamp(accuracy, 0, 1);
+      if (accuracy < 1 && roll() >= accuracy) {
+        events.push(event('miss', `${name(mon)} used ${move.name}, but missed.`, {side, moveId}));
+        return null;
+      }
+      const mult = effectiveness(move, target);
+      // Content powers use a conventional 26–65 scale. A basic early hit should
+      // leave room to weaken and capture, rather than decide a fight in one turn.
+      const raw = Math.max(2, finite(move.power, 8) * 0.32 + stat(mon, 'atk') * 0.5 - stat(target, 'def') * 0.28);
+      const guarded = battle[`${targetSide}Guard`];
+      const amount = mult === 0 ? 0 : Math.max(1, Math.floor(raw * mult * (0.9 + roll() * 0.2) * (guarded ? 0.5 : 1)));
+      const dealt = Math.min(target.hp, amount);
+      target.hp -= dealt;
+      if (amount > 0) battle[`${targetSide}Guard`] = false;
+      const effectText = mult === 0 ? ' It had no effect.' : mult > 1 ? ' Very effective!' : mult < 1 ? ' Resisted.' : '';
+      events.push(event('damage', `${name(mon)} used ${move.name}: ${dealt} damage.${effectText}`, {
+        side, targetSide, amount: dealt, multiplier: mult, guarded, moveId
+      }));
+      return checkFaint(battle, targetSide, events);
+    }
+
+    function enemyMove(battle) {
+      const mon = active(battle, 'enemy');
+      const target = active(battle, 'player');
+      const options = moveIds(mon);
+      const healing = options.find(id => moves[id].kind === 'heal');
+      if (healing && mon.hp < maxHp(mon) * 0.35 && roll() < 0.45) return healing;
+      const attacks = options.filter(id => (moves[id].kind || 'attack') === 'attack');
+      if (!attacks.length) return options[0];
+      const ranked = attacks.map(id => {
+        const mv = moves[id];
+        let accuracy = finite(mv.accuracy, 1);
+        if (accuracy > 1) accuracy /= 100;
+        return {id, score: finite(mv.power, 8) * effectiveness(mv, target) * accuracy};
+      }).sort((a, b) => b.score - a.score);
+      if (ranked.length === 1 || roll() < 0.65) return ranked[0].id;
+      return attacks[Math.floor(roll() * attacks.length)];
+    }
+
+    function act(inputBattle, action) {
+      const battle = copy(inputBattle);
+      const events = [];
+      const result = outcome => ({battle, events, outcome: outcome || null});
+      const invalid = text => {
+        events.push(event('invalid', text));
+        return result(null);
+      };
+      if (battle.phase === 'end') return result(null);
+      if (!action || typeof action.kind !== 'string') return invalid('Choose an action.');
+      if (battle.phase === 'forced-switch' && action.kind !== 'switch') {
+        return invalid('Choose a healthy companion first.');
+      }
+      if (!['action', 'forced-switch'].includes(battle.phase)) return invalid('The battle is not ready.');
+
+      // Optional release modules can add actions without embedding their rules in
+      // every game. Standard actions and validation retain ownership here.
+      const standardActions=['move','switch','run','capture','healItem'];
+      const customAction=!standardActions.includes(action.kind)&&options.actions?.[action.kind];
+      if(typeof customAction==='function')return customAction({
+        battle,action,events,result,invalid,
+        active:side=>active(battle,side),definition,maxHp,
+        emit:(type,text,extra)=>events.push(event(type,text,extra)),
+        useMove:(side,move)=>executeMove(battle,side,move.id,events,move),
+        enemyTurn:()=>executeMove(battle,'enemy',enemyMove(battle),events)
+      });
+
+      if (action.kind === 'switch') {
+        const index = action.index;
+        if (!Number.isInteger(index) || index < 0 || index >= battle.playerParty.length ||
+            index === battle.playerIndex || battle.playerParty[index].hp <= 0) {
+          return invalid('Choose a different healthy companion.');
+        }
+        const forced = battle.phase === 'forced-switch';
+        battle.playerIndex = index;
+        battle.playerGuard = false;
+        battle.phase = 'action';
+        const next = active(battle, 'player');
+        if (!battle.participants.includes(next.uid)) battle.participants.push(next.uid);
+        events.push(event('switch', `Go, ${name(next)}!`, {side: 'player', index, forced}));
+        if (forced) return result(null);
+        battle.turn++;
+        return result(executeMove(battle, 'enemy', enemyMove(battle), events));
+      }
+
+      if (action.kind === 'run') {
+        if (battle.kind !== 'wild') return invalid('Finish this trainer battle before leaving.');
+        battle.turn++;
+        return result(finish(battle, 'run', events));
+      }
+
+      if (action.kind === 'capture') {
+        if (battle.kind !== 'wild') return invalid('You cannot capture a trainer’s creature.');
+        if (!Number.isFinite(action.balls) || action.balls < 1) return invalid('You have no Capture Orbs left.');
+        battle.ballsUsed++;
+        battle.turn++;
+        events.push(event('throw', 'You throw a Capture Orb.', {ballsUsed: 1}));
+        const enemy = active(battle, 'enemy');
+        const chance = 0.22 + (1 - enemy.hp / maxHp(enemy)) * 0.7;
+        if (roll() < chance) return result(finish(battle, 'capture', events, enemy));
+        events.push(event('break-free', `${name(enemy)} broke free!`));
+        return result(executeMove(battle, 'enemy', enemyMove(battle), events));
+      }
+
+      if (action.kind === 'healItem') {
+        if (!Number.isFinite(action.potions) || action.potions < 1) return invalid('You have no potions left.');
+        const mon = active(battle, 'player');
+        if (mon.hp >= maxHp(mon)) return invalid('This companion is already at full health.');
+        battle.potionsUsed++;
+        battle.turn++;
+        const restored = Math.min(maxHp(mon) - mon.hp, Math.max(25, Math.floor(maxHp(mon) * 0.45)));
+        mon.hp += restored;
+        events.push(event('heal-item', `${name(mon)} recovered ${restored} HP.`, {side: 'player', amount: restored, potionsUsed: 1}));
+        return result(executeMove(battle, 'enemy', enemyMove(battle), events));
+      }
+
+      if (action.kind !== 'move') return invalid('Choose a valid battle action.');
+      const chosen = moveIds(active(battle, 'player'));
+      if (!Number.isInteger(action.index) || action.index < 0 || action.index >= chosen.length) {
+        return invalid('Choose an available move.');
+      }
+      battle.turn++;
+      const playerMoveId = chosen[action.index];
+      const enemyMoveId = enemyMove(battle);
+      const priority = id => (moves[id].kind === 'guard' ? 10000 : 0);
+      const playerFirst = stat(active(battle, 'player'), 'speed') + priority(playerMoveId) >=
+        stat(active(battle, 'enemy'), 'speed') + priority(enemyMoveId);
+      const turns = playerFirst ? [['player', playerMoveId], ['enemy', enemyMoveId]] :
+        [['enemy', enemyMoveId], ['player', playerMoveId]];
+      for (const [side, moveId] of turns) {
+        const playerIndex = battle.playerIndex;
+        const enemyIndex = battle.enemyIndex;
+        const outcome = executeMove(battle, side, moveId, events);
+        if (outcome || battle.phase === 'forced-switch') return result(outcome);
+        // A replacement never inherits its fainted companion's queued attack.
+        if (battle.playerIndex !== playerIndex || battle.enemyIndex !== enemyIndex) break;
+      }
+      return result(null);
+    }
+
+    return {makeMon, maxHp, moveIds, begin, act, applyExperience, teach, xpNeeded};
+  }
+
+  return {create};
+})();
+
+if (typeof module !== 'undefined' && module.exports) module.exports = Combat;
+</script>
+<script>/* Echo Ruins has no browser dependencies.  Keep this file usable by the demo
+ * and by headless tests: every command returns a new, normalized state. */
+const EchoRuins = (() => {
+  'use strict';
+
+  const VERSION = 1;
+  const RELEASE = 'echo-ruins-demo';
+  const WIDTH = 21, HEIGHT = 13;
+  const SPECIES = ['octopus', 'minotaur', 'siren', 'nautilus'];
+  const DIRECTIONS = {
+    north: {x: 0, y: -1}, east: {x: 1, y: 0},
+    south: {x: 0, y: 1}, west: {x: -1, y: 0}
+  };
+  const DEFAULT_OWNED = ['octopus', 'minotaur', 'siren'];
+  const SPAWNS = {
+    landing: {x: 3, y: 6, facing: 'east'},
+    courtyard: {x: 2, y: 6, facing: 'east'},
+    gallery: {x: 2, y: 6, facing: 'east'}
+  };
+  const COMMAND_ALIASES = Object.freeze({
+    walk: 'move', choose: 'select', deploy: 'place', turn: 'face',
+    activate: 'use', return: 'recall', examine: 'interact', reset: 'resetRoom'
+  });
+
+  const rooms = Object.freeze({
+    landing: Object.freeze({id: 'landing', name: 'Aegean Landing'}),
+    courtyard: Object.freeze({id: 'courtyard', name: 'Marble Courtyard'}),
+    gallery: Object.freeze({id: 'gallery', name: 'Bell Gallery'})
+  });
+
+  const point = (x, y) => ({x, y});
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const validDirection = direction => Object.prototype.hasOwnProperty.call(DIRECTIONS, direction);
+  const validSpecies = species => SPECIES.includes(species);
+  const samePoint = (a, b) => a && b && a.x === b.x && a.y === b.y;
+  const distance = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+  const event = (type, text, extra) => Object.assign({type, text}, extra || {});
+  const integer = (value, fallback, min, max) => Number.isInteger(value) && value >= min && value <= max ? value : fallback;
+
+  function fresh() {
+    return {
+      version: VERSION, release: RELEASE, room: 'landing',
+      player: {x: 3, y: 6, facing: 'east'}, selected: 'octopus',
+      owned: DEFAULT_OWNED.slice(), placed: {}, weight: {x: 6, y: 9}, gate: null,
+      bell: false, reward: false, installed: false, shortcut: false,
+      tutorialSeen: false, practiceReach: false,
+      practiceResonator: false, practiceCrate: {x: 12, solved: false},
+      party: [], balls: 8, potions: 3, encounterComplete: false,
+      pendingCapture: false
+    };
+  }
+
+  function waterAt(room, x, y) {
+    return (room === 'landing' && x >= 7 && x <= 10 && y >= 9 && y <= 10) ||
+      (room === 'courtyard' && x >= 7 && x <= 9 && y >= 2 && y <= 4);
+  }
+
+  function isStaticObject(room, x, y) {
+    if (room === 'landing') return (x === 3 && y === 8) || (x === 5 && y === 8) ||
+      (x === 4 && y === 5) || (x === 8 && y === 8) || (x === 9 && y === 9) ||
+      (x === 15 && y === 3);
+    if (room === 'courtyard') return (x === 9 && y === 3) || (x === 9 && y === 9);
+    return (x === 17 && y === 6) || (x === 17 && y === 4);
+  }
+
+  // The landing resonator is painted into the floor and is a legal shortcut
+  // arrival square.  It remains unavailable for companion placement.
+  function blocksPlayerStatic(room, x, y) {
+    return isStaticObject(room, x, y) && !(room === 'landing' && x === 15 && y === 3);
+  }
+
+  function dynamicObjectAt(state, x, y) {
+    if (state.room === 'landing' && x === state.practiceCrate.x && y === 9) return true;
+    if (state.room === 'courtyard' && x === state.weight.x && y === state.weight.y) return true;
+    return false;
+  }
+
+  function barrierAt(state, x, y) {
+    if (state.room === 'courtyard' && x === 10 && y >= 1 && y <= 11) return !(y === 6 && state.gate);
+    if (state.room === 'gallery' && (x === 11 || x === 12) && y >= 1 && y <= 11) {
+      return !(state.bell && y === 6);
+    }
+    return false;
+  }
+
+  function basePassable(state, x, y) {
+    return x >= 1 && x <= 19 && y >= 1 && y <= 11 && !waterAt(state.room, x, y) && !barrierAt(state, x, y);
+  }
+
+  function isWalkable(state, x, y) {
+    const current = normalizeState(state, true) || fresh();
+    return basePassable(current, x, y) && !dynamicObjectAt(current, x, y) && !blocksPlayerStatic(current.room, x, y);
+  }
+
+  function exitsFor(state) {
+    if (state.room === 'landing') {
+      const exits = [{x: 19, y: 6, to: 'courtyard', arrival: point(2, 6)}];
+      if (state.shortcut) exits.push({x: 16, y: 3, to: 'gallery', arrival: point(17, 9), id: 'shortcut'});
+      return exits;
+    }
+    if (state.room === 'courtyard') return [
+      {x: 1, y: 6, to: 'landing', arrival: point(18, 6)},
+      {x: 19, y: 6, to: 'gallery', arrival: point(2, 6)}
+    ];
+    const exits = [{x: 1, y: 6, to: 'courtyard', arrival: point(18, 6)}];
+    if (state.shortcut) exits.push({x: 18, y: 9, to: 'landing', arrival: point(15, 3), id: 'shortcut'});
+    return exits;
+  }
+
+  function validPlacement(state, species, placement, ignoreSpecies) {
+    if (!placement || placement.room !== state.room || !validDirection(placement.facing) ||
+      !Number.isInteger(placement.x) || !Number.isInteger(placement.y)) return false;
+    const {x, y} = placement;
+    if (x < 1 || x > 19 || y < 1 || y > 11 || barrierAt(state, x, y) || dynamicObjectAt(state, x, y) || isStaticObject(state.room, x, y)) return false;
+    if (waterAt(state.room, x, y) && species !== 'octopus') return false;
+    if (!waterAt(state.room, x, y) && !basePassable(state, x, y)) return false;
+    return !Object.entries(state.placed).some(([id, other]) => id !== ignoreSpecies && samePoint(other, placement));
+  }
+
+  function normalizeState(raw, preservePending) {
+    if (!raw || typeof raw !== 'object' || raw.version !== VERSION || raw.release !== RELEASE) return null;
+    const state = fresh();
+    state.room = Object.prototype.hasOwnProperty.call(rooms, raw.room) ? raw.room : state.room;
+    const player = raw.player || {};
+    state.player = {
+      x: integer(player.x, SPAWNS[state.room].x, 1, 19),
+      y: integer(player.y, SPAWNS[state.room].y, 1, 11),
+      facing: validDirection(player.facing) ? player.facing : SPAWNS[state.room].facing
+    };
+    state.selected = validSpecies(raw.selected) ? raw.selected : state.selected;
+    const suppliedOwned = Array.isArray(raw.owned) ? raw.owned.filter(validSpecies) : DEFAULT_OWNED;
+    state.owned = Array.from(new Set(DEFAULT_OWNED.concat(suppliedOwned)));
+    state.gate = raw.gate === 'lever' || raw.gate === 'weight' ? raw.gate : null;
+    state.bell = raw.bell === true;
+    state.reward = raw.reward === true;
+    state.installed = raw.installed === true;
+    state.shortcut = raw.shortcut === true;
+    if (state.installed) state.reward = true;
+    if (state.reward) state.bell = true;
+    if (state.bell) state.shortcut = true;
+    state.tutorialSeen = raw.tutorialSeen === true;
+    state.practiceReach = raw.practiceReach === true;
+    state.practiceResonator = raw.practiceResonator === true;
+    const rawCrate = raw.practiceCrate || {};
+    state.practiceCrate = {
+      x: integer(rawCrate.x, 12, 12, 15),
+      solved: rawCrate.solved === true || rawCrate.x === 15
+    };
+    if (state.practiceCrate.solved) state.practiceCrate.x = 15;
+    state.weight = {x: integer(raw.weight && raw.weight.x, 6, 6, 9), y: 9};
+    if (state.gate === 'weight') state.weight.x = 9;
+    state.party = Array.isArray(raw.party) ? clone(raw.party) : [];
+    state.balls = integer(raw.balls, 8, 0, 99);
+    state.potions = integer(raw.potions, 3, 0, 99);
+    state.encounterComplete = raw.encounterComplete === true;
+    if (state.encounterComplete) state.owned = Array.from(new Set(state.owned.concat('nautilus')));
+    else state.owned = state.owned.filter(id => id !== 'nautilus');
+
+    // An unfinished encounter is deliberately not a stable checkpoint.
+    if (raw.pendingCapture === true && !preservePending) {
+      state.room = 'landing';
+      state.player = Object.assign({}, SPAWNS.landing);
+    }
+    state.pendingCapture = preservePending && raw.pendingCapture === true;
+    state.placed = {};
+    if (raw.placed && typeof raw.placed === 'object') {
+      for (const species of state.owned) {
+        const placement = raw.placed[species];
+        if (validPlacement(state, species, placement, species)) state.placed[species] = {room: state.room, x: placement.x, y: placement.y, facing: placement.facing};
+      }
+    }
+    if (!isWalkableUnchecked(state, state.player.x, state.player.y) || !reachableFromEntry(state, state.player.x, state.player.y)) state.player = Object.assign({}, SPAWNS[state.room]);
+    return state;
+  }
+
+  // `normalize` is the save-boundary API.  Foreign releases and malformed
+  // records are explicitly rejected; unfinished encounters return to landing.
+  function normalize(raw) { return normalizeState(raw, false); }
+
+  function isWalkableUnchecked(state, x, y) {
+    return basePassable(state, x, y) && !dynamicObjectAt(state, x, y) && !blocksPlayerStatic(state.room, x, y);
+  }
+
+  function reachableFromEntry(state, goalX, goalY) {
+    const start = SPAWNS[state.room], queue = [[start.x, start.y]], seen = new Set([`${start.x},${start.y}`]);
+    while (queue.length) {
+      const [x, y] = queue.shift();
+      if (x === goalX && y === goalY) return true;
+      for (const {x: dx, y: dy} of Object.values(DIRECTIONS)) {
+        const nx = x + dx, ny = y + dy, key = `${nx},${ny}`;
+        if (!seen.has(key) && isWalkableUnchecked(state, nx, ny)) { seen.add(key); queue.push([nx, ny]); }
+      }
+    }
+    return false;
+  }
+
+  function withState(state, mutate) {
+    const next = normalizeState(state, true) || fresh();
+    mutate(next);
+    return normalizeState(next, true) || fresh();
+  }
+
+  function lineFrom(source, direction, count, state) {
+    const delta = DIRECTIONS[direction], points = [];
+    for (let i = 1; i <= count; i++) {
+      const target = point(source.x + delta.x * i, source.y + delta.y * i);
+      // Notes cross water and the gallery chasm; only actual room walls and
+      // the closed courtyard wall interrupt a field line.
+      if (target.x < 1 || target.x > 19 || target.y < 1 || target.y > 11 ||
+        (state.room === 'courtyard' && barrierAt(state, target.x, target.y))) break;
+      points.push(target);
+    }
+    return points;
+  }
+
+  function objectAtDistance(state, id, x, y) {
+    const objects = roomObjects(state);
+    return objects.find(object => object.id === id && object.x === x && object.y === y);
+  }
+
+  function roomObjects(state) {
+    const objects = [];
+    if (state.room === 'landing') {
+      objects.push(
+        {id: 'display', kind: 'display', x: 3, y: 8, interactable: true, active: state.reward, solved: state.installed},
+        {id: 'recovery', kind: 'recovery', x: 5, y: 8, interactable: true, active: true},
+        {id: 'tutorial-marker', kind: 'tutorial', x: 4, y: 5, interactable: true, active: true},
+        {id: 'tide-nautilus', kind: 'encounter', x: 8, y: 8, interactable: !state.encounterComplete, active: !state.encounterComplete},
+        {id: 'practice-target', kind: 'reach-target', x: 9, y: 9, active: !state.practiceReach, solved: state.practiceReach},
+        {id: 'practice-crate', kind: 'crate', x: state.practiceCrate.x, y: 9, active: !state.practiceCrate.solved, solved: state.practiceCrate.solved},
+        {id: 'landing-resonator', kind: 'resonator', x: 15, y: 3, active: true, solved: state.practiceResonator}
+      );
+      if (state.shortcut) objects.push({id: 'shortcut', kind: 'shortcut', x: 16, y: 3, active: true, interactable: false});
+    } else if (state.room === 'courtyard') {
+      objects.push(
+        {id: 'lever', kind: 'lever', x: 9, y: 3, active: !state.gate, solved: state.gate === 'lever'},
+        {id: 'weight', kind: 'weight', x: state.weight.x, y: 9, active: !state.gate, solved: state.gate === 'weight'},
+        {id: 'socket', kind: 'socket', x: 9, y: 9, active: true, solved: state.gate === 'weight'}
+      );
+    } else {
+      objects.push(
+        {id: 'bell', kind: 'bell', x: 17, y: 6, active: !state.bell, solved: state.bell},
+        {id: 'pedestal', kind: 'pedestal', x: 17, y: 4, interactable: true, active: state.bell && !state.reward, solved: state.reward}
+      );
+      if (state.shortcut) objects.push({id: 'shortcut', kind: 'shortcut', x: 18, y: 9, active: true});
+    }
+    return objects;
+  }
+
+  function geometry(state) {
+    const floor = [], water = [], walls = [], barriers = [];
+    for (let y = 0; y < HEIGHT; y++) for (let x = 0; x < WIDTH; x++) {
+      if (x === 0 || x === WIDTH - 1 || y === 0 || y === HEIGHT - 1) walls.push(point(x, y));
+      else if (waterAt(state.room, x, y)) water.push(point(x, y));
+      else if (basePassable(state, x, y)) floor.push(point(x, y));
+    }
+    if (state.room === 'courtyard') for (let y = 1; y <= 11; y++) barriers.push({x: 10, y, kind: y === 6 ? 'gate' : 'wall', active: barrierAt(state, 10, y)});
+    if (state.room === 'gallery') for (let y = 1; y <= 11; y++) for (const x of [11, 12]) barriers.push({x, y, kind: 'chasm', active: barrierAt(state, x, y)});
+    return {width: WIDTH, height: HEIGHT, floor, water, walls, barriers, exits: exitsFor(state).map(exit => Object.assign({}, exit, {arrival: Object.assign({}, exit.arrival)}))};
+  }
+
+  function objective(state) {
+    if (!state.encounterComplete) return {stage: 'capture', text: 'Meet the Tide Nautilus at Aegean Landing.'};
+    if (!state.gate) return {stage: 'gate', text: 'Open a way through the Marble Courtyard.'};
+    if (!state.bell) return {stage: 'bell', text: 'Make the Bell Gallery ring across the chasm.'};
+    if (!state.reward) return {stage: 'reward', text: 'Find the ornament beyond the ringing bell.'};
+    if (!state.installed) return {stage: 'install', text: 'Bring the ornament to the landing display.'};
+    return {stage: 'complete', text: 'Aegean Landing is restored. Explore and replay any puzzle.'};
+  }
+
+  function view(rawState) {
+    const state = normalizeState(rawState, true) || fresh();
+    return {
+      room: state.room, player: Object.assign({}, state.player), selected: state.selected,
+      owned: state.owned.slice(), placed: clone(state.placed), geometry: geometry(state),
+      objects: roomObjects(state), objective: objective(state),
+      abilities: [
+        {species: 'octopus', name: 'Octopus', verb: 'Reach', selected: state.selected === 'octopus', owned: state.owned.includes('octopus')},
+        {species: 'minotaur', name: 'Minotaur', verb: 'Push', selected: state.selected === 'minotaur', owned: state.owned.includes('minotaur')},
+        {species: 'siren', name: 'Siren', verb: 'Sing', selected: state.selected === 'siren', owned: state.owned.includes('siren')},
+        {species: 'nautilus', name: 'Nautilus', verb: 'Amplify', selected: state.selected === 'nautilus', owned: state.owned.includes('nautilus')}
+      ],
+      status: {
+        gate: state.gate, bell: state.bell, reward: state.reward, installed: state.installed,
+        shortcut: state.shortcut, practiceReach: state.practiceReach,
+        practiceResonator: state.practiceResonator, practiceCrate: clone(state.practiceCrate),
+        encounterComplete: state.encounterComplete, pendingCapture: state.pendingCapture,
+        balls: state.balls, potions: state.potions
+      }
+    };
+  }
+
+  function move(state, command) {
+    const direction = command.direction;
+    if (!validDirection(direction)) return {state, events: [event('feedback', 'Choose a direction first.')]};
+    const next = withState(state, draft => { draft.player.facing = direction; });
+    const delta = DIRECTIONS[direction], target = point(next.player.x + delta.x, next.player.y + delta.y);
+    const exit = exitsFor(next).find(item => samePoint(item, target));
+    if (exit) {
+      const arrived = withState(next, draft => {
+        draft.room = exit.to;
+        draft.player = {x: exit.arrival.x, y: exit.arrival.y, facing: direction};
+        draft.placed = {};
+      });
+      return {state: arrived, events: [event('travel', `You enter ${rooms[exit.to].name}.`, {room: exit.to})]};
+    }
+    if (!isWalkableUnchecked(next, target.x, target.y)) return {state: next, events: [event('feedback', 'A solid obstacle stops you there.')]};
+    return {state: withState(next, draft => { draft.player.x = target.x; draft.player.y = target.y; }), events: []};
+  }
+
+  function place(state, command) {
+    const species = state.selected;
+    const candidate = {room: state.room, x: command.x, y: command.y, facing: state.player.facing};
+    if (!state.owned.includes(species)) return {state, events: [event('feedback', 'That companion is not with you yet.')]};
+    if (!Number.isInteger(candidate.x) || !Number.isInteger(candidate.y) || distance(state.player, candidate) !== 1) return {state, events: [event('feedback', `Tap a tile next to you to place ${species[0].toUpperCase() + species.slice(1)}. Use the arrows to walk.`)]};
+    if (!validPlacement(state, species, candidate, species)) return {state, events: [event('feedback', 'That tile cannot hold this companion.')]};
+    return {state: withState(state, draft => { draft.placed[species] = candidate; }), events: [event('feedback', `${species[0].toUpperCase() + species.slice(1)} is ready.`)]};
+  }
+
+  function face(state, command) {
+    if (!validDirection(command.direction)) return {state, events: [event('feedback', 'Choose north, east, south, or west.')]};
+    if (!state.placed[state.selected]) return {state, events: [event('feedback', 'Deploy the selected companion before facing it.')]};
+    return {state: withState(state, draft => { draft.placed[draft.selected].facing = command.direction; }), events: []};
+  }
+
+  function useOctopus(state, placed) {
+    const points = lineFrom(placed, placed.facing, 3, state);
+    const hit = (x, y) => points.some(target => target.x === x && target.y === y);
+    if (state.room === 'courtyard' && hit(9, 3)) {
+      const opened = !state.gate;
+      const next = withState(state, draft => { if (!draft.gate) draft.gate = 'lever'; });
+      return {state: next, events: opened ? [event('opened', 'The water lever lifts the courtyard gate.', {object: 'gate'})] : [event('feedback', 'The courtyard gate is already open.')]};
+    }
+    if (state.room === 'landing' && hit(9, 9)) {
+      const next = withState(state, draft => { draft.practiceReach = true; });
+      return {state: next, events: [event('feedback', 'Octopus reaches the floating practice target.')]};
+    }
+    return {state, events: [event('feedback', 'Octopus reaches three tiles, but finds nothing to pull.')]};
+  }
+
+  function useMinotaur(state, placed) {
+    const delta = DIRECTIONS[placed.facing];
+    if (delta.y !== 0) return {state, events: [event('feedback', 'The track runs east and west. Face Minotaur along it.')]};
+    const ahead = point(placed.x + delta.x, placed.y);
+    const isWeight = state.room === 'courtyard' && samePoint(ahead, state.weight);
+    const isCrate = state.room === 'landing' && ahead.x === state.practiceCrate.x && ahead.y === 9;
+    if (!isWeight && !isCrate) return {state, events: [event('feedback', 'Minotaur needs a crate or weight directly ahead.')]};
+    const nextX = ahead.x + delta.x;
+    const range = isWeight ? [6, 9] : [12, 15];
+    if (nextX < range[0] || nextX > range[1]) return {state, events: [event('feedback', 'The object cannot leave its track.')]};
+    const destination = point(nextX, ahead.y);
+    const companionAhead = Object.entries(state.placed).some(([id, other]) => id !== 'minotaur' && samePoint(other, destination));
+    const socketDestination = isWeight && destination.x === 9 && destination.y === 9;
+    if (samePoint(state.player, destination) || companionAhead || (!socketDestination && isStaticObject(state.room, destination.x, destination.y)) || barrierAt(state, destination.x, destination.y)) {
+      return {state, events: [event('feedback', 'The track is blocked at the next tile.')]};
+    }
+    let opened = false, practiceDone = false;
+    const next = withState(state, draft => {
+      draft.placed.minotaur = {room: draft.room, x: ahead.x, y: ahead.y, facing: placed.facing};
+      if (isWeight) {
+        draft.weight.x = nextX;
+        if (nextX === 9 && !draft.gate) { draft.gate = 'weight'; opened = true; }
+      } else {
+        draft.practiceCrate.x = nextX;
+        if (nextX === 15) { draft.practiceCrate.solved = true; practiceDone = true; }
+      }
+    });
+    if (opened) return {state: next, events: [event('opened', 'The weight settles into its socket and the gate rises.', {object: 'gate'})]};
+    if (practiceDone) return {state: next, events: [event('feedback', 'The practice crate reaches the end of its track.')]};
+    return {state: next, events: [event('feedback', 'Minotaur pushes one steady tile along the track.')]};
+  }
+
+  function useSiren(state, placed) {
+    const first = lineFrom(placed, placed.facing, 5, state);
+    let points = first.slice(), strength = 1, amplified = false;
+    const nautilus = state.placed.nautilus;
+    const misaligned = nautilus && first.some(target => samePoint(target, nautilus)) && nautilus.facing !== placed.facing;
+    if (nautilus && nautilus.facing === placed.facing && first.some(target => samePoint(target, nautilus))) {
+      amplified = true; strength = 2;
+      points = points.concat(lineFrom(nautilus, nautilus.facing, 10, state).filter(target => !points.some(old => samePoint(old, target))));
+    }
+    const hit = (x, y) => points.some(target => target.x === x && target.y === y);
+    const events = [event('sound', amplified ? 'Nautilus carries Siren’s note farther.' : 'Siren’s note travels straight ahead.', {points, amplified})];
+    if (state.room === 'gallery' && hit(17, 6) && strength >= 2) {
+      const newlyOpened = !state.bell;
+      const next = withState(state, draft => { draft.bell = true; draft.shortcut = true; });
+      if (newlyOpened) events.push(event('opened', 'The bell rings; a marble bridge settles across the chasm.', {object: 'bell'}));
+      return {state: next, events};
+    }
+    if (state.room === 'landing' && hit(9, 9)) {
+      const next = withState(state, draft => { draft.practiceReach = true; });
+      events.push(event('feedback', 'The floating practice target answers the note.'));
+      return {state: next, events};
+    }
+    if (state.room === 'landing' && hit(15, 3) && strength >= 2) {
+      const next = withState(state, draft => { draft.practiceResonator = true; });
+      events.push(event('feedback', 'The landing resonator glows with a stronger echo.'));
+      return {state: next, events};
+    }
+    if (misaligned) events.push(event('feedback', 'Nautilus hears the note but faces another way. Turn it to match Siren.'));
+    else if (state.room === 'gallery' && hit(17, 6)) events.push(event('feedback', 'The bell hears a note, but needs a stronger echo.'));
+    else events.push(event('feedback', amplified ? 'The long echo fades safely.' : 'The note fades after five tiles.'));
+    return {state, events};
+  }
+
+  function use(state) {
+    const placed = state.placed[state.selected];
+    if (!placed) return {state, events: [event('feedback', 'Deploy the selected companion before using its field skill.')]};
+    if (state.selected === 'octopus') return useOctopus(state, placed);
+    if (state.selected === 'minotaur') return useMinotaur(state, placed);
+    if (state.selected === 'siren') return useSiren(state, placed);
+    return {state, events: [event('feedback', 'Nautilus amplifies a Siren note when both face the same way.')]};
+  }
+
+  function interact(state) {
+    const nearby = id => roomObjects(state).some(object => object.id === id && distance(state.player, object) <= 1);
+    if (state.room === 'landing' && nearby('tutorial-marker')) return {state, events: [event('tutorialRequested', 'Professor Thales offers a short Echo lesson.')]};
+    if (state.room === 'landing' && nearby('tide-nautilus') && !state.encounterComplete) {
+      const next = withState(state, draft => { draft.pendingCapture = true; });
+      return {state: next, events: [event('encounterRequested', 'Tide Nautilus appears in the calm pool.', {id: 'tide-nautilus'})]};
+    }
+    if (state.room === 'gallery' && nearby('pedestal')) {
+      if (!state.bell) return {state, events: [event('feedback', 'The chasm still keeps the pedestal out of reach.')]};
+      if (state.reward) return {state, events: [event('feedback', 'The pedestal is already empty.')]};
+      const next = withState(state, draft => { draft.reward = true; draft.bell = true; draft.shortcut = true; });
+      return {state: next, events: [event('rewardCollected', 'You find a small sea-glass ornament.')]};
+    }
+    if (state.room === 'landing' && nearby('display')) {
+      if (!state.reward) return {state, events: [event('feedback', 'The display has a space shaped like a small ornament.')]};
+      if (state.installed) return {state, events: [event('feedback', 'The tidepool display is already restored.')]};
+      const next = withState(state, draft => { draft.installed = true; draft.reward = true; draft.bell = true; draft.shortcut = true; });
+      return {state: next, events: [event('installed', 'The ornament restores Nautilus’s tidepool display.')]};
+    }
+    if (state.room === 'landing' && nearby('recovery')) {
+      const next = withState(state, draft => {
+        draft.balls = Math.max(8, draft.balls);
+        draft.potions = Math.max(3, draft.potions);
+      });
+      return {state: next, events: [event('recovery', 'The recovery fountain restores your field supplies.', {balls: next.balls, potions: next.potions})]};
+    }
+    return {state, events: [event('feedback', 'There is nothing to use here yet.')]};
+  }
+
+  function resetRoom(state) {
+    return {state: withState(state, draft => {
+      draft.placed = {};
+      if (draft.room === 'courtyard' && !draft.gate) draft.weight = {x: 6, y: 9};
+      if (draft.room === 'landing' && !draft.practiceCrate.solved) draft.practiceCrate = {x: 12, solved: false};
+    }), events: [event('feedback', 'Companions return safely; unsolved room props are reset.')]};
+  }
+
+  function battleResult(state, command) {
+    if (!state.pendingCapture) return {state, events: [event('feedback', 'There is no active Tide Nautilus encounter to finish.')]};
+    const caught = command.outcome === 'caught';
+    const next = withState(state, draft => {
+      draft.pendingCapture = false;
+      if (Array.isArray(command.party)) draft.party = clone(command.party);
+      if (Number.isInteger(command.balls)) draft.balls = Math.max(0, Math.min(99, command.balls));
+      if (Number.isInteger(command.potions)) draft.potions = Math.max(0, Math.min(99, command.potions));
+      if (caught) { draft.encounterComplete = true; draft.owned = Array.from(new Set(draft.owned.concat('nautilus'))); }
+    });
+    return {state: next, events: [caught ? event('captured', 'Nautilus joins the Echo team.', {id: 'nautilus'}) : event('feedback', 'Nautilus swims back to the pool. You can try again.') ]};
+  }
+
+  function step(rawState, rawCommand) {
+    const state = normalizeState(rawState, true) || fresh();
+    const command = rawCommand && typeof rawCommand === 'object' ? rawCommand : {};
+    const type = COMMAND_ALIASES[command.type] || command.type;
+    if (type === 'move') return move(state, command);
+    if (type === 'select') {
+      if (!validSpecies(command.species) || !state.owned.includes(command.species)) return {state, events: [event('feedback', 'Choose a companion already in your team.')]};
+      return {state: withState(state, draft => { draft.selected = command.species; }), events: []};
+    }
+    if (type === 'place') return place(state, command);
+    if (type === 'face') return face(state, command);
+    if (type === 'use') return use(state);
+    if (type === 'recall') return {state: withState(state, draft => { delete draft.placed[draft.selected]; }), events: [event('feedback', 'The selected companion returns to you.')]};
+    if (type === 'interact') return interact(state);
+    if (type === 'tutorialSeen') return {state: withState(state, draft => { draft.tutorialSeen = true; }), events: []};
+    if (type === 'battleResult') return battleResult(state, command);
+    if (type === 'resetRoom') return resetRoom(state);
+    return {state, events: [event('feedback', 'That command is not part of the Echo Ruins demo.')]};
+  }
+
+  function demoFrames() {
+    const frames = [];
+    for (let tick = 0; tick < 15; tick++) {
+      const nautilusVisible = tick >= 5;
+      const amplified = tick >= 9;
+      frames.push({
+        tick, room: 'landing', stage: amplified ? 'amplified' : nautilusVisible ? 'nautilus' : 'siren',
+        siren: {x: 3, y: 3, facing: 'east'},
+        nautilus: nautilusVisible ? {x: 7, y: 3, facing: 'east'} : null,
+        resonator: {x: 15, y: 3}, amplified,
+        points: Array.from({length: amplified ? 14 : 5}, (_, i) => point(4 + i, 3))
+      });
+    }
+    return frames;
+  }
+
+  return Object.freeze({VERSION, RELEASE, rooms, COMMAND_ALIASES, fresh, normalize, step, view, demoFrames, isWalkable});
+})();
+
+if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
+</script>
+<script>(() => {
+  'use strict';
+
+  const TILE = 48;
+  const SAVE_KEY = 'echo-ruins-demo:v1';
+  const ROOM_NAMES = Object.fromEntries(Object.entries(EchoRuins.rooms).map(([id, room]) => [id, room.name]));
+  const DIR = { north: [0, -1], east: [1, 0], south: [0, 1], west: [-1, 0] };
+  const ARROW = { north: '▲', east: '▶', south: '▼', west: '◀' };
+  const SPECIES = {
+    octopus: { name: 'Octopus', verb: 'Reach', detail: 'Reaches switches across water', color: '#9a4c97' },
+    minotaur: { name: 'Minotaur', verb: 'Push', detail: 'Pushes heavy blocks', color: '#b45a3d' },
+    siren: { name: 'Siren', verb: 'Sing', detail: 'Sends sound straight ahead', color: '#3d86af' },
+    nautilus: { name: 'Nautilus', verb: 'Amplify', detail: 'Extends a sound it faces', color: '#d09438' }
+  };
+  const ASSETS = typeof ECHO_ASSETS === 'object' && ECHO_ASSETS ? ECHO_ASSETS : {};
+  const $ = id => document.getElementById(id);
+  const els = {
+    canvas: $('world'), stage: $('stage'), room: $('roomName'), objective: $('objective'), mapLabel: $('mapLabel'),
+    context: $('contextHint'), companions: $('companions'), orbs: $('orbCount'), potions: $('potionCount'),
+    feedback: $('feedback'), overlay: $('overlay'), modal: $('modal'), toast: $('toast'), undo: $('undoBtn'),
+    importInput: $('importInput')
+  };
+  const ctx = els.canvas.getContext('2d');
+  ctx.imageSmoothingEnabled = false;
+
+  const images = {};
+  for (const [key, src] of Object.entries(ASSETS)) {
+    const img = new Image();
+    img.onload = () => render();
+    img.src = src;
+    images[key] = img;
+  }
+
+  let state;
+  let view;
+  let undoStack = [];
+  let saveAvailable = true;
+  let rejectedSave = false;
+  let feedbackText = 'Professor Thales has a quick demonstration ready.';
+  let hintLevel = 0;
+  let effects = [];
+  let raf = 0;
+  let modalMode = null;
+  let demo = null;
+  let battle = null;
+  let battleEngine = null;
+  let battleCheckpoint = null;
+  let battleStartingInventory = null;
+  let readyResolve;
+  const ready = new Promise(resolve => { readyResolve = resolve; });
+
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const inRelease = value => value && value.version === 1 && value.release === 'echo-ruins-demo';
+  const speciesAsset = id => images[id] || null;
+
+  function newParty() {
+    if (!battleEngine) return [];
+    return ['octopus', 'minotaur', 'siren'].map(id => battleEngine.makeMon(id, 5));
+  }
+
+  function createBattleEngine() {
+    if (typeof Combat !== 'object' || !Combat || typeof Combat.create !== 'function') return null;
+    const content = {
+      species: {
+        octopus: { id: 'octopus', name: 'Octopus', asset: 'octopus', type: 'Water', stage: 1, base: { hp: 34, atk: 13, def: 12, speed: 11 }, moves: ['tap', 'guard'] },
+        minotaur: { id: 'minotaur', name: 'Minotaur', asset: 'minotaur', type: 'Stone', stage: 1, base: { hp: 39, atk: 15, def: 14, speed: 8 }, moves: ['tap', 'guard'] },
+        siren: { id: 'siren', name: 'Siren', asset: 'siren', type: 'Water', stage: 1, base: { hp: 32, atk: 13, def: 10, speed: 14 }, moves: ['tap', 'guard'] },
+        nautilus: { id: 'nautilus', name: 'Wild Nautilus', asset: 'nautilus', type: 'Water', stage: 1, base: { hp: 42, atk: 10, def: 14, speed: 7 }, moves: ['tap', 'guard'] }
+      },
+      moves: {
+        tap: { id: 'tap', name: 'Gentle Tap', type: 'Normal', power: 20, accuracy: 100, kind: 'attack' },
+        guard: { id: 'guard', name: 'Guard', type: 'Normal', kind: 'guard' }
+      },
+      typeChart: {}
+    };
+    try { return Combat.create(content); } catch (_) { return null; }
+  }
+
+  function boot() {
+    battleEngine = createBattleEngine();
+    state = EchoRuins.fresh();
+    try {
+      const saved = localStorage.getItem(SAVE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (inRelease(parsed)) {
+          const normalized = EchoRuins.normalize(parsed);
+          if (normalized) state = normalized;
+          else rejectedSave = true;
+        } else rejectedSave = true;
+      }
+    } catch (error) {
+      if (error instanceof SyntaxError) rejectedSave = true;
+      else saveAvailable = false;
+    }
+    if (!validParty(state.party)) {
+      state = EchoRuins.normalize({ ...state, party: newParty() }) || EchoRuins.fresh();
+    }
+    view = EchoRuins.view(state);
+    bind();
+    render();
+    if (!state.tutorialSeen) openWelcome();
+    else closeModal();
+    if (rejectedSave) toast('An incompatible save was ignored. This demo started safely.');
+    else if (!saveAvailable) toast('Private browsing blocked saves, but the demo is fully playable.');
+    readyResolve(snapshot());
+  }
+
+  function validParty(party) {
+    if (!battleEngine) return Array.isArray(party);
+    return Array.isArray(party) && party.length >= 1 && party.length <= 6 && party.every(mon =>
+      mon && Object.prototype.hasOwnProperty.call(SPECIES, mon.species) && Number.isInteger(mon.level) &&
+      mon.level >= 1 && mon.level <= 99 && Number.isFinite(mon.hp) && mon.hp >= 0 &&
+      Number.isInteger(mon.xp) && mon.xp >= 0 && typeof mon.uid === 'string' &&
+      mon.hp <= battleEngine.maxHp(mon) && (!mon.moves || (Array.isArray(mon.moves) && mon.moves.length >= 1 &&
+      mon.moves.length <= 4 && mon.moves.every(id => ['tap','guard'].includes(id))))
+    );
+  }
+
+  function bind() {
+    $('guideBtn').addEventListener('click', openGuide);
+    $('menuBtn').addEventListener('click', openMenu);
+    $('hintBtn').addEventListener('click', showHint);
+    $('undoBtn').addEventListener('click', undo);
+    $('resetBtn').addEventListener('click', () => dispatch({ type: 'resetRoom' }, { undoable: false }));
+    $('placeBtn').addEventListener('click', placeAhead);
+    $('useBtn').addEventListener('click', () => dispatch({ type: 'use' }));
+    $('interactBtn').addEventListener('click', () => dispatch({ type: 'interact' }));
+    $('recallBtn').addEventListener('click', () => dispatch({ type: 'recall' }));
+    $('facePromptBtn').addEventListener('click', rotateSelected);
+    $('facing').addEventListener('click', event => {
+      const direction = event.target.closest('[data-face]')?.dataset.face;
+      if (direction) dispatch({ type: 'face', direction });
+    });
+    document.querySelectorAll('[data-dir]').forEach(button => button.addEventListener('click', () => dispatch({ type: 'move', direction: button.dataset.dir })));
+    document.querySelectorAll('[data-mobile]').forEach(button => button.addEventListener('click', () => mobileAction(button.dataset.mobile)));
+    els.canvas.addEventListener('pointerdown', placeFromPointer);
+    els.importInput.addEventListener('change', importSave);
+    document.addEventListener('keydown', keydown);
+    window.addEventListener('resize', render);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) render(); });
+  }
+
+  function keydown(event) {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (/^(INPUT|SELECT|TEXTAREA)$/.test(event.target?.tagName || '')) return;
+    if (event.target?.tagName === 'BUTTON' && [' ', 'Enter'].includes(event.key)) return;
+    if (modalMode) {
+      if (event.key === 'Escape' && modalMode !== 'battle') closeModal();
+      return;
+    }
+    const key = event.key.toLowerCase();
+    const moves = { arrowup: 'north', w: 'north', arrowright: 'east', d: 'east', arrowdown: 'south', s: 'south', arrowleft: 'west', a: 'west' };
+    if (moves[key]) { event.preventDefault(); dispatch({ type: 'move', direction: moves[key] }); return; }
+    if (/^[1-4]$/.test(key)) { const id = view.abilities[Number(key) - 1]?.species; if (id) dispatch({ type: 'select', species: id }); return; }
+    if (key === 'p') placeAhead();
+    else if (key === 'e' || key === 'enter') dispatch({ type: 'interact' });
+    else if (key === ' ') { event.preventDefault(); dispatch({ type: 'use' }); }
+    else if (key === 'q') dispatch({ type: 'recall' });
+    else if (key === 'z') undo();
+    else if (key === 'h') showHint();
+  }
+
+  function mobileAction(action) {
+    if (action === 'place') placeAhead();
+    else if (action === 'use') dispatch({ type: 'use' });
+    else if (action === 'interact') dispatch({ type: 'interact' });
+    else if (action === 'recall') dispatch({ type: 'recall' });
+    else if (action === 'undo') undo();
+    else if (action === 'guide') openGuide();
+  }
+
+  function placeAhead() {
+    const delta = DIR[state.player.facing];
+    dispatch({ type: 'place', x: state.player.x + delta[0], y: state.player.y + delta[1] });
+  }
+
+  function placeFromPointer(event) {
+    if (modalMode) return;
+    const rect = els.canvas.getBoundingClientRect();
+    const x = Math.floor((event.clientX - rect.left) * els.canvas.width / rect.width / TILE);
+    const y = Math.floor((event.clientY - rect.top) * els.canvas.height / rect.height / TILE);
+    dispatch({ type: 'place', x, y });
+    els.canvas.focus();
+  }
+
+  function rotateSelected() {
+    const placed = view.placed?.[view.selected];
+    const current = placed?.facing || state.player.facing;
+    const order = ['north', 'east', 'south', 'west'];
+    dispatch({ type: 'face', direction: order[(order.indexOf(current) + 1) % 4] });
+  }
+
+  function isBoundary(events) {
+    return events.some(event => ['travel', 'encounterRequested', 'rewardCollected', 'installed'].includes(event.type));
+  }
+
+  function isSpatialChange(before, after) {
+    const strip = value => {
+      const copy = clone(value);
+      delete copy.player;
+      delete copy.placed;
+      delete copy.weight;
+      delete copy.practiceCrate;
+      return copy;
+    };
+    return !same(before, after) && same(strip(before), strip(after));
+  }
+
+  function dispatch(command, options = {}) {
+    if (modalMode || battle) return;
+    const before = state;
+    let result;
+    try { result = EchoRuins.step(state, command); }
+    catch (_) { setFeedback('That action could not be completed. Try another position.'); return; }
+    const events = Array.isArray(result.events) ? result.events : [];
+    const changed = !same(before, result.state);
+    const undoable = options.undoable !== false && ['move', 'place', 'face', 'use', 'recall', 'interact'].includes(command.type);
+    if (undoable && changed && isSpatialChange(before, result.state) && !isBoundary(events)) {
+      undoStack.push(clone(before));
+      if (undoStack.length > 30) undoStack.shift();
+    }
+    state = result.state;
+    view = EchoRuins.view(state);
+    animateCommand(command, events);
+    handleEvents(events, before);
+    if (isBoundary(events)) undoStack = [];
+    if (!events.some(event => event.type === 'encounterRequested')) save();
+    render();
+    if (!modalMode) els.canvas.focus({preventScroll:true});
+  }
+
+  function handleEvents(events, before) {
+    let message = '';
+    for (const event of events) {
+      if (event.text) message = event.text;
+      if (event.type === 'sound') effects.push({ kind: 'sound', points: event.points || [], amplified: !!event.amplified, started: performance.now(), duration: 900 });
+      if (event.type === 'opened') toast(event.object === 'gate' ? 'The marble gate rumbles open!' : 'A new path answers the echo!');
+      if (event.type === 'travel') { hintLevel = 0; toast(`Entered ${ROOM_NAMES[event.room] || event.room}.`); }
+      if (event.type === 'recovery' && battleEngine && validParty(state.party)) state = { ...state, party: restoredParty(state.party) };
+      if (event.type === 'tutorialRequested') openWelcome();
+      if (event.type === 'encounterRequested') startBattle(before);
+      if (event.type === 'rewardCollected') toast('You found the Tideglass Ornament!');
+      if (event.type === 'installed') { els.stage.classList.add('victory'); setTimeout(() => els.stage.classList.remove('victory'), 1700); openFinish(); }
+    }
+    if (message) setFeedback(message);
+    const failure = events.some(event => event.type === 'feedback' && /can’t|can't|cannot|blocked|too far|needs|nothing|wrong|not here|first|closer/i.test(event.text || ''));
+    if (failure) {
+      els.stage.classList.remove('shake'); void els.stage.offsetWidth; els.stage.classList.add('shake');
+      effects.push({ kind: 'fail', x: view.player.x, y: view.player.y, started: performance.now(), duration: 420 });
+    }
+  }
+
+  function animateCommand(command, events) {
+    if (command.type !== 'use' || events.some(event => event.type === 'sound')) return;
+    const placement = view.placed?.[view.selected];
+    if (!placement || placement.room !== view.room) return;
+    const [dx, dy] = DIR[placement.facing] || [0, 0];
+    const count = view.selected === 'octopus' ? 3 : view.selected === 'minotaur' ? 2 : 4;
+    const points = Array.from({ length: count }, (_, i) => ({ x: placement.x + dx * (i + 1), y: placement.y + dy * (i + 1) }));
+    effects.push({ kind: view.selected === 'minotaur' ? 'push' : 'reach', points, started: performance.now(), duration: 600 });
+  }
+
+  function undo() {
+    if (modalMode || !undoStack.length) { setFeedback('Nothing spatial to undo in this room.'); return; }
+    state = EchoRuins.normalize(undoStack.pop()) || EchoRuins.fresh();
+    view = EchoRuins.view(state);
+    setFeedback('Last movement or field setup undone.');
+    save(); render();
+  }
+
+  function save() {
+    if (!saveAvailable) return;
+    try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); }
+    catch (_) { saveAvailable = false; toast('Saving is blocked here, but play can continue.'); }
+  }
+
+  function setFeedback(text) {
+    feedbackText = text || feedbackText;
+    els.feedback.textContent = feedbackText;
+    els.feedback.classList.remove('pop'); void els.feedback.offsetWidth; els.feedback.classList.add('pop');
+  }
+
+  function toast(text) {
+    els.toast.textContent = text;
+    els.toast.classList.remove('show'); void els.toast.offsetWidth; els.toast.classList.add('show');
+    clearTimeout(toast.timer); toast.timer = setTimeout(() => els.toast.classList.remove('show'), 2600);
+  }
+
+  function render() {
+    view = EchoRuins.view(state);
+    els.room.textContent = ROOM_NAMES[view.room] || view.room;
+    els.mapLabel.textContent = ROOM_NAMES[view.room] || view.room;
+    els.objective.textContent = view.objective?.text || view.objective || 'Explore the ruins.';
+    els.orbs.textContent = `${state.balls ?? 0} Echo Orb${state.balls === 1 ? '' : 's'}`;
+    els.potions.textContent = `${state.potions ?? 0} Tonic${state.potions === 1 ? '' : 's'}`;
+    els.undo.disabled = undoStack.length === 0;
+    const facing = view.placed?.[view.selected]?.facing || view.player.facing;
+    $('facePromptBtn').textContent = `Turn ${ARROW[facing] || '▸'}`;
+    renderCompanions();
+    els.feedback.textContent = feedbackText;
+    els.context.textContent = contextHint();
+    drawWorld(performance.now());
+    if (effects.length && !raf) raf = requestAnimationFrame(tick);
+  }
+
+  function renderCompanions() {
+    const abilities = Array.isArray(view.abilities) ? view.abilities : Object.keys(SPECIES).filter(id => state.owned?.includes(id)).map(id => ({ species: id, ...SPECIES[id] }));
+    els.companions.replaceChildren(...abilities.map((ability, index) => {
+      const id = ability.species;
+      const meta = SPECIES[id] || { name: ability.name || id, verb: ability.verb || 'Power', detail: '' };
+      const button = document.createElement('button');
+      button.className = `companion${id === view.selected ? ' selected' : ''}`;
+      button.setAttribute('aria-pressed', id === view.selected ? 'true' : 'false');
+      button.title = meta.detail;
+      button.disabled = ability.owned === false;
+      const img = document.createElement('img'); img.className = 'portrait'; img.alt = ''; img.src = ASSETS[id] || '';
+      const words = document.createElement('span'); words.className = 'words';
+      const strong = document.createElement('strong'); strong.textContent = meta.name;
+      const small = document.createElement('small'); small.textContent = ability.owned === false ? 'Meet at tidepool' : `${meta.verb} · ${meta.detail}`;
+      words.append(strong, small);
+      const num = document.createElement('span'); num.className = 'num'; num.textContent = String(index + 1);
+      button.append(img, words, num);
+      button.addEventListener('click', () => dispatch({ type: 'select', species: id }));
+      return button;
+    }));
+  }
+
+  function contextHint() {
+    const p = view.player;
+    const nearby = (view.objects || []).find(object => object.interactable === true && Math.abs(object.x - p.x) + Math.abs(object.y - p.y) <= 1);
+    if (nearby) return `Press E / Interact near ${objectLabel(nearby)}.`;
+    const deployed = view.placed?.[view.selected];
+    if (deployed?.room === view.room) return `${SPECIES[view.selected]?.name || view.selected} faces ${deployed.facing}. Turn it, then use its power.`;
+    return `Choose a companion, then tap an adjacent tile or press P to place it ahead.`;
+  }
+
+  function objectLabel(object) {
+    const key = `${object.kind || ''} ${object.id || ''}`.toLowerCase();
+    if (key.includes('professor') || key.includes('tutorial')) return 'Professor Thales';
+    if (key.includes('nautilus')) return 'the wild Nautilus';
+    if (key.includes('display')) return 'the tidepool display';
+    if (key.includes('pedestal')) return 'the ornament pedestal';
+    if (key.includes('recovery')) return 'the recovery spring';
+    if (key.includes('bell')) return 'the echo bell';
+    if (key.includes('resonator') || key.includes('target')) return 'the practice resonator';
+    return 'the ruin mechanism';
+  }
+
+  function setTileStyle(fill, stroke) { ctx.fillStyle = fill; ctx.strokeStyle = stroke || fill; }
+  function noise(x, y, salt = 0) { return Math.abs(Math.sin(x * 17.13 + y * 31.71 + salt * 9.3)); }
+
+  function drawWorld(now) {
+    ctx.clearRect(0, 0, els.canvas.width, els.canvas.height);
+    ctx.fillStyle = '#123f43'; ctx.fillRect(0, 0, els.canvas.width, els.canvas.height);
+    const geometry = view.geometry || {};
+    const floor = new Set((geometry.floor || []).map(p => `${p.x},${p.y}`));
+    const water = new Set((geometry.water || []).map(p => `${p.x},${p.y}`));
+    const walls = new Set((geometry.walls || []).map(p => `${p.x},${p.y}`));
+    const barrierMap = new Map((geometry.barriers || []).filter(p => p.active !== false).map(p => [`${p.x},${p.y}`, p]));
+    const barriers = new Set(barrierMap.keys());
+    for (let y = 0; y < 13; y++) for (let x = 0; x < 21; x++) {
+      const key = `${x},${y}`;
+      const barrier = barrierMap.get(key);
+      if (barrier?.kind === 'chasm') drawChasm(x, y, now);
+      else if (barrier?.kind === 'wall') drawWall(x, y);
+      else if (water.has(key)) drawWater(x, y, now);
+      else if (floor.has(key)) drawMarble(x, y);
+      else if (walls.has(key)) drawWall(x, y);
+      else drawVoid(x, y);
+      if (barrier?.kind === 'gate') drawBarrier(x, y);
+    }
+    drawRoomDecoration(view.room, floor, now);
+    drawExits(geometry.exits || [], now);
+    drawPreview(walls, barrierMap, now);
+    for (const object of view.objects || []) drawObject(object, now);
+    for (const [id, placement] of Object.entries(view.placed || {})) {
+      if (placement && (!placement.room || placement.room === view.room)) drawCreature(id, placement, now);
+    }
+    drawPlayer(view.player, now);
+    drawEffects(now);
+  }
+
+  function drawMarble(x, y) {
+    const px = x * TILE, py = y * TILE;
+    const shade = noise(x, y) > .55 ? '#ead9ad' : '#f2e3bd';
+    ctx.fillStyle = shade; ctx.fillRect(px, py, TILE, TILE);
+    ctx.strokeStyle = '#d1bd8d'; ctx.lineWidth = 1; ctx.strokeRect(px + .5, py + .5, TILE - 1, TILE - 1);
+    ctx.strokeStyle = '#bfae8460'; ctx.beginPath();
+    const n = noise(x, y, 2);
+    if (n > .62) { ctx.moveTo(px + 8, py + 4); ctx.lineTo(px + 18, py + 17); ctx.lineTo(px + 13, py + 29); }
+    else if (n < .2) { ctx.moveTo(px + 42, py + 13); ctx.lineTo(px + 30, py + 23); ctx.lineTo(px + 35, py + 39); }
+    ctx.stroke();
+    if ((x + y * 2) % 11 === 0) { ctx.fillStyle = '#bd7c5d25'; ctx.fillRect(px + 4, py + 4, 9, 9); }
+  }
+
+  function drawWater(x, y, now) {
+    const px = x * TILE, py = y * TILE;
+    ctx.fillStyle = (x + y) % 2 ? '#219aa1' : '#2aaaa8'; ctx.fillRect(px, py, TILE, TILE);
+    ctx.strokeStyle = '#a5ead8aa'; ctx.lineWidth = 2;
+    const wave = ((now / 90 + x * 9 + y * 5) % 24);
+    ctx.beginPath(); ctx.moveTo(px + wave - 12, py + 15); ctx.lineTo(px + wave, py + 15); ctx.moveTo(px + 32 - wave / 2, py + 34); ctx.lineTo(px + 46 - wave / 2, py + 34); ctx.stroke();
+  }
+
+  function drawWall(x, y) {
+    const px = x * TILE, py = y * TILE;
+    ctx.fillStyle = '#897b5e'; ctx.fillRect(px, py, TILE, TILE);
+    ctx.fillStyle = '#b6a57b'; ctx.fillRect(px + 3, py + 3, TILE - 6, TILE - 10);
+    ctx.fillStyle = '#d2c49a'; ctx.fillRect(px + 5, py + 5, TILE - 10, 7);
+    ctx.strokeStyle = '#6f634d'; ctx.strokeRect(px + .5, py + .5, TILE - 1, TILE - 1);
+    ctx.beginPath(); ctx.moveTo(px + 24, py + 13); ctx.lineTo(px + 20, py + 27); ctx.lineTo(px + 28, py + 40); ctx.stroke();
+  }
+
+  function drawVoid(x, y) { ctx.fillStyle = '#173e40'; ctx.fillRect(x * TILE, y * TILE, TILE, TILE); }
+  function drawChasm(x, y, now) {
+    const px=x*TILE,py=y*TILE;ctx.fillStyle='#0a2930';ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#163e45';
+    ctx.fillRect(px+((now/80+x*7)%30),py+9,15,3);ctx.fillRect(px+((now/110+y*9)%34),py+34,11,2);
+    ctx.strokeStyle='#9f906a';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(px,py+2);ctx.lineTo(px+8,py+11);ctx.moveTo(px+TILE,py+TILE-2);ctx.lineTo(px+TILE-9,py+TILE-13);ctx.stroke();
+  }
+  function drawBarrier(x, y) {
+    const px = x * TILE, py = y * TILE;
+    ctx.fillStyle = '#6b4a35'; ctx.fillRect(px + 7, py, 9, TILE); ctx.fillRect(px + 32, py, 9, TILE);
+    ctx.fillStyle = '#d0a34a'; for (let yy = 4; yy < TILE; yy += 12) ctx.fillRect(px + 5, py + yy, 38, 4);
+  }
+
+  function drawRoomDecoration(room, floor, now) {
+    const oliveSpots = room === 'landing' ? [[2,2],[4,10],[16,10],[18,2]] : room === 'courtyard' ? [[3,2],[3,10],[17,2],[17,10]] : [[3,3],[6,10],[17,10]];
+    for (const [x, y] of oliveSpots) if (floor.has(`${x},${y}`)) drawOlive(x, y, now);
+    const columns = room === 'gallery' ? [[5,2],[5,10],[16,2],[16,10]] : [[2,3],[2,9],[18,3],[18,9]];
+    for (const [x, y] of columns) if (floor.has(`${x},${y}`)) drawColumn(x, y);
+    if (room === 'courtyard') {
+      ctx.save(); ctx.globalAlpha = .32; ctx.fillStyle = '#267e79';
+      for (const [x,y] of [[4,5],[5,5],[4,6],[5,6]]) ctx.fillRect(x*TILE+9,y*TILE+9,30,30);
+      ctx.restore();
+    }
+  }
+
+  function drawOlive(x, y, now) {
+    const px = x*TILE, py=y*TILE;
+    ctx.fillStyle='#5a4632';ctx.fillRect(px+21,py+23,6,19);
+    ctx.fillStyle='#59783b';
+    for(let i=0;i<7;i++){const ox=(i*13)%31+7,oy=(i*17)%24+3;ctx.fillRect(px+ox,py+oy+(Math.sin(now/500+i)*1|0),10,8)}
+    ctx.fillStyle='#292d22';ctx.fillRect(px+13,py+9,3,3);ctx.fillRect(px+33,py+19,3,3);
+  }
+
+  function drawColumn(x,y){const px=x*TILE,py=y*TILE;ctx.fillStyle='#8d7e60';ctx.fillRect(px+9,py+38,30,6);ctx.fillStyle='#e8ddb7';ctx.fillRect(px+15,py+8,18,31);ctx.fillStyle='#fff4d1';ctx.fillRect(px+18,py+10,5,27);ctx.fillStyle='#b7a77f';ctx.fillRect(px+10,py+5,28,7);ctx.fillRect(px+12,py+37,24,5);ctx.fillStyle='#806f55';ctx.fillRect(px+29,py+5,9,5)}
+
+  function drawExits(exits, now) {
+    for (const exit of exits) {
+      const cx = exit.x*TILE+24, cy=exit.y*TILE+24;
+      ctx.save(); ctx.translate(cx,cy); ctx.globalAlpha=.68+.2*Math.sin(now/240);
+      ctx.fillStyle='#fff3a4';ctx.beginPath();ctx.arc(0,0,12,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#1b696d';ctx.font='900 20px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';
+      const direction=exit.x<=1?'west':exit.x>=19?'east':exit.y<=1?'north':'south';ctx.fillText(ARROW[direction],0,1);ctx.restore();
+    }
+  }
+
+  function drawObject(object, now) {
+    const x=object.x*TILE,y=object.y*TILE,cx=x+24,cy=y+24;
+    const key=`${object.kind || ''} ${object.id || ''}`.toLowerCase();
+    ctx.save(); if (object.active === false) ctx.globalAlpha=.52;
+    if (key.includes('professor') || key.includes('tutorial')) drawSprite('professor',cx,cy,52,58);
+    else if (key.includes('nautilus')) { drawSprite('nautilus',cx,cy+Math.sin(now/250)*2,45,45); ctx.strokeStyle='#f7d45e';ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,20+Math.sin(now/180)*3,0,Math.PI*2);ctx.stroke(); }
+    else if (key.includes('lever')) { ctx.fillStyle=object.solved?'#60b45c':'#a54c38';ctx.fillRect(x+18,y+24,12,15);ctx.strokeStyle='#51382d';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(cx,cy+2);ctx.lineTo(cx+(object.solved?9:-7),cy-15);ctx.stroke(); }
+    else if (key.includes('weight') || key.includes('crate')) { ctx.fillStyle=key.includes('crate')?'#a96c37':'#76746a';ctx.fillRect(x+8,y+9,32,31);ctx.strokeStyle='#4f493d';ctx.lineWidth=3;ctx.strokeRect(x+8,y+9,32,31);ctx.beginPath();ctx.moveTo(x+9,y+10);ctx.lineTo(x+39,y+39);ctx.moveTo(x+39,y+10);ctx.lineTo(x+9,y+39);ctx.stroke(); }
+    else if (key.includes('socket')) { ctx.strokeStyle='#c99539';ctx.lineWidth=5;ctx.strokeRect(x+8,y+8,32,32);ctx.strokeStyle='#6e674f';ctx.lineWidth=2;ctx.strokeRect(x+14,y+14,20,20); }
+    else if (key.includes('bell')) { ctx.fillStyle=object.solved?'#ffe16b':'#d8a83e';ctx.beginPath();ctx.arc(cx,cy-2,14,Math.PI,0);ctx.lineTo(cx+17,cy+17);ctx.lineTo(cx-17,cy+17);ctx.closePath();ctx.fill();ctx.fillStyle='#6b4c2a';ctx.fillRect(cx-4,cy+16,8,7);if(object.solved){ctx.strokeStyle='#fff2a3';ctx.lineWidth=3;ctx.beginPath();ctx.arc(cx,cy,25+Math.sin(now/180)*5,0,Math.PI*2);ctx.stroke()} }
+    else if (key.includes('resonator') || key.includes('target')) { ctx.fillStyle=object.solved?'#ffe76d':'#435c62';ctx.beginPath();ctx.arc(cx,cy,16,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#d7f7e9';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#173f42';ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fill(); }
+    else if (key.includes('pedestal')) { ctx.fillStyle='#c5b386';ctx.fillRect(x+13,y+19,22,25);ctx.fillStyle=state.reward?'#81765e':'#52bdb6';ctx.beginPath();ctx.moveTo(cx,cy-16);ctx.lineTo(cx+10,cy-3);ctx.lineTo(cx,cy+7);ctx.lineTo(cx-10,cy-3);ctx.closePath();ctx.fill(); }
+    else if (key.includes('display')) { ctx.fillStyle='#72543c';ctx.fillRect(x+5,y+30,38,11);ctx.fillStyle='#50b8b3';ctx.fillRect(x+9,y+12,30,19);ctx.strokeStyle='#d6f3df';ctx.strokeRect(x+9,y+12,30,19);if(state.installed){ctx.fillStyle='#ffe57d';ctx.beginPath();ctx.arc(cx,cy-3,7,0,Math.PI*2);ctx.fill()} }
+    else if (key.includes('recovery') || key.includes('spring')) { ctx.fillStyle='#2b9b99';ctx.beginPath();ctx.ellipse(cx,cy+8,19,10,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#b9fff0';ctx.beginPath();ctx.arc(cx,cy-2+Math.sin(now/240)*2,5,0,Math.PI*2);ctx.fill(); }
+    else if (key.includes('shortcut')) { ctx.strokeStyle=object.active?'#66d5bc':'#786e57';ctx.lineWidth=7;ctx.beginPath();ctx.arc(cx,cy+10,16,Math.PI,0);ctx.lineTo(cx+16,cy+21);ctx.moveTo(cx-16,cy+10);ctx.lineTo(cx-16,cy+21);ctx.stroke(); }
+    else { ctx.fillStyle=object.solved?'#e6c85d':'#7f7b69';ctx.fillRect(x+13,y+13,22,22); }
+    ctx.restore();
+  }
+
+  function drawSprite(id,cx,cy,w,h){const img=speciesAsset(id);if(img&&img.complete&&img.naturalWidth)ctx.drawImage(img,cx-w/2,cy-h/2,w,h);else{ctx.fillStyle=SPECIES[id]?.color||'#638b76';ctx.fillRect(cx-w/3,cy-h/3,w*2/3,h*2/3)}}
+
+  function drawCreature(id, placement, now) {
+    const cx=placement.x*TILE+24,cy=placement.y*TILE+24+Math.sin(now/260+placement.x)*1.3;
+    ctx.save();ctx.fillStyle='#f6eab7b8';ctx.beginPath();ctx.ellipse(cx,cy+17,18,7,0,0,Math.PI*2);ctx.fill();drawSprite(id,cx,cy,44,44);drawFacingArrow(cx,cy,placement.facing,SPECIES[id]?.color||'#0e747a',true);ctx.restore();
+  }
+
+  function drawFacingArrow(cx,cy,direction,color,strong=false){const [dx,dy]=DIR[direction]||[1,0];const ax=cx+dx*25,ay=cy+dy*25;ctx.save();ctx.translate(ax,ay);ctx.rotate(Math.atan2(dy,dx));ctx.fillStyle=strong?'#fff067':color;ctx.strokeStyle='#17383c';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(10,0);ctx.lineTo(-5,-7);ctx.lineTo(-2,0);ctx.lineTo(-5,7);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore()}
+
+  function drawPlayer(player, now) {
+    const cx=player.x*TILE+24,cy=player.y*TILE+24+Math.sin(now/180)*.7;
+    ctx.save();ctx.translate(cx,cy);ctx.fillStyle='#314e45';ctx.fillRect(-11,14,8,8);ctx.fillRect(3,14,8,8);ctx.fillStyle='#e9c59a';ctx.fillRect(-9,-17,18,12);ctx.fillStyle='#5c3a28';ctx.fillRect(-10,-19,20,6);ctx.fillRect(-11,-14,4,7);ctx.fillStyle='#1f8d8b';ctx.fillRect(-11,-5,22,20);ctx.fillStyle='#f1e2bd';ctx.fillRect(-7,-3,14,14);ctx.fillStyle='#9a5634';ctx.fillRect(-14,-4,7,18);ctx.fillStyle='#d58943';ctx.fillRect(-13,-1,5,12);ctx.fillStyle='#17393d';ctx.fillRect(-6,-12,3,3);ctx.fillRect(4,-12,3,3);drawFacingArrow(0,-1,player.facing,'#fff067',true);ctx.restore();
+  }
+
+  function drawPreview(walls, barriers, now) {
+    const placement=view.placed?.[view.selected]; if(!placement || (placement.room&&placement.room!==view.room))return;
+    const meta=SPECIES[view.selected]; const [dx,dy]=DIR[placement.facing]||[0,0];
+    const length=view.selected==='siren'?5:view.selected==='nautilus'?10:view.selected==='octopus'?3:1;
+    ctx.save();ctx.setLineDash([8,5]);ctx.lineDashOffset=-(now/70)%13;ctx.lineWidth=view.selected==='siren'||view.selected==='nautilus'?7:4;ctx.strokeStyle=`${meta?.color||'#3bb'}aa`;ctx.beginPath();ctx.moveTo(placement.x*TILE+24,placement.y*TILE+24);
+    for(let i=1;i<=length;i++){const x=placement.x+dx*i,y=placement.y+dy*i,barrier=barriers.get(`${x},${y}`);if(walls.has(`${x},${y}`)||(barrier&&barrier.kind!=='chasm'))break;ctx.lineTo(x*TILE+24,y*TILE+24)}ctx.stroke();ctx.restore();
+  }
+
+  function drawEffects(now) {
+    effects=effects.filter(effect=>now-effect.started<effect.duration);
+    for(const effect of effects){const t=(now-effect.started)/effect.duration;
+      if(effect.kind==='sound'){for(let i=0;i<effect.points.length;i++){const p=effect.points[i];if(t<i/Math.max(1,effect.points.length)*.55)continue;ctx.strokeStyle=effect.amplified?'#fff06d':'#d3fff0';ctx.lineWidth=effect.amplified?5:3;ctx.globalAlpha=1-t;ctx.beginPath();ctx.arc(p.x*TILE+24,p.y*TILE+24,8+22*t,0,Math.PI*2);ctx.stroke()}ctx.globalAlpha=1}
+      else if(effect.points){ctx.strokeStyle=effect.kind==='push'?'#efbd4d':'#e889da';ctx.lineWidth=6;ctx.globalAlpha=1-t;ctx.beginPath();effect.points.forEach((p,i)=>{const px=p.x*TILE+24,py=p.y*TILE+24;i?ctx.lineTo(px,py):ctx.moveTo(px,py)});ctx.stroke();ctx.globalAlpha=1}
+      else if(effect.kind==='fail'){ctx.fillStyle=`rgba(183,70,56,${1-t})`;ctx.font='900 28px system-ui';ctx.textAlign='center';ctx.fillText('!',effect.x*TILE+24,effect.y*TILE+10-18*t)}
+    }
+  }
+
+  function tick(now){raf=0;drawWorld(now);if(effects.length)raf=requestAnimationFrame(tick)}
+
+  function openWelcome() {
+    modalMode='welcome'; els.overlay.hidden=false; els.modal.className='panel';
+    els.modal.innerHTML=`<div class="professor"><img src="${ASSETS.professor || ''}" alt="Professor Thales"><div><div class="eyebrow">Professor Thales’s field lesson</div><h1 id="modalTitle">Welcome to Echo Ruins</h1><p>Recover the Tideglass Ornament by combining companion powers, then bring it back to the landing display.</p></div></div><div class="note">I can show one short sound puzzle. You can watch, try the practice objects yourself, or explore now. Nothing in the lesson solves the real ruins.</div><div class="choices"><button class="primary" data-welcome="watch">Watch demo</button><button class="gold" data-welcome="try">Try it myself</button><button data-welcome="later">Later</button></div>`;
+    els.modal.querySelectorAll('[data-welcome]').forEach(button=>button.addEventListener('click',()=>{
+      if(button.dataset.welcome==='watch') startDemo(); else { markTutorialSeen(); closeModal(); setFeedback(button.dataset.welcome==='try'?'Try placing a companion on an adjacent tile. The floating target and crate are safe practice.':'Explore freely. Open the Field guide whenever you want the demonstration.'); }
+    }));
+  }
+
+  function markTutorialSeen(){const result=EchoRuins.step(state,{type:'tutorialSeen'});state=result.state;view=EchoRuins.view(state);save();render()}
+
+  function startDemo(){
+    modalMode='demo';
+    demo={index:0,paused:true,timer:null,frames:(typeof EchoRuins.demoFrames==='function'?EchoRuins.demoFrames():[])||[]};
+    renderDemo();
+  }
+
+  const DEMO_COPY=[
+    ['1 · Choose Siren','Siren sends a note in the direction she faces.'],
+    ['2 · Place beside you','The bright arrow shows exactly where her song will travel.'],
+    ['3 · The short note fades','The resonator is too far away. Try a companion that can carry the sound farther.'],
+    ['4 · Add Nautilus','Place Nautilus on the song line, facing the same direction.'],
+    ['5 · Align the arrows','Matching arrows let Nautilus catch and carry the sound.'],
+    ['6 · Use Siren','The longer golden echo reaches the resonator. Now try the real controls!']
+  ];
+
+  function renderDemo(){
+    if(!demo)return; const copy=DEMO_COPY[demo.index];
+    els.modal.innerHTML=`<div class="eyebrow">Professor Thales’s demonstration · playback only</div><h2 id="modalTitle">Sound travels in a straight line</h2><div class="demo-layout"><div class="demo-stage"><canvas id="demoCanvas" width="480" height="300" aria-label="Animated Siren and Nautilus demonstration"></canvas></div><div class="demo-copy"><strong>${copy[0]}</strong><p>${copy[1]}</p><div class="progress"><i style="width:${(demo.index+1)/6*100}%"></i></div><div class="demo-controls"><button data-demo="pause">${demo.paused?'Play':'Pause'}</button><button class="primary" data-demo="next">${demo.index===5?'Finish':'Next'}</button><button data-demo="skip">Skip</button></div></div></div>`;
+    drawDemoFrame($('demoCanvas'),demo.index);
+    els.modal.querySelector('[data-demo="pause"]').addEventListener('click',()=>{demo.paused=!demo.paused;clearInterval(demo.timer);demo.timer=null;if(!demo.paused)demo.timer=setInterval(()=>{if(!demo)return;if(demo.index>=5){finishDemo();return}demo.index++;renderDemo()},5000);renderDemo()});
+    els.modal.querySelector('[data-demo="next"]').addEventListener('click',()=>{if(demo.index===5)finishDemo();else{demo.index++;renderDemo()}});
+    els.modal.querySelector('[data-demo="skip"]').addEventListener('click',finishDemo);
+  }
+
+  function drawDemoFrame(canvas,index){
+    const c=canvas.getContext('2d');const frame=demo?.frames?.[[0,2,4,6,8,12][index]];c.imageSmoothingEnabled=false;c.fillStyle='#eadab0';c.fillRect(0,0,480,300);
+    for(let y=0;y<10;y++)for(let x=0;x<16;x++){c.strokeStyle='#c4b184';c.strokeRect(x*30+.5,y*30+.5,29,29)}
+    c.fillStyle='#244f51';c.fillRect(430,105,30,90);c.fillStyle=index>=5?'#ffe86b':'#547176';c.beginPath();c.arc(445,150,16,0,Math.PI*2);c.fill();
+    const sirenX=90,nautilusX=240,y=150;const draw=(id,x,size)=>{const img=images[id];if(img?.complete)c.drawImage(img,x-size/2,y-size/2,size,size);};draw('siren',sirenX,64);if(frame?.nautilus || index>=3)draw('nautilus',nautilusX,62);
+    c.fillStyle='#fff06b';c.strokeStyle='#183c40';c.lineWidth=2;for(const x of [125,index>=3?275:-99]){if(x<0)continue;c.beginPath();c.moveTo(x+14,y);c.lineTo(x-9,y-9);c.lineTo(x-5,y);c.lineTo(x-9,y+9);c.closePath();c.fill();c.stroke()}
+    if(index>=2){const amplified=frame?.amplified||index>=5;c.lineWidth=amplified?7:4;c.strokeStyle=amplified?'#ffd94f':'#9de8da';c.setLineDash([12,8]);c.beginPath();c.moveTo(sirenX+32,y);c.lineTo(amplified?445:205,y);c.stroke();c.setLineDash([]);}
+    if(index===2){c.fillStyle='#a13f36';c.font='900 24px system-ui';c.fillText('fades',190,122)}
+  }
+
+  function finishDemo(){if(demo?.timer)clearInterval(demo.timer);demo=null;markTutorialSeen();closeModal();setFeedback('Your turn: place companions beside you, turn their arrows, and use their powers. The landing objects are safe practice.')}
+
+  function openGuide(){
+    modalMode='guide';els.overlay.hidden=false;els.modal.className='panel';
+    els.modal.innerHTML=`<div class="eyebrow">Always available</div><h2 id="modalTitle">Field guide</h2><p>Every power uses the same rhythm: <b>choose → place beside you → turn → use</b>.</p><div class="guide-grid">${Object.entries(SPECIES).map(([id,m])=>`<div class="guide-card"><b>${m.name} · ${m.verb}</b><p>${m.detail}.</p></div>`).join('')}<div class="guide-card"><b>Move & interact</b><p>WASD/arrows move. E interacts. Tap the map to place on an adjacent tile.</p></div><div class="guide-card"><b>Correct a setup</b><p>Q recalls. Undo reverses spatial actions in this room. Reset restores room objects without removing rewards.</p></div></div><div class="choices"><button class="primary" data-guide="demo">Replay Professor demo</button><button data-guide="close">Back to ruins</button></div>`;
+    els.modal.querySelector('[data-guide="demo"]').addEventListener('click',startDemo);els.modal.querySelector('[data-guide="close"]').addEventListener('click',closeModal);
+  }
+
+  function hintText(){
+    const status=view.status||{};
+    const hints={landing:[
+      'The floating target and wooden crate are safe places to test powers.',
+      state.encounterComplete?'The eastern path leads deeper into the ruins.':'A wild Nautilus is near the tidepool. Weaken it before throwing an Echo Orb.',
+      'For sound practice, place Siren in a clear row. Add Nautilus farther along that row, with both arrows matching.'
+    ],courtyard:[
+      status.gate?'The central gate is open. The eastern passage reaches the gallery.':'The gate accepts either a distant lever or the heavy stone on its socket.',
+      'Octopus can reach three tiles, including across water. Face it toward the submerged lever.',
+      'Minotaur pushes what is directly ahead. Line it up behind the track weight and push toward the socket.'
+    ],gallery:[
+      status.bell?'Cross the new bridge and inspect the glowing pedestal.':'The far bell needs a stronger sound than Siren makes alone.',
+      'Place Siren and Nautilus in one clear row. Both arrows must point toward the bell.',
+      state.reward?'The Tideglass Ornament belongs in the landing display. A shortcut is now open.':'Sound crosses water and the chasm, but stone walls stop it.'
+    ]};
+    const list=hints[view.room]||['Explore the marked objects.'];return list[hintLevel++%list.length];
+  }
+
+  function showHint(){setFeedback(`Field note: ${hintText()}`)}
+
+  function openMenu(){
+    modalMode='menu';els.overlay.hidden=false;els.modal.className='panel';
+    els.modal.innerHTML=`<div class="eyebrow">Local expedition data</div><h2 id="modalTitle">Save &amp; more</h2><div class="menu-row"><div><b>${saveAvailable?'Progress saves on this device':'Saving is unavailable'}</b><small>${saveAvailable?'Stable exploration, captures, and rewards are saved automatically.':'The whole demo still works until this page closes.'}</small></div><span class="chip">${state.reward?'Ornament found':'Exploring'}</span></div><div class="menu-row"><div><b>Export progress</b><small>Download a small JSON backup for this Echo Ruins demo.</small></div><button data-menu="export">Export</button></div><div class="menu-row"><div><b>Import progress</b><small>Only version 1 Echo Ruins saves are accepted.</small></div><button data-menu="import">Import</button></div><div class="menu-row"><div><b>Restart local demo</b><small>Clears only this demo’s local save and starts at the landing.</small></div><button class="danger" data-menu="restart">Restart</button></div><div class="choices"><button class="primary" data-menu="close">Back to ruins</button></div>`;
+    els.modal.querySelectorAll('[data-menu]').forEach(button=>button.addEventListener('click',()=>menuAction(button.dataset.menu)));
+  }
+
+  function menuAction(action){
+    if(action==='close'){closeModal();return}if(action==='export'){exportSave();return}if(action==='import'){els.importInput.value='';els.importInput.click();return}
+    if(action==='restart'){try{localStorage.removeItem(SAVE_KEY)}catch(_){}state=EchoRuins.fresh();state=EchoRuins.normalize({...state,party:newParty()})||EchoRuins.fresh();view=EchoRuins.view(state);undoStack=[];feedbackText='A fresh expedition begins at Aegean Landing.';save();closeModal();render();openWelcome()}
+  }
+
+  function exportSave(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='echo-ruins-save-v1.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Echo Ruins save exported.')}
+  async function importSave(){const file=els.importInput.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());if(!inRelease(parsed))throw new Error('wrong release');const normalized=EchoRuins.normalize(parsed);if(!normalized||!inRelease(normalized))throw new Error('invalid');state=normalized;if(!validParty(state.party))state=EchoRuins.normalize({...state,party:newParty()})||EchoRuins.fresh();view=EchoRuins.view(state);undoStack=[];save();closeModal();render();toast('Echo Ruins progress imported.')}catch(_){toast('That file is not a valid Echo Ruins version 1 save.')}}
+
+  function closeModal(){if(demo?.timer)clearInterval(demo.timer);if(modalMode==='demo')demo=null;if(modalMode!=='battle'){modalMode=null;els.overlay.hidden=true;els.canvas.focus()}}
+
+  function startBattle(checkpoint){
+    if(!battleEngine){setFeedback('The Nautilus is curious, but the battle module is unavailable in this build.');return}
+    battleCheckpoint=clone(checkpoint);battleStartingInventory={balls:state.balls,potions:state.potions};
+    if(!validParty(state.party))state={...state,party:newParty()};
+    try{battle=battleEngine.begin(state.party,{kind:'wild',enemyTeam:[{species:'nautilus',level:4}]})}catch(_){battle=null;setFeedback('The recovery spring restored your field team. Try approaching Nautilus again.');return}
+    modalMode='battle';els.overlay.hidden=false;renderBattle(['A wild Nautilus rises from the tidepool! Weaken it, then use an Echo Orb.']);
+  }
+
+  function activeMon(side){if(!battle)return null;const party=side==='player'?battle.playerParty:battle.enemyParty;const index=side==='player'?battle.playerIndex:battle.enemyIndex;return party[index]}
+  function monName(mon){return battleEngine?.content?.species?.[mon.species]?.name||SPECIES[mon.species]?.name||mon.species}
+  function hpPercent(mon){return Math.max(0,Math.min(100,mon.hp/battleEngine.maxHp(mon)*100))}
+
+  function renderBattle(messages=[]){
+    if(!battle)return;const ally=activeMon('player'),enemy=activeMon('enemy');const balls=Math.max(0,battleStartingInventory.balls-(battle.ballsUsed||0));const potions=Math.max(0,battleStartingInventory.potions-(battle.potionsUsed||0));
+    els.modal.className='panel battle-card';els.modal.innerHTML=`<div class="eyebrow">Tidepool encounter · friendly and repeatable</div><h2 id="modalTitle">Befriend Nautilus</h2><div class="battle-top"><div class="fighter"><img src="${ASSETS[ally.species]||''}" alt="${monName(ally)}"><b>${monName(ally)} · Lv. ${ally.level}</b><small>${ally.hp} / ${battleEngine.maxHp(ally)} HP</small><div class="hp"><i style="width:${hpPercent(ally)}%"></i></div></div><div class="fighter enemy"><img src="${ASSETS.nautilus||''}" alt="Wild Nautilus"><b>Wild Nautilus · Lv. ${enemy.level}</b><small>${enemy.hp} / ${battleEngine.maxHp(enemy)} HP</small><div class="hp"><i style="width:${hpPercent(enemy)}%"></i></div></div></div><div class="battle-log" role="status" aria-live="polite">${messages.join(' ')||'Choose an action.'}</div><div class="battle-buttons"><button data-battle="tap">Gentle Tap</button><button data-battle="guard">Guard</button><button class="gold" data-battle="capture">Echo Orb</button><button data-battle="potion">Tonic</button></div><div class="battle-buttons" style="margin-top:7px"><button data-battle="switch">Switch friend</button><button data-battle="run">Step away</button></div><div class="battle-inventory">${balls} Echo Orb${balls===1?'':'s'} · ${potions} Tonic${potions===1?'':'s'} · Lower HP makes befriending easier.</div>`;
+    els.modal.querySelectorAll('[data-battle]').forEach(button=>button.addEventListener('click',()=>battleAction(button.dataset.battle)));
+  }
+
+  function battleAction(action){
+    if(!battle)return;let command;
+    if(action==='tap')command={kind:'move',index:0};else if(action==='guard')command={kind:'move',index:1};else if(action==='capture')command={kind:'capture',balls:Math.max(0,battleStartingInventory.balls-(battle.ballsUsed||0))};else if(action==='potion')command={kind:'healItem',potions:Math.max(0,battleStartingInventory.potions-(battle.potionsUsed||0))};else if(action==='run')command={kind:'run'};else if(action==='switch'){const options=battle.playerParty.map((mon,index)=>({mon,index})).filter(({mon,index})=>index!==battle.playerIndex&&mon.hp>0);if(!options.length){renderBattle(['No other healthy companion is ready to switch in.']);return}command={kind:'switch',index:options[0].index}}
+    const result=battleEngine.act(battle,command);battle=result.battle;const messages=(result.events||[]).map(event=>event.text).filter(Boolean);
+    if(result.outcome){finishBattle(result.outcome,messages);return}renderBattle(messages);
+  }
+
+  function restoredParty(party){return (party||state.party).map(mon=>({...mon,hp:battleEngine.maxHp(mon)}))}
+  function finishBattle(outcome,messages){
+    const balls=Math.max(0,battleStartingInventory.balls-(battle.ballsUsed||0));const potions=Math.max(0,battleStartingInventory.potions-(battle.potionsUsed||0));let party=outcome.party||battle.playerParty;const caught=outcome.type==='capture';if(caught&&outcome.captured&&party.length<6)party=[...party,outcome.captured];party=restoredParty(party);
+    battle=null;modalMode=null;els.overlay.hidden=true;const result=EchoRuins.step(state,{type:'battleResult',outcome:caught?'caught':'missed',party,balls,potions});state=result.state;view=EchoRuins.view(state);undoStack=[];save();render();setFeedback(caught?'Nautilus joined your companions! Select it with 4 and use Amplify on Siren’s sound.':`${messages.join(' ')||'The encounter ended.'} Nautilus will wait safely at the tidepool.`);toast(caught?'Nautilus befriended!':'You can return to Nautilus whenever you are ready.');battleCheckpoint=null;battleStartingInventory=null;els.canvas.focus({preventScroll:true});
+  }
+
+  function openFinish(){
+    modalMode='finish';els.overlay.hidden=false;els.modal.className='panel';els.modal.innerHTML=`<div class="eyebrow">Echo Ruins complete</div><h1 id="modalTitle">The tidepool shines again</h1><p>You opened the ruins with companion field powers, recovered the Tideglass Ornament, and installed it at the landing display.</p><div class="note">Keep exploring or reset any room to test a different solution. Your capture and ornament remain safe.</div><div class="choices"><button class="primary" data-finish="back">Keep exploring</button><button data-finish="guide">Open field guide</button></div>`;els.modal.querySelector('[data-finish="back"]').addEventListener('click',closeModal);els.modal.querySelector('[data-finish="guide"]').addEventListener('click',openGuide)
+  }
+
+  function snapshot(){return Object.freeze(clone({state,view:EchoRuins.view(state),saveAvailable,battleActive:!!battle,modal:modalMode}))}
+  Object.defineProperty(window,'EchoDemo',{configurable:false,enumerable:true,value:Object.freeze({get snapshot(){return snapshot()},ready,command(command){if(command&&typeof command==='object')dispatch(clone(command));return snapshot()}})});
+
+  boot();
+})();
+</script>
+</body>
+</html>
