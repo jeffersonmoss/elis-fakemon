@@ -455,7 +455,7 @@ img,canvas{image-rendering:pixelated}
 <script>
 "use strict";
 const ASSET_SOURCES = {"cloak1":"../assets/c6e9b23ef6cc6ab34e7cc12b61988f4cb37625357b433c5c74942d9cf212a4d1.png","cloak2":"../assets/33057b5e1af27b90c5aa15ed155f8d85877de7994face54a601f601ab63cba71.png","cloak3":"../assets/450e475a931e43b9ba6c86e5cc8392cfad9b084079117d555dfd4ed7cdee66f0.png","warrior1":"../assets/ef5b63046ca7e978ef7b5c45c1fd6874793a4a441231c1728fb4f004070ae645.png","warrior2":"../assets/780a0803db31ba775adaf86c6ffd58ac8b71eae247ab2334983d3f5ac3bc8e66.png","warrior3":"../assets/153db6a1e8c244b19eda4f2cc1de685cf6af7446b5b52eecb79549e32d3416c0.png","wheat1":"../assets/7483bbd631060051123f2ed5450791173ee39648dbed24b9758621cf31f5d1dc.png","wheat2":"../assets/f7f77b7dfd2e8b28aee43274d6d18de273315f5abce588a73f5e7a49736dcf5c.png","wheat3":"../assets/ce91f0ec91480d5bb36a0112ed5799538a08426387016b3b705eed49bc59b8bb.png","mantis1":"../assets/69443c19c3ba0322f1881e5f01b1caf9249f43ad378e234fbdf693035f9d1b62.png","mantis2":"../assets/9e00b1cf4609b33dbcf54703882ba1b0a2fdb613830a28571db8b4915b5c4b07.png","mantis3":"../assets/0e2652f9fc7ef0f037d7ac3bc6686f5102441c250a78b7e2b4b5a31aff750565.png","cyclops1":"../assets/924f569c5c8a388b8bda0847f7fcbb875b6ae7fc0b4db82e926976efd9ad5d01.png","cyclops2":"../assets/f6f09f694d862065df251699786a4daf4d0413bfcc664e59ff79e17eec9b22d0.png","cyclops3":"../assets/9f7ae133faa17161aad403e02512156f7d9b976dc8286f582e8df556b4e63550.png","satyr1":"../assets/bb73c1af3e2f07f3f936c0f31e393cd1d4571c6fa8533f619cca0a4e5b9905f2.png","satyr2":"../assets/cbfc27b47ea50c33b822ae32775422b573c26d61924c839d9b9e2d4c1fb36caf.png","minotaur":"../assets/24bc7b07573bc4206648bfb04d9ce9ab8cfb18ad3d9b00d9afe5f4719ed0561c.png","gorgon1":"../assets/da132aa4f317eefa2c650e4bab135ec9ad3fc6cfbedeed7d85fc3ee577c3a711.png","gorgon2":"../assets/6f221eefb49862649347706f242cedafeb5094cfcdff45c36e74e4442696660a.png","gorgon3":"../assets/dfad962ce7ca6c262fe411059a5784c1feff5bdeb762e6f5e07659b8fbb7351e.png","ent1":"../assets/00a04868c83b3b9be85258d5c3fab271a6f9796e7cf1f6341a5a6d65156e68e0.png","ent2":"../assets/e5c54f6451effbe08ae4a7c09253cbb3983b42299881a68ba245a7204638ed7d.png","ent3":"../assets/7fce366cb542738159463451a35ad1a4330466c9f621bf210ed7b58e046a1ad8.png","nautilus1":"../assets/4a966501eb4dc5461c6eb7ad88b10bbbc7fe9c580590b0e6b1278743e781ad49.png","nautilus2":"../assets/8597babe9c5bf01222dc515cb1bdc62d3d1ff2a5bc91377cb2f61b30927c262e.png","octopus":"../assets/9a31a31fdd3ce6e2676e1445aee429fcca591ff83d09b4c6cd6e1435135a79da.png","rockman":"../assets/986f9676d2593c93704c8aed1e9b1f6a5f2660d53dcea51fa622c22a3c372c86.png","pug":"../assets/bff684111bd1d7ee3159e1c381080590a22f47a8a24e8427c3c004128a3219c1.png","siren1":"../assets/91ad5ea81cc97b924e09ecccbdd7c16c576a38fc871a84ab212e039546198b7c.png","professor":"../assets/82eaf540cf145954c7c2400e5833683e4b70eac2aa38aa6b830baf974ff7e93e.png","mapWorld":"../assets/bbcdd8ac1dcc58e7b959ed81768a5733dc7140df0e958d62e5f2ecdd45d4ed01.png","mapVillage":"../assets/af1fda092d40008955af1ecde1ee8e6781f1ea1f6121937e4ef249dc89275a1e.png","mapSecond":"../assets/231c4f369f04ab544453a53631cf1ec7b3878576554b54617655953bdef68ea7.png","mapCave":"../assets/6409663b63a65548bd6c6e137ae9e879c0d77b69a452ad6c04b0ee2c2d02015f.png","mapDesert":"../assets/17015dc72fb86f5e12a98fbe0ff7ae8f2fe7c688540a9a4b7a802291c73193f5.png","mapTemple":"../assets/8a23d71d16b907e985a9c938c9e8fccac87b6c47dbfc4f47e23fc531a89f89ab.png","mapHarbor":"../assets/202a4180f547f134ae132ce0e52cfa80efc4d53d3b919be6d5418d3d48953e7e.png","mapNextHarbor":"../assets/6b54b9191f9d6c97e80e9211bafafd1d4e6975d2df70a10d282983f36daf98c5.png","mapAcropolis":"../assets/d45aa08b6bd994e6b054dc0fb3d20b4018ec6c1bcb75a6698943dc7b7dd3400c.png","battleCave":"../assets/4fd1178848933ed7a741cbc6d0eced9783c4ee5f85399db053dd18227181380f.png","battleForest":"../assets/67c379f104b86872b3b07bb93cc3bf24784d9555578a87bf24f5d32d2b374a6d.png","battlePlains":"../assets/c7bb3b3efc671407a51c3ca8581898ab779cb86c30677b15c13d8e1dd02a1b32.png","battleComposite":"../assets/305f8d504e4f2f0f3490cb57c54523f8b664ca55c4141c1f6095fe6bf028825e.png","battleGym":"../assets/ca17e03a9e1bf6e5a86b0fd0badac32a1168df401cdc92affa57c14633851d29.png","sheet":"../assets/5e46969f73e9c2ba146b740e81435e3c4d991ca2439b3ca9087e651e6988eb24.png"};
-const DATA = {"id":"experimental","release":"experimental","version":2,"schemaVersion":2,"saveKey":"fakemon-jefferson-experimental-v2","title":"Jefferson's Experimental version","species":{"cloak1":{"id":"cloak1","number":1,"name":"Ice Wizard 1","family":"ice-wizard","asset":"cloak1","type":"Frost","stage":1,"next":"cloak2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 1 can be found around caves and old ruins.","displayScale":0.6,"portraitScale":0.4909090909090909},"cloak2":{"id":"cloak2","number":17,"name":"Ice Wizard 2","family":"ice-wizard","asset":"cloak2","type":"Frost","stage":2,"next":"cloak3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 2 can be found around caves and old ruins.","displayScale":0.78,"portraitScale":0.9242424242424242},"cloak3":{"id":"cloak3","number":18,"name":"Ice Wizard 3","family":"ice-wizard","asset":"cloak3","type":"Frost","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 3 can be found around caves and old ruins.","displayScale":1.0,"portraitScale":0.9666666666666667},"warrior1":{"id":"warrior1","number":19,"name":"Blue Warrior 1","family":"blue-warrior","asset":"warrior1","type":"Metal","stage":1,"next":"warrior2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 1 can be found around marble towns.","displayScale":0.6,"portraitScale":0.4484848484848485},"warrior2":{"id":"warrior2","number":3,"name":"Blue Warrior 2","family":"blue-warrior","asset":"warrior2","type":"Metal","stage":2,"next":"warrior3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 2 can be found around marble towns.","displayScale":0.78,"portraitScale":0.5848484848484848},"warrior3":{"id":"warrior3","number":4,"name":"Golden Warrior 3","family":"blue-warrior","asset":"warrior3","type":"Metal","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Golden Warrior 3 can be found around marble towns.","displayScale":1.0,"portraitScale":1.0},"wheat1":{"id":"wheat1","number":6,"name":"Wheat 1","family":"wheat","asset":"wheat1","type":"Leaf","stage":1,"next":"wheat2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Wheat fields","description":"Wheat 1 can be found around wheat fields.","displayScale":0.6,"portraitScale":0.6},"wheat2":{"id":"wheat2","number":7,"name":"Wheat 2","family":"wheat","asset":"wheat2","type":"Leaf","stage":2,"next":"wheat3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat 2 can be found around wheat fields.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat3":{"id":"wheat3","number":8,"name":"Wheat Wagon 3","family":"wheat","asset":"wheat3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat Wagon 3 can be found around wheat fields.","displayScale":1.0,"portraitScale":1.0},"mantis1":{"id":"mantis1","number":9,"name":"White-Belt Mantis 1","family":"mantis","asset":"mantis1","type":"Fight","stage":1,"next":"mantis2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"White-Belt Mantis 1 can be found around temple grass.","displayScale":0.6,"portraitScale":0.6},"mantis2":{"id":"mantis2","number":10,"name":"Black-Belt Mantis 2","family":"mantis","asset":"mantis2","type":"Fight","stage":2,"next":"mantis3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Black-Belt Mantis 2 can be found around temple grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"mantis3":{"id":"mantis3","number":22,"name":"Mantis Master 3","family":"mantis","asset":"mantis3","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Mantis Master 3 can be found around temple grass.","displayScale":1.0,"portraitScale":1.0},"cyclops1":{"id":"cyclops1","number":11,"name":"Cyclops 1","family":"cyclops","asset":"cyclops1","type":"Stone","stage":1,"next":"cyclops2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 1 can be found around outer harbor grass.","displayScale":0.6,"portraitScale":0.49393939393939396},"cyclops2":{"id":"cyclops2","number":23,"name":"Cyclops 2","family":"cyclops","asset":"cyclops2","type":"Stone","stage":2,"next":"cyclops3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 2 can be found around outer harbor grass.","displayScale":0.78,"portraitScale":0.6484848484848484},"cyclops3":{"id":"cyclops3","number":24,"name":"Cyclops 3","family":"cyclops","asset":"cyclops3","type":"Stone","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 3 can be found around outer harbor grass.","displayScale":1.0,"portraitScale":1.0},"satyr1":{"id":"satyr1","number":14,"name":"Satyr 1","family":"satyr-minotaur","asset":"satyr1","type":"Fight","stage":1,"next":"satyr2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 1 can be found around village grass.","displayScale":0.6,"portraitScale":0.6},"satyr2":{"id":"satyr2","number":15,"name":"Satyr 2","family":"satyr-minotaur","asset":"satyr2","type":"Fight","stage":2,"next":"minotaur","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 2 can be found around village grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"minotaur":{"id":"minotaur","number":16,"name":"Minotaur 3","family":"satyr-minotaur","asset":"minotaur","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Acropolis grass","description":"Minotaur 3 can be found around acropolis grass.","displayScale":1.0,"portraitScale":1.0},"gorgon1":{"id":"gorgon1","number":25,"name":"Snake Gorgon 1","family":"gorgon","asset":"gorgon1","type":"Venom","stage":1,"next":"gorgon2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 1 can be found around desert and ruins.","displayScale":0.6,"portraitScale":0.6},"gorgon2":{"id":"gorgon2","number":26,"name":"Snake Gorgon 2","family":"gorgon","asset":"gorgon2","type":"Venom","stage":2,"next":"gorgon3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 2 can be found around desert and ruins.","displayScale":0.78,"portraitScale":0.7787878787878788},"gorgon3":{"id":"gorgon3","number":27,"name":"Snake Gorgon 3","family":"gorgon","asset":"gorgon3","type":"Venom","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 3 can be found around desert and ruins.","displayScale":1.0,"portraitScale":1.0},"ent1":{"id":"ent1","number":28,"name":"Ent 1","family":"ent","asset":"ent1","type":"Leaf","stage":1,"next":"ent2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Green grass","description":"Ent 1 can be found around green grass.","displayScale":0.6,"portraitScale":0.5484848484848485},"ent2":{"id":"ent2","number":29,"name":"Ent 2","family":"ent","asset":"ent2","type":"Leaf","stage":2,"next":"ent3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 2 can be found around green grass.","displayScale":0.78,"portraitScale":0.7121212121212122},"ent3":{"id":"ent3","number":30,"name":"Ent 3","family":"ent","asset":"ent3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 3 can be found around green grass.","displayScale":1.0,"portraitScale":0.9151515151515152},"nautilus1":{"id":"nautilus1","number":31,"name":"Nautilus 1","family":"nautilus","asset":"nautilus1","type":"Water","stage":1,"next":"nautilus2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 1 can be found around harbor shores.","displayScale":0.6,"portraitScale":0.4575757575757576},"nautilus2":{"id":"nautilus2","number":32,"name":"Nautilus 2","family":"nautilus","asset":"nautilus2","type":"Water","stage":2,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 2 can be found around harbor shores.","displayScale":1.0,"portraitScale":0.7636363636363637},"octopus":{"id":"octopus","number":33,"name":"Octopus","family":"octopus","asset":"octopus","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Acropolis coast","description":"Octopus can be found around acropolis coast.","displayScale":0.85,"portraitScale":0.8484848484848485},"rockman":{"id":"rockman","number":34,"name":"Rock Man","family":"rock-man","asset":"rockman","type":"Stone","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Rocky desert","description":"Rock Man can be found around rocky desert.","displayScale":1.0,"portraitScale":1.0},"pug":{"id":"pug","number":2,"name":"Black-Red Pug","family":"pug","asset":"pug","type":"Flame","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"Black-Red Pug can be found around village grass.","displayScale":0.85,"portraitScale":0.8484848484848485},"siren1":{"id":"siren1","number":12,"name":"Siren 1","family":"siren","asset":"siren1","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Harbor shores","description":"Siren 1 can be found around harbor shores.","displayScale":0.85,"portraitScale":0.8484848484848485}},"moves":{"tap":{"id":"tap","name":"Quick Strike","type":"Normal","power":26,"accuracy":1,"kind":"attack"},"guard":{"id":"guard","name":"Guard","type":"Normal","power":0,"accuracy":1,"kind":"guard"},"recover":{"id":"recover","name":"Catch Breath","type":"Normal","power":0,"accuracy":1,"kind":"heal","healRatio":0.28},"heavy":{"id":"heavy","name":"Power Strike","type":"Normal","power":44,"accuracy":0.85,"kind":"attack"},"megaPunch":{"id":"megaPunch","name":"Mega Punch","type":"Fight","power":55,"accuracy":0.9,"kind":"attack"},"megaKick":{"id":"megaKick","name":"Mega Kick","type":"Fight","power":65,"accuracy":0.8,"kind":"attack"},"frostSpark":{"id":"frostSpark","name":"Blue Flame","type":"Frost","power":38,"accuracy":1,"kind":"attack"},"bronzeSlash":{"id":"bronzeSlash","name":"Bronze Slash","type":"Metal","power":38,"accuracy":1,"kind":"attack"},"leafWhirl":{"id":"leafWhirl","name":"Leaf Whirl","type":"Leaf","power":38,"accuracy":1,"kind":"attack"},"karateStrike":{"id":"karateStrike","name":"Karate Strike","type":"Fight","power":38,"accuracy":1,"kind":"attack"},"stoneToss":{"id":"stoneToss","name":"Stone Toss","type":"Stone","power":38,"accuracy":1,"kind":"attack"},"venomFang":{"id":"venomFang","name":"Venom Fang","type":"Venom","power":38,"accuracy":1,"kind":"attack"},"wave":{"id":"wave","name":"Wave","type":"Water","power":38,"accuracy":1,"kind":"attack"},"ember":{"id":"ember","name":"Ember","type":"Flame","power":38,"accuracy":1,"kind":"attack"}},"typeChart":{"Frost":{"Leaf":1.5,"Water":0.7,"Flame":0.7},"Metal":{"Stone":1.5,"Frost":1.5,"Flame":0.7},"Leaf":{"Water":1.5,"Stone":1.5,"Flame":0.7,"Venom":0.7},"Fight":{"Metal":1.5,"Stone":1.5,"Venom":0.7},"Stone":{"Flame":1.5,"Frost":1.5,"Leaf":0.7},"Venom":{"Leaf":1.5,"Fight":1.5,"Metal":0.7},"Water":{"Flame":1.5,"Stone":1.5,"Leaf":0.7,"Frost":0.7},"Flame":{"Leaf":1.5,"Frost":1.5,"Water":0.7,"Stone":0.7}},"starters":["cloak1","wheat1","nautilus1"],"levelCap":99,"families":[["cloak1","cloak2","cloak3"],["warrior1","warrior2","warrior3"],["wheat1","wheat2","wheat3"],["mantis1","mantis2","mantis3"],["cyclops1","cyclops2","cyclops3"],["satyr1","satyr2","minotaur"],["gorgon1","gorgon2","gorgon3"],["ent1","ent2","ent3"],["nautilus1","nautilus2"],["pug"],["siren1"],["octopus"],["rockman"]],"badges":{"temple":{"name":"Laurel Badge"},"acropolis":{"name":"Marble Badge"}},"buildVersion":5,"intro":"Explore the Greek coast, restore forgotten paths, and complete an eight-badge expedition to the Summit Arena.","tagline":"From your village to the mountain summit.","atlasCaption":"Original coastal region. The expedition continues beyond the Acropolis; use the connected area guide above.","shop":{"ballPrice":30,"potionPrice":50}};
+const DATA = {"id":"experimental","release":"experimental","version":2,"schemaVersion":2,"saveKey":"fakemon-jefferson-experimental-v2","title":"Jefferson's Experimental version","species":{"cloak1":{"id":"cloak1","number":1,"name":"Ice Wizard 1","family":"ice-wizard","asset":"cloak1","type":"Frost","stage":1,"next":"cloak2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 1 can be found around caves and old ruins.","displayScale":0.6,"portraitScale":0.4909090909090909},"cloak2":{"id":"cloak2","number":17,"name":"Ice Wizard 2","family":"ice-wizard","asset":"cloak2","type":"Frost","stage":2,"next":"cloak3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 2 can be found around caves and old ruins.","displayScale":0.78,"portraitScale":0.9242424242424242},"cloak3":{"id":"cloak3","number":18,"name":"Ice Wizard 3","family":"ice-wizard","asset":"cloak3","type":"Frost","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 3 can be found around caves and old ruins.","displayScale":1.0,"portraitScale":0.9666666666666667},"warrior1":{"id":"warrior1","number":19,"name":"Blue Warrior 1","family":"blue-warrior","asset":"warrior1","type":"Metal","stage":1,"next":"warrior2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 1 can be found around marble towns.","displayScale":0.6,"portraitScale":0.4484848484848485},"warrior2":{"id":"warrior2","number":3,"name":"Blue Warrior 2","family":"blue-warrior","asset":"warrior2","type":"Metal","stage":2,"next":"warrior3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 2 can be found around marble towns.","displayScale":0.78,"portraitScale":0.5848484848484848},"warrior3":{"id":"warrior3","number":4,"name":"Golden Warrior 3","family":"blue-warrior","asset":"warrior3","type":"Metal","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Golden Warrior 3 can be found around marble towns.","displayScale":1.0,"portraitScale":1.0},"wheat1":{"id":"wheat1","number":6,"name":"Wheat 1","family":"wheat","asset":"wheat1","type":"Leaf","stage":1,"next":"wheat2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Wheat fields","description":"Wheat 1 can be found around wheat fields.","displayScale":0.6,"portraitScale":0.6},"wheat2":{"id":"wheat2","number":7,"name":"Wheat 2","family":"wheat","asset":"wheat2","type":"Leaf","stage":2,"next":"wheat3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat 2 can be found around wheat fields.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat3":{"id":"wheat3","number":8,"name":"Wheat Wagon 3","family":"wheat","asset":"wheat3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat Wagon 3 can be found around wheat fields.","displayScale":1.0,"portraitScale":1.0},"mantis1":{"id":"mantis1","number":9,"name":"White-Belt Mantis 1","family":"mantis","asset":"mantis1","type":"Fight","stage":1,"next":"mantis2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"White-Belt Mantis 1 can be found around temple grass.","displayScale":0.6,"portraitScale":0.6},"mantis2":{"id":"mantis2","number":10,"name":"Black-Belt Mantis 2","family":"mantis","asset":"mantis2","type":"Fight","stage":2,"next":"mantis3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Black-Belt Mantis 2 can be found around temple grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"mantis3":{"id":"mantis3","number":22,"name":"Mantis Master 3","family":"mantis","asset":"mantis3","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Mantis Master 3 can be found around temple grass.","displayScale":1.0,"portraitScale":1.0},"cyclops1":{"id":"cyclops1","number":11,"name":"Cyclops 1","family":"cyclops","asset":"cyclops1","type":"Stone","stage":1,"next":"cyclops2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 1 can be found around outer harbor grass.","displayScale":0.6,"portraitScale":0.49393939393939396},"cyclops2":{"id":"cyclops2","number":23,"name":"Cyclops 2","family":"cyclops","asset":"cyclops2","type":"Stone","stage":2,"next":"cyclops3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 2 can be found around outer harbor grass.","displayScale":0.78,"portraitScale":0.6484848484848484},"cyclops3":{"id":"cyclops3","number":24,"name":"Cyclops 3","family":"cyclops","asset":"cyclops3","type":"Stone","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 3 can be found around outer harbor grass.","displayScale":1.0,"portraitScale":1.0},"satyr1":{"id":"satyr1","number":14,"name":"Satyr 1","family":"satyr-minotaur","asset":"satyr1","type":"Fight","stage":1,"next":"satyr2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 1 can be found around village grass.","displayScale":0.6,"portraitScale":0.6},"satyr2":{"id":"satyr2","number":15,"name":"Satyr 2","family":"satyr-minotaur","asset":"satyr2","type":"Fight","stage":2,"next":"minotaur","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 2 can be found around village grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"minotaur":{"id":"minotaur","number":16,"name":"Minotaur 3","family":"satyr-minotaur","asset":"minotaur","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Acropolis grass","description":"Minotaur 3 can be found around acropolis grass.","displayScale":1.0,"portraitScale":1.0},"gorgon1":{"id":"gorgon1","number":25,"name":"Snake Gorgon 1","family":"gorgon","asset":"gorgon1","type":"Venom","stage":1,"next":"gorgon2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 1 can be found around desert and ruins.","displayScale":0.6,"portraitScale":0.6},"gorgon2":{"id":"gorgon2","number":26,"name":"Snake Gorgon 2","family":"gorgon","asset":"gorgon2","type":"Venom","stage":2,"next":"gorgon3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 2 can be found around desert and ruins.","displayScale":0.78,"portraitScale":0.7787878787878788},"gorgon3":{"id":"gorgon3","number":27,"name":"Snake Gorgon 3","family":"gorgon","asset":"gorgon3","type":"Venom","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 3 can be found around desert and ruins.","displayScale":1.0,"portraitScale":1.0},"ent1":{"id":"ent1","number":28,"name":"Ent 1","family":"ent","asset":"ent1","type":"Leaf","stage":1,"next":"ent2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Green grass","description":"Ent 1 can be found around green grass.","displayScale":0.6,"portraitScale":0.5484848484848485},"ent2":{"id":"ent2","number":29,"name":"Ent 2","family":"ent","asset":"ent2","type":"Leaf","stage":2,"next":"ent3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 2 can be found around green grass.","displayScale":0.78,"portraitScale":0.7121212121212122},"ent3":{"id":"ent3","number":30,"name":"Ent 3","family":"ent","asset":"ent3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 3 can be found around green grass.","displayScale":1.0,"portraitScale":0.9151515151515152},"nautilus1":{"id":"nautilus1","number":31,"name":"Nautilus 1","family":"nautilus","asset":"nautilus1","type":"Water","stage":1,"next":"nautilus2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 1 can be found around harbor shores.","displayScale":0.6,"portraitScale":0.4575757575757576},"nautilus2":{"id":"nautilus2","number":32,"name":"Nautilus 2","family":"nautilus","asset":"nautilus2","type":"Water","stage":2,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 2 can be found around harbor shores.","displayScale":1.0,"portraitScale":0.7636363636363637},"octopus":{"id":"octopus","number":33,"name":"Octopus","family":"octopus","asset":"octopus","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Acropolis coast","description":"Octopus can be found around acropolis coast.","displayScale":0.85,"portraitScale":0.8484848484848485},"rockman":{"id":"rockman","number":34,"name":"Rock Man","family":"rock-man","asset":"rockman","type":"Stone","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Rocky desert","description":"Rock Man can be found around rocky desert.","displayScale":1.0,"portraitScale":1.0},"pug":{"id":"pug","number":2,"name":"Black-Red Pug","family":"pug","asset":"pug","type":"Flame","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"Black-Red Pug can be found around village grass.","displayScale":0.85,"portraitScale":0.8484848484848485},"siren1":{"id":"siren1","number":12,"name":"Siren 1","family":"siren","asset":"siren1","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Harbor shores","description":"Siren 1 can be found around harbor shores.","displayScale":0.85,"portraitScale":0.8484848484848485}},"moves":{"tap":{"id":"tap","name":"Quick Strike","type":"Normal","power":26,"accuracy":1,"kind":"attack"},"guard":{"id":"guard","name":"Guard","type":"Normal","power":0,"accuracy":1,"kind":"guard"},"recover":{"id":"recover","name":"Catch Breath","type":"Normal","power":0,"accuracy":1,"kind":"heal","healRatio":0.28},"heavy":{"id":"heavy","name":"Power Strike","type":"Normal","power":44,"accuracy":0.85,"kind":"attack"},"megaPunch":{"id":"megaPunch","name":"Mega Punch","type":"Fight","power":55,"accuracy":0.9,"kind":"attack"},"megaKick":{"id":"megaKick","name":"Mega Kick","type":"Fight","power":65,"accuracy":0.8,"kind":"attack"},"frostSpark":{"id":"frostSpark","name":"Blue Flame","type":"Frost","power":38,"accuracy":1,"kind":"attack"},"bronzeSlash":{"id":"bronzeSlash","name":"Bronze Slash","type":"Metal","power":38,"accuracy":1,"kind":"attack"},"leafWhirl":{"id":"leafWhirl","name":"Leaf Whirl","type":"Leaf","power":38,"accuracy":1,"kind":"attack"},"karateStrike":{"id":"karateStrike","name":"Karate Strike","type":"Fight","power":38,"accuracy":1,"kind":"attack"},"stoneToss":{"id":"stoneToss","name":"Stone Toss","type":"Stone","power":38,"accuracy":1,"kind":"attack"},"venomFang":{"id":"venomFang","name":"Venom Fang","type":"Venom","power":38,"accuracy":1,"kind":"attack"},"wave":{"id":"wave","name":"Wave","type":"Water","power":38,"accuracy":1,"kind":"attack"},"ember":{"id":"ember","name":"Ember","type":"Flame","power":38,"accuracy":1,"kind":"attack"}},"typeChart":{"Frost":{"Leaf":1.5,"Water":0.7,"Flame":0.7},"Metal":{"Stone":1.5,"Frost":1.5,"Flame":0.7},"Leaf":{"Water":1.5,"Stone":1.5,"Flame":0.7,"Venom":0.7},"Fight":{"Metal":1.5,"Stone":1.5,"Venom":0.7},"Stone":{"Flame":1.5,"Frost":1.5,"Leaf":0.7},"Venom":{"Leaf":1.5,"Fight":1.5,"Metal":0.7},"Water":{"Flame":1.5,"Stone":1.5,"Leaf":0.7,"Frost":0.7},"Flame":{"Leaf":1.5,"Frost":1.5,"Water":0.7,"Stone":0.7}},"starters":["cloak1","wheat1","nautilus1"],"levelCap":99,"families":[["cloak1","cloak2","cloak3"],["warrior1","warrior2","warrior3"],["wheat1","wheat2","wheat3"],["mantis1","mantis2","mantis3"],["cyclops1","cyclops2","cyclops3"],["satyr1","satyr2","minotaur"],["gorgon1","gorgon2","gorgon3"],["ent1","ent2","ent3"],["nautilus1","nautilus2"],["pug"],["siren1"],["octopus"],["rockman"]],"badges":{"temple":{"name":"Laurel Badge"},"acropolis":{"name":"Marble Badge"}},"buildVersion":6,"intro":"Explore the Greek coast, restore forgotten paths, and complete an eight-badge expedition to the Summit Arena.","tagline":"From your village to the mountain summit.","atlasCaption":"Original coastal region. The expedition continues beyond the Acropolis; use the connected area guide above.","shop":{"ballPrice":30,"potionPrice":50}};
 const DIMENSIONS = {"cloak1":{"width":294,"height":280},"cloak2":{"width":252,"height":280},"cloak3":{"width":289,"height":280},"warrior1":{"width":312,"height":280},"warrior2":{"width":331,"height":280},"warrior3":{"width":271,"height":280},"wheat1":{"width":274,"height":280},"wheat2":{"width":185,"height":280},"wheat3":{"width":259,"height":280},"mantis1":{"width":262,"height":280},"mantis2":{"width":268,"height":280},"mantis3":{"width":263,"height":280},"cyclops1":{"width":280,"height":280},"cyclops2":{"width":270,"height":280},"cyclops3":{"width":269,"height":280},"satyr1":{"width":276,"height":280},"satyr2":{"width":226,"height":280},"minotaur":{"width":262,"height":280},"gorgon1":{"width":215,"height":280},"gorgon2":{"width":188,"height":280},"gorgon3":{"width":186,"height":280},"ent1":{"width":257,"height":280},"ent2":{"width":272,"height":280},"ent3":{"width":306,"height":280},"nautilus1":{"width":340,"height":231},"nautilus2":{"width":340,"height":259},"octopus":{"width":273,"height":280},"rockman":{"width":261,"height":280},"pug":{"width":327,"height":280},"siren1":{"width":230,"height":280},"professor":{"width":185,"height":280},"mapWorld":{"width":1152,"height":934},"mapVillage":{"width":1152,"height":768},"mapSecond":{"width":1152,"height":768},"mapCave":{"width":1152,"height":768},"mapDesert":{"width":1152,"height":768},"mapTemple":{"width":1152,"height":768},"mapHarbor":{"width":1152,"height":768},"mapNextHarbor":{"width":1152,"height":768},"mapAcropolis":{"width":1152,"height":768},"battleCave":{"width":1152,"height":768},"battleForest":{"width":1152,"height":768},"battlePlains":{"width":1152,"height":768},"battleComposite":{"width":1152,"height":1152},"battleGym":{"width":1152,"height":768},"sheet":{"width":1400,"height":1509}};
 /* Pixel coordinates below annotate the reviewed 1536 x 1024 map art. */
 const World = (() => {
@@ -2530,6 +2530,173 @@ const Extras = (() => {
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Extras;
 
+(function(root,factory){
+  const api=factory();
+  root.PlayerSprite=api;
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+})(typeof globalThis!=="undefined"?globalThis:this,function(){
+  "use strict";
+
+  const WIDTH=24,HEIGHT=32;
+  const PALETTE={
+    outline:"#172831",hairDark:"#39251f",hair:"#5a3527",hairLight:"#8a5234",
+    skinDark:"#995b43",skinShade:"#be7758",skin:"#dfa27a",skinLight:"#f2c39a",
+    creamDark:"#aaa38f",creamShade:"#d2cbb8",cream:"#f3ecd9",creamLight:"#fff9e9",
+    blueDark:"#214f82",blue:"#2f71b5",blueLight:"#64a7df",
+    packDark:"#713629",pack:"#a94e37",packLight:"#d47b52",
+    trouserDark:"#243651",trouser:"#354f77",trouserLight:"#58759d",
+    bootDark:"#31251f",boot:"#51382c",bootLight:"#865c3a",gold:"#d5a743",eye:"#20333a"
+  };
+  const KEYS=Object.keys(PALETTE),CACHE=new Map();
+
+  function frame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase);
+    const pixels=new Array(WIDTH*HEIGHT).fill(null),seams=[];
+    const put=(x,y,key)=>{if(x>=0&&x<WIDTH&&y>=0&&y<HEIGHT)pixels[y*WIDTH+x]=key;};
+    const rect=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)put(xx,yy,key);};
+    const span=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)put(x,y,key);};
+    const seam=(x,y,key="outline")=>seams.push([x,y,key]);
+    const bob=p===2?-1:0;
+    const P=(x,y,key)=>put(x,y+bob,key),R=(x,y,w,h,key)=>rect(x,y+bob,w,h,key),S=(y,x1,x2,key)=>span(y+bob,x1,x2,key);
+
+    function hairFront(){
+      S(2,9,11,"hairLight");S(2,13,14,"hair");
+      S(3,7,16,"hair");P(6,4,"hairDark");S(4,7,17,"hair");P(18,5,"hairDark");
+      S(5,6,17,"hair");S(6,6,8,"hairDark");S(6,9,10,"hair");S(6,12,13,"hairDark");S(6,15,17,"hair");
+      P(7,7,"hairDark");P(16,7,"hairDark");P(7,8,"hairDark");P(16,8,"hairDark");
+      S(3,9,12,"hairLight");P(8,4,"hairLight");P(15,5,"hairLight");
+    }
+    function faceFront(){
+      S(6,8,15,"skin");S(7,8,15,"skin");S(8,7,16,"skin");S(9,7,16,"skin");S(10,8,15,"skin");S(11,9,14,"skinShade");
+      P(6,8,"skinShade");P(17,8,"skinShade");P(8,8,"skinLight");
+      P(9,8,"eye");P(14,8,"eye");P(10,10,"skinLight");P(13,10,"skinShade");
+      seam(11,11+bob,"skinDark");seam(12,11+bob,"skinDark");
+    }
+    function hairBack(){
+      S(2,9,11,"hairLight");S(2,13,14,"hair");S(3,7,16,"hair");P(6,4,"hairDark");S(4,7,17,"hair");P(18,5,"hairDark");
+      S(5,6,17,"hair");S(6,6,17,"hair");S(7,6,17,"hair");S(8,7,16,"hairDark");S(9,8,15,"hairDark");
+      P(7,5,"hairLight");S(3,9,12,"hairLight");S(6,9,13,"hairLight");P(15,7,"hairLight");
+      P(6,8,"skinShade");P(17,8,"skin");S(10,9,14,"skinShade");
+    }
+    function legsFront(backView){
+      if(p===2){
+        R(7,23,4,5,"trouser");R(13,23,4,5,"trouserDark");
+        R(7,27,4,3,"boot");R(13,27,4,3,"boot");S(30,6,10,"bootDark");S(30,13,17,"bootDark");
+      }else if(p===1){
+        // Left foot plants ahead; the opposite heel clears the ground.
+        R(6,23,4,5,"trouser");P(7,24,"trouserLight");R(6,27,4,3,"boot");S(30,5,10,"bootDark");P(6,29,"bootLight");
+        R(13,23,4,4,"trouserDark");P(14,24,backView?"trouser":"trouserLight");R(13,26,4,3,"boot");S(29,13,17,"bootDark");P(14,28,"bootLight");
+      }else if(p===3){
+        // Mirrored plant gives a grounded, alternating gait.
+        R(7,23,4,4,"trouser");P(8,24,"trouserLight");R(7,26,4,3,"boot");S(29,6,10,"bootDark");P(7,28,"bootLight");
+        R(14,23,4,5,"trouserDark");P(15,24,backView?"trouser":"trouserLight");R(14,27,4,3,"boot");S(30,13,18,"bootDark");P(15,29,"bootLight");
+      }else{
+        R(7,23,4,5,"trouser");R(13,23,4,5,"trouserDark");
+        P(8,24,"trouserLight");P(14,24,backView?"trouser":"trouserLight");
+        R(7,27,4,3,"boot");R(13,27,4,3,"boot");
+        S(30,6,10,"bootDark");S(30,13,17,"bootDark");
+        P(7,29,"bootLight");P(14,29,"bootLight");
+      }
+      seam(11,24+bob);seam(12,24+bob);seam(11,25+bob);seam(12,25+bob);
+    }
+    function front(){
+      legsFront(false);
+      const la=p===1?1:p===3?-1:0,ra=-la;
+      R(5,14+la,3,7,"creamShade");R(4,19+la,3,3,"skin");P(4,21+la,"skinShade");
+      R(16,14+ra,3,7,"cream");R(17,19+ra,3,3,"skin");P(19,21+ra,"skinShade");
+      S(13,8,15,"creamLight");S(14,7,16,"cream");R(7,15,10,8,"cream");
+      S(21,7,16,"creamShade");S(22,8,15,"creamDark");
+      P(7,16,"packDark");P(16,16,"pack");P(7,17,"pack");P(16,17,"packLight");
+      P(9,13,"blueLight");S(14,9,11,"blue");S(15,10,12,"blue");S(16,11,13,"blue");S(17,12,14,"blueDark");S(18,13,15,"blue");
+      R(15,18,2,6,"blue");P(16,22,"blueLight");P(17,20,"blueDark");
+      S(21,8,15,"gold");P(11,21,"blueDark");
+      faceFront();hairFront();
+      seam(7,14+bob,"creamDark");seam(16,14+bob,"creamDark");seam(8,22+bob);seam(15,22+bob);
+    }
+    function back(){
+      legsFront(true);
+      const la=p===1?-1:p===3?1:0,ra=-la;
+      R(5,14+la,3,7,"creamShade");R(4,19+la,3,3,"skinShade");
+      R(16,14+ra,3,7,"cream");R(17,19+ra,3,3,"skin");
+      S(13,8,15,"cream");S(14,7,16,"creamShade");R(7,15,10,8,"creamShade");
+      R(7,15,10,7,"packDark");S(16,8,15,"pack");S(17,8,15,"pack");S(18,7,16,"pack");S(19,7,16,"pack");S(20,8,15,"packLight");S(21,9,14,"packDark");
+      R(8,14,2,6,"packLight");R(14,14,2,6,"packDark");S(18,10,13,"packLight");P(11,20,"gold");P(12,20,"gold");
+      S(12,9,14,"blueLight");S(13,10,15,"blue");P(15,14,"blueDark");P(16,15,"blue");P(17,16,"blue");P(17,17,"blueLight");
+      hairBack();
+      seam(7,22+bob);seam(16,22+bob);seam(11,21+bob,"packDark");seam(12,21+bob,"packDark");
+    }
+    function profile(left){
+      const mirror=x=>left?WIDTH-1-x:x;
+      const q=(x,y,key)=>put(mirror(x),y+bob,key),qr=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)q(xx,yy,key);},qs=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)q(x,y,key);};
+      const forward=p===1?2:p===3?-1:0,backward=p===1?-1:p===3?2:0;
+      if(p===2){qr(9,23,4,7,"trouser");qr(13,23,3,7,"trouserDark");qs(30,8,13,"bootDark");qs(30,13,17,"bootDark");}
+      else{
+        qr(9+forward,23,4,6,"trouser");qr(12+backward,23,4,6,"trouserDark");
+        qr(9+forward,28,4,2,"boot");qr(12+backward,28,4,2,"boot");qs(30,8+forward,13+forward,"bootDark");qs(30,12+backward,17+backward,"bootDark");
+        q(10+forward,28,"bootLight");q(14+backward,28,"bootLight");
+      }
+      // Backpack creates a distinct rear silhouette; scarf streams toward it.
+      qr(5,14,4,8,"packDark");qr(6,15,4,7,"pack");q(6,16,"packLight");q(6,17,"packLight");
+      qs(13,9,15,"creamLight");qs(14,8,16,"cream");qr(8,15,9,8,"cream");qs(21,8,16,"creamShade");qs(22,9,15,"creamDark");
+      const arm=p===1?-1:p===3?1:0;qr(15,14+arm,3,7,"creamShade");qr(16,19+arm,3,3,"skin");q(18,21+arm,"skinShade");
+      qs(13,11,14,"blueLight");qs(14,10,13,"blue");qs(15,9,12,"blue");q(8,16,"blueDark");q(7,17,"blue");q(6,18,"blueLight");
+      qs(21,9,15,"gold");
+      // Profile face and hooked, wind-tossed hair silhouette.
+      qs(2,9,11,"hairLight");qs(2,13,14,"hair");qs(3,7,15,"hair");q(6,4,"hairDark");qs(4,7,16,"hair");q(6,5,"hairDark");qs(5,7,16,"hair");
+      qs(6,7,12,"hairDark");qs(6,13,16,"skin");qs(7,8,16,"skin");qs(8,8,17,"skin");q(18,8,"skinShade");qs(9,8,17,"skin");qs(10,9,16,"skinShade");qs(11,10,15,"skinShade");
+      q(15,7,"eye");q(16,7,"skinLight");q(17,9,"skinLight");q(8,7,"hairDark");q(8,8,"hairDark");q(9,3,"hairLight");q(15,4,"hairLight");
+      q(12,11,"skinDark");q(13,11,"skinDark");
+      seams.push([mirror(8),15+bob,"outline"],[mirror(8),21+bob,"outline"],[mirror(15),22+bob,"outline"]);
+    }
+
+    if(dir==="down")front();else if(dir==="up")back();else profile(dir==="left");
+
+    // One-pixel contour around the colored clusters, added after the pose is assembled.
+    const colored=pixels.slice();
+    for(let y=0;y<HEIGHT;y++)for(let x=0;x<WIDTH;x++)if(colored[y*WIDTH+x]){
+      for(let oy=-1;oy<=1;oy++)for(let ox=-1;ox<=1;ox++)if((ox||oy)&&x+ox>=0&&x+ox<WIDTH&&y+oy>=0&&y+oy<HEIGHT&&!colored[(y+oy)*WIDTH+x+ox]){
+        if(!pixels[(y+oy)*WIDTH+x+ox])pixels[(y+oy)*WIDTH+x+ox]="outline";
+      }
+    }
+    for(const [x,y,key] of seams)put(x,y,key);
+    return pixels;
+  }
+
+  function normalizeDirection(value){
+    const d=String(value||"down").toLowerCase();
+    return d==="north"?"up":d==="south"?"down":d==="west"?"left":d==="east"?"right":["up","down","left","right"].includes(d)?d:"down";
+  }
+  function normalizePhase(value){const n=Number(value);return Number.isFinite(n)?((Math.round(n)%4)+4)%4:0;}
+  function cachedFrame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase),key=dir+":"+p;
+    if(CACHE.has(key))return CACHE.get(key);
+    const pixels=frame(dir,p);let canvas=null;
+    try{
+      if(typeof OffscreenCanvas!=="undefined")canvas=new OffscreenCanvas(WIDTH,HEIGHT);
+      else if(typeof document!=="undefined"&&document.createElement){canvas=document.createElement("canvas");canvas.width=WIDTH;canvas.height=HEIGHT;}
+      if(canvas){const c=canvas.getContext("2d");c.imageSmoothingEnabled=false;for(let i=0;i<pixels.length;i++)if(pixels[i]){c.fillStyle=PALETTE[pixels[i]];c.fillRect(i%WIDTH,Math.floor(i/WIDTH),1,1);}}
+    }catch(_){canvas=null;}
+    const result={pixels,canvas};CACHE.set(key,result);return result;
+  }
+  function draw(ctx,options){
+    options=options||{};const requestedScale=Number(options.scale),scale=Number.isFinite(requestedScale)&&requestedScale>0?Math.min(4,requestedScale):1;
+    const x=Math.round(Number(options.x)||0),y=Math.round(Number(options.y)||0),dir=normalizeDirection(options.direction),p=normalizePhase(options.phase);
+    const left=x-Math.floor(WIDTH*scale/2),top=y-HEIGHT*scale;
+    ctx.save();
+    if(options.shadow!==false){
+      ctx.fillStyle="rgba(20,38,44,.28)";
+      ctx.fillRect(x-7*scale,y-2*scale,14*scale,2*scale);
+      ctx.fillRect(x-5*scale,y-3*scale,10*scale,1*scale);
+    }
+    const asset=cachedFrame(dir,p);ctx.imageSmoothingEnabled=false;
+    if(asset.canvas&&typeof ctx.drawImage==="function")ctx.drawImage(asset.canvas,left,top,WIDTH*scale,HEIGHT*scale);
+    else for(let i=0;i<asset.pixels.length;i++)if(asset.pixels[i]){ctx.fillStyle=PALETTE[asset.pixels[i]];ctx.fillRect(left+(i%WIDTH)*scale,top+Math.floor(i/WIDTH)*scale,scale,scale);}
+    ctx.restore();
+  }
+  function getFrame(direction,phase){return cachedFrame(direction,phase).pixels.slice();}
+  return {WIDTH,HEIGHT,PALETTE:Object.freeze({...PALETTE}),draw,getFrame};
+});
+
 /* Browser presentation, input, saves and services. World and Combat own rules. */
 const Game = (() => {
   const $ = id => document.getElementById(id);
@@ -2569,6 +2736,7 @@ const Game = (() => {
   let portalGrace = .6;
   let facing = "down";
   let playerMoving = false;
+  let playerWalkDistance = 0;
   let animation = {side:null,until:0,type:null};
   let storageAvailable = true;
   const clone = value => JSON.parse(JSON.stringify(value));
@@ -3140,6 +3308,7 @@ const Game = (() => {
     if(Math.abs(dx)>Math.abs(dy))facing=dx>0 ? "right" : "left";else facing=dy>0 ? "down" : "up";
     const result=world.move(state.area,{x:state.x,y:state.y},dx,dy);
     playerMoving=result.distance>.01;
+    if(playerMoving)playerWalkDistance+=result.distance;
     state.x=result.x;state.y=result.y;
     const portal=world.portal({...state,portalGrace,travelGrace:0});
     if(portal){enterArea(portal.area,portal.x,portal.y);return;}
@@ -3267,86 +3436,8 @@ const Game = (() => {
     ctx.fillText(symbol,x,y+.5);ctx.restore();
   }
 
-  const PLAYER_PALETTE={
-    outline:"#172b32",hair:"#4a302b",hairLight:"#80513d",skin:"#dca477",skinShade:"#b97956",
-    tunic:"#f1ead8",tunicShade:"#c9c0aa",sash:"#347f8d",sashLight:"#62abb0",
-    pack:"#944c39",packLight:"#c8734e",trouser:"#344b70",trouserLight:"#526f98",
-    shoe:"#4a342c",gold:"#d8b65f",eye:"#f7f3df",iris:"#28515a",cheek:"#c98564"
-  };
-
   function drawPlayerSprite(x,y,direction,phase) {
-    const scale=2;
-    const step=[0,-1,0,1][phase] || 0;
-    const lift=phase===2 ? -1 : 0;
-    ctx.save();
-    ctx.translate(Math.round(x)-16,Math.round(y)-44);
-    const px=(color,x,y,w=1,h=1)=>{ctx.fillStyle=PLAYER_PALETTE[color];ctx.fillRect(x*scale,y*scale,w*scale,h*scale);};
-    const part=(color,x,y,w=1,h=1)=>px(color,x,y+lift,w,h);
-    const legs=(sideView=false)=>{
-      if(step<0){
-        px("outline",3,17,4,5);px("outline",9,18,3,4);px("trouserLight",4,17,2,3);px("trouser",10,18,1,2);
-        px("shoe",2,20,5,2);px("gold",sideView?2:3,20,sideView?3:2,1);px("shoe",9,20,4,2);
-      } else if(step>0){
-        px("outline",4,18,3,4);px("outline",9,17,4,5);px("trouserLight",5,18,1,2);px("trouser",10,17,2,3);
-        px("shoe",3,20,4,2);px("shoe",9,20,5,2);px("gold",sideView?11:10,20,sideView?3:2,1);
-      } else {
-        px("outline",4,17,4,5);px("outline",8,17,4,5);px("trouserLight",5,17,2,3);px("trouser",9,17,2,3);
-        px("shoe",3,20,5,2);px("shoe",8,20,5,2);px("gold",sideView?9:4,20,sideView?3:2,1);
-      }
-    };
-    const headDown=()=>{
-      part("outline",5,0,3,1);part("outline",9,0,2,1);part("outline",3,1,10,1);part("outline",2,2,12,4);
-      part("outline",3,6,10,3);part("outline",4,9,8,1);part("outline",1,3,2,3);part("outline",13,3,2,3);
-      part("hair",4,1,8,1);part("hair",3,2,10,3);part("hairLight",5,1,3,1);part("hairLight",3,3,3,1);
-      part("skin",4,4,8,5);part("skinShade",4,8,2,1);part("skinShade",10,8,2,1);part("hair",3,4,2,2);part("hair",11,4,2,2);
-      part("eye",5,6,2,2);part("eye",9,6,2,2);part("iris",6,6);part("iris",9,6);part("cheek",4,8);part("cheek",11,8);part("skinShade",7,9,2,1);
-    };
-    const headUp=()=>{
-      part("outline",5,0,3,1);part("outline",9,0,2,1);part("outline",3,1,10,1);part("outline",2,2,12,6);
-      part("outline",3,8,10,2);part("outline",1,3,2,3);part("outline",13,3,2,3);
-      part("hair",4,1,8,1);part("hair",3,2,10,6);part("hairLight",5,1,3,1);part("hairLight",3,3,3,2);
-      part("hair",4,7,8,2);part("skinShade",5,9,6,1);
-    };
-    const torsoDown=()=>{
-      const leftArmY=step>0 ? 12 : 11,rightArmY=step<0 ? 12 : 11;
-      part("outline",4,10,8,1);part("outline",3,11,10,6);part("outline",4,17,8,2);
-      part("outline",1,leftArmY,3,5);part("outline",12,rightArmY,3,5);
-      part("tunicShade",2,leftArmY+1,2,2);part("tunic",12,rightArmY+1,2,2);
-      part("skin",1,leftArmY+3,3,3);part("skinShade",12,rightArmY+3,3,3);
-      part("tunic",4,10,8,7);part("tunicShade",4,15,8,3);part("gold",4,16,8,1);
-      part("pack",4,11,2,5);part("pack",10,11,2,5);part("packLight",5,12,1,3);
-      part("sash",7,10,3,8);part("sashLight",7,11,1,5);part("gold",8,13);
-    };
-    const torsoUp=()=>{
-      const leftArmY=step<0 ? 12 : 11,rightArmY=step>0 ? 12 : 11;
-      part("outline",4,10,8,1);part("outline",3,11,10,6);part("outline",4,17,8,2);
-      part("outline",1,leftArmY,3,5);part("outline",12,rightArmY,3,5);
-      part("tunicShade",2,leftArmY+1,2,2);part("tunic",12,rightArmY+1,2,2);
-      part("skinShade",1,leftArmY+3,3,3);part("skin",12,rightArmY+3,3,3);
-      part("tunicShade",4,10,8,8);part("tunic",5,10,6,2);
-      part("outline",3,11,10,6);part("pack",4,11,8,5);part("packLight",5,12,6,1);
-      part("outline",5,11,1,4);part("outline",10,11,1,4);part("gold",6,15,4,1);part("sash",11,11,1,5);
-    };
-    const side=(left=false)=>{
-      ctx.save();
-      if(left){ctx.translate(16*scale,0);ctx.scale(-1,1);}
-      legs(true);
-      const armY=step>0 ? 11 : 12;
-      part("outline",5,0,3,1);part("outline",9,0,2,1);part("outline",3,1,9,1);part("outline",2,2,11,5);
-      part("outline",3,7,10,3);part("outline",12,5,3,2);part("outline",1,3,2,3);
-      part("hair",4,1,7,1);part("hair",3,2,8,5);part("hairLight",5,1,3,1);part("hairLight",3,3,3,1);
-      part("skin",8,4,5,5);part("skinShade",8,8,4,1);part("hair",3,5,4,3);
-      part("eye",10,5,2,2);part("iris",11,5);part("cheek",11,8);part("skinShade",12,7,2,1);
-      part("outline",4,10,8,1);part("outline",3,11,9,7);part("outline",2,11,4,6);
-      part("pack",3,12,3,5);part("packLight",4,13,1,3);
-      part("tunic",6,10,6,7);part("tunicShade",6,15,6,3);part("gold",6,16,6,1);
-      part("sash",8,10,2,8);part("sashLight",9,11,1,5);
-      part("outline",11,armY,3,5);part("tunic",11,armY+1,2,2);part("skin",11,armY+3,3,3);part("skinShade",13,armY+4);
-      ctx.restore();
-    };
-    if(direction==="left"||direction==="right")side(direction==="left");
-    else {legs();if(direction==="up"){torsoUp();headUp();}else{torsoDown();headDown();}}
-    ctx.restore();
+    PlayerSprite.draw(ctx,{x:Math.round(x),y:Math.round(y)+2,direction,phase,scale:1.5,shadow:false});
   }
 
   function drawPerson(x,y,shirt,player,now=0) {
@@ -3354,7 +3445,7 @@ const Game = (() => {
     ctx.fillStyle="#16383d55";ctx.beginPath();ctx.ellipse(0,2,player ? 13 : 10,player ? 5 : 4,0,0,Math.PI*2);ctx.fill();
     ctx.restore();
     if(player) {
-      const phase=playerMoving ? Math.floor(now/95)%4 : 0;
+      const phase=playerMoving ? [1,2,3,2][Math.floor(playerWalkDistance/18)%4] : 0;
       drawPlayerSprite(x,y,facing,phase);
       return;
     }

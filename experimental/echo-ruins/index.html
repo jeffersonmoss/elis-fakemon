@@ -1180,7 +1180,174 @@ const EchoRuins = (() => {
 
 if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
 </script>
-<script>(() => {
+<script>(function(root,factory){
+  const api=factory();
+  root.PlayerSprite=api;
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+})(typeof globalThis!=="undefined"?globalThis:this,function(){
+  "use strict";
+
+  const WIDTH=24,HEIGHT=32;
+  const PALETTE={
+    outline:"#172831",hairDark:"#39251f",hair:"#5a3527",hairLight:"#8a5234",
+    skinDark:"#995b43",skinShade:"#be7758",skin:"#dfa27a",skinLight:"#f2c39a",
+    creamDark:"#aaa38f",creamShade:"#d2cbb8",cream:"#f3ecd9",creamLight:"#fff9e9",
+    blueDark:"#214f82",blue:"#2f71b5",blueLight:"#64a7df",
+    packDark:"#713629",pack:"#a94e37",packLight:"#d47b52",
+    trouserDark:"#243651",trouser:"#354f77",trouserLight:"#58759d",
+    bootDark:"#31251f",boot:"#51382c",bootLight:"#865c3a",gold:"#d5a743",eye:"#20333a"
+  };
+  const KEYS=Object.keys(PALETTE),CACHE=new Map();
+
+  function frame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase);
+    const pixels=new Array(WIDTH*HEIGHT).fill(null),seams=[];
+    const put=(x,y,key)=>{if(x>=0&&x<WIDTH&&y>=0&&y<HEIGHT)pixels[y*WIDTH+x]=key;};
+    const rect=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)put(xx,yy,key);};
+    const span=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)put(x,y,key);};
+    const seam=(x,y,key="outline")=>seams.push([x,y,key]);
+    const bob=p===2?-1:0;
+    const P=(x,y,key)=>put(x,y+bob,key),R=(x,y,w,h,key)=>rect(x,y+bob,w,h,key),S=(y,x1,x2,key)=>span(y+bob,x1,x2,key);
+
+    function hairFront(){
+      S(2,9,11,"hairLight");S(2,13,14,"hair");
+      S(3,7,16,"hair");P(6,4,"hairDark");S(4,7,17,"hair");P(18,5,"hairDark");
+      S(5,6,17,"hair");S(6,6,8,"hairDark");S(6,9,10,"hair");S(6,12,13,"hairDark");S(6,15,17,"hair");
+      P(7,7,"hairDark");P(16,7,"hairDark");P(7,8,"hairDark");P(16,8,"hairDark");
+      S(3,9,12,"hairLight");P(8,4,"hairLight");P(15,5,"hairLight");
+    }
+    function faceFront(){
+      S(6,8,15,"skin");S(7,8,15,"skin");S(8,7,16,"skin");S(9,7,16,"skin");S(10,8,15,"skin");S(11,9,14,"skinShade");
+      P(6,8,"skinShade");P(17,8,"skinShade");P(8,8,"skinLight");
+      P(9,8,"eye");P(14,8,"eye");P(10,10,"skinLight");P(13,10,"skinShade");
+      seam(11,11+bob,"skinDark");seam(12,11+bob,"skinDark");
+    }
+    function hairBack(){
+      S(2,9,11,"hairLight");S(2,13,14,"hair");S(3,7,16,"hair");P(6,4,"hairDark");S(4,7,17,"hair");P(18,5,"hairDark");
+      S(5,6,17,"hair");S(6,6,17,"hair");S(7,6,17,"hair");S(8,7,16,"hairDark");S(9,8,15,"hairDark");
+      P(7,5,"hairLight");S(3,9,12,"hairLight");S(6,9,13,"hairLight");P(15,7,"hairLight");
+      P(6,8,"skinShade");P(17,8,"skin");S(10,9,14,"skinShade");
+    }
+    function legsFront(backView){
+      if(p===2){
+        R(7,23,4,5,"trouser");R(13,23,4,5,"trouserDark");
+        R(7,27,4,3,"boot");R(13,27,4,3,"boot");S(30,6,10,"bootDark");S(30,13,17,"bootDark");
+      }else if(p===1){
+        // Left foot plants ahead; the opposite heel clears the ground.
+        R(6,23,4,5,"trouser");P(7,24,"trouserLight");R(6,27,4,3,"boot");S(30,5,10,"bootDark");P(6,29,"bootLight");
+        R(13,23,4,4,"trouserDark");P(14,24,backView?"trouser":"trouserLight");R(13,26,4,3,"boot");S(29,13,17,"bootDark");P(14,28,"bootLight");
+      }else if(p===3){
+        // Mirrored plant gives a grounded, alternating gait.
+        R(7,23,4,4,"trouser");P(8,24,"trouserLight");R(7,26,4,3,"boot");S(29,6,10,"bootDark");P(7,28,"bootLight");
+        R(14,23,4,5,"trouserDark");P(15,24,backView?"trouser":"trouserLight");R(14,27,4,3,"boot");S(30,13,18,"bootDark");P(15,29,"bootLight");
+      }else{
+        R(7,23,4,5,"trouser");R(13,23,4,5,"trouserDark");
+        P(8,24,"trouserLight");P(14,24,backView?"trouser":"trouserLight");
+        R(7,27,4,3,"boot");R(13,27,4,3,"boot");
+        S(30,6,10,"bootDark");S(30,13,17,"bootDark");
+        P(7,29,"bootLight");P(14,29,"bootLight");
+      }
+      seam(11,24+bob);seam(12,24+bob);seam(11,25+bob);seam(12,25+bob);
+    }
+    function front(){
+      legsFront(false);
+      const la=p===1?1:p===3?-1:0,ra=-la;
+      R(5,14+la,3,7,"creamShade");R(4,19+la,3,3,"skin");P(4,21+la,"skinShade");
+      R(16,14+ra,3,7,"cream");R(17,19+ra,3,3,"skin");P(19,21+ra,"skinShade");
+      S(13,8,15,"creamLight");S(14,7,16,"cream");R(7,15,10,8,"cream");
+      S(21,7,16,"creamShade");S(22,8,15,"creamDark");
+      P(7,16,"packDark");P(16,16,"pack");P(7,17,"pack");P(16,17,"packLight");
+      P(9,13,"blueLight");S(14,9,11,"blue");S(15,10,12,"blue");S(16,11,13,"blue");S(17,12,14,"blueDark");S(18,13,15,"blue");
+      R(15,18,2,6,"blue");P(16,22,"blueLight");P(17,20,"blueDark");
+      S(21,8,15,"gold");P(11,21,"blueDark");
+      faceFront();hairFront();
+      seam(7,14+bob,"creamDark");seam(16,14+bob,"creamDark");seam(8,22+bob);seam(15,22+bob);
+    }
+    function back(){
+      legsFront(true);
+      const la=p===1?-1:p===3?1:0,ra=-la;
+      R(5,14+la,3,7,"creamShade");R(4,19+la,3,3,"skinShade");
+      R(16,14+ra,3,7,"cream");R(17,19+ra,3,3,"skin");
+      S(13,8,15,"cream");S(14,7,16,"creamShade");R(7,15,10,8,"creamShade");
+      R(7,15,10,7,"packDark");S(16,8,15,"pack");S(17,8,15,"pack");S(18,7,16,"pack");S(19,7,16,"pack");S(20,8,15,"packLight");S(21,9,14,"packDark");
+      R(8,14,2,6,"packLight");R(14,14,2,6,"packDark");S(18,10,13,"packLight");P(11,20,"gold");P(12,20,"gold");
+      S(12,9,14,"blueLight");S(13,10,15,"blue");P(15,14,"blueDark");P(16,15,"blue");P(17,16,"blue");P(17,17,"blueLight");
+      hairBack();
+      seam(7,22+bob);seam(16,22+bob);seam(11,21+bob,"packDark");seam(12,21+bob,"packDark");
+    }
+    function profile(left){
+      const mirror=x=>left?WIDTH-1-x:x;
+      const q=(x,y,key)=>put(mirror(x),y+bob,key),qr=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)q(xx,yy,key);},qs=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)q(x,y,key);};
+      const forward=p===1?2:p===3?-1:0,backward=p===1?-1:p===3?2:0;
+      if(p===2){qr(9,23,4,7,"trouser");qr(13,23,3,7,"trouserDark");qs(30,8,13,"bootDark");qs(30,13,17,"bootDark");}
+      else{
+        qr(9+forward,23,4,6,"trouser");qr(12+backward,23,4,6,"trouserDark");
+        qr(9+forward,28,4,2,"boot");qr(12+backward,28,4,2,"boot");qs(30,8+forward,13+forward,"bootDark");qs(30,12+backward,17+backward,"bootDark");
+        q(10+forward,28,"bootLight");q(14+backward,28,"bootLight");
+      }
+      // Backpack creates a distinct rear silhouette; scarf streams toward it.
+      qr(5,14,4,8,"packDark");qr(6,15,4,7,"pack");q(6,16,"packLight");q(6,17,"packLight");
+      qs(13,9,15,"creamLight");qs(14,8,16,"cream");qr(8,15,9,8,"cream");qs(21,8,16,"creamShade");qs(22,9,15,"creamDark");
+      const arm=p===1?-1:p===3?1:0;qr(15,14+arm,3,7,"creamShade");qr(16,19+arm,3,3,"skin");q(18,21+arm,"skinShade");
+      qs(13,11,14,"blueLight");qs(14,10,13,"blue");qs(15,9,12,"blue");q(8,16,"blueDark");q(7,17,"blue");q(6,18,"blueLight");
+      qs(21,9,15,"gold");
+      // Profile face and hooked, wind-tossed hair silhouette.
+      qs(2,9,11,"hairLight");qs(2,13,14,"hair");qs(3,7,15,"hair");q(6,4,"hairDark");qs(4,7,16,"hair");q(6,5,"hairDark");qs(5,7,16,"hair");
+      qs(6,7,12,"hairDark");qs(6,13,16,"skin");qs(7,8,16,"skin");qs(8,8,17,"skin");q(18,8,"skinShade");qs(9,8,17,"skin");qs(10,9,16,"skinShade");qs(11,10,15,"skinShade");
+      q(15,7,"eye");q(16,7,"skinLight");q(17,9,"skinLight");q(8,7,"hairDark");q(8,8,"hairDark");q(9,3,"hairLight");q(15,4,"hairLight");
+      q(12,11,"skinDark");q(13,11,"skinDark");
+      seams.push([mirror(8),15+bob,"outline"],[mirror(8),21+bob,"outline"],[mirror(15),22+bob,"outline"]);
+    }
+
+    if(dir==="down")front();else if(dir==="up")back();else profile(dir==="left");
+
+    // One-pixel contour around the colored clusters, added after the pose is assembled.
+    const colored=pixels.slice();
+    for(let y=0;y<HEIGHT;y++)for(let x=0;x<WIDTH;x++)if(colored[y*WIDTH+x]){
+      for(let oy=-1;oy<=1;oy++)for(let ox=-1;ox<=1;ox++)if((ox||oy)&&x+ox>=0&&x+ox<WIDTH&&y+oy>=0&&y+oy<HEIGHT&&!colored[(y+oy)*WIDTH+x+ox]){
+        if(!pixels[(y+oy)*WIDTH+x+ox])pixels[(y+oy)*WIDTH+x+ox]="outline";
+      }
+    }
+    for(const [x,y,key] of seams)put(x,y,key);
+    return pixels;
+  }
+
+  function normalizeDirection(value){
+    const d=String(value||"down").toLowerCase();
+    return d==="north"?"up":d==="south"?"down":d==="west"?"left":d==="east"?"right":["up","down","left","right"].includes(d)?d:"down";
+  }
+  function normalizePhase(value){const n=Number(value);return Number.isFinite(n)?((Math.round(n)%4)+4)%4:0;}
+  function cachedFrame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase),key=dir+":"+p;
+    if(CACHE.has(key))return CACHE.get(key);
+    const pixels=frame(dir,p);let canvas=null;
+    try{
+      if(typeof OffscreenCanvas!=="undefined")canvas=new OffscreenCanvas(WIDTH,HEIGHT);
+      else if(typeof document!=="undefined"&&document.createElement){canvas=document.createElement("canvas");canvas.width=WIDTH;canvas.height=HEIGHT;}
+      if(canvas){const c=canvas.getContext("2d");c.imageSmoothingEnabled=false;for(let i=0;i<pixels.length;i++)if(pixels[i]){c.fillStyle=PALETTE[pixels[i]];c.fillRect(i%WIDTH,Math.floor(i/WIDTH),1,1);}}
+    }catch(_){canvas=null;}
+    const result={pixels,canvas};CACHE.set(key,result);return result;
+  }
+  function draw(ctx,options){
+    options=options||{};const requestedScale=Number(options.scale),scale=Number.isFinite(requestedScale)&&requestedScale>0?Math.min(4,requestedScale):1;
+    const x=Math.round(Number(options.x)||0),y=Math.round(Number(options.y)||0),dir=normalizeDirection(options.direction),p=normalizePhase(options.phase);
+    const left=x-Math.floor(WIDTH*scale/2),top=y-HEIGHT*scale;
+    ctx.save();
+    if(options.shadow!==false){
+      ctx.fillStyle="rgba(20,38,44,.28)";
+      ctx.fillRect(x-7*scale,y-2*scale,14*scale,2*scale);
+      ctx.fillRect(x-5*scale,y-3*scale,10*scale,1*scale);
+    }
+    const asset=cachedFrame(dir,p);ctx.imageSmoothingEnabled=false;
+    if(asset.canvas&&typeof ctx.drawImage==="function")ctx.drawImage(asset.canvas,left,top,WIDTH*scale,HEIGHT*scale);
+    else for(let i=0;i<asset.pixels.length;i++)if(asset.pixels[i]){ctx.fillStyle=PALETTE[asset.pixels[i]];ctx.fillRect(left+(i%WIDTH)*scale,top+Math.floor(i/WIDTH)*scale,scale,scale);}
+    ctx.restore();
+  }
+  function getFrame(direction,phase){return cachedFrame(direction,phase).pixels.slice();}
+  return {WIDTH,HEIGHT,PALETTE:Object.freeze({...PALETTE}),draw,getFrame};
+});
+
+(() => {
   'use strict';
 
   const TILE = 48;
@@ -1222,6 +1389,8 @@ if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
   let hintLevel = 0;
   let effects = [];
   let raf = 0;
+  // Presentation state only. Rules and saves remain tile based.
+  let playerMotion = null;
   let modalMode = null;
   let demo = null;
   let battle = null;
@@ -1235,6 +1404,25 @@ if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
   const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   const inRelease = value => value && value.version === 1 && value.release === 'echo-ruins-demo';
   const speciesAsset = id => images[id] || null;
+  const reducedMotion = () => !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const playerDirection = (from, to, fallback = 'south') => to.x > from.x ? 'east' : to.x < from.x ? 'west' : to.y > from.y ? 'south' : to.y < from.y ? 'north' : fallback;
+  function clearPlayerMotion() { playerMotion = null; }
+  function startPlayerMotion(from, to, direction) {
+    if (reducedMotion()) { clearPlayerMotion(); return; }
+    const now = performance.now();
+    const visible = playerMotion && playerMotion.to.x === from.x && playerMotion.to.y === from.y ? playerPose(from, now) : from;
+    playerMotion = {from:{x:visible.x,y:visible.y}, to:{x:to.x,y:to.y}, direction, started:now, duration:170};
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function playerPose(player, now) {
+    if (reducedMotion()) clearPlayerMotion();
+    const motion = playerMotion;
+    if (!motion || motion.to.x !== player.x || motion.to.y !== player.y) return {x:player.x,y:player.y,direction:player.facing,phase:0};
+    const progress = Math.min(1, (now - motion.started) / motion.duration);
+    if (progress >= 1) { clearPlayerMotion(); return {x:player.x,y:player.y,direction:player.facing,phase:0}; }
+    return {x:motion.from.x + (motion.to.x - motion.from.x) * progress, y:motion.from.y + (motion.to.y - motion.from.y) * progress,
+      direction:motion.direction, phase:progress < .34 ? 1 : progress < .68 ? 2 : 3};
+  }
 
   function newParty() {
     if (!battleEngine) return [];
@@ -1405,6 +1593,9 @@ if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
     }
     state = result.state;
     view = EchoRuins.view(state);
+    const movedOneTile = command.type === 'move' && before.room === state.room && Math.abs(state.player.x - before.player.x) + Math.abs(state.player.y - before.player.y) === 1;
+    if (movedOneTile) startPlayerMotion(before.player, state.player, playerDirection(before.player, state.player, state.player.facing));
+    else if (command.type === 'resetRoom' || isBoundary(events)) clearPlayerMotion();
     animateCommand(command, events);
     handleEvents(events, before);
     if (isBoundary(events)) undoStack = [];
@@ -1448,6 +1639,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
     if (modalMode || !undoStack.length) { setFeedback('Nothing spatial to undo in this room.'); return; }
     state = EchoRuins.normalize(undoStack.pop()) || EchoRuins.fresh();
     view = EchoRuins.view(state);
+    clearPlayerMotion();
     setFeedback('Last movement or field setup undone.');
     save(); render();
   }
@@ -1667,8 +1859,8 @@ if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
   function drawFacingArrow(cx,cy,direction,color,strong=false){const [dx,dy]=DIR[direction]||[1,0];const ax=cx+dx*25,ay=cy+dy*25;ctx.save();ctx.translate(ax,ay);ctx.rotate(Math.atan2(dy,dx));ctx.fillStyle=strong?'#fff067':color;ctx.strokeStyle='#17383c';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(10,0);ctx.lineTo(-5,-7);ctx.lineTo(-2,0);ctx.lineTo(-5,7);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore()}
 
   function drawPlayer(player, now) {
-    const cx=player.x*TILE+24,cy=player.y*TILE+24+Math.sin(now/180)*.7;
-    ctx.save();ctx.translate(cx,cy);ctx.fillStyle='#314e45';ctx.fillRect(-11,14,8,8);ctx.fillRect(3,14,8,8);ctx.fillStyle='#e9c59a';ctx.fillRect(-9,-17,18,12);ctx.fillStyle='#5c3a28';ctx.fillRect(-10,-19,20,6);ctx.fillRect(-11,-14,4,7);ctx.fillStyle='#1f8d8b';ctx.fillRect(-11,-5,22,20);ctx.fillStyle='#f1e2bd';ctx.fillRect(-7,-3,14,14);ctx.fillStyle='#9a5634';ctx.fillRect(-14,-4,7,18);ctx.fillStyle='#d58943';ctx.fillRect(-13,-1,5,12);ctx.fillStyle='#17393d';ctx.fillRect(-6,-12,3,3);ctx.fillRect(4,-12,3,3);drawFacingArrow(0,-1,player.facing,'#fff067',true);ctx.restore();
+    const pose = playerPose(player, now);
+    if (typeof window.PlayerSprite?.draw === 'function') window.PlayerSprite.draw(ctx, {x:pose.x*TILE+24, y:pose.y*TILE+43, direction:pose.direction, phase:pose.phase, scale:2, shadow:true});
   }
 
   function drawPreview(walls, barriers, now) {
@@ -1688,7 +1880,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
     }
   }
 
-  function tick(now){raf=0;drawWorld(now);if(effects.length)raf=requestAnimationFrame(tick)}
+  function tick(now){raf=0;drawWorld(now);if(effects.length||playerMotion)raf=requestAnimationFrame(tick)}
 
   function openWelcome() {
     modalMode='welcome'; els.overlay.hidden=false; els.modal.className='panel';
@@ -1770,11 +1962,11 @@ if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
 
   function menuAction(action){
     if(action==='close'){closeModal();return}if(action==='export'){exportSave();return}if(action==='import'){els.importInput.value='';els.importInput.click();return}
-    if(action==='restart'){try{localStorage.removeItem(SAVE_KEY)}catch(_){}state=EchoRuins.fresh();state=EchoRuins.normalize({...state,party:newParty()})||EchoRuins.fresh();view=EchoRuins.view(state);undoStack=[];feedbackText='A fresh expedition begins at Aegean Landing.';save();closeModal();render();openWelcome()}
+    if(action==='restart'){try{localStorage.removeItem(SAVE_KEY)}catch(_){}state=EchoRuins.fresh();state=EchoRuins.normalize({...state,party:newParty()})||EchoRuins.fresh();view=EchoRuins.view(state);clearPlayerMotion();undoStack=[];feedbackText='A fresh expedition begins at Aegean Landing.';save();closeModal();render();openWelcome()}
   }
 
   function exportSave(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='echo-ruins-save-v1.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Echo Ruins save exported.')}
-  async function importSave(){const file=els.importInput.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());if(!inRelease(parsed))throw new Error('wrong release');const normalized=EchoRuins.normalize(parsed);if(!normalized||!inRelease(normalized))throw new Error('invalid');state=normalized;if(!validParty(state.party))state=EchoRuins.normalize({...state,party:newParty()})||EchoRuins.fresh();view=EchoRuins.view(state);undoStack=[];save();closeModal();render();toast('Echo Ruins progress imported.')}catch(_){toast('That file is not a valid Echo Ruins version 1 save.')}}
+  async function importSave(){const file=els.importInput.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());if(!inRelease(parsed))throw new Error('wrong release');const normalized=EchoRuins.normalize(parsed);if(!normalized||!inRelease(normalized))throw new Error('invalid');state=normalized;if(!validParty(state.party))state=EchoRuins.normalize({...state,party:newParty()})||EchoRuins.fresh();view=EchoRuins.view(state);clearPlayerMotion();undoStack=[];save();closeModal();render();toast('Echo Ruins progress imported.')}catch(_){toast('That file is not a valid Echo Ruins version 1 save.')}}
 
   function closeModal(){if(demo?.timer)clearInterval(demo.timer);if(modalMode==='demo')demo=null;if(modalMode!=='battle'){modalMode=null;els.overlay.hidden=true;els.canvas.focus()}}
 
@@ -1813,7 +2005,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = EchoRuins;
     modalMode='finish';els.overlay.hidden=false;els.modal.className='panel';els.modal.innerHTML=`<div class="eyebrow">Echo Ruins complete</div><h1 id="modalTitle">The tidepool shines again</h1><p>You opened the ruins with companion field powers, recovered the Tideglass Ornament, and installed it at the landing display.</p><div class="note">Keep exploring or reset any room to test a different solution. Your capture and ornament remain safe.</div><div class="choices"><button class="primary" data-finish="back">Keep exploring</button><button data-finish="guide">Open field guide</button></div>`;els.modal.querySelector('[data-finish="back"]').addEventListener('click',closeModal);els.modal.querySelector('[data-finish="guide"]').addEventListener('click',openGuide)
   }
 
-  function snapshot(){return Object.freeze(clone({state,view:EchoRuins.view(state),saveAvailable,battleActive:!!battle,modal:modalMode}))}
+  function snapshot(){return Object.freeze(clone({state,view:EchoRuins.view(state),saveAvailable,battleActive:!!battle,modal:modalMode,playerMotion}))}
   Object.defineProperty(window,'EchoDemo',{configurable:false,enumerable:true,value:Object.freeze({get snapshot(){return snapshot()},ready,command(command){if(command&&typeof command==='object')dispatch(clone(command));return snapshot()}})});
 
   boot();

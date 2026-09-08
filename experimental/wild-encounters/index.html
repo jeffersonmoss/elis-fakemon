@@ -29,7 +29,174 @@ img,canvas{image-rendering:pixelated}
 .dpad [data-dir="west"]{grid-row:2;grid-column:1}
 .dpad [data-dir="south"]{grid-row:2;grid-column:2}
 .dpad [data-dir="east"]{grid-row:2;grid-column:3}
-</style></head><body><div id="app"><header class="mast"><div class="seal">Ω</div><div class="title"><span>A Fakemon field experiment</span><b>Wild Encounters</b></div><button id="guideBtn">Field guide</button><button id="menuBtn">Save</button></header><main class="shell"><section class="mission"><div><b id="areaName">Toygrass Terrace</b></div><span id="objective"></span><div class="progress"><span id="friendCount">0 of 3 friends</span><span class="bar"><i id="friendBar"></i></span></div></section><div class="play"><section class="stage"><canvas id="world" width="768" height="480" tabindex="0" aria-label="Wild Encounters field. Use WASD or arrow keys to walk."></canvas><div id="behavior" class="behavior" role="status" aria-live="polite"></div><div class="caption" id="status" role="status" aria-live="polite"></div></section><aside class="side"><h2>Field actions</h2><div class="actions" id="actions"><button data-action="observe">Observe<br><small>O</small></button><button data-action="environment" class="primary">Change surroundings<br><small>C</small></button><button data-action="space">Give space<br><small>Q</small></button><button data-action="approach">Wait for approach<br><small>Space</small></button></div><div class="habitats" id="habitats"></div></aside></div><section class="touch" id="touch" aria-label="Touch controls"><div class="dpad"><button data-action="move" data-dir="north" aria-label="Move north">▲</button><button data-action="move" data-dir="west" aria-label="Move west">◀</button><button data-action="move" data-dir="south" aria-label="Move south">▼</button><button data-action="move" data-dir="east" aria-label="Move east">▶</button></div><div class="small-actions"><button data-action="observe">Observe</button><button data-action="environment" class="primary">Change</button><button data-action="space">Space</button><button data-action="approach">Wait</button><button data-action="guide">Guide</button><button data-action="menu">Save</button></div></section><section class="camp"><div class="camp-head"><span id="campLabel">Camp</span><span>Friends choose to visit</span></div><div class="camp-row" id="camp"></div></section></main></div><div class="overlay" id="overlay" hidden><section class="panel" id="modal" role="dialog" aria-modal="true" aria-label="Wild Encounters guide"></section></div><input id="importInput" type="file" accept="application/json,.json" hidden><script>const ECHO_ASSETS = {"pug": "../../assets/b0991b363e363dae322ffef642a504057604bc58c07b64a37b0c0ff8619506f9.png", "octopus": "../../assets/87c4a51b9af12bf79395e81c0f2cd11c0534b6aa9b553d9e514d460a6f3669c6.png", "minotaur": "../../assets/2e225617fb11469b161ff1d34936b0de223ecd56274ea4c6cd9f5794e06142ab.png", "siren": "../../assets/62e5d178c154a36e799cce167d6c10a663a0434eec0adb1edbdcbef6a5a1d0dd.png", "nautilus": "../../assets/b51f5f95e1eaf5745ff8b42c0286ffa87a8b40a1574849959c68f9614520873c.png", "professor": "../../assets/eb209755957154d301d41ed7dc6a389f01f4b5729103f9810468aa672a13a147.png", "rockman": "../../assets/276d100b62c5c2fe0a3933b975ccb5e31202fa7b67b8d671c694497f7095b099.png"};</script><script>/* Wild Encounters: pure encounter rules plus a small, dependency-free browser shell. */
+</style></head><body><div id="app"><header class="mast"><div class="seal">Ω</div><div class="title"><span>A Fakemon field experiment</span><b>Wild Encounters</b></div><button id="guideBtn">Field guide</button><button id="menuBtn">Save</button></header><main class="shell"><section class="mission"><div><b id="areaName">Toygrass Terrace</b></div><span id="objective"></span><div class="progress"><span id="friendCount">0 of 3 friends</span><span class="bar"><i id="friendBar"></i></span></div></section><div class="play"><section class="stage"><canvas id="world" width="768" height="480" tabindex="0" aria-label="Wild Encounters field. Use WASD or arrow keys to walk."></canvas><div id="behavior" class="behavior" role="status" aria-live="polite"></div><div class="caption" id="status" role="status" aria-live="polite"></div></section><aside class="side"><h2>Field actions</h2><div class="actions" id="actions"><button data-action="observe">Observe<br><small>O</small></button><button data-action="environment" class="primary">Change surroundings<br><small>C</small></button><button data-action="space">Give space<br><small>Q</small></button><button data-action="approach">Wait for approach<br><small>Space</small></button></div><div class="habitats" id="habitats"></div></aside></div><section class="touch" id="touch" aria-label="Touch controls"><div class="dpad"><button data-action="move" data-dir="north" aria-label="Move north">▲</button><button data-action="move" data-dir="west" aria-label="Move west">◀</button><button data-action="move" data-dir="south" aria-label="Move south">▼</button><button data-action="move" data-dir="east" aria-label="Move east">▶</button></div><div class="small-actions"><button data-action="observe">Observe</button><button data-action="environment" class="primary">Change</button><button data-action="space">Space</button><button data-action="approach">Wait</button><button data-action="guide">Guide</button><button data-action="menu">Save</button></div></section><section class="camp"><div class="camp-head"><span id="campLabel">Camp</span><span>Friends choose to visit</span></div><div class="camp-row" id="camp"></div></section></main></div><div class="overlay" id="overlay" hidden><section class="panel" id="modal" role="dialog" aria-modal="true" aria-label="Wild Encounters guide"></section></div><input id="importInput" type="file" accept="application/json,.json" hidden><script>const ECHO_ASSETS = {"pug": "../../assets/b0991b363e363dae322ffef642a504057604bc58c07b64a37b0c0ff8619506f9.png", "octopus": "../../assets/87c4a51b9af12bf79395e81c0f2cd11c0534b6aa9b553d9e514d460a6f3669c6.png", "minotaur": "../../assets/2e225617fb11469b161ff1d34936b0de223ecd56274ea4c6cd9f5794e06142ab.png", "siren": "../../assets/62e5d178c154a36e799cce167d6c10a663a0434eec0adb1edbdcbef6a5a1d0dd.png", "nautilus": "../../assets/b51f5f95e1eaf5745ff8b42c0286ffa87a8b40a1574849959c68f9614520873c.png", "professor": "../../assets/eb209755957154d301d41ed7dc6a389f01f4b5729103f9810468aa672a13a147.png", "rockman": "../../assets/276d100b62c5c2fe0a3933b975ccb5e31202fa7b67b8d671c694497f7095b099.png"};</script><script>(function(root,factory){
+  const api=factory();
+  root.PlayerSprite=api;
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+})(typeof globalThis!=="undefined"?globalThis:this,function(){
+  "use strict";
+
+  const WIDTH=24,HEIGHT=32;
+  const PALETTE={
+    outline:"#172831",hairDark:"#39251f",hair:"#5a3527",hairLight:"#8a5234",
+    skinDark:"#995b43",skinShade:"#be7758",skin:"#dfa27a",skinLight:"#f2c39a",
+    creamDark:"#aaa38f",creamShade:"#d2cbb8",cream:"#f3ecd9",creamLight:"#fff9e9",
+    blueDark:"#214f82",blue:"#2f71b5",blueLight:"#64a7df",
+    packDark:"#713629",pack:"#a94e37",packLight:"#d47b52",
+    trouserDark:"#243651",trouser:"#354f77",trouserLight:"#58759d",
+    bootDark:"#31251f",boot:"#51382c",bootLight:"#865c3a",gold:"#d5a743",eye:"#20333a"
+  };
+  const KEYS=Object.keys(PALETTE),CACHE=new Map();
+
+  function frame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase);
+    const pixels=new Array(WIDTH*HEIGHT).fill(null),seams=[];
+    const put=(x,y,key)=>{if(x>=0&&x<WIDTH&&y>=0&&y<HEIGHT)pixels[y*WIDTH+x]=key;};
+    const rect=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)put(xx,yy,key);};
+    const span=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)put(x,y,key);};
+    const seam=(x,y,key="outline")=>seams.push([x,y,key]);
+    const bob=p===2?-1:0;
+    const P=(x,y,key)=>put(x,y+bob,key),R=(x,y,w,h,key)=>rect(x,y+bob,w,h,key),S=(y,x1,x2,key)=>span(y+bob,x1,x2,key);
+
+    function hairFront(){
+      S(2,9,11,"hairLight");S(2,13,14,"hair");
+      S(3,7,16,"hair");P(6,4,"hairDark");S(4,7,17,"hair");P(18,5,"hairDark");
+      S(5,6,17,"hair");S(6,6,8,"hairDark");S(6,9,10,"hair");S(6,12,13,"hairDark");S(6,15,17,"hair");
+      P(7,7,"hairDark");P(16,7,"hairDark");P(7,8,"hairDark");P(16,8,"hairDark");
+      S(3,9,12,"hairLight");P(8,4,"hairLight");P(15,5,"hairLight");
+    }
+    function faceFront(){
+      S(6,8,15,"skin");S(7,8,15,"skin");S(8,7,16,"skin");S(9,7,16,"skin");S(10,8,15,"skin");S(11,9,14,"skinShade");
+      P(6,8,"skinShade");P(17,8,"skinShade");P(8,8,"skinLight");
+      P(9,8,"eye");P(14,8,"eye");P(10,10,"skinLight");P(13,10,"skinShade");
+      seam(11,11+bob,"skinDark");seam(12,11+bob,"skinDark");
+    }
+    function hairBack(){
+      S(2,9,11,"hairLight");S(2,13,14,"hair");S(3,7,16,"hair");P(6,4,"hairDark");S(4,7,17,"hair");P(18,5,"hairDark");
+      S(5,6,17,"hair");S(6,6,17,"hair");S(7,6,17,"hair");S(8,7,16,"hairDark");S(9,8,15,"hairDark");
+      P(7,5,"hairLight");S(3,9,12,"hairLight");S(6,9,13,"hairLight");P(15,7,"hairLight");
+      P(6,8,"skinShade");P(17,8,"skin");S(10,9,14,"skinShade");
+    }
+    function legsFront(backView){
+      if(p===2){
+        R(7,23,4,5,"trouser");R(13,23,4,5,"trouserDark");
+        R(7,27,4,3,"boot");R(13,27,4,3,"boot");S(30,6,10,"bootDark");S(30,13,17,"bootDark");
+      }else if(p===1){
+        // Left foot plants ahead; the opposite heel clears the ground.
+        R(6,23,4,5,"trouser");P(7,24,"trouserLight");R(6,27,4,3,"boot");S(30,5,10,"bootDark");P(6,29,"bootLight");
+        R(13,23,4,4,"trouserDark");P(14,24,backView?"trouser":"trouserLight");R(13,26,4,3,"boot");S(29,13,17,"bootDark");P(14,28,"bootLight");
+      }else if(p===3){
+        // Mirrored plant gives a grounded, alternating gait.
+        R(7,23,4,4,"trouser");P(8,24,"trouserLight");R(7,26,4,3,"boot");S(29,6,10,"bootDark");P(7,28,"bootLight");
+        R(14,23,4,5,"trouserDark");P(15,24,backView?"trouser":"trouserLight");R(14,27,4,3,"boot");S(30,13,18,"bootDark");P(15,29,"bootLight");
+      }else{
+        R(7,23,4,5,"trouser");R(13,23,4,5,"trouserDark");
+        P(8,24,"trouserLight");P(14,24,backView?"trouser":"trouserLight");
+        R(7,27,4,3,"boot");R(13,27,4,3,"boot");
+        S(30,6,10,"bootDark");S(30,13,17,"bootDark");
+        P(7,29,"bootLight");P(14,29,"bootLight");
+      }
+      seam(11,24+bob);seam(12,24+bob);seam(11,25+bob);seam(12,25+bob);
+    }
+    function front(){
+      legsFront(false);
+      const la=p===1?1:p===3?-1:0,ra=-la;
+      R(5,14+la,3,7,"creamShade");R(4,19+la,3,3,"skin");P(4,21+la,"skinShade");
+      R(16,14+ra,3,7,"cream");R(17,19+ra,3,3,"skin");P(19,21+ra,"skinShade");
+      S(13,8,15,"creamLight");S(14,7,16,"cream");R(7,15,10,8,"cream");
+      S(21,7,16,"creamShade");S(22,8,15,"creamDark");
+      P(7,16,"packDark");P(16,16,"pack");P(7,17,"pack");P(16,17,"packLight");
+      P(9,13,"blueLight");S(14,9,11,"blue");S(15,10,12,"blue");S(16,11,13,"blue");S(17,12,14,"blueDark");S(18,13,15,"blue");
+      R(15,18,2,6,"blue");P(16,22,"blueLight");P(17,20,"blueDark");
+      S(21,8,15,"gold");P(11,21,"blueDark");
+      faceFront();hairFront();
+      seam(7,14+bob,"creamDark");seam(16,14+bob,"creamDark");seam(8,22+bob);seam(15,22+bob);
+    }
+    function back(){
+      legsFront(true);
+      const la=p===1?-1:p===3?1:0,ra=-la;
+      R(5,14+la,3,7,"creamShade");R(4,19+la,3,3,"skinShade");
+      R(16,14+ra,3,7,"cream");R(17,19+ra,3,3,"skin");
+      S(13,8,15,"cream");S(14,7,16,"creamShade");R(7,15,10,8,"creamShade");
+      R(7,15,10,7,"packDark");S(16,8,15,"pack");S(17,8,15,"pack");S(18,7,16,"pack");S(19,7,16,"pack");S(20,8,15,"packLight");S(21,9,14,"packDark");
+      R(8,14,2,6,"packLight");R(14,14,2,6,"packDark");S(18,10,13,"packLight");P(11,20,"gold");P(12,20,"gold");
+      S(12,9,14,"blueLight");S(13,10,15,"blue");P(15,14,"blueDark");P(16,15,"blue");P(17,16,"blue");P(17,17,"blueLight");
+      hairBack();
+      seam(7,22+bob);seam(16,22+bob);seam(11,21+bob,"packDark");seam(12,21+bob,"packDark");
+    }
+    function profile(left){
+      const mirror=x=>left?WIDTH-1-x:x;
+      const q=(x,y,key)=>put(mirror(x),y+bob,key),qr=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)q(xx,yy,key);},qs=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)q(x,y,key);};
+      const forward=p===1?2:p===3?-1:0,backward=p===1?-1:p===3?2:0;
+      if(p===2){qr(9,23,4,7,"trouser");qr(13,23,3,7,"trouserDark");qs(30,8,13,"bootDark");qs(30,13,17,"bootDark");}
+      else{
+        qr(9+forward,23,4,6,"trouser");qr(12+backward,23,4,6,"trouserDark");
+        qr(9+forward,28,4,2,"boot");qr(12+backward,28,4,2,"boot");qs(30,8+forward,13+forward,"bootDark");qs(30,12+backward,17+backward,"bootDark");
+        q(10+forward,28,"bootLight");q(14+backward,28,"bootLight");
+      }
+      // Backpack creates a distinct rear silhouette; scarf streams toward it.
+      qr(5,14,4,8,"packDark");qr(6,15,4,7,"pack");q(6,16,"packLight");q(6,17,"packLight");
+      qs(13,9,15,"creamLight");qs(14,8,16,"cream");qr(8,15,9,8,"cream");qs(21,8,16,"creamShade");qs(22,9,15,"creamDark");
+      const arm=p===1?-1:p===3?1:0;qr(15,14+arm,3,7,"creamShade");qr(16,19+arm,3,3,"skin");q(18,21+arm,"skinShade");
+      qs(13,11,14,"blueLight");qs(14,10,13,"blue");qs(15,9,12,"blue");q(8,16,"blueDark");q(7,17,"blue");q(6,18,"blueLight");
+      qs(21,9,15,"gold");
+      // Profile face and hooked, wind-tossed hair silhouette.
+      qs(2,9,11,"hairLight");qs(2,13,14,"hair");qs(3,7,15,"hair");q(6,4,"hairDark");qs(4,7,16,"hair");q(6,5,"hairDark");qs(5,7,16,"hair");
+      qs(6,7,12,"hairDark");qs(6,13,16,"skin");qs(7,8,16,"skin");qs(8,8,17,"skin");q(18,8,"skinShade");qs(9,8,17,"skin");qs(10,9,16,"skinShade");qs(11,10,15,"skinShade");
+      q(15,7,"eye");q(16,7,"skinLight");q(17,9,"skinLight");q(8,7,"hairDark");q(8,8,"hairDark");q(9,3,"hairLight");q(15,4,"hairLight");
+      q(12,11,"skinDark");q(13,11,"skinDark");
+      seams.push([mirror(8),15+bob,"outline"],[mirror(8),21+bob,"outline"],[mirror(15),22+bob,"outline"]);
+    }
+
+    if(dir==="down")front();else if(dir==="up")back();else profile(dir==="left");
+
+    // One-pixel contour around the colored clusters, added after the pose is assembled.
+    const colored=pixels.slice();
+    for(let y=0;y<HEIGHT;y++)for(let x=0;x<WIDTH;x++)if(colored[y*WIDTH+x]){
+      for(let oy=-1;oy<=1;oy++)for(let ox=-1;ox<=1;ox++)if((ox||oy)&&x+ox>=0&&x+ox<WIDTH&&y+oy>=0&&y+oy<HEIGHT&&!colored[(y+oy)*WIDTH+x+ox]){
+        if(!pixels[(y+oy)*WIDTH+x+ox])pixels[(y+oy)*WIDTH+x+ox]="outline";
+      }
+    }
+    for(const [x,y,key] of seams)put(x,y,key);
+    return pixels;
+  }
+
+  function normalizeDirection(value){
+    const d=String(value||"down").toLowerCase();
+    return d==="north"?"up":d==="south"?"down":d==="west"?"left":d==="east"?"right":["up","down","left","right"].includes(d)?d:"down";
+  }
+  function normalizePhase(value){const n=Number(value);return Number.isFinite(n)?((Math.round(n)%4)+4)%4:0;}
+  function cachedFrame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase),key=dir+":"+p;
+    if(CACHE.has(key))return CACHE.get(key);
+    const pixels=frame(dir,p);let canvas=null;
+    try{
+      if(typeof OffscreenCanvas!=="undefined")canvas=new OffscreenCanvas(WIDTH,HEIGHT);
+      else if(typeof document!=="undefined"&&document.createElement){canvas=document.createElement("canvas");canvas.width=WIDTH;canvas.height=HEIGHT;}
+      if(canvas){const c=canvas.getContext("2d");c.imageSmoothingEnabled=false;for(let i=0;i<pixels.length;i++)if(pixels[i]){c.fillStyle=PALETTE[pixels[i]];c.fillRect(i%WIDTH,Math.floor(i/WIDTH),1,1);}}
+    }catch(_){canvas=null;}
+    const result={pixels,canvas};CACHE.set(key,result);return result;
+  }
+  function draw(ctx,options){
+    options=options||{};const requestedScale=Number(options.scale),scale=Number.isFinite(requestedScale)&&requestedScale>0?Math.min(4,requestedScale):1;
+    const x=Math.round(Number(options.x)||0),y=Math.round(Number(options.y)||0),dir=normalizeDirection(options.direction),p=normalizePhase(options.phase);
+    const left=x-Math.floor(WIDTH*scale/2),top=y-HEIGHT*scale;
+    ctx.save();
+    if(options.shadow!==false){
+      ctx.fillStyle="rgba(20,38,44,.28)";
+      ctx.fillRect(x-7*scale,y-2*scale,14*scale,2*scale);
+      ctx.fillRect(x-5*scale,y-3*scale,10*scale,1*scale);
+    }
+    const asset=cachedFrame(dir,p);ctx.imageSmoothingEnabled=false;
+    if(asset.canvas&&typeof ctx.drawImage==="function")ctx.drawImage(asset.canvas,left,top,WIDTH*scale,HEIGHT*scale);
+    else for(let i=0;i<asset.pixels.length;i++)if(asset.pixels[i]){ctx.fillStyle=PALETTE[asset.pixels[i]];ctx.fillRect(left+(i%WIDTH)*scale,top+Math.floor(i/WIDTH)*scale,scale,scale);}
+    ctx.restore();
+  }
+  function getFrame(direction,phase){return cachedFrame(direction,phase).pixels.slice();}
+  return {WIDTH,HEIGHT,PALETTE:Object.freeze({...PALETTE}),draw,getFrame};
+});
+
+/* Wild Encounters: pure encounter rules plus a small, dependency-free browser shell. */
 const WildEncounters = (() => {
   'use strict';
   const VERSION = 2;
@@ -185,7 +352,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') (() => {
   'use strict';
   const Core = WildEncounters, SAVE_KEY='fakemon-wild-encounters-v2';
   const $ = id => document.getElementById(id);
-  let state=Core.fresh(), last='Professor Thales is ready to show a careful field method.', modalMode='';
+  let state=Core.fresh(), last='Professor Thales is ready to show a careful field method.', modalMode='', playerMotion=null, playerFrame=0;
   const esc = text => String(text).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const assets = () => typeof ECHO_ASSETS !== 'undefined' ? ECHO_ASSETS : (window.ECHO_ASSETS || {});
   const image = id => assets()[id];
@@ -198,7 +365,13 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') (() => {
   function asset(id) { const src=image(id); return src ? `<img src="${src}" alt="" aria-hidden="true">` : `<span class="sprite-fallback">${id === 'pug' ? '🐶' : id === 'octopus' ? '🐙' : id === 'nautilus' ? '🐚' : '★'}</span>`; }
   function persist() { try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); return true; } catch (_) { return false; } }
   function restore() { try { const recovered=Core.normalize(JSON.parse(localStorage.getItem(SAVE_KEY))); if (recovered) state=recovered; } catch (_) {} }
-  function run(command) { const result=Core.step(state,command); state=result.state; last=result.events[0].text; persist(); render(); }
+  const reducedMotion=()=>!!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const directionBetween=(from,to,fallback='south')=>to.x>from.x?'east':to.x<from.x?'west':to.y>from.y?'south':to.y<from.y?'north':fallback;
+  function clearPlayerMotion(){playerMotion=null;}
+  function queuePlayerFrame(){if(!playerFrame&&playerMotion)playerFrame=requestAnimationFrame(now=>{playerFrame=0;draw(Core.view(state),now);queuePlayerFrame();});}
+  function animatePlayer(from,to,direction){if(reducedMotion()){clearPlayerMotion();return;}const now=performance.now(),visible=playerMotion&&playerMotion.to.x===from.x&&playerMotion.to.y===from.y?playerPose(from,now):from;playerMotion={from:{x:visible.x,y:visible.y},to:{x:to.x,y:to.y},direction,started:now,duration:170};queuePlayerFrame();}
+  function playerPose(player,now){if(reducedMotion())clearPlayerMotion();const motion=playerMotion;if(!motion||motion.to.x!==player.x||motion.to.y!==player.y)return{x:player.x,y:player.y,direction:player.facing,phase:0};const progress=Math.min(1,(now-motion.started)/motion.duration);if(progress>=1){clearPlayerMotion();return{x:player.x,y:player.y,direction:player.facing,phase:0};}return{x:motion.from.x+(motion.to.x-motion.from.x)*progress,y:motion.from.y+(motion.to.y-motion.from.y)*progress,direction:motion.direction,phase:progress<.34?1:progress<.68?2:3};}
+  function run(command) { const before=state, result=Core.step(state,command); state=result.state; last=result.events[0].text; const moved=command.type==='move'&&Math.abs(state.player.x-before.player.x)+Math.abs(state.player.y-before.player.y)===1;if(moved)animatePlayer(before.player,state.player,directionBetween(before.player,state.player,state.player.facing));else if(command.type==='travel'||command.type==='tutorial')clearPlayerMotion();persist();render(); }
   function progress(){ return Core.view(state).progress; }
   function renderNav() { const v=Core.view(state); $('habitats').innerHTML=Object.values(Core.AREAS).map(area=>`<button class="habitat ${area.id===state.area?'selected':''}" data-area="${area.id}"><span>${area.id==='pug'?'🌿':area.id==='octopus'?'🌊':'🐚'}</span><b>${esc(area.name)}</b><small>${state.friendships[area.id]?'Friend at camp':'Explore'}</small></button>`).join(''); }
   function renderCamp() { $('camp').innerHTML=Core.view(state).camp.map(item=>`<div class="camp-pal ${item.friend?'friend':''}">${asset(item.id)}<span>${item.friend ? item.id[0].toUpperCase()+item.id.slice(1) : '…'}</span></div>`).join(''); }
@@ -208,7 +381,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') (() => {
     renderNav(); renderCamp(); draw(v); if (state.tutorial==='intro') openGuide('intro');
   }
   function tile(ctx,x,y,color){ctx.fillStyle=color;ctx.fillRect(x*48,y*48,48,48);}
-  function draw(v) { const canvas=$('world'), ctx=canvas.getContext('2d'), area=state.area, c=Core.AREAS[area].creature, h=state.habitats[area], phase=state.time%4;
+  function draw(v,now=performance.now()) { const canvas=$('world'), ctx=canvas.getContext('2d'), area=state.area, c=Core.AREAS[area].creature, h=state.habitats[area], phase=state.time%4;
     ctx.clearRect(0,0,canvas.width,canvas.height); ctx.imageSmoothingEnabled=false;
     for(let y=0;y<10;y++)for(let x=0;x<16;x++){const water=(area==='octopus'||area==='nautilus')&&x>=11&&y>=2&&y<=8;tile(ctx,x,y,water?'#4aaeb5':area==='octopus'?'#d8c78b':area==='nautilus'?'#e7d29b':'#89b75c');}
     if(area==='pug'){for(let y=0;y<10;y++){tile(ctx,8,y,'#e8d7a5');tile(ctx,9,y,'#e8d7a5');}for(let x=0;x<16;x+=2)tile(ctx,x,2,'#6fa44d'); if(h.toyPlaced){ctx.fillStyle='#c94f40';ctx.fillRect(390,285,24,18);ctx.fillStyle='#f3cf68';ctx.fillRect(396,290,12,8);}}
@@ -217,7 +390,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') (() => {
     for(let i=0;i<16;i++){ctx.fillStyle='#f5ebc4';ctx.fillRect(i*48,0,48,8);ctx.fillRect(i*48,472,48,8);} const cp=Core.view(state).state.player;
     const creature=Core.view(state).state.friendships[area] ? null : {x:Core.AREAS[area].id==='pug'?12:13,y:6};
     if(creature){for(let y=0;y<10;y++)for(let x=0;x<16;x++){const d=Math.abs(x-creature.x)+Math.abs(y-creature.y);if(d<=3){ctx.fillStyle='#e3534350';ctx.fillRect(x*48,y*48,48,48);}else if(d<=7){ctx.fillStyle='#66dcc045';ctx.fillRect(x*48,y*48,48,48);}} const target=v.target; if(!h[c==='pug'?'toyPlaced':c==='octopus'?'channelCleared':'shelterRestored']){ctx.fillStyle='#f3cf68';ctx.fillRect(target.x*48+16,target.y*48+16,16,16);ctx.fillStyle='#fff9e8';ctx.fillRect(target.x*48+21,target.y*48+9,6,30);} const bob=(phase===0||phase===2)?0:-3, pic=spriteImage(c); if(pic){ctx.drawImage(pic,creature.x*48-4,creature.y*48-12+bob,62,62);}else{ctx.font='38px system-ui';ctx.fillText(c==='pug'?'🐶':c==='octopus'?'🐙':'🐚',creature.x*48,creature.y*48+28+bob);}}
-    ctx.fillStyle='#173f42';ctx.fillRect(cp.x*48+13,cp.y*48+10,22,29);ctx.fillStyle='#f3cf68';ctx.fillRect(cp.x*48+17,cp.y*48+5,14,11);
+    const pose=playerPose(cp,now);if(typeof window.PlayerSprite?.draw==='function')window.PlayerSprite.draw(ctx,{x:pose.x*48+24,y:pose.y*48+43,direction:pose.direction,phase:pose.phase,scale:2,shadow:true});
     // Behavior and proximity feedback are rendered as readable DOM text below the field.
   }
   function openGuide(mode='guide') { modalMode=mode; const step=state.tutorial; let body='';
@@ -232,8 +405,8 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') (() => {
   function importSave(){ $('importInput').click(); }
   function bind() { document.addEventListener('keydown',e=>{if(e.metaKey||e.ctrlKey||e.altKey||e.target?.tagName==='INPUT'||!$('overlay').hidden)return;const key=e.key.toLowerCase(), dir={arrowup:'north',w:'north',arrowdown:'south',s:'south',arrowleft:'west',a:'west',arrowright:'east',d:'east'}[key];if(dir){e.preventDefault();run({type:'move',direction:dir});}else if(key==='e'||key==='o')run({type:'observe'});else if(key==='c')run({type:'environment'});else if(key==='q')run({type:'space'});else if(key===' ') {e.preventDefault();run({type:'approach'});} });
     $('habitats').onclick=e=>{const b=e.target.closest('[data-area]');if(b)run({type:'travel',area:b.dataset.area});}; $('touch').onclick=e=>{const b=e.target.closest('button');if(!b)return;const action=b.dataset.action;if(action==='guide')openGuide();else if(action==='menu')saveMenu();else if(action==='move')run({type:'move',direction:b.dataset.dir});else if(action)run({type:action});}; $('actions').onclick=e=>{const b=e.target.closest('button');if(!b)return;run({type:b.dataset.action});}; $('guideBtn').onclick=()=>openGuide(); $('menuBtn').onclick=saveMenu;
-    $('overlay').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.guide==='demo')run({type:'tutorial',stage:'demo'}),openGuide('intro');else if(b.dataset.guide==='practice')run({type:'tutorial',stage:'practice'}),$('overlay').hidden=true;else if(b.dataset.guide==='replay')state.tutorial='demo',openGuide('intro');else if(b.dataset.guide==='close')closeGuide();else if(b.dataset.menu==='close')$('overlay').hidden=true;else if(b.dataset.menu==='export')exportSave();else if(b.dataset.menu==='import')importSave();else if(b.dataset.menu==='restart'){state=Core.fresh();persist();$('overlay').hidden=true;render();}};
-    $('importInput').onchange=e=>{const file=e.target.files&&e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const loaded=Core.normalize(JSON.parse(reader.result));if(!loaded)throw Error();state=loaded;last='Notebook imported safely.';persist();$('overlay').hidden=true;render();}catch(_){last='That notebook belongs to another demo or is unreadable.';render();}};reader.readAsText(file);}; }
-  restore(); bind(); render(); window.WildDemo={ready:true,snapshot:()=>Core.view(state),step:command=>{run(command);return Core.view(state);}};
+    $('overlay').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.guide==='demo')run({type:'tutorial',stage:'demo'}),openGuide('intro');else if(b.dataset.guide==='practice')run({type:'tutorial',stage:'practice'}),$('overlay').hidden=true;else if(b.dataset.guide==='replay')state.tutorial='demo',openGuide('intro');else if(b.dataset.guide==='close')closeGuide();else if(b.dataset.menu==='close')$('overlay').hidden=true;else if(b.dataset.menu==='export')exportSave();else if(b.dataset.menu==='import')importSave();else if(b.dataset.menu==='restart'){state=Core.fresh();clearPlayerMotion();persist();$('overlay').hidden=true;render();}};
+    $('importInput').onchange=e=>{const file=e.target.files&&e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const loaded=Core.normalize(JSON.parse(reader.result));if(!loaded)throw Error();state=loaded;clearPlayerMotion();last='Notebook imported safely.';persist();$('overlay').hidden=true;render();}catch(_){last='That notebook belongs to another demo or is unreadable.';render();}};reader.readAsText(file);}; }
+  restore(); bind(); render(); window.WildDemo={ready:true,snapshot:()=>Core.view(state),presentation:()=>playerMotion&&JSON.parse(JSON.stringify(playerMotion)),step:command=>{run(command);return Core.view(state);}};
 })();
 </script></body></html>

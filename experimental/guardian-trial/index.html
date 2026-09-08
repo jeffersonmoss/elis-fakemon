@@ -29,7 +29,174 @@ img,canvas{image-rendering:pixelated}
 .dpad [data-dir="west"]{grid-row:2;grid-column:1}
 .dpad [data-dir="south"]{grid-row:2;grid-column:2}
 .dpad [data-dir="east"]{grid-row:2;grid-column:3}
-</style></head><body><main class="shell"><header class="mast"><div class="seal" aria-hidden="true">☉</div><div class="title"><span>Fakemon field experiment</span><b>Temple Guardian</b></div><button id="replayBtn">Tutorial</button><button id="importBtn">Import</button><button id="saveBtn">Export save</button></header><section class="mission"><div id="turn" class="turn">Turn 1</div><div id="objective" class="objective">Dodge, block, and strike when a seal is exposed.</div><div class="chips"><span id="seals" class="chip">Seals 0/3</span><span id="stumbles" class="chip">Stumbles 0/3</span></div></section><section class="play"><div class="board-wrap"><canvas id="guardianBoard" width="700" height="700" tabindex="0" aria-label="Temple Guardian board. Orange tiles are hit after Ready. Click a neighboring open tile to preview a move."></canvas></div><aside class="panel"><h2>Plan one action</h2><div id="telegraph" class="telegraph"></div><div id="status" class="status"></div><div class="moves" aria-label="Preview a move"><button data-move="north" aria-label="Preview move north">▲</button><button data-move="west" aria-label="Preview move west">◀</button><button data-move="south" aria-label="Preview move south">▼</button><button data-move="east" aria-label="Preview move east">▶</button></div><div class="actions"><button id="rockBtn">Rock Man block <small>B</small></button><button id="strikeBtn" class="gold">Strike seal <small>X</small></button><button id="waitBtn" class="quiet">Hold position <small>Space</small></button><button id="readyBtn" class="primary wide">Ready <small>R</small></button><button id="restartBtn" class="wide">Restart encounter</button></div><div id="actionHint" class="status"></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div><p class="help">Arrows/WASD preview a move. The guardian never acts while you are choosing.</p><p id="victory" class="victory" hidden><b>☉ Guardian Emblem</b>The guardian recognizes your care and sleeps peacefully.</p></aside></section></main><section id="tutorial" class="tutorial" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle"><div class="card"><p class="turn">Professor’s gentle trial</p><h1 id="tutorialTitle">Plan, then press Ready.</h1><p>This guardian waits as long as you need. Orange tiles are only dangerous after your Ready choice.</p><div class="steps"><div class="step"><b>First, dodge the marked sweep.</b>Preview one neighboring tile outside the orange row. The next small lesson appears after you succeed.</div></div><button id="closeTutorial" class="primary">Start the calm practice</button></div></section><input id="importInput" type="file" accept="application/json,.json" hidden><script>const ECHO_ASSETS = {"pug": "../../assets/b0991b363e363dae322ffef642a504057604bc58c07b64a37b0c0ff8619506f9.png", "octopus": "../../assets/87c4a51b9af12bf79395e81c0f2cd11c0534b6aa9b553d9e514d460a6f3669c6.png", "minotaur": "../../assets/2e225617fb11469b161ff1d34936b0de223ecd56274ea4c6cd9f5794e06142ab.png", "siren": "../../assets/62e5d178c154a36e799cce167d6c10a663a0434eec0adb1edbdcbef6a5a1d0dd.png", "nautilus": "../../assets/b51f5f95e1eaf5745ff8b42c0286ffa87a8b40a1574849959c68f9614520873c.png", "professor": "../../assets/eb209755957154d301d41ed7dc6a389f01f4b5729103f9810468aa672a13a147.png", "rockman": "../../assets/276d100b62c5c2fe0a3933b975ccb5e31202fa7b67b8d671c694497f7095b099.png"};</script><script>/* Temple Guardian is deliberately turn based: preview changes no encounter
+</style></head><body><main class="shell"><header class="mast"><div class="seal" aria-hidden="true">☉</div><div class="title"><span>Fakemon field experiment</span><b>Temple Guardian</b></div><button id="replayBtn">Tutorial</button><button id="importBtn">Import</button><button id="saveBtn">Export save</button></header><section class="mission"><div id="turn" class="turn">Turn 1</div><div id="objective" class="objective">Dodge, block, and strike when a seal is exposed.</div><div class="chips"><span id="seals" class="chip">Seals 0/3</span><span id="stumbles" class="chip">Stumbles 0/3</span></div></section><section class="play"><div class="board-wrap"><canvas id="guardianBoard" width="700" height="700" tabindex="0" aria-label="Temple Guardian board. Orange tiles are hit after Ready. Click a neighboring open tile to preview a move."></canvas></div><aside class="panel"><h2>Plan one action</h2><div id="telegraph" class="telegraph"></div><div id="status" class="status"></div><div class="moves" aria-label="Preview a move"><button data-move="north" aria-label="Preview move north">▲</button><button data-move="west" aria-label="Preview move west">◀</button><button data-move="south" aria-label="Preview move south">▼</button><button data-move="east" aria-label="Preview move east">▶</button></div><div class="actions"><button id="rockBtn">Rock Man block <small>B</small></button><button id="strikeBtn" class="gold">Strike seal <small>X</small></button><button id="waitBtn" class="quiet">Hold position <small>Space</small></button><button id="readyBtn" class="primary wide">Ready <small>R</small></button><button id="restartBtn" class="wide">Restart encounter</button></div><div id="actionHint" class="status"></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div><p class="help">Arrows/WASD preview a move. The guardian never acts while you are choosing.</p><p id="victory" class="victory" hidden><b>☉ Guardian Emblem</b>The guardian recognizes your care and sleeps peacefully.</p></aside></section></main><section id="tutorial" class="tutorial" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle"><div class="card"><p class="turn">Professor’s gentle trial</p><h1 id="tutorialTitle">Plan, then press Ready.</h1><p>This guardian waits as long as you need. Orange tiles are only dangerous after your Ready choice.</p><div class="steps"><div class="step"><b>First, dodge the marked sweep.</b>Preview one neighboring tile outside the orange row. The next small lesson appears after you succeed.</div></div><button id="closeTutorial" class="primary">Start the calm practice</button></div></section><input id="importInput" type="file" accept="application/json,.json" hidden><script>const ECHO_ASSETS = {"pug": "../../assets/b0991b363e363dae322ffef642a504057604bc58c07b64a37b0c0ff8619506f9.png", "octopus": "../../assets/87c4a51b9af12bf79395e81c0f2cd11c0534b6aa9b553d9e514d460a6f3669c6.png", "minotaur": "../../assets/2e225617fb11469b161ff1d34936b0de223ecd56274ea4c6cd9f5794e06142ab.png", "siren": "../../assets/62e5d178c154a36e799cce167d6c10a663a0434eec0adb1edbdcbef6a5a1d0dd.png", "nautilus": "../../assets/b51f5f95e1eaf5745ff8b42c0286ffa87a8b40a1574849959c68f9614520873c.png", "professor": "../../assets/eb209755957154d301d41ed7dc6a389f01f4b5729103f9810468aa672a13a147.png", "rockman": "../../assets/276d100b62c5c2fe0a3933b975ccb5e31202fa7b67b8d671c694497f7095b099.png"};</script><script>(function(root,factory){
+  const api=factory();
+  root.PlayerSprite=api;
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+})(typeof globalThis!=="undefined"?globalThis:this,function(){
+  "use strict";
+
+  const WIDTH=24,HEIGHT=32;
+  const PALETTE={
+    outline:"#172831",hairDark:"#39251f",hair:"#5a3527",hairLight:"#8a5234",
+    skinDark:"#995b43",skinShade:"#be7758",skin:"#dfa27a",skinLight:"#f2c39a",
+    creamDark:"#aaa38f",creamShade:"#d2cbb8",cream:"#f3ecd9",creamLight:"#fff9e9",
+    blueDark:"#214f82",blue:"#2f71b5",blueLight:"#64a7df",
+    packDark:"#713629",pack:"#a94e37",packLight:"#d47b52",
+    trouserDark:"#243651",trouser:"#354f77",trouserLight:"#58759d",
+    bootDark:"#31251f",boot:"#51382c",bootLight:"#865c3a",gold:"#d5a743",eye:"#20333a"
+  };
+  const KEYS=Object.keys(PALETTE),CACHE=new Map();
+
+  function frame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase);
+    const pixels=new Array(WIDTH*HEIGHT).fill(null),seams=[];
+    const put=(x,y,key)=>{if(x>=0&&x<WIDTH&&y>=0&&y<HEIGHT)pixels[y*WIDTH+x]=key;};
+    const rect=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)put(xx,yy,key);};
+    const span=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)put(x,y,key);};
+    const seam=(x,y,key="outline")=>seams.push([x,y,key]);
+    const bob=p===2?-1:0;
+    const P=(x,y,key)=>put(x,y+bob,key),R=(x,y,w,h,key)=>rect(x,y+bob,w,h,key),S=(y,x1,x2,key)=>span(y+bob,x1,x2,key);
+
+    function hairFront(){
+      S(2,9,11,"hairLight");S(2,13,14,"hair");
+      S(3,7,16,"hair");P(6,4,"hairDark");S(4,7,17,"hair");P(18,5,"hairDark");
+      S(5,6,17,"hair");S(6,6,8,"hairDark");S(6,9,10,"hair");S(6,12,13,"hairDark");S(6,15,17,"hair");
+      P(7,7,"hairDark");P(16,7,"hairDark");P(7,8,"hairDark");P(16,8,"hairDark");
+      S(3,9,12,"hairLight");P(8,4,"hairLight");P(15,5,"hairLight");
+    }
+    function faceFront(){
+      S(6,8,15,"skin");S(7,8,15,"skin");S(8,7,16,"skin");S(9,7,16,"skin");S(10,8,15,"skin");S(11,9,14,"skinShade");
+      P(6,8,"skinShade");P(17,8,"skinShade");P(8,8,"skinLight");
+      P(9,8,"eye");P(14,8,"eye");P(10,10,"skinLight");P(13,10,"skinShade");
+      seam(11,11+bob,"skinDark");seam(12,11+bob,"skinDark");
+    }
+    function hairBack(){
+      S(2,9,11,"hairLight");S(2,13,14,"hair");S(3,7,16,"hair");P(6,4,"hairDark");S(4,7,17,"hair");P(18,5,"hairDark");
+      S(5,6,17,"hair");S(6,6,17,"hair");S(7,6,17,"hair");S(8,7,16,"hairDark");S(9,8,15,"hairDark");
+      P(7,5,"hairLight");S(3,9,12,"hairLight");S(6,9,13,"hairLight");P(15,7,"hairLight");
+      P(6,8,"skinShade");P(17,8,"skin");S(10,9,14,"skinShade");
+    }
+    function legsFront(backView){
+      if(p===2){
+        R(7,23,4,5,"trouser");R(13,23,4,5,"trouserDark");
+        R(7,27,4,3,"boot");R(13,27,4,3,"boot");S(30,6,10,"bootDark");S(30,13,17,"bootDark");
+      }else if(p===1){
+        // Left foot plants ahead; the opposite heel clears the ground.
+        R(6,23,4,5,"trouser");P(7,24,"trouserLight");R(6,27,4,3,"boot");S(30,5,10,"bootDark");P(6,29,"bootLight");
+        R(13,23,4,4,"trouserDark");P(14,24,backView?"trouser":"trouserLight");R(13,26,4,3,"boot");S(29,13,17,"bootDark");P(14,28,"bootLight");
+      }else if(p===3){
+        // Mirrored plant gives a grounded, alternating gait.
+        R(7,23,4,4,"trouser");P(8,24,"trouserLight");R(7,26,4,3,"boot");S(29,6,10,"bootDark");P(7,28,"bootLight");
+        R(14,23,4,5,"trouserDark");P(15,24,backView?"trouser":"trouserLight");R(14,27,4,3,"boot");S(30,13,18,"bootDark");P(15,29,"bootLight");
+      }else{
+        R(7,23,4,5,"trouser");R(13,23,4,5,"trouserDark");
+        P(8,24,"trouserLight");P(14,24,backView?"trouser":"trouserLight");
+        R(7,27,4,3,"boot");R(13,27,4,3,"boot");
+        S(30,6,10,"bootDark");S(30,13,17,"bootDark");
+        P(7,29,"bootLight");P(14,29,"bootLight");
+      }
+      seam(11,24+bob);seam(12,24+bob);seam(11,25+bob);seam(12,25+bob);
+    }
+    function front(){
+      legsFront(false);
+      const la=p===1?1:p===3?-1:0,ra=-la;
+      R(5,14+la,3,7,"creamShade");R(4,19+la,3,3,"skin");P(4,21+la,"skinShade");
+      R(16,14+ra,3,7,"cream");R(17,19+ra,3,3,"skin");P(19,21+ra,"skinShade");
+      S(13,8,15,"creamLight");S(14,7,16,"cream");R(7,15,10,8,"cream");
+      S(21,7,16,"creamShade");S(22,8,15,"creamDark");
+      P(7,16,"packDark");P(16,16,"pack");P(7,17,"pack");P(16,17,"packLight");
+      P(9,13,"blueLight");S(14,9,11,"blue");S(15,10,12,"blue");S(16,11,13,"blue");S(17,12,14,"blueDark");S(18,13,15,"blue");
+      R(15,18,2,6,"blue");P(16,22,"blueLight");P(17,20,"blueDark");
+      S(21,8,15,"gold");P(11,21,"blueDark");
+      faceFront();hairFront();
+      seam(7,14+bob,"creamDark");seam(16,14+bob,"creamDark");seam(8,22+bob);seam(15,22+bob);
+    }
+    function back(){
+      legsFront(true);
+      const la=p===1?-1:p===3?1:0,ra=-la;
+      R(5,14+la,3,7,"creamShade");R(4,19+la,3,3,"skinShade");
+      R(16,14+ra,3,7,"cream");R(17,19+ra,3,3,"skin");
+      S(13,8,15,"cream");S(14,7,16,"creamShade");R(7,15,10,8,"creamShade");
+      R(7,15,10,7,"packDark");S(16,8,15,"pack");S(17,8,15,"pack");S(18,7,16,"pack");S(19,7,16,"pack");S(20,8,15,"packLight");S(21,9,14,"packDark");
+      R(8,14,2,6,"packLight");R(14,14,2,6,"packDark");S(18,10,13,"packLight");P(11,20,"gold");P(12,20,"gold");
+      S(12,9,14,"blueLight");S(13,10,15,"blue");P(15,14,"blueDark");P(16,15,"blue");P(17,16,"blue");P(17,17,"blueLight");
+      hairBack();
+      seam(7,22+bob);seam(16,22+bob);seam(11,21+bob,"packDark");seam(12,21+bob,"packDark");
+    }
+    function profile(left){
+      const mirror=x=>left?WIDTH-1-x:x;
+      const q=(x,y,key)=>put(mirror(x),y+bob,key),qr=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)q(xx,yy,key);},qs=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)q(x,y,key);};
+      const forward=p===1?2:p===3?-1:0,backward=p===1?-1:p===3?2:0;
+      if(p===2){qr(9,23,4,7,"trouser");qr(13,23,3,7,"trouserDark");qs(30,8,13,"bootDark");qs(30,13,17,"bootDark");}
+      else{
+        qr(9+forward,23,4,6,"trouser");qr(12+backward,23,4,6,"trouserDark");
+        qr(9+forward,28,4,2,"boot");qr(12+backward,28,4,2,"boot");qs(30,8+forward,13+forward,"bootDark");qs(30,12+backward,17+backward,"bootDark");
+        q(10+forward,28,"bootLight");q(14+backward,28,"bootLight");
+      }
+      // Backpack creates a distinct rear silhouette; scarf streams toward it.
+      qr(5,14,4,8,"packDark");qr(6,15,4,7,"pack");q(6,16,"packLight");q(6,17,"packLight");
+      qs(13,9,15,"creamLight");qs(14,8,16,"cream");qr(8,15,9,8,"cream");qs(21,8,16,"creamShade");qs(22,9,15,"creamDark");
+      const arm=p===1?-1:p===3?1:0;qr(15,14+arm,3,7,"creamShade");qr(16,19+arm,3,3,"skin");q(18,21+arm,"skinShade");
+      qs(13,11,14,"blueLight");qs(14,10,13,"blue");qs(15,9,12,"blue");q(8,16,"blueDark");q(7,17,"blue");q(6,18,"blueLight");
+      qs(21,9,15,"gold");
+      // Profile face and hooked, wind-tossed hair silhouette.
+      qs(2,9,11,"hairLight");qs(2,13,14,"hair");qs(3,7,15,"hair");q(6,4,"hairDark");qs(4,7,16,"hair");q(6,5,"hairDark");qs(5,7,16,"hair");
+      qs(6,7,12,"hairDark");qs(6,13,16,"skin");qs(7,8,16,"skin");qs(8,8,17,"skin");q(18,8,"skinShade");qs(9,8,17,"skin");qs(10,9,16,"skinShade");qs(11,10,15,"skinShade");
+      q(15,7,"eye");q(16,7,"skinLight");q(17,9,"skinLight");q(8,7,"hairDark");q(8,8,"hairDark");q(9,3,"hairLight");q(15,4,"hairLight");
+      q(12,11,"skinDark");q(13,11,"skinDark");
+      seams.push([mirror(8),15+bob,"outline"],[mirror(8),21+bob,"outline"],[mirror(15),22+bob,"outline"]);
+    }
+
+    if(dir==="down")front();else if(dir==="up")back();else profile(dir==="left");
+
+    // One-pixel contour around the colored clusters, added after the pose is assembled.
+    const colored=pixels.slice();
+    for(let y=0;y<HEIGHT;y++)for(let x=0;x<WIDTH;x++)if(colored[y*WIDTH+x]){
+      for(let oy=-1;oy<=1;oy++)for(let ox=-1;ox<=1;ox++)if((ox||oy)&&x+ox>=0&&x+ox<WIDTH&&y+oy>=0&&y+oy<HEIGHT&&!colored[(y+oy)*WIDTH+x+ox]){
+        if(!pixels[(y+oy)*WIDTH+x+ox])pixels[(y+oy)*WIDTH+x+ox]="outline";
+      }
+    }
+    for(const [x,y,key] of seams)put(x,y,key);
+    return pixels;
+  }
+
+  function normalizeDirection(value){
+    const d=String(value||"down").toLowerCase();
+    return d==="north"?"up":d==="south"?"down":d==="west"?"left":d==="east"?"right":["up","down","left","right"].includes(d)?d:"down";
+  }
+  function normalizePhase(value){const n=Number(value);return Number.isFinite(n)?((Math.round(n)%4)+4)%4:0;}
+  function cachedFrame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase),key=dir+":"+p;
+    if(CACHE.has(key))return CACHE.get(key);
+    const pixels=frame(dir,p);let canvas=null;
+    try{
+      if(typeof OffscreenCanvas!=="undefined")canvas=new OffscreenCanvas(WIDTH,HEIGHT);
+      else if(typeof document!=="undefined"&&document.createElement){canvas=document.createElement("canvas");canvas.width=WIDTH;canvas.height=HEIGHT;}
+      if(canvas){const c=canvas.getContext("2d");c.imageSmoothingEnabled=false;for(let i=0;i<pixels.length;i++)if(pixels[i]){c.fillStyle=PALETTE[pixels[i]];c.fillRect(i%WIDTH,Math.floor(i/WIDTH),1,1);}}
+    }catch(_){canvas=null;}
+    const result={pixels,canvas};CACHE.set(key,result);return result;
+  }
+  function draw(ctx,options){
+    options=options||{};const requestedScale=Number(options.scale),scale=Number.isFinite(requestedScale)&&requestedScale>0?Math.min(4,requestedScale):1;
+    const x=Math.round(Number(options.x)||0),y=Math.round(Number(options.y)||0),dir=normalizeDirection(options.direction),p=normalizePhase(options.phase);
+    const left=x-Math.floor(WIDTH*scale/2),top=y-HEIGHT*scale;
+    ctx.save();
+    if(options.shadow!==false){
+      ctx.fillStyle="rgba(20,38,44,.28)";
+      ctx.fillRect(x-7*scale,y-2*scale,14*scale,2*scale);
+      ctx.fillRect(x-5*scale,y-3*scale,10*scale,1*scale);
+    }
+    const asset=cachedFrame(dir,p);ctx.imageSmoothingEnabled=false;
+    if(asset.canvas&&typeof ctx.drawImage==="function")ctx.drawImage(asset.canvas,left,top,WIDTH*scale,HEIGHT*scale);
+    else for(let i=0;i<asset.pixels.length;i++)if(asset.pixels[i]){ctx.fillStyle=PALETTE[asset.pixels[i]];ctx.fillRect(left+(i%WIDTH)*scale,top+Math.floor(i/WIDTH)*scale,scale,scale);}
+    ctx.restore();
+  }
+  function getFrame(direction,phase){return cachedFrame(direction,phase).pixels.slice();}
+  return {WIDTH,HEIGHT,PALETTE:Object.freeze({...PALETTE}),draw,getFrame};
+});
+
+/* Temple Guardian is deliberately turn based: preview changes no encounter
  * state, and only Ready lets the guardian act. */
 const GuardianTrial = (() => {
   'use strict';
@@ -187,6 +354,7 @@ if (typeof document !== 'undefined') (() => {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let state = load() || GuardianTrial.fresh();
+  let playerMotion=null, playerFrame=0, playerFacing='north';
   if (state.learned) $('#tutorial').hidden = true;
   let feedback = 'The guardian shows its next attack. It waits while you choose.';
   const asset = typeof ECHO_ASSETS !== 'undefined' ? ECHO_ASSETS : {};
@@ -200,6 +368,12 @@ if (typeof document !== 'undefined') (() => {
 
   function load() { try { return GuardianTrial.importText(localStorage.getItem(GuardianTrial.STORAGE_KEY) || ''); } catch (_) { return null; } }
   function persist() { try { localStorage.setItem(GuardianTrial.STORAGE_KEY, GuardianTrial.exportText(state)); } catch (_) {} }
+  const reducedMotion=()=>!!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const directionBetween=(from,to)=>to.x>from.x?'east':to.x<from.x?'west':to.y>from.y?'south':to.y<from.y?'north':playerFacing;
+  function clearPlayerMotion(){playerMotion=null;}
+  function queuePlayerFrame(){if(!playerFrame&&playerMotion)playerFrame=requestAnimationFrame(()=>{playerFrame=0;draw();queuePlayerFrame();});}
+  function animatePlayer(from,to,direction){playerFacing=direction;if(reducedMotion()){clearPlayerMotion();return;}playerMotion={from:{x:from.x,y:from.y},to:{x:to.x,y:to.y},direction,started:performance.now(),duration:190};queuePlayerFrame();}
+  function playerPose(player,now=performance.now()){if(reducedMotion())clearPlayerMotion();const motion=playerMotion;if(!motion||motion.to.x!==player.x||motion.to.y!==player.y)return{x:player.x,y:player.y,direction:playerFacing,phase:0};const progress=Math.min(1,(now-motion.started)/motion.duration);if(progress>=1){clearPlayerMotion();return{x:player.x,y:player.y,direction:playerFacing,phase:0};}return{x:motion.from.x+(motion.to.x-motion.from.x)*progress,y:motion.from.y+(motion.to.y-motion.from.y)*progress,direction:motion.direction,phase:progress<.34?1:progress<.68?2:3};}
   function colorTile(x, y, tile) {
     const attack = GuardianTrial.view(state).attack.tiles.some(p => p.x === x && p.y === y);
     ctx.fillStyle = attack ? '#c96847' : (x + y) % 2 ? '#e8d3a0' : '#f6e8bd';
@@ -260,7 +434,7 @@ if (typeof document !== 'undefined') (() => {
     for(let y=0;y<v.size;y++)for(let x=0;x<v.size;x++) colorTile(x,y,tile);
     drawGuardian(v,tile);
     if (state.preview && state.preview.type === 'move') { ctx.strokeStyle='#2b8f9a';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo((state.player.x+.5)*tile,(state.player.y+.5)*tile);ctx.lineTo((state.preview.to.x+.5)*tile,(state.preview.to.y+.5)*tile);ctx.stroke(); }
-    drawSprite('minotaur',state.player,tile,'#387b93');
+    const pose=playerPose(state.player);if(typeof window.PlayerSprite?.draw==='function')window.PlayerSprite.draw(ctx,{x:(pose.x+.5)*tile,y:pose.y*tile+tile*.85,direction:pose.direction,phase:pose.phase,scale:tile<64?1:2,shadow:true});
     if (state.preview && state.preview.type === 'command') {
       ctx.strokeStyle='#59c8c1';ctx.lineWidth=8;ctx.strokeRect(state.player.x*tile+6,state.player.y*tile+6,tile-12,tile-12);
       const rock=images.rockman, px=state.player.x*tile, py=state.player.y*tile;
@@ -279,15 +453,15 @@ if (typeof document !== 'undefined') (() => {
     $('#status').textContent=state.preview ? `Preview: ${state.preview.type}. The guardian is waiting.` : 'Preview one action. Nothing moves until Ready.';
     $('#victory').hidden=!state.complete; draw(); persist();
   }
-  function act(command) { const result=GuardianTrial.step(state,command); state=result.state; feedback=(result.events.filter(entry=>entry.type!=='telegraph').at(-1)||result.events.at(-1)).text; render(); }
+  function act(command) { const before=state, planned=before.preview; const result=GuardianTrial.step(state,command); state=result.state; const committedMove=command.type==='ready'&&planned?.type==='move'&&state.player.x===planned.to.x&&state.player.y===planned.to.y;if(committedMove)animatePlayer(before.player,state.player,directionBetween(before.player,state.player));else if(command.type==='restart'||(command.type==='ready'&&(state.player.x!==before.player.x||state.player.y!==before.player.y)))clearPlayerMotion();feedback=(result.events.filter(entry=>entry.type!=='telegraph').at(-1)||result.events.at(-1)).text; render(); }
   canvas.addEventListener('click', ev => { const rect=canvas.getBoundingClientRect(), x=Math.floor((ev.clientX-rect.left)/rect.width*7), y=Math.floor((ev.clientY-rect.top)/rect.height*7); act({type:'preview',action:{type:'move',to:{x,y}}}); });
   document.querySelectorAll('[data-move]').forEach(button=>button.addEventListener('click',()=>{const d=browserDirs[button.dataset.move];act({type:'preview',action:{type:'move',to:{x:state.player.x+d.x,y:state.player.y+d.y}}});}));
   $('#rockBtn').addEventListener('click',()=>act({type:'preview',action:{type:'command',helper:'rockman'}})); $('#strikeBtn').addEventListener('click',()=>act({type:'preview',action:{type:'strike'}})); $('#waitBtn').addEventListener('click',()=>act({type:'preview',action:{type:'wait'}})); $('#readyBtn').addEventListener('click',()=>act({type:'ready'})); $('#restartBtn').addEventListener('click',()=>act({type:'restart'}));
   $('#saveBtn').addEventListener('click',()=>{const blob=new Blob([GuardianTrial.exportText(state)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='guardian-trial-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),0);});
-  $('#importBtn').addEventListener('click',()=>$('#importInput').click()); $('#importInput').addEventListener('change',event=>{const file=event.target.files && event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{const loaded=GuardianTrial.importText(reader.result);if(loaded){state=loaded;feedback='Stable Guardian Trial save restored.';}else feedback='That file is not a Guardian Trial save.';render();};reader.readAsText(file);event.target.value='';});
+  $('#importBtn').addEventListener('click',()=>$('#importInput').click()); $('#importInput').addEventListener('change',event=>{const file=event.target.files && event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{const loaded=GuardianTrial.importText(reader.result);if(loaded){state=loaded;clearPlayerMotion();feedback='Stable Guardian Trial save restored.';}else feedback='That file is not a Guardian Trial save.';render();};reader.readAsText(file);event.target.value='';});
   $('#replayBtn').addEventListener('click',()=>$('#tutorial').hidden=false); $('#closeTutorial').addEventListener('click',()=>{$('#tutorial').hidden=true; persist(); render();});
   addEventListener('keydown', ev => { if (!$('#tutorial').hidden || ev.target.matches('input[type=file]')) return; const key=ev.key.toLowerCase(), direction={arrowup:'north',w:'north',arrowright:'east',d:'east',arrowdown:'south',s:'south',arrowleft:'west',a:'west'}[key]; if(direction){ev.preventDefault();const d=browserDirs[direction];act({type:'preview',action:{type:'move',to:{x:state.player.x+d.x,y:state.player.y+d.y}}});} else if(key==='r')act({type:'ready'});else if(key==='b')act({type:'preview',action:{type:'command',helper:'rockman'}});else if(key==='x')act({type:'preview',action:{type:'strike'}});else if(key===' ') {ev.preventDefault();act({type:'preview',action:{type:'wait'}});} });
-  window.GuardianDemo={ready:()=>act({type:'ready'}),snapshot:()=>browserClone(state),preview:action=>act({type:'preview',action}),restart:()=>act({type:'restart'})};
+  window.GuardianDemo={ready:()=>act({type:'ready'}),snapshot:()=>browserClone(state),presentation:()=>playerMotion&&browserClone(playerMotion),preview:action=>act({type:'preview',action}),restart:()=>act({type:'restart'})};
   render();
 })();
 </script></body></html>
