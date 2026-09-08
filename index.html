@@ -3,50 +3,437 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#143b43">
+<meta name="theme-color" content="#191c30">
 <title>Fakemon · Greek Adventure</title>
 <style>
-:root{--ink:#18383e;--muted:#627878;--paper:#fffbed;--cream:#eee6cc;--line:#c9ceb5;--sea:#226975;--gold:#edba55;--red:#b4493e;--green:#488760;--radius:14px}
-*{box-sizing:border-box}body{margin:0;background:#143b43;background:radial-gradient(ellipse at top,#316674,#102f37 80%);color:var(--ink);font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100dvh}button,input,select{font:inherit}button{border:1px solid #acc0b4;background:#fffdf4;color:var(--ink);border-radius:9px;padding:10px 15px;cursor:pointer;font-weight:750;line-height:1.25;min-height:43px;transition:background .14s,transform .1s}button:hover:not(:disabled){background:#e4efe1}button:active:not(:disabled){transform:translateY(1px)}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #e6a830;outline-offset:3px}button:disabled{opacity:.45;cursor:default}.primary{background:var(--sea);border-color:var(--sea);color:white}.primary:hover:not(:disabled){background:#174f59}.gold{background:var(--gold);border-color:#c7983a}.danger{color:var(--red)}.quiet{background:transparent;border-color:var(--line)}.small{padding:7px 10px;font-size:12px;min-height:36px}.muted{color:var(--muted)}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:850;color:var(--sea)}h1,h2,h3,p{margin:0 0 12px}h1{font-size:clamp(25px,4vw,39px);line-height:1.12;letter-spacing:-.045em}h2{font-size:24px;letter-spacing:-.03em}h3{font-size:17px}p:last-child{margin-bottom:0}img{max-width:100%}[hidden]{display:none!important}
-#app{width:min(1040px,100%);margin:auto;padding:22px 20px 30px}.masthead{display:flex;align-items:center;gap:14px;margin-bottom:16px;color:var(--paper)}.emblem{display:grid;place-items:center;flex:none;width:44px;height:44px;border:1px solid #ead290;border-radius:50%;font-size:27px;color:#f0cf7e}.brand{flex:1;min-width:0}.brand strong{display:block;letter-spacing:-.02em;font-size:19px;line-height:1.25}.brand span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#b7d1c9}.masthead button{color:#eaf4e7;background:#ffffff0b;border-color:#ffffff30}.game-shell{background:var(--paper);border-radius:18px;box-shadow:0 15px 65px #071b2760;overflow:hidden;border:1px solid #ffffff35}.journey{padding:13px 18px;display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--line)}#area{font-weight:850;font-size:14px;white-space:nowrap}#objective{flex:1;font-size:13px;color:var(--muted);text-align:right}#stage{position:relative;background:#213f43;isolation:isolate}canvas{display:block;width:100%;height:auto;aspect-ratio:3/2;image-rendering:pixelated;image-rendering:crisp-edges;touch-action:none}canvas:focus-visible{outline:3px solid var(--gold);outline-offset:-4px}#interactionHint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);padding:7px 13px;border:1px solid #fff8;border-radius:20px;background:#16383ce8;color:white;font-size:12px;font-weight:700;max-width:94%;text-align:center;pointer-events:none}kbd{font:inherit;padding:1px 5px;border:1px solid #ffffff50;border-radius:4px}#toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:#143b43;color:#fffbed;border:1px solid #8fae9c;border-radius:12px;box-shadow:0 6px 30px #001c2350;padding:13px 20px;max-width:min(580px,92vw);font-size:14px;text-align:center;opacity:0;pointer-events:none;transition:.18s;z-index:100}#toast.show{opacity:1;transform:translate(-50%,0)}
-.toolbar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid var(--line);flex-wrap:wrap}.toolbar .resources{margin-right:auto;font-size:12px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap}.resources b{color:var(--ink)}.help{color:#b9d1cc;font-size:12px;text-align:center;margin-top:12px}.touch{display:flex;align-items:center;justify-content:center;gap:22px;padding:10px 16px 14px;border-top:1px solid var(--line)}.pad{display:grid;grid-template-columns:repeat(3,42px);grid-template-rows:repeat(2,36px);gap:4px}.pad button{min-height:36px;padding:4px;touch-action:none;background:#e8eddf}.pad [data-key=w]{grid-column:2}.pad [data-key=a]{grid-column:1}.pad [data-key=s]{grid-column:2}.pad [data-key=d]{grid-column:3}#actionBtn{border-radius:50%;height:63px;width:63px;padding:5px;background:var(--sea);color:white;touch-action:manipulation}.touch-help{max-width:230px;font-size:12px;color:var(--muted)}
-.overlay{position:fixed;inset:0;padding:26px 16px;z-index:30;display:flex;align-items:center;justify-content:center;background:#0b252bd9;backdrop-filter:blur(5px)}.panel{width:min(760px,100%);max-height:calc(100dvh - 52px);overflow:auto;overscroll-behavior:contain;border-radius:18px;border:1px solid #ecf0d7;background:var(--paper);box-shadow:0 20px 100px #00182090;padding:26px;scrollbar-color:#aebfad transparent}.panel-head{display:flex;align-items:start;justify-content:space-between;gap:18px;margin-bottom:16px}.panel-head h2{margin:0}.choices{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.choices>button{flex:1 1 140px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}.moncard{border:1px solid var(--line);border-radius:13px;background:#fffef7;padding:13px;min-width:0}.moncard img{width:100%;height:145px;object-fit:contain;image-rendering:pixelated}.moncard strong{display:block;font-size:14px;line-height:1.3;margin:4px 0}.moncard .stats{font-size:12px;color:var(--muted);margin:7px 0}.moncard .choices{margin-top:10px;gap:5px}.moncard .choices button{padding:7px 8px;font-size:12px;flex-basis:65px;min-height:34px}.type{display:inline-flex;gap:5px;align-items:center;border-radius:20px;padding:3px 8px;background:#e8edde;font-size:10px;letter-spacing:.06em;font-weight:800;text-transform:uppercase}.type:before{content:"";height:6px;width:6px;background:var(--type,#709065);border-radius:50%}.bar{height:8px;background:#dbe2d4;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--green);width:100%;transition:width .35s}.bar.low i{background:var(--red)}.bar.mid i{background:#c39335}.family{margin-top:22px}.family h3{padding-bottom:7px;border-bottom:1px solid var(--line);font-size:13px;letter-spacing:.04em}.catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.unknown{height:145px;display:grid;place-items:center;font-size:60px;color:#b1bfa9}.sheet{width:100%;object-fit:contain}.welcome-art{display:flex;justify-content:center;align-items:end;gap:5%;height:150px;margin:12px 0 23px}.welcome-art img{height:100%;width:25%;object-fit:contain;image-rendering:pixelated}.note{padding:12px 14px;border-left:3px solid var(--gold);background:#f4edcf;border-radius:0 8px 8px 0;font-size:13px;margin:15px 0}.evolution-art{display:flex;align-items:center;justify-content:center;gap:15px}.evolution-art img{width:40%;max-height:230px;object-fit:contain;image-rendering:pixelated}.evolution-art span{font-size:32px;color:var(--sea)}.map-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.map-node{border:1px solid var(--line);border-radius:12px;padding:12px}.map-node.current{border:2px solid var(--sea);background:#e8efdf}.map-node strong{display:block}.map-node small{display:block;color:var(--muted);margin-top:7px}.shop-row{display:flex;gap:14px;align-items:center;border-top:1px solid var(--line);padding:15px 0}.shop-row>div{flex:1}.shop-row p{font-size:13px;color:var(--muted);margin:3px 0}.badge-row{display:flex;gap:10px;margin:15px 0}.badge-token{height:58px;width:58px;border:3px double #c79940;border-radius:50%;display:grid;place-items:center;font-size:28px;background:#f3d479;color:#71551e}
-#battlePanel{padding:15px 18px;background:#f4f1df;border-top:1px solid var(--line)}.combatants{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:13px}.combatant{min-width:0}.combatant b{font-size:14px}.combatant small{display:block;color:var(--muted);font-size:12px;margin:3px 0 6px}.battle-bottom{display:grid;grid-template-columns:1.2fr 1fr;gap:13px}.battleActions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.move-button{text-align:left;font-size:13px;padding:9px 10px;border-left:4px solid var(--type,#a9bba0)}.move-button small{font-weight:500;display:block;color:var(--muted);font-size:10px;margin-top:3px}.battle-message{display:flex;flex-direction:column;gap:8px}#battleLog{font-size:14px;background:#fffdf5;border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:74px;flex:1;line-height:1.5}.battle-tools{display:flex;gap:5px;flex-wrap:wrap}.battle-tools button{flex:1;padding:7px;font-size:11px;min-height:34px}#battleAdvance{font-size:11px;min-height:30px;padding:5px}.battle-tag{position:absolute;left:15px;top:13px;color:#183b42;background:#fffbeae8;border:1px solid #c3cbb1;border-radius:9px;padding:7px 12px;font-size:12px;font-weight:750}.release-footer{font-size:10px;color:#89aaa6;text-align:center;margin-top:8px;letter-spacing:.04em}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(min-width:820px) and (pointer:fine){.touch{display:none}body.in-battle #app{width:min(1040px,max(640px,calc((100dvh - 400px)*1.5 + 40px)),100%)}}@media(max-width:620px){#app{padding:9px 6px 15px}.masthead{margin:3px 5px 10px;gap:9px}.emblem{width:35px;height:35px;font-size:23px}.brand strong{font-size:14px}.brand span{font-size:9px}.masthead button{font-size:11px;padding:7px;min-height:34px}.game-shell{border-radius:12px}.journey{padding:9px 11px;display:block}#area{font-size:13px}#objective{text-align:left;font-size:11px;line-height:1.4;margin-top:2px}.toolbar{padding:9px;gap:5px}.toolbar button{font-size:11px;padding:7px 9px;min-height:35px}.toolbar .resources{width:100%;font-size:11px;margin-bottom:2px}.touch-help{font-size:10px;max-width:150px}.help{font-size:10px;padding:0 7px}.panel{padding:18px;border-radius:14px}.panel h2{font-size:22px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.moncard{padding:10px}.moncard img{height:120px}.moncard strong{font-size:13px}.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.battle-bottom{grid-template-columns:1fr}.combatants{gap:14px;margin-bottom:9px}.combatant b{font-size:12px}.combatant small{font-size:10px}#battlePanel{padding:10px}.battle-message{gap:5px}#battleLog{min-height:55px;font-size:12px}.battleActions{gap:5px}.move-button{font-size:12px;min-height:43px}.battle-tag{font-size:10px;top:7px;left:8px;padding:4px 8px}.overlay{padding:12px}.panel{max-height:calc(100dvh - 24px)}.choices{gap:7px}.choices>button{flex-basis:100px}.welcome-art{height:115px}.shop-row{gap:8px}.shop-row button{font-size:12px}.map-grid{grid-template-columns:1fr 1fr}.map-node{padding:10px;font-size:12px}.touch{padding:8px;gap:14px}}
-.pad{flex:none;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,48px)}.pad button{min-height:48px}#actionBtn{flex:none}.touch-help{min-width:0;flex:1}
-@media(any-pointer:coarse){.touch{display:flex}}
+:root{
+  --ink:#24283b;
+  --muted:#626478;
+  --paper:#fff8e7;
+  --cream:#e7dcc1;
+  --line:#77788c;
+  --sea:#3159ae;
+  --gold:#e5b854;
+  --red:#ab472f;
+  --green:#488760;
+}
+*{box-sizing:border-box}
+body{
+  min-height:100dvh;
+  margin:0;
+  background:#191c30;
+  color:var(--ink);
+  font:15px/1.45 var(--font-ui,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif);
+}
+button,input,select{font:inherit}
+button{
+  min-height:42px;
+  padding:9px 13px;
+  border:2px solid var(--ink);
+  background:var(--paper);
+  color:var(--ink);
+  cursor:pointer;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:.025em;
+  text-transform:uppercase;
+}
+button:hover:not(:disabled){background:#f4e9cf}
+button:active:not(:disabled){background:var(--gold)}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+button:disabled{opacity:.46;cursor:default}
+.primary{background:var(--red);border-color:var(--ink);color:#fff}
+.primary:hover:not(:disabled){background:#c25a40}
+.gold{background:var(--gold)}
+.danger{border-color:var(--red);color:var(--red)}
+.quiet{background:var(--cream);border-color:var(--line)}
+.small{min-height:36px;padding:7px 10px;font-size:12px}
+.muted{color:var(--muted)}
+.eyebrow{
+  color:var(--sea);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+h1,h2,h3,p{margin:0 0 12px}
+h1,h2,h3,.brand strong,#area{font-family:var(--font-pixel,var(--font-ui,monospace))}
+h1{font-size:clamp(24px,4vw,36px);line-height:1.2}
+h2{font-size:23px;line-height:1.25}
+h3{font-size:15px}
+p:last-child{margin-bottom:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+#app{width:min(1060px,100%);margin:auto;padding:14px 16px 24px}
+.masthead{
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) auto auto;
+  align-items:center;
+  gap:8px;
+  min-height:54px;
+  padding:7px 8px;
+  border:2px solid var(--line);
+  border-bottom:0;
+  background:var(--cream);
+  color:var(--ink);
+}
+.emblem{
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border:2px solid var(--ink);
+  background:var(--gold);
+  color:var(--ink);
+  font:bold 22px/1 Georgia,serif;
+}
+.brand{min-width:0}
+.brand strong{display:block;font-size:14px;line-height:1.25}
+.brand span{display:block;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.masthead button{min-height:36px;padding:7px 10px;background:var(--paper);border-color:var(--line);font-size:11px}
+.game-shell{overflow:hidden;border:3px solid var(--ink);background:var(--paper)}
+.journey{
+  display:grid;
+  grid-template-columns:minmax(140px,auto) 1fr;
+  align-items:stretch;
+  border-bottom:3px solid var(--ink);
+  background:var(--cream);
+}
+#area{
+  padding:10px 14px;
+  background:var(--sea);
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+#objective{padding:10px 14px;border-left:2px solid var(--ink);font-size:13px;font-weight:700}
+#objective:before{content:"NEXT  ";color:var(--red);font-size:10px;font-weight:900;letter-spacing:.1em}
+#stage{position:relative;background:#191c30;isolation:isolate}
+canvas{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:3/2;
+  image-rendering:pixelated;
+  image-rendering:crisp-edges;
+  touch-action:none;
+}
+canvas:focus-visible{outline:4px solid var(--gold);outline-offset:-4px}
+#interactionHint{
+  position:absolute;
+  left:50%;
+  bottom:12px;
+  max-width:94%;
+  padding:10px 16px;
+  transform:translateX(-50%);
+  border:3px solid var(--paper);
+  outline:2px solid var(--ink);
+  background:var(--sea);
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-align:center;
+  text-transform:uppercase;
+  pointer-events:none;
+}
+kbd{padding:1px 5px;border:1px solid currentColor;background:#ffffff22;font:inherit}
+#toast{
+  position:fixed;
+  z-index:100;
+  bottom:22px;
+  left:50%;
+  max-width:min(580px,92vw);
+  padding:12px 18px;
+  transform:translate(-50%,16px);
+  border:3px solid var(--paper);
+  outline:2px solid var(--ink);
+  background:var(--sea);
+  color:#fff;
+  font-size:13px;
+  font-weight:750;
+  text-align:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .14s,transform .14s;
+}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+.toolbar{
+  display:grid;
+  grid-template-columns:minmax(260px,1fr) repeat(3,auto) auto;
+  align-items:center;
+  gap:6px;
+  padding:8px 10px;
+  border-top:3px solid var(--ink);
+  background:var(--cream);
+}
+.toolbar .resources{display:flex;gap:5px 12px;flex-wrap:wrap;color:var(--muted);font-size:11px;font-weight:750}
+.resources span{white-space:nowrap}
+.resources b{color:var(--ink)}
+.toolbar button{min-height:38px;padding:7px 10px;background:var(--paper);border-color:var(--line)}
+.toolbar button:focus-visible,.toolbar button:hover:not(:disabled){border-color:var(--sea);background:#eef1fb;color:var(--sea)}
+#addonActions{display:contents}
+.help{margin-top:8px;color:#c7c8d3;font-size:11px;text-align:center}
+.release-footer{margin-top:6px;color:#9ea1b5;font-size:10px;letter-spacing:.04em;text-align:center}
+.touch{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:10px;
+  border-top:2px solid var(--line);
+  background:var(--paper);
+}
+.pad{display:grid;flex:none;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,48px);gap:4px}
+.pad button{min-width:48px;min-height:48px;padding:4px;background:var(--cream);touch-action:none}
+.pad [data-key=w]{grid-column:2}
+.pad [data-key=a]{grid-column:1}
+.pad [data-key=s]{grid-column:2}
+.pad [data-key=d]{grid-column:3}
+#actionBtn{min-width:116px;min-height:56px;padding:9px 12px;background:var(--red);color:#fff;touch-action:manipulation}
+.touch-help{max-width:230px;color:var(--muted);font-size:12px}
+
+.overlay{
+  position:fixed;
+  z-index:30;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:22px 14px;
+  background:#191c30e8;
+}
+.overlay[data-mode="menu"]{
+  align-items:flex-start;
+  justify-content:flex-end;
+  padding:68px 18px 18px;
+  background:#191c304d;
+}
+.panel{
+  width:min(820px,100%);
+  max-height:calc(100dvh - 44px);
+  overflow:auto;
+  overscroll-behavior:contain;
+  padding:22px;
+  border:4px solid var(--paper);
+  outline:3px solid var(--ink);
+  background:var(--paper);
+  scrollbar-color:var(--line) var(--cream);
+}
+.panel[data-mode="menu"]{width:min(360px,calc(100vw - 24px));max-height:calc(100dvh - 86px);padding:14px}
+.panel-head{display:flex;align-items:start;justify-content:space-between;gap:18px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--line)}
+.panel-head h2{margin:0}
+.choices{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.choices>button{flex:1 1 140px}
+.menu-layout{display:grid;grid-template-columns:1fr;gap:10px}
+.command-menu{display:flex;flex-direction:column;border:2px solid var(--ink)}
+.command-menu button{position:relative;width:100%;min-height:46px;border:0;border-bottom:1px solid var(--line);text-align:left}
+.command-menu button:last-child{border-bottom:0}
+.command-menu button:focus-visible{z-index:1;outline:3px solid var(--sea);outline-offset:-3px;background:#eef1fb;color:var(--sea);padding-left:30px}
+.command-menu button:focus-visible:before{content:"▶";position:absolute;left:10px;color:var(--sea)}
+.menu-status{display:flex;flex-direction:column;align-self:start;border:2px solid var(--ink);background:var(--cream)}
+.menu-status>strong{padding:8px 10px;border-bottom:2px solid var(--ink);background:var(--sea);color:#fff;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.menu-status>span{padding:7px 10px;border-bottom:1px solid var(--line);font-size:12px;font-weight:750}
+.menu-status>p{margin:0;padding:10px;color:var(--muted);font-size:11px}
+.menu-status>button{margin:0 10px 10px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:2px solid var(--ink);border-bottom:0}
+.moncard{
+  display:grid;
+  grid-template-columns:112px minmax(0,1fr);
+  align-content:start;
+  column-gap:11px;
+  min-width:0;
+  padding:10px;
+  border:0;
+  border-right:1px solid var(--line);
+  border-bottom:2px solid var(--ink);
+  background:var(--paper);
+}
+.moncard:nth-child(even){border-right:0}
+.party-row{position:relative;padding-left:26px}
+.party-row.is-current{border-left:8px solid var(--sea);padding-left:18px;background:#eef1fb}
+.party-row:focus-within{outline:3px solid var(--sea);outline-offset:-3px;background:#eef1fb}
+.row-cursor{display:none;position:absolute;top:12px;left:7px;color:var(--sea);font-size:12px}
+.party-row.is-current .row-cursor,.party-row:focus-within .row-cursor{display:block}
+.party-slot{grid-column:2;color:var(--sea);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.creature-actions{align-self:end}
+.moncard .creature-portrait{--portrait-height:96px;grid-column:1;grid-row:1 / span 8;width:112px!important;height:var(--portrait-height)!important;align-self:center}
+.moncard .creature-portrait img{width:auto!important;height:var(--portrait-height)!important;max-height:none!important;object-fit:contain;image-rendering:pixelated;transform:scale(var(--portrait-scale,1));transform-origin:center bottom}
+.moncard>strong,.moncard>.type,.moncard>.stats,.moncard>.bar,.moncard>.choices{grid-column:2}
+.moncard strong{display:block;margin:0 0 3px;font-size:13px;line-height:1.3}
+.moncard .stats{margin:3px 0;color:var(--muted);font-size:11px;line-height:1.35}
+.moncard .choices{margin-top:6px;gap:4px}
+.moncard .choices button{min-height:34px;padding:6px 7px;font-size:10px}
+.type{display:inline-flex;align-items:center;gap:5px;width:max-content;padding:2px 6px;border:1px solid var(--line);background:var(--cream);font-size:10px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+.type:before{content:"";width:6px;height:6px;background:var(--sea)}
+.bar{height:8px;overflow:hidden;border:1px solid var(--ink);background:#d3d0c6}
+.bar i{display:block;width:100%;height:100%;background:var(--green);transition:width .35s}
+.bar.low i{background:var(--red)}
+.bar.mid i{background:var(--gold)}
+.family{margin-top:20px}
+.family h3{margin:0;padding:7px 9px;border:2px solid var(--ink);border-bottom:0;background:var(--cream);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:2px solid var(--ink);border-bottom:0}
+.catalog-grid .moncard{display:block;text-align:center}
+.catalog-grid .moncard:nth-child(even){border-right:1px solid var(--line)}
+.catalog-grid .moncard:nth-child(3n){border-right:0}
+.catalog-grid .creature-portrait{--portrait-height:105px;width:100%!important}
+.unknown{height:105px;display:grid;place-items:center;color:var(--muted);font:bold 48px/1 var(--font-pixel,monospace)}
+.sheet{width:100%;object-fit:contain}
+.welcome-art{display:flex;justify-content:center;align-items:end;gap:5%;height:140px;margin:10px 0 20px;border-bottom:2px solid var(--line)}
+.welcome-art img{width:25%;height:100%;object-fit:contain;image-rendering:pixelated}
+.note{margin:14px 0;padding:11px 13px;border:2px solid var(--gold);border-left:8px solid var(--gold);background:#f8edcd;font-size:13px}
+.evolution-art{display:flex;align-items:center;justify-content:center;gap:15px;border:2px solid var(--line);background:var(--cream)}
+.evolution-art img{width:40%;max-height:230px;object-fit:contain;image-rendering:pixelated}
+.evolution-art span{color:var(--sea);font-size:32px}
+.map-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:2px solid var(--ink);border-bottom:0}
+.map-node{min-height:74px;padding:10px;border-right:1px solid var(--line);border-bottom:2px solid var(--ink);background:var(--paper)}
+.map-node:nth-child(even){border-right:0}
+.map-node.current{background:var(--sea);color:#fff}
+.map-node.current .eyebrow,.map-node.current small{color:#fff}
+.map-node strong{display:block;font-size:13px}
+.map-node small{display:block;margin-top:5px;color:var(--muted);font-size:11px}
+.shop-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:2px solid var(--line)}
+.shop-row>div{flex:1}
+.shop-row p{margin:3px 0;color:var(--muted);font-size:13px}
+.badge-row{display:flex;gap:8px;margin:14px 0}
+.badge-token{display:grid;place-items:center;width:58px;height:58px;border:3px double var(--ink);background:var(--gold);color:var(--ink);font-size:26px}
+
+#battlePanel{padding:13px 14px;border-top:3px solid var(--ink);background:var(--cream)}
+.combatants{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:11px}
+.combatant{min-width:0;padding:8px;border:2px solid var(--ink);background:var(--paper)}
+.combatant b{font-size:13px}
+.combatant small{display:block;margin:2px 0 6px;color:var(--muted);font-size:11px}
+.battle-bottom{display:grid;grid-template-columns:1.2fr 1fr;gap:9px}
+.battleActions{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.move-button{min-height:50px;padding:8px 9px;border-left:7px solid var(--sea);text-align:left;font-size:12px;text-transform:none}
+.move-button small{display:block;margin-top:3px;color:var(--muted);font-size:10px;font-weight:500}
+.battle-message{display:flex;flex-direction:column;gap:6px}
+#battleLog{min-height:72px;flex:1;padding:9px 11px;border:2px solid var(--ink);background:var(--paper);font-size:13px;line-height:1.45}
+.battle-tools{display:flex;gap:4px;flex-wrap:wrap}
+.battle-tools button{min-height:36px;flex:1;padding:6px;font-size:10px}
+#battleAdvance{min-height:34px;padding:5px;font-size:11px}
+.battle-tag{position:absolute;top:10px;left:10px;padding:6px 10px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font-size:11px;font-weight:850;text-transform:uppercase}
+#addonBattleActions{margin-top:8px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+@media(min-width:820px) and (pointer:fine){
+  .touch{display:none}
+  body.in-battle #app{width:min(1040px,max(640px,calc((100dvh - 400px)*1.5 + 40px)),100%)}
+}
+@media(max-width:620px){
+  body{font-size:14px}
+  #app{padding:6px 4px 13px}
+  .masthead{grid-template-columns:31px minmax(0,1fr) auto auto;gap:4px;min-height:46px;padding:5px}
+  .emblem{width:29px;height:29px;font-size:19px}
+  .brand strong{font-size:12px}
+  .brand span{display:none}
+  .masthead button{min-height:34px;padding:5px 6px;font-size:12px}
+  .journey{grid-template-columns:1fr}
+  #area{padding:7px 9px;font-size:12px}
+  #objective{padding:7px 9px;border-top:2px solid var(--ink);border-left:0;font-size:12px;line-height:1.35}
+  .toolbar{grid-template-columns:repeat(3,1fr);padding:7px;gap:4px}
+  .toolbar .resources{grid-column:1/-1;justify-content:space-between;gap:3px 8px;font-size:10px}
+  .toolbar button{min-height:40px;padding:7px 5px;font-size:12px}
+  #addonActions{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
+  .touch{gap:9px;padding:8px}
+  .touch-help{display:none}
+  #actionBtn{min-width:104px;min-height:56px;font-size:12px}
+  .help{padding:0 6px;font-size:10px}
+  .overlay{padding:8px}
+  .overlay[data-mode="menu"]{padding:52px 8px 8px}
+  .panel{max-height:calc(100dvh - 16px);padding:14px;border-width:3px}
+  .panel[data-mode="menu"]{width:min(340px,100%);max-height:calc(100dvh - 60px);padding:11px}
+  .panel h1{font-size:24px}
+  .panel h2{font-size:20px}
+  .panel-head{gap:8px}
+  .menu-layout{gap:8px}
+  .command-menu button{min-height:48px}
+  .cards{grid-template-columns:1fr}
+  .moncard{border-right:0;grid-template-columns:112px minmax(0,1fr);padding:8px}
+  .moncard .creature-portrait{--portrait-height:86px;width:112px!important}
+  .catalog-grid{grid-template-columns:1fr}
+  .catalog-grid .moncard{padding:8px;border-right:0}
+  .catalog-grid .moncard:nth-child(n){border-right:0}
+  .catalog-grid .creature-portrait{--portrait-height:94px;width:100%!important}
+  .catalog-grid .stats{font-size:10px}
+  .welcome-art{height:112px}
+  .map-grid{grid-template-columns:1fr}
+  .map-node{border-right:0}
+  .battle-bottom{grid-template-columns:1fr}
+  .combatants{gap:6px;margin-bottom:7px}
+  .combatant{padding:6px}
+  #battlePanel{padding:8px}
+  #battleLog{min-height:54px;font-size:12px}
+  .move-button{min-height:46px}
+  .shop-row{gap:8px}
+  .shop-row button{font-size:10px}
+}
+@media(any-pointer:coarse){
+  .touch{display:flex}
+  button,.small,.moncard .choices button,.battle-tools button,#battleAdvance,#addonBattleActions button{min-height:48px}
+}
 body.in-battle .toolbar,body.in-battle .touch{display:none}
-#addonBattleActions{margin-top:10px}
 @media(min-width:820px) and (pointer:fine), (min-width:900px) and (orientation:landscape){
   body.in-battle #app{width:min(1120px,100%)}
   body.in-battle .game-shell{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,1fr);align-items:stretch}
   body.in-battle .journey{grid-column:1/-1}
   body.in-battle #stage{display:flex;align-items:center}
   body.in-battle #stage canvas{height:auto;align-self:center}
-  body.in-battle #battlePanel{border-top:0;border-left:1px solid var(--line);padding:16px}
+  body.in-battle #battlePanel{padding:13px;border-top:0;border-left:3px solid var(--ink)}
   body.in-battle .battle-bottom{grid-template-columns:1fr}
-  body.in-battle .battleActions{gap:8px}
-  body.in-battle .move-button{min-height:54px}
-  body.in-battle .battle-tools button{min-height:43px}
-  body.in-battle #battleLog{min-height:82px}
+  body.in-battle .battleActions{gap:6px}
+  body.in-battle .move-button{min-height:52px}
+  body.in-battle .battle-tools button{min-height:42px}
+  body.in-battle #battleLog{min-height:78px}
 }
-/* A landscape tablet keeps the map and touch controls together in one view. */
 @media(min-width:900px) and (orientation:landscape) and (any-pointer:coarse){
   body:not(.in-battle) #app{width:min(1180px,100%)}
   body:not(.in-battle) .game-shell{display:grid;grid-template-columns:minmax(0,1fr) 260px;grid-template-rows:auto 1fr auto}
   body:not(.in-battle) .journey{grid-column:1/-1}
   body:not(.in-battle) #stage{grid-column:1;grid-row:2/4;display:flex;align-items:center}
-  body:not(.in-battle) .toolbar{grid-column:2;grid-row:2;display:grid;grid-template-columns:1fr 1fr;align-content:start;padding:12px;gap:8px;border-top:0;border-left:1px solid var(--line)}
-  body:not(.in-battle) .toolbar .resources{grid-column:1/-1;margin:0;font-size:12px;gap:5px 10px}
-  body:not(.in-battle) .toolbar button{min-height:48px;padding:8px;font-size:12px}
+  body:not(.in-battle) .toolbar{grid-column:2;grid-row:2;display:grid;grid-template-columns:1fr 1fr;align-content:start;padding:10px;gap:6px;border-top:0;border-left:3px solid var(--ink)}
+  body:not(.in-battle) .toolbar .resources{grid-column:1/-1;margin:0;gap:5px 10px;font-size:11px}
+  body:not(.in-battle) .toolbar button{min-height:48px;padding:7px;font-size:11px}
   body:not(.in-battle) #addonActions{display:contents}
-  body:not(.in-battle) .touch{grid-column:2;grid-row:3;flex-wrap:wrap;gap:12px;padding:12px;border-left:1px solid var(--line)}
-  body:not(.in-battle) .touch-help{flex-basis:100%;max-width:none}
+  body:not(.in-battle) .touch{grid-column:2;grid-row:3;flex-wrap:wrap;gap:8px;padding:10px;border-top:2px solid var(--line);border-left:3px solid var(--ink)}
+  body:not(.in-battle) .touch-help{display:block;flex-basis:100%;max-width:none}
 }
-@media(any-pointer:coarse){.battle-tools button,#battleAdvance,#addonBattleActions button{min-height:48px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
-</head>
+<style data-game-ui="pixel">/* Shared handheld-inspired chrome. World and creature palettes are independent. */
+:root{
+  --ink:#24283b;--muted:#626478;--paper:#fff8e7;--cream:#e7dcc1;
+  --line:#77788c;--sea:#3159ae;--sea2:#5278c5;--gold:#e5b854;
+  --red:#ab472f;--green:#488760;--deep:#191c30;--foam:#e5eafb;
+  --marble:#e7dcc1;--shadow:#171a2a;--radius:0px;
+  --ui-text:Verdana,"Trebuchet MS",Arial,sans-serif;
+  --ui-label:"Lucida Console",Monaco,"Courier New",monospace;
+  color-scheme:light;
+}
+body{font-family:var(--ui-text);background-image:none}
+button,input,select,summary{font-family:inherit}
+button,.shell,.game-shell,.panel,.card,.moncard,.guide-card,.fighter,
+.overlay,.note,.toast,#toast,.chip,.type,.bar,.hp,.portrait,.caption,
+.context,.feedback,.status,.step,.victory,.map-node,.battle-tag,
+#battleLog,.battle-log,.progress,.map-label,#interactionHint,kbd{border-radius:0!important}
+button:focus-visible,a:focus-visible,summary:focus-visible,canvas:focus-visible{
+  outline:3px solid var(--sea);outline-offset:3px;
+}
+button:disabled{cursor:default}
+img,canvas{image-rendering:pixelated}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* Keep direction pads spatially consistent with the map on touch screens. */
+.dpad [data-dir="north"]{grid-row:1;grid-column:2}
+.dpad [data-dir="west"]{grid-row:2;grid-column:1}
+.dpad [data-dir="south"]{grid-row:2;grid-column:2}
+.dpad [data-dir="east"]{grid-row:2;grid-column:3}
+</style></head>
 <body>
 <div id="app">
 <header class="masthead"><div class="emblem" aria-hidden="true">Ω</div><div class="brand"><span>An Aegean journey</span><strong id="gameTitle">Fakemon · Greek Adventure</strong></div><button id="muteBtn" aria-label="Toggle sound">Sound off</button><button id="menuBtn">Save & menu</button></header>
@@ -68,7 +455,7 @@ body.in-battle .toolbar,body.in-battle .touch{display:none}
 <script>
 "use strict";
 const ASSET_SOURCES = {"cloak1":"assets/c6e9b23ef6cc6ab34e7cc12b61988f4cb37625357b433c5c74942d9cf212a4d1.png","cloak2":"assets/33057b5e1af27b90c5aa15ed155f8d85877de7994face54a601f601ab63cba71.png","cloak3":"assets/450e475a931e43b9ba6c86e5cc8392cfad9b084079117d555dfd4ed7cdee66f0.png","warrior2":"assets/780a0803db31ba775adaf86c6ffd58ac8b71eae247ab2334983d3f5ac3bc8e66.png","warrior3":"assets/153db6a1e8c244b19eda4f2cc1de685cf6af7446b5b52eecb79549e32d3416c0.png","mantis2":"assets/9e00b1cf4609b33dbcf54703882ba1b0a2fdb613830a28571db8b4915b5c4b07.png","wheat1":"assets/7483bbd631060051123f2ed5450791173ee39648dbed24b9758621cf31f5d1dc.png","wheat2":"assets/f7f77b7dfd2e8b28aee43274d6d18de273315f5abce588a73f5e7a49736dcf5c.png","wheat3":"assets/ce91f0ec91480d5bb36a0112ed5799538a08426387016b3b705eed49bc59b8bb.png","satyr1":"assets/bb73c1af3e2f07f3f936c0f31e393cd1d4571c6fa8533f619cca0a4e5b9905f2.png","satyr2":"assets/cbfc27b47ea50c33b822ae32775422b573c26d61924c839d9b9e2d4c1fb36caf.png","minotaur":"assets/24bc7b07573bc4206648bfb04d9ce9ab8cfb18ad3d9b00d9afe5f4719ed0561c.png","cyclops1":"assets/924f569c5c8a388b8bda0847f7fcbb875b6ae7fc0b4db82e926976efd9ad5d01.png","cyclops2":"assets/f6f09f694d862065df251699786a4daf4d0413bfcc664e59ff79e17eec9b22d0.png","cyclops3":"assets/9f7ae133faa17161aad403e02512156f7d9b976dc8286f582e8df556b4e63550.png","gorgon1":"assets/da132aa4f317eefa2c650e4bab135ec9ad3fc6cfbedeed7d85fc3ee577c3a711.png","gorgon2":"assets/6f221eefb49862649347706f242cedafeb5094cfcdff45c36e74e4442696660a.png","gorgon3":"assets/dfad962ce7ca6c262fe411059a5784c1feff5bdeb762e6f5e07659b8fbb7351e.png","ent1":"assets/00a04868c83b3b9be85258d5c3fab271a6f9796e7cf1f6341a5a6d65156e68e0.png","ent2":"assets/e5c54f6451effbe08ae4a7c09253cbb3983b42299881a68ba245a7204638ed7d.png","ent3":"assets/7fce366cb542738159463451a35ad1a4330466c9f621bf210ed7b58e046a1ad8.png","nautilus1":"assets/4a966501eb4dc5461c6eb7ad88b10bbbc7fe9c580590b0e6b1278743e781ad49.png","nautilus2":"assets/8597babe9c5bf01222dc515cb1bdc62d3d1ff2a5bc91377cb2f61b30927c262e.png","octopus":"assets/9a31a31fdd3ce6e2676e1445aee429fcca591ff83d09b4c6cd6e1435135a79da.png","rockman":"assets/986f9676d2593c93704c8aed1e9b1f6a5f2660d53dcea51fa622c22a3c372c86.png","pug":"assets/bff684111bd1d7ee3159e1c381080590a22f47a8a24e8427c3c004128a3219c1.png","siren1":"assets/91ad5ea81cc97b924e09ecccbdd7c16c576a38fc871a84ab212e039546198b7c.png","professor":"assets/82eaf540cf145954c7c2400e5833683e4b70eac2aa38aa6b830baf974ff7e93e.png","mapWorld":"assets/bbcdd8ac1dcc58e7b959ed81768a5733dc7140df0e958d62e5f2ecdd45d4ed01.png","mapVillage":"assets/af1fda092d40008955af1ecde1ee8e6781f1ea1f6121937e4ef249dc89275a1e.png","mapSecond":"assets/231c4f369f04ab544453a53631cf1ec7b3878576554b54617655953bdef68ea7.png","mapCave":"assets/6409663b63a65548bd6c6e137ae9e879c0d77b69a452ad6c04b0ee2c2d02015f.png","mapDesert":"assets/17015dc72fb86f5e12a98fbe0ff7ae8f2fe7c688540a9a4b7a802291c73193f5.png","mapTemple":"assets/8a23d71d16b907e985a9c938c9e8fccac87b6c47dbfc4f47e23fc531a89f89ab.png","mapHarbor":"assets/202a4180f547f134ae132ce0e52cfa80efc4d53d3b919be6d5418d3d48953e7e.png","mapNextHarbor":"assets/6b54b9191f9d6c97e80e9211bafafd1d4e6975d2df70a10d282983f36daf98c5.png","mapAcropolis":"assets/d45aa08b6bd994e6b054dc0fb3d20b4018ec6c1bcb75a6698943dc7b7dd3400c.png","battleCave":"assets/4fd1178848933ed7a741cbc6d0eced9783c4ee5f85399db053dd18227181380f.png","battleForest":"assets/67c379f104b86872b3b07bb93cc3bf24784d9555578a87bf24f5d32d2b374a6d.png","battlePlains":"assets/c7bb3b3efc671407a51c3ca8581898ab779cb86c30677b15c13d8e1dd02a1b32.png","battleComposite":"assets/305f8d504e4f2f0f3490cb57c54523f8b664ca55c4141c1f6095fe6bf028825e.png","battleGym":"assets/ca17e03a9e1bf6e5a86b0fd0badac32a1168df401cdc92affa57c14633851d29.png","sheet":"assets/eba165b8b684618cf9841ba76c15cf49ad4addf15ec0f9e208191bcd36aa950b.png"};
-const DATA = {"id":"main","release":"main","version":2,"schemaVersion":2,"saveKey":"fakemon-eli-v2","title":"Eli's Greek Adventure","species":{"cloak1":{"id":"cloak1","number":1,"name":"Ice Wizard 1","family":"ice-wizard","asset":"cloak1","type":"Frost","stage":1,"next":"cloak2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 1 can be found around caves and old ruins.","displayScale":0.6,"portraitScale":0.4909090909090909},"cloak2":{"id":"cloak2","number":17,"name":"Ice Wizard 2","family":"ice-wizard","asset":"cloak2","type":"Frost","stage":2,"next":"cloak3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 2 can be found around caves and old ruins.","displayScale":0.78,"portraitScale":0.9242424242424242},"cloak3":{"id":"cloak3","number":18,"name":"Ice Wizard 3","family":"ice-wizard","asset":"cloak3","type":"Frost","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 3 can be found around caves and old ruins.","displayScale":1.0,"portraitScale":0.9666666666666667},"warrior2":{"id":"warrior2","number":3,"name":"Blue Warrior 1","family":"blue-warrior","asset":"warrior2","type":"Metal","stage":1,"next":"warrior3","evolveAt":8,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 1 can be found around marble towns.","displayScale":0.78,"portraitScale":0.5848484848484848},"warrior3":{"id":"warrior3","number":4,"name":"Golden Warrior 2","family":"blue-warrior","asset":"warrior3","type":"Metal","stage":2,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Golden Warrior 2 can be found around marble towns.","displayScale":1.0,"portraitScale":1.0},"mantis2":{"id":"mantis2","number":10,"name":"Black-Belt Mantis","family":"mantis","asset":"mantis2","type":"Fight","stage":1,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Black-Belt Mantis can be found around temple grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat1":{"id":"wheat1","number":6,"name":"Wheat 1","family":"wheat","asset":"wheat1","type":"Leaf","stage":1,"next":"wheat2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Wheat fields","description":"Wheat 1 can be found around wheat fields.","displayScale":0.6,"portraitScale":0.6},"wheat2":{"id":"wheat2","number":7,"name":"Wheat 2","family":"wheat","asset":"wheat2","type":"Leaf","stage":2,"next":"wheat3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat 2 can be found around wheat fields.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat3":{"id":"wheat3","number":8,"name":"Wheat Wagon 3","family":"wheat","asset":"wheat3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat Wagon 3 can be found around wheat fields.","displayScale":1.0,"portraitScale":1.0},"satyr1":{"id":"satyr1","number":14,"name":"Satyr 1","family":"satyr-minotaur","asset":"satyr1","type":"Fight","stage":1,"next":"satyr2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 1 can be found around village grass.","displayScale":0.6,"portraitScale":0.6},"satyr2":{"id":"satyr2","number":15,"name":"Satyr 2","family":"satyr-minotaur","asset":"satyr2","type":"Fight","stage":2,"next":"minotaur","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 2 can be found around village grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"minotaur":{"id":"minotaur","number":16,"name":"Minotaur 3","family":"satyr-minotaur","asset":"minotaur","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Acropolis grass","description":"Minotaur 3 can be found around acropolis grass.","displayScale":1.0,"portraitScale":1.0},"cyclops1":{"id":"cyclops1","number":11,"name":"Cyclops 1","family":"cyclops","asset":"cyclops1","type":"Stone","stage":1,"next":"cyclops2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 1 can be found around outer harbor grass.","displayScale":0.6,"portraitScale":0.49393939393939396},"cyclops2":{"id":"cyclops2","number":23,"name":"Cyclops 2","family":"cyclops","asset":"cyclops2","type":"Stone","stage":2,"next":"cyclops3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 2 can be found around outer harbor grass.","displayScale":0.78,"portraitScale":0.6484848484848484},"cyclops3":{"id":"cyclops3","number":24,"name":"Cyclops 3","family":"cyclops","asset":"cyclops3","type":"Stone","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 3 can be found around outer harbor grass.","displayScale":1.0,"portraitScale":1.0},"gorgon1":{"id":"gorgon1","number":25,"name":"Snake Gorgon 1","family":"gorgon","asset":"gorgon1","type":"Venom","stage":1,"next":"gorgon2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 1 can be found around desert and ruins.","displayScale":0.6,"portraitScale":0.6},"gorgon2":{"id":"gorgon2","number":26,"name":"Snake Gorgon 2","family":"gorgon","asset":"gorgon2","type":"Venom","stage":2,"next":"gorgon3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 2 can be found around desert and ruins.","displayScale":0.78,"portraitScale":0.7787878787878788},"gorgon3":{"id":"gorgon3","number":27,"name":"Snake Gorgon 3","family":"gorgon","asset":"gorgon3","type":"Venom","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 3 can be found around desert and ruins.","displayScale":1.0,"portraitScale":1.0},"ent1":{"id":"ent1","number":28,"name":"Ent 1","family":"ent","asset":"ent1","type":"Leaf","stage":1,"next":"ent2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Green grass","description":"Ent 1 can be found around green grass.","displayScale":0.6,"portraitScale":0.5484848484848485},"ent2":{"id":"ent2","number":29,"name":"Ent 2","family":"ent","asset":"ent2","type":"Leaf","stage":2,"next":"ent3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 2 can be found around green grass.","displayScale":0.78,"portraitScale":0.7121212121212122},"ent3":{"id":"ent3","number":30,"name":"Ent 3","family":"ent","asset":"ent3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 3 can be found around green grass.","displayScale":1.0,"portraitScale":0.9151515151515152},"nautilus1":{"id":"nautilus1","number":31,"name":"Nautilus 1","family":"nautilus","asset":"nautilus1","type":"Water","stage":1,"next":"nautilus2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 1 can be found around harbor shores.","displayScale":0.6,"portraitScale":0.4575757575757576},"nautilus2":{"id":"nautilus2","number":32,"name":"Nautilus 2","family":"nautilus","asset":"nautilus2","type":"Water","stage":2,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 2 can be found around harbor shores.","displayScale":1.0,"portraitScale":0.7636363636363637},"octopus":{"id":"octopus","number":33,"name":"Octopus","family":"octopus","asset":"octopus","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Acropolis coast","description":"Octopus can be found around acropolis coast.","displayScale":0.85,"portraitScale":0.8484848484848485},"rockman":{"id":"rockman","number":34,"name":"Rock Man","family":"rock-man","asset":"rockman","type":"Stone","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Rocky desert","description":"Rock Man can be found around rocky desert.","displayScale":1.0,"portraitScale":1.0},"pug":{"id":"pug","number":2,"name":"Black-Red Pug","family":"pug","asset":"pug","type":"Flame","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"Black-Red Pug can be found around village grass.","displayScale":0.85,"portraitScale":0.8484848484848485},"siren1":{"id":"siren1","number":12,"name":"Siren 1","family":"siren","asset":"siren1","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Harbor shores","description":"Siren 1 can be found around harbor shores.","displayScale":0.85,"portraitScale":0.8484848484848485}},"moves":{"tap":{"id":"tap","name":"Quick Strike","type":"Normal","power":26,"accuracy":1,"kind":"attack"},"guard":{"id":"guard","name":"Guard","type":"Normal","power":0,"accuracy":1,"kind":"guard"},"recover":{"id":"recover","name":"Catch Breath","type":"Normal","power":0,"accuracy":1,"kind":"heal","healRatio":0.28},"heavy":{"id":"heavy","name":"Power Strike","type":"Normal","power":44,"accuracy":0.85,"kind":"attack"},"megaPunch":{"id":"megaPunch","name":"Mega Punch","type":"Fight","power":55,"accuracy":0.9,"kind":"attack"},"megaKick":{"id":"megaKick","name":"Mega Kick","type":"Fight","power":65,"accuracy":0.8,"kind":"attack"},"frostSpark":{"id":"frostSpark","name":"Blue Flame","type":"Frost","power":38,"accuracy":1,"kind":"attack"},"bronzeSlash":{"id":"bronzeSlash","name":"Bronze Slash","type":"Metal","power":38,"accuracy":1,"kind":"attack"},"leafWhirl":{"id":"leafWhirl","name":"Leaf Whirl","type":"Leaf","power":38,"accuracy":1,"kind":"attack"},"karateStrike":{"id":"karateStrike","name":"Karate Strike","type":"Fight","power":38,"accuracy":1,"kind":"attack"},"stoneToss":{"id":"stoneToss","name":"Stone Toss","type":"Stone","power":38,"accuracy":1,"kind":"attack"},"venomFang":{"id":"venomFang","name":"Venom Fang","type":"Venom","power":38,"accuracy":1,"kind":"attack"},"wave":{"id":"wave","name":"Wave","type":"Water","power":38,"accuracy":1,"kind":"attack"},"ember":{"id":"ember","name":"Ember","type":"Flame","power":38,"accuracy":1,"kind":"attack"}},"typeChart":{"Frost":{"Leaf":1.5,"Water":0.7,"Flame":0.7},"Metal":{"Stone":1.5,"Frost":1.5,"Flame":0.7},"Leaf":{"Water":1.5,"Stone":1.5,"Flame":0.7,"Venom":0.7},"Fight":{"Metal":1.5,"Stone":1.5,"Venom":0.7},"Stone":{"Flame":1.5,"Frost":1.5,"Leaf":0.7},"Venom":{"Leaf":1.5,"Fight":1.5,"Metal":0.7},"Water":{"Flame":1.5,"Stone":1.5,"Leaf":0.7,"Frost":0.7},"Flame":{"Leaf":1.5,"Frost":1.5,"Water":0.7,"Stone":0.7}},"starters":["cloak1","wheat1","nautilus1"],"levelCap":99,"families":[["cloak1","cloak2","cloak3"],["warrior2","warrior3"],["wheat1","wheat2","wheat3"],["mantis2"],["cyclops1","cyclops2","cyclops3"],["satyr1","satyr2","minotaur"],["gorgon1","gorgon2","gorgon3"],["ent1","ent2","ent3"],["nautilus1","nautilus2"],["pug"],["siren1"],["octopus"],["rockman"]],"badges":{"temple":{"name":"Laurel Badge"},"acropolis":{"name":"Marble Badge"}},"shop":{"ballPrice":30,"potionPrice":50},"buildVersion":4};
+const DATA = {"id":"main","release":"main","version":2,"schemaVersion":2,"saveKey":"fakemon-eli-v2","title":"Eli's Greek Adventure","species":{"cloak1":{"id":"cloak1","number":1,"name":"Ice Wizard 1","family":"ice-wizard","asset":"cloak1","type":"Frost","stage":1,"next":"cloak2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 1 can be found around caves and old ruins.","displayScale":0.6,"portraitScale":0.4909090909090909},"cloak2":{"id":"cloak2","number":17,"name":"Ice Wizard 2","family":"ice-wizard","asset":"cloak2","type":"Frost","stage":2,"next":"cloak3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 2 can be found around caves and old ruins.","displayScale":0.78,"portraitScale":0.9242424242424242},"cloak3":{"id":"cloak3","number":18,"name":"Ice Wizard 3","family":"ice-wizard","asset":"cloak3","type":"Frost","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 3 can be found around caves and old ruins.","displayScale":1.0,"portraitScale":0.9666666666666667},"warrior2":{"id":"warrior2","number":3,"name":"Blue Warrior 1","family":"blue-warrior","asset":"warrior2","type":"Metal","stage":1,"next":"warrior3","evolveAt":8,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 1 can be found around marble towns.","displayScale":0.78,"portraitScale":0.5848484848484848},"warrior3":{"id":"warrior3","number":4,"name":"Golden Warrior 2","family":"blue-warrior","asset":"warrior3","type":"Metal","stage":2,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Golden Warrior 2 can be found around marble towns.","displayScale":1.0,"portraitScale":1.0},"mantis2":{"id":"mantis2","number":10,"name":"Black-Belt Mantis","family":"mantis","asset":"mantis2","type":"Fight","stage":1,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Black-Belt Mantis can be found around temple grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat1":{"id":"wheat1","number":6,"name":"Wheat 1","family":"wheat","asset":"wheat1","type":"Leaf","stage":1,"next":"wheat2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Wheat fields","description":"Wheat 1 can be found around wheat fields.","displayScale":0.6,"portraitScale":0.6},"wheat2":{"id":"wheat2","number":7,"name":"Wheat 2","family":"wheat","asset":"wheat2","type":"Leaf","stage":2,"next":"wheat3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat 2 can be found around wheat fields.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat3":{"id":"wheat3","number":8,"name":"Wheat Wagon 3","family":"wheat","asset":"wheat3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat Wagon 3 can be found around wheat fields.","displayScale":1.0,"portraitScale":1.0},"satyr1":{"id":"satyr1","number":14,"name":"Satyr 1","family":"satyr-minotaur","asset":"satyr1","type":"Fight","stage":1,"next":"satyr2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 1 can be found around village grass.","displayScale":0.6,"portraitScale":0.6},"satyr2":{"id":"satyr2","number":15,"name":"Satyr 2","family":"satyr-minotaur","asset":"satyr2","type":"Fight","stage":2,"next":"minotaur","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 2 can be found around village grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"minotaur":{"id":"minotaur","number":16,"name":"Minotaur 3","family":"satyr-minotaur","asset":"minotaur","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Acropolis grass","description":"Minotaur 3 can be found around acropolis grass.","displayScale":1.0,"portraitScale":1.0},"cyclops1":{"id":"cyclops1","number":11,"name":"Cyclops 1","family":"cyclops","asset":"cyclops1","type":"Stone","stage":1,"next":"cyclops2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 1 can be found around outer harbor grass.","displayScale":0.6,"portraitScale":0.49393939393939396},"cyclops2":{"id":"cyclops2","number":23,"name":"Cyclops 2","family":"cyclops","asset":"cyclops2","type":"Stone","stage":2,"next":"cyclops3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 2 can be found around outer harbor grass.","displayScale":0.78,"portraitScale":0.6484848484848484},"cyclops3":{"id":"cyclops3","number":24,"name":"Cyclops 3","family":"cyclops","asset":"cyclops3","type":"Stone","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 3 can be found around outer harbor grass.","displayScale":1.0,"portraitScale":1.0},"gorgon1":{"id":"gorgon1","number":25,"name":"Snake Gorgon 1","family":"gorgon","asset":"gorgon1","type":"Venom","stage":1,"next":"gorgon2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 1 can be found around desert and ruins.","displayScale":0.6,"portraitScale":0.6},"gorgon2":{"id":"gorgon2","number":26,"name":"Snake Gorgon 2","family":"gorgon","asset":"gorgon2","type":"Venom","stage":2,"next":"gorgon3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 2 can be found around desert and ruins.","displayScale":0.78,"portraitScale":0.7787878787878788},"gorgon3":{"id":"gorgon3","number":27,"name":"Snake Gorgon 3","family":"gorgon","asset":"gorgon3","type":"Venom","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 3 can be found around desert and ruins.","displayScale":1.0,"portraitScale":1.0},"ent1":{"id":"ent1","number":28,"name":"Ent 1","family":"ent","asset":"ent1","type":"Leaf","stage":1,"next":"ent2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Green grass","description":"Ent 1 can be found around green grass.","displayScale":0.6,"portraitScale":0.5484848484848485},"ent2":{"id":"ent2","number":29,"name":"Ent 2","family":"ent","asset":"ent2","type":"Leaf","stage":2,"next":"ent3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 2 can be found around green grass.","displayScale":0.78,"portraitScale":0.7121212121212122},"ent3":{"id":"ent3","number":30,"name":"Ent 3","family":"ent","asset":"ent3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 3 can be found around green grass.","displayScale":1.0,"portraitScale":0.9151515151515152},"nautilus1":{"id":"nautilus1","number":31,"name":"Nautilus 1","family":"nautilus","asset":"nautilus1","type":"Water","stage":1,"next":"nautilus2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 1 can be found around harbor shores.","displayScale":0.6,"portraitScale":0.4575757575757576},"nautilus2":{"id":"nautilus2","number":32,"name":"Nautilus 2","family":"nautilus","asset":"nautilus2","type":"Water","stage":2,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 2 can be found around harbor shores.","displayScale":1.0,"portraitScale":0.7636363636363637},"octopus":{"id":"octopus","number":33,"name":"Octopus","family":"octopus","asset":"octopus","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Acropolis coast","description":"Octopus can be found around acropolis coast.","displayScale":0.85,"portraitScale":0.8484848484848485},"rockman":{"id":"rockman","number":34,"name":"Rock Man","family":"rock-man","asset":"rockman","type":"Stone","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Rocky desert","description":"Rock Man can be found around rocky desert.","displayScale":1.0,"portraitScale":1.0},"pug":{"id":"pug","number":2,"name":"Black-Red Pug","family":"pug","asset":"pug","type":"Flame","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"Black-Red Pug can be found around village grass.","displayScale":0.85,"portraitScale":0.8484848484848485},"siren1":{"id":"siren1","number":12,"name":"Siren 1","family":"siren","asset":"siren1","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Harbor shores","description":"Siren 1 can be found around harbor shores.","displayScale":0.85,"portraitScale":0.8484848484848485}},"moves":{"tap":{"id":"tap","name":"Quick Strike","type":"Normal","power":26,"accuracy":1,"kind":"attack"},"guard":{"id":"guard","name":"Guard","type":"Normal","power":0,"accuracy":1,"kind":"guard"},"recover":{"id":"recover","name":"Catch Breath","type":"Normal","power":0,"accuracy":1,"kind":"heal","healRatio":0.28},"heavy":{"id":"heavy","name":"Power Strike","type":"Normal","power":44,"accuracy":0.85,"kind":"attack"},"megaPunch":{"id":"megaPunch","name":"Mega Punch","type":"Fight","power":55,"accuracy":0.9,"kind":"attack"},"megaKick":{"id":"megaKick","name":"Mega Kick","type":"Fight","power":65,"accuracy":0.8,"kind":"attack"},"frostSpark":{"id":"frostSpark","name":"Blue Flame","type":"Frost","power":38,"accuracy":1,"kind":"attack"},"bronzeSlash":{"id":"bronzeSlash","name":"Bronze Slash","type":"Metal","power":38,"accuracy":1,"kind":"attack"},"leafWhirl":{"id":"leafWhirl","name":"Leaf Whirl","type":"Leaf","power":38,"accuracy":1,"kind":"attack"},"karateStrike":{"id":"karateStrike","name":"Karate Strike","type":"Fight","power":38,"accuracy":1,"kind":"attack"},"stoneToss":{"id":"stoneToss","name":"Stone Toss","type":"Stone","power":38,"accuracy":1,"kind":"attack"},"venomFang":{"id":"venomFang","name":"Venom Fang","type":"Venom","power":38,"accuracy":1,"kind":"attack"},"wave":{"id":"wave","name":"Wave","type":"Water","power":38,"accuracy":1,"kind":"attack"},"ember":{"id":"ember","name":"Ember","type":"Flame","power":38,"accuracy":1,"kind":"attack"}},"typeChart":{"Frost":{"Leaf":1.5,"Water":0.7,"Flame":0.7},"Metal":{"Stone":1.5,"Frost":1.5,"Flame":0.7},"Leaf":{"Water":1.5,"Stone":1.5,"Flame":0.7,"Venom":0.7},"Fight":{"Metal":1.5,"Stone":1.5,"Venom":0.7},"Stone":{"Flame":1.5,"Frost":1.5,"Leaf":0.7},"Venom":{"Leaf":1.5,"Fight":1.5,"Metal":0.7},"Water":{"Flame":1.5,"Stone":1.5,"Leaf":0.7,"Frost":0.7},"Flame":{"Leaf":1.5,"Frost":1.5,"Water":0.7,"Stone":0.7}},"starters":["cloak1","wheat1","nautilus1"],"levelCap":99,"families":[["cloak1","cloak2","cloak3"],["warrior2","warrior3"],["wheat1","wheat2","wheat3"],["mantis2"],["cyclops1","cyclops2","cyclops3"],["satyr1","satyr2","minotaur"],["gorgon1","gorgon2","gorgon3"],["ent1","ent2","ent3"],["nautilus1","nautilus2"],["pug"],["siren1"],["octopus"],["rockman"]],"badges":{"temple":{"name":"Laurel Badge"},"acropolis":{"name":"Marble Badge"}},"shop":{"ballPrice":30,"potionPrice":50},"buildVersion":5};
 const DIMENSIONS = {"cloak1":{"width":294,"height":280},"cloak2":{"width":252,"height":280},"cloak3":{"width":289,"height":280},"warrior2":{"width":331,"height":280},"warrior3":{"width":271,"height":280},"mantis2":{"width":268,"height":280},"wheat1":{"width":274,"height":280},"wheat2":{"width":185,"height":280},"wheat3":{"width":259,"height":280},"satyr1":{"width":276,"height":280},"satyr2":{"width":226,"height":280},"minotaur":{"width":262,"height":280},"cyclops1":{"width":280,"height":280},"cyclops2":{"width":270,"height":280},"cyclops3":{"width":269,"height":280},"gorgon1":{"width":215,"height":280},"gorgon2":{"width":188,"height":280},"gorgon3":{"width":186,"height":280},"ent1":{"width":257,"height":280},"ent2":{"width":272,"height":280},"ent3":{"width":306,"height":280},"nautilus1":{"width":340,"height":231},"nautilus2":{"width":340,"height":259},"octopus":{"width":273,"height":280},"rockman":{"width":261,"height":280},"pug":{"width":327,"height":280},"siren1":{"width":230,"height":280},"professor":{"width":185,"height":280},"mapWorld":{"width":1152,"height":934},"mapVillage":{"width":1152,"height":768},"mapSecond":{"width":1152,"height":768},"mapCave":{"width":1152,"height":768},"mapDesert":{"width":1152,"height":768},"mapTemple":{"width":1152,"height":768},"mapHarbor":{"width":1152,"height":768},"mapNextHarbor":{"width":1152,"height":768},"mapAcropolis":{"width":1152,"height":768},"battleCave":{"width":1152,"height":768},"battleForest":{"width":1152,"height":768},"battlePlains":{"width":1152,"height":768},"battleComposite":{"width":1152,"height":1152},"battleGym":{"width":1152,"height":768},"sheet":{"width":1400,"height":1258}};
 /* Pixel coordinates below annotate the reviewed 1536 x 1024 map art. */
 const World = (() => {
@@ -832,12 +1219,16 @@ const Game = (() => {
     panelReturn = options.returnMode || (battle ? "battle" : state.starter ? "explore" : "starter");
     panelClosable = options.closable !== false;
     state.mode = mode;
+    overlay.dataset.mode = mode;
+    modal.dataset.mode = mode;
     modal.innerHTML = html;
     modal.scrollTop = 0;
     overlay.hidden = false;
     const heading = modal.querySelector("h1,h2");
     modal.setAttribute("aria-label", heading?.textContent || "Adventure menu");
-    requestAnimationFrame(() => modal.querySelector("button:not(:disabled)")?.focus({preventScroll:true}));
+    const firstAction=modal.querySelector("button:not(:disabled)");
+    firstAction?.focus({preventScroll:true});
+    requestAnimationFrame(()=>{if(!modal.contains(document.activeElement))firstAction?.focus({preventScroll:true});});
     renderHUD();
   }
 
@@ -905,7 +1296,7 @@ const Game = (() => {
   function typeTag(type) { return `<span class="type" style="--type:${color(type)}">${esc(type)}</span>`; }
   function portrait(id,height=145) {
     const sp=species[id],scale=sp.portraitScale || 1;
-    return `<div class="creature-portrait" style="height:${height}px;display:flex;align-items:flex-end;justify-content:center;flex:1;min-width:0"><img src="${ASSET_SOURCES[sp.asset]}" alt="${esc(sp.name)}" style="height:${height*scale}px;width:auto;max-width:100%;object-fit:contain"></div>`;
+    return `<div class="creature-portrait" style="--portrait-scale:${scale};height:${height}px;display:flex;align-items:flex-end;justify-content:center;flex:1;min-width:0"><img src="${ASSET_SOURCES[sp.asset]}" alt="${esc(sp.name)}" style="height:${height*scale}px;width:auto;max-width:100%;object-fit:contain"></div>`;
   }
 
   function hpBar(mon) {
@@ -923,12 +1314,13 @@ const Game = (() => {
       if (inBattle) {
         controls = button(index === battle.playerIndex ? "Active" : "Send out",`switch:${index}`,"primary",mon.hp <= 0 || index === battle.playerIndex);
       } else if (stored) {
-        controls = state.party.length < 6 ? button("Join team",`withdraw:${index}`) : button("Swap with lead",`swap:${index}`);
+        controls = state.party.length < 6 ? button("Join team",`withdraw:${index}`,"primary") : button("Swap with lead",`swap:${index}`,"primary");
       } else {
-        controls = button(index===0 ? "Leading" : "Make lead",`lead:${index}`,"",index===0 || mon.hp<=0);
+        controls = button(index===0 ? "Leading" : "Make lead",`lead:${index}`,"primary",index===0 || mon.hp<=0);
         controls += button("Store",`deposit:${index}`,"quiet",state.party.length <= 1 || (mon.hp>0 && state.party.filter(m=>m.hp>0).length<=1));
       }
-      return `<article class="moncard">${portrait(mon.species)}<strong>${esc(sp.name)}</strong>${typeTag(sp.type)}<div class="stats">Lv. ${mon.level} · ${mon.hp} / ${combat.maxHp(mon)} HP</div>${hpBar(mon)}<div class="stats">${combat.moveIds(mon).map(id=>esc(DATA.moves[id].name)).join(" · ")}</div><div class="choices">${controls}</div></article>`;
+      const current=inBattle ? index===battle.playerIndex : !stored&&index===0;
+      return `<article class="moncard party-row${current ? " is-current" : ""}"><span class="row-cursor" aria-hidden="true">▶</span><span class="party-slot">${stored ? "Storage" : "Team"} ${index+1}</span>${portrait(mon.species)}<strong>${esc(sp.name)}</strong>${typeTag(sp.type)}<div class="stats">Lv. ${mon.level} · ${mon.hp} / ${combat.maxHp(mon)} HP</div>${hpBar(mon)}<div class="stats">${combat.moveIds(mon).map(id=>esc(DATA.moves[id].name)).join(" · ")}</div><div class="choices creature-actions" aria-label="Actions for ${esc(sp.name)}">${controls}</div></article>`;
     }
     panel(`<div class="panel-head"><div><div class="eyebrow">${inBattle ? "Battle team" : "Your companions"}</div><h2>${forced ? "Choose a replacement" : "Your team"}</h2></div>${forced ? "" : button("Back","close","quiet small")}</div>${inBattle ? `<p class="muted">${forced ? "Your active creature fainted. Send out a healthy companion to continue." : "Changing your active creature uses this turn."}</p>` : ""}<div class="cards">${party.map((m,i)=>card(m,i)).join("")}</div>${!inBattle ? `<h3 style="margin-top:25px">Storage · ${state.storage.length}</h3>${state.storage.length ? `<div class="cards">${state.storage.map((m,i)=>card(m,i,true)).join("")}</div>` : `<p class="muted">When your team is full, new captures wait here.</p>`}` : ""}`,"team",{closable:!forced});
   }
@@ -1569,7 +1961,7 @@ const Game = (() => {
 
   function saveMenu() {
     if(battle)return;
-    panel(`<div class="panel-head"><div><div class="eyebrow">Your adventure</div><h2>Save & menu</h2></div>${button("Back","close","quiet small")}</div><p>${storageAvailable ? "Your progress saves automatically on this device." : "Device storage is unavailable. Your current progress still works; export a save before closing this page."}</p><div class="choices">${button("Export save","export","primary")}${button("Import save","import","quiet")}</div><div class="note">Save files work only in their matching adventure. Importing replaces the current in-memory adventure after validation.</div><div class="choices">${button("Back to adventure","close")}${button("Start again","restart","danger")}</div>`,"dialogue");
+    panel(`<div class="menu-layout"><div><div class="eyebrow">Adventure menu</div><h2>What next?</h2><div class="command-menu" role="group" aria-label="Adventure commands">${button("Team","team")}${button("Catalog","catalog")}${button("Region map","map")}${button("Export save","export")}${button("Import save","import","quiet")}${button(state.muted ? "Turn sound on" : "Turn sound off","sound-settings","quiet")}${button("Back to adventure","close","quiet")}</div></div><aside class="menu-status"><strong>Journey record</strong><span>${esc(currentArea()?.name || "Greece")}</span><span>${state.party.length} / 6 companions</span><span>${state.badges.length} / ${allBadges().length} badges</span><span>${state.money} coins</span><p>${storageAvailable ? "Progress saves automatically on this device." : "Storage is unavailable. Export before closing this page."} Export to move devices. Import replaces this adventure’s current progress.</p><button data-action="restart" class="danger">Start again</button></aside></div>`,"menu");
   }
 
   function restartPrompt() {
@@ -1593,6 +1985,10 @@ const Game = (() => {
     }
     switch(id) {
       case "close":closePanel();break;
+      case "team":teamPanel();break;
+      case "map":worldMapPanel();break;
+      case "sound-settings":
+        state.muted=!state.muted;unlockAudio();Extras?.onSoundChange?.(api);renderHUD();persist();saveMenu();break;
       case "new":safeGet() ? restartPrompt() : start();break;
       case "restart":restartPrompt();break;
       case "continue":
@@ -1622,6 +2018,18 @@ const Game = (() => {
         const first=buttons[0],last=buttons[buttons.length-1];
         if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}
         else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
+        return;
+      }
+      if(!overlay.hidden && ["arrowup","arrowdown"].includes(key)) {
+        const buttons=[...modal.querySelectorAll("button:not(:disabled)")];
+        if(buttons.length) {
+          event.preventDefault();
+          const current=buttons.indexOf(document.activeElement);
+          const step=key==="arrowdown" ? 1 : -1;
+          const next=current<0 ? (step>0 ? 0 : buttons.length-1) : (current+step+buttons.length)%buttons.length;
+          buttons[next].focus();
+          buttons[next].scrollIntoView({block:"nearest"});
+        }
         return;
       }
       const movement=["w","a","s","d","arrowup","arrowdown","arrowleft","arrowright"];
