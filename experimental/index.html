@@ -454,9 +454,9 @@ img,canvas{image-rendering:pixelated}
 <div id="toast" role="status" aria-live="polite"></div><input id="importInput" type="file" accept="application/json,.json" hidden>
 <script>
 "use strict";
-const ASSET_SOURCES = {"cloak1":"../assets/c6e9b23ef6cc6ab34e7cc12b61988f4cb37625357b433c5c74942d9cf212a4d1.png","cloak2":"../assets/33057b5e1af27b90c5aa15ed155f8d85877de7994face54a601f601ab63cba71.png","cloak3":"../assets/450e475a931e43b9ba6c86e5cc8392cfad9b084079117d555dfd4ed7cdee66f0.png","warrior1":"../assets/ef5b63046ca7e978ef7b5c45c1fd6874793a4a441231c1728fb4f004070ae645.png","warrior2":"../assets/780a0803db31ba775adaf86c6ffd58ac8b71eae247ab2334983d3f5ac3bc8e66.png","warrior3":"../assets/153db6a1e8c244b19eda4f2cc1de685cf6af7446b5b52eecb79549e32d3416c0.png","wheat1":"../assets/7483bbd631060051123f2ed5450791173ee39648dbed24b9758621cf31f5d1dc.png","wheat2":"../assets/f7f77b7dfd2e8b28aee43274d6d18de273315f5abce588a73f5e7a49736dcf5c.png","wheat3":"../assets/ce91f0ec91480d5bb36a0112ed5799538a08426387016b3b705eed49bc59b8bb.png","mantis1":"../assets/69443c19c3ba0322f1881e5f01b1caf9249f43ad378e234fbdf693035f9d1b62.png","mantis2":"../assets/9e00b1cf4609b33dbcf54703882ba1b0a2fdb613830a28571db8b4915b5c4b07.png","mantis3":"../assets/0e2652f9fc7ef0f037d7ac3bc6686f5102441c250a78b7e2b4b5a31aff750565.png","cyclops1":"../assets/924f569c5c8a388b8bda0847f7fcbb875b6ae7fc0b4db82e926976efd9ad5d01.png","cyclops2":"../assets/f6f09f694d862065df251699786a4daf4d0413bfcc664e59ff79e17eec9b22d0.png","cyclops3":"../assets/9f7ae133faa17161aad403e02512156f7d9b976dc8286f582e8df556b4e63550.png","satyr1":"../assets/bb73c1af3e2f07f3f936c0f31e393cd1d4571c6fa8533f619cca0a4e5b9905f2.png","satyr2":"../assets/cbfc27b47ea50c33b822ae32775422b573c26d61924c839d9b9e2d4c1fb36caf.png","minotaur":"../assets/24bc7b07573bc4206648bfb04d9ce9ab8cfb18ad3d9b00d9afe5f4719ed0561c.png","gorgon1":"../assets/da132aa4f317eefa2c650e4bab135ec9ad3fc6cfbedeed7d85fc3ee577c3a711.png","gorgon2":"../assets/6f221eefb49862649347706f242cedafeb5094cfcdff45c36e74e4442696660a.png","gorgon3":"../assets/dfad962ce7ca6c262fe411059a5784c1feff5bdeb762e6f5e07659b8fbb7351e.png","ent1":"../assets/00a04868c83b3b9be85258d5c3fab271a6f9796e7cf1f6341a5a6d65156e68e0.png","ent2":"../assets/e5c54f6451effbe08ae4a7c09253cbb3983b42299881a68ba245a7204638ed7d.png","ent3":"../assets/7fce366cb542738159463451a35ad1a4330466c9f621bf210ed7b58e046a1ad8.png","nautilus1":"../assets/4a966501eb4dc5461c6eb7ad88b10bbbc7fe9c580590b0e6b1278743e781ad49.png","nautilus2":"../assets/8597babe9c5bf01222dc515cb1bdc62d3d1ff2a5bc91377cb2f61b30927c262e.png","octopus":"../assets/9a31a31fdd3ce6e2676e1445aee429fcca591ff83d09b4c6cd6e1435135a79da.png","rockman":"../assets/986f9676d2593c93704c8aed1e9b1f6a5f2660d53dcea51fa622c22a3c372c86.png","pug":"../assets/bff684111bd1d7ee3159e1c381080590a22f47a8a24e8427c3c004128a3219c1.png","siren1":"../assets/91ad5ea81cc97b924e09ecccbdd7c16c576a38fc871a84ab212e039546198b7c.png","professor":"../assets/82eaf540cf145954c7c2400e5833683e4b70eac2aa38aa6b830baf974ff7e93e.png","mapWorld":"../assets/bbcdd8ac1dcc58e7b959ed81768a5733dc7140df0e958d62e5f2ecdd45d4ed01.png","mapVillage":"../assets/af1fda092d40008955af1ecde1ee8e6781f1ea1f6121937e4ef249dc89275a1e.png","mapSecond":"../assets/231c4f369f04ab544453a53631cf1ec7b3878576554b54617655953bdef68ea7.png","mapCave":"../assets/6409663b63a65548bd6c6e137ae9e879c0d77b69a452ad6c04b0ee2c2d02015f.png","mapDesert":"../assets/17015dc72fb86f5e12a98fbe0ff7ae8f2fe7c688540a9a4b7a802291c73193f5.png","mapTemple":"../assets/8a23d71d16b907e985a9c938c9e8fccac87b6c47dbfc4f47e23fc531a89f89ab.png","mapHarbor":"../assets/202a4180f547f134ae132ce0e52cfa80efc4d53d3b919be6d5418d3d48953e7e.png","mapNextHarbor":"../assets/6b54b9191f9d6c97e80e9211bafafd1d4e6975d2df70a10d282983f36daf98c5.png","mapAcropolis":"../assets/d45aa08b6bd994e6b054dc0fb3d20b4018ec6c1bcb75a6698943dc7b7dd3400c.png","battleCave":"../assets/4fd1178848933ed7a741cbc6d0eced9783c4ee5f85399db053dd18227181380f.png","battleForest":"../assets/67c379f104b86872b3b07bb93cc3bf24784d9555578a87bf24f5d32d2b374a6d.png","battlePlains":"../assets/c7bb3b3efc671407a51c3ca8581898ab779cb86c30677b15c13d8e1dd02a1b32.png","battleComposite":"../assets/305f8d504e4f2f0f3490cb57c54523f8b664ca55c4141c1f6095fe6bf028825e.png","battleGym":"../assets/ca17e03a9e1bf6e5a86b0fd0badac32a1168df401cdc92affa57c14633851d29.png","sheet":"../assets/5e46969f73e9c2ba146b740e81435e3c4d991ca2439b3ca9087e651e6988eb24.png"};
-const DATA = {"id":"experimental","release":"experimental","version":2,"schemaVersion":2,"saveKey":"fakemon-jefferson-experimental-v2","title":"Jefferson's Experimental version","species":{"cloak1":{"id":"cloak1","number":1,"name":"Ice Wizard 1","family":"ice-wizard","asset":"cloak1","type":"Frost","stage":1,"next":"cloak2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 1 can be found around caves and old ruins.","displayScale":0.6,"portraitScale":0.4909090909090909},"cloak2":{"id":"cloak2","number":17,"name":"Ice Wizard 2","family":"ice-wizard","asset":"cloak2","type":"Frost","stage":2,"next":"cloak3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 2 can be found around caves and old ruins.","displayScale":0.78,"portraitScale":0.9242424242424242},"cloak3":{"id":"cloak3","number":18,"name":"Ice Wizard 3","family":"ice-wizard","asset":"cloak3","type":"Frost","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 3 can be found around caves and old ruins.","displayScale":1.0,"portraitScale":0.9666666666666667},"warrior1":{"id":"warrior1","number":19,"name":"Blue Warrior 1","family":"blue-warrior","asset":"warrior1","type":"Metal","stage":1,"next":"warrior2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 1 can be found around marble towns.","displayScale":0.6,"portraitScale":0.4484848484848485},"warrior2":{"id":"warrior2","number":3,"name":"Blue Warrior 2","family":"blue-warrior","asset":"warrior2","type":"Metal","stage":2,"next":"warrior3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 2 can be found around marble towns.","displayScale":0.78,"portraitScale":0.5848484848484848},"warrior3":{"id":"warrior3","number":4,"name":"Golden Warrior 3","family":"blue-warrior","asset":"warrior3","type":"Metal","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Golden Warrior 3 can be found around marble towns.","displayScale":1.0,"portraitScale":1.0},"wheat1":{"id":"wheat1","number":6,"name":"Wheat 1","family":"wheat","asset":"wheat1","type":"Leaf","stage":1,"next":"wheat2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Wheat fields","description":"Wheat 1 can be found around wheat fields.","displayScale":0.6,"portraitScale":0.6},"wheat2":{"id":"wheat2","number":7,"name":"Wheat 2","family":"wheat","asset":"wheat2","type":"Leaf","stage":2,"next":"wheat3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat 2 can be found around wheat fields.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat3":{"id":"wheat3","number":8,"name":"Wheat Wagon 3","family":"wheat","asset":"wheat3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat Wagon 3 can be found around wheat fields.","displayScale":1.0,"portraitScale":1.0},"mantis1":{"id":"mantis1","number":9,"name":"White-Belt Mantis 1","family":"mantis","asset":"mantis1","type":"Fight","stage":1,"next":"mantis2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"White-Belt Mantis 1 can be found around temple grass.","displayScale":0.6,"portraitScale":0.6},"mantis2":{"id":"mantis2","number":10,"name":"Black-Belt Mantis 2","family":"mantis","asset":"mantis2","type":"Fight","stage":2,"next":"mantis3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Black-Belt Mantis 2 can be found around temple grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"mantis3":{"id":"mantis3","number":22,"name":"Mantis Master 3","family":"mantis","asset":"mantis3","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Mantis Master 3 can be found around temple grass.","displayScale":1.0,"portraitScale":1.0},"cyclops1":{"id":"cyclops1","number":11,"name":"Cyclops 1","family":"cyclops","asset":"cyclops1","type":"Stone","stage":1,"next":"cyclops2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 1 can be found around outer harbor grass.","displayScale":0.6,"portraitScale":0.49393939393939396},"cyclops2":{"id":"cyclops2","number":23,"name":"Cyclops 2","family":"cyclops","asset":"cyclops2","type":"Stone","stage":2,"next":"cyclops3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 2 can be found around outer harbor grass.","displayScale":0.78,"portraitScale":0.6484848484848484},"cyclops3":{"id":"cyclops3","number":24,"name":"Cyclops 3","family":"cyclops","asset":"cyclops3","type":"Stone","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 3 can be found around outer harbor grass.","displayScale":1.0,"portraitScale":1.0},"satyr1":{"id":"satyr1","number":14,"name":"Satyr 1","family":"satyr-minotaur","asset":"satyr1","type":"Fight","stage":1,"next":"satyr2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 1 can be found around village grass.","displayScale":0.6,"portraitScale":0.6},"satyr2":{"id":"satyr2","number":15,"name":"Satyr 2","family":"satyr-minotaur","asset":"satyr2","type":"Fight","stage":2,"next":"minotaur","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 2 can be found around village grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"minotaur":{"id":"minotaur","number":16,"name":"Minotaur 3","family":"satyr-minotaur","asset":"minotaur","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Acropolis grass","description":"Minotaur 3 can be found around acropolis grass.","displayScale":1.0,"portraitScale":1.0},"gorgon1":{"id":"gorgon1","number":25,"name":"Snake Gorgon 1","family":"gorgon","asset":"gorgon1","type":"Venom","stage":1,"next":"gorgon2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 1 can be found around desert and ruins.","displayScale":0.6,"portraitScale":0.6},"gorgon2":{"id":"gorgon2","number":26,"name":"Snake Gorgon 2","family":"gorgon","asset":"gorgon2","type":"Venom","stage":2,"next":"gorgon3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 2 can be found around desert and ruins.","displayScale":0.78,"portraitScale":0.7787878787878788},"gorgon3":{"id":"gorgon3","number":27,"name":"Snake Gorgon 3","family":"gorgon","asset":"gorgon3","type":"Venom","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 3 can be found around desert and ruins.","displayScale":1.0,"portraitScale":1.0},"ent1":{"id":"ent1","number":28,"name":"Ent 1","family":"ent","asset":"ent1","type":"Leaf","stage":1,"next":"ent2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Green grass","description":"Ent 1 can be found around green grass.","displayScale":0.6,"portraitScale":0.5484848484848485},"ent2":{"id":"ent2","number":29,"name":"Ent 2","family":"ent","asset":"ent2","type":"Leaf","stage":2,"next":"ent3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 2 can be found around green grass.","displayScale":0.78,"portraitScale":0.7121212121212122},"ent3":{"id":"ent3","number":30,"name":"Ent 3","family":"ent","asset":"ent3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 3 can be found around green grass.","displayScale":1.0,"portraitScale":0.9151515151515152},"nautilus1":{"id":"nautilus1","number":31,"name":"Nautilus 1","family":"nautilus","asset":"nautilus1","type":"Water","stage":1,"next":"nautilus2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 1 can be found around harbor shores.","displayScale":0.6,"portraitScale":0.4575757575757576},"nautilus2":{"id":"nautilus2","number":32,"name":"Nautilus 2","family":"nautilus","asset":"nautilus2","type":"Water","stage":2,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 2 can be found around harbor shores.","displayScale":1.0,"portraitScale":0.7636363636363637},"octopus":{"id":"octopus","number":33,"name":"Octopus","family":"octopus","asset":"octopus","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Acropolis coast","description":"Octopus can be found around acropolis coast.","displayScale":0.85,"portraitScale":0.8484848484848485},"rockman":{"id":"rockman","number":34,"name":"Rock Man","family":"rock-man","asset":"rockman","type":"Stone","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Rocky desert","description":"Rock Man can be found around rocky desert.","displayScale":1.0,"portraitScale":1.0},"pug":{"id":"pug","number":2,"name":"Black-Red Pug","family":"pug","asset":"pug","type":"Flame","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"Black-Red Pug can be found around village grass.","displayScale":0.85,"portraitScale":0.8484848484848485},"siren1":{"id":"siren1","number":12,"name":"Siren 1","family":"siren","asset":"siren1","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Harbor shores","description":"Siren 1 can be found around harbor shores.","displayScale":0.85,"portraitScale":0.8484848484848485}},"moves":{"tap":{"id":"tap","name":"Quick Strike","type":"Normal","power":26,"accuracy":1,"kind":"attack"},"guard":{"id":"guard","name":"Guard","type":"Normal","power":0,"accuracy":1,"kind":"guard"},"recover":{"id":"recover","name":"Catch Breath","type":"Normal","power":0,"accuracy":1,"kind":"heal","healRatio":0.28},"heavy":{"id":"heavy","name":"Power Strike","type":"Normal","power":44,"accuracy":0.85,"kind":"attack"},"megaPunch":{"id":"megaPunch","name":"Mega Punch","type":"Fight","power":55,"accuracy":0.9,"kind":"attack"},"megaKick":{"id":"megaKick","name":"Mega Kick","type":"Fight","power":65,"accuracy":0.8,"kind":"attack"},"frostSpark":{"id":"frostSpark","name":"Blue Flame","type":"Frost","power":38,"accuracy":1,"kind":"attack"},"bronzeSlash":{"id":"bronzeSlash","name":"Bronze Slash","type":"Metal","power":38,"accuracy":1,"kind":"attack"},"leafWhirl":{"id":"leafWhirl","name":"Leaf Whirl","type":"Leaf","power":38,"accuracy":1,"kind":"attack"},"karateStrike":{"id":"karateStrike","name":"Karate Strike","type":"Fight","power":38,"accuracy":1,"kind":"attack"},"stoneToss":{"id":"stoneToss","name":"Stone Toss","type":"Stone","power":38,"accuracy":1,"kind":"attack"},"venomFang":{"id":"venomFang","name":"Venom Fang","type":"Venom","power":38,"accuracy":1,"kind":"attack"},"wave":{"id":"wave","name":"Wave","type":"Water","power":38,"accuracy":1,"kind":"attack"},"ember":{"id":"ember","name":"Ember","type":"Flame","power":38,"accuracy":1,"kind":"attack"}},"typeChart":{"Frost":{"Leaf":1.5,"Water":0.7,"Flame":0.7},"Metal":{"Stone":1.5,"Frost":1.5,"Flame":0.7},"Leaf":{"Water":1.5,"Stone":1.5,"Flame":0.7,"Venom":0.7},"Fight":{"Metal":1.5,"Stone":1.5,"Venom":0.7},"Stone":{"Flame":1.5,"Frost":1.5,"Leaf":0.7},"Venom":{"Leaf":1.5,"Fight":1.5,"Metal":0.7},"Water":{"Flame":1.5,"Stone":1.5,"Leaf":0.7,"Frost":0.7},"Flame":{"Leaf":1.5,"Frost":1.5,"Water":0.7,"Stone":0.7}},"starters":["cloak1","wheat1","nautilus1"],"levelCap":99,"families":[["cloak1","cloak2","cloak3"],["warrior1","warrior2","warrior3"],["wheat1","wheat2","wheat3"],["mantis1","mantis2","mantis3"],["cyclops1","cyclops2","cyclops3"],["satyr1","satyr2","minotaur"],["gorgon1","gorgon2","gorgon3"],["ent1","ent2","ent3"],["nautilus1","nautilus2"],["pug"],["siren1"],["octopus"],["rockman"]],"badges":{"temple":{"name":"Laurel Badge"},"acropolis":{"name":"Marble Badge"}},"buildVersion":6,"intro":"Explore the Greek coast, restore forgotten paths, and complete an eight-badge expedition to the Summit Arena.","tagline":"From your village to the mountain summit.","atlasCaption":"Original coastal region. The expedition continues beyond the Acropolis; use the connected area guide above.","shop":{"ballPrice":30,"potionPrice":50}};
-const DIMENSIONS = {"cloak1":{"width":294,"height":280},"cloak2":{"width":252,"height":280},"cloak3":{"width":289,"height":280},"warrior1":{"width":312,"height":280},"warrior2":{"width":331,"height":280},"warrior3":{"width":271,"height":280},"wheat1":{"width":274,"height":280},"wheat2":{"width":185,"height":280},"wheat3":{"width":259,"height":280},"mantis1":{"width":262,"height":280},"mantis2":{"width":268,"height":280},"mantis3":{"width":263,"height":280},"cyclops1":{"width":280,"height":280},"cyclops2":{"width":270,"height":280},"cyclops3":{"width":269,"height":280},"satyr1":{"width":276,"height":280},"satyr2":{"width":226,"height":280},"minotaur":{"width":262,"height":280},"gorgon1":{"width":215,"height":280},"gorgon2":{"width":188,"height":280},"gorgon3":{"width":186,"height":280},"ent1":{"width":257,"height":280},"ent2":{"width":272,"height":280},"ent3":{"width":306,"height":280},"nautilus1":{"width":340,"height":231},"nautilus2":{"width":340,"height":259},"octopus":{"width":273,"height":280},"rockman":{"width":261,"height":280},"pug":{"width":327,"height":280},"siren1":{"width":230,"height":280},"professor":{"width":185,"height":280},"mapWorld":{"width":1152,"height":934},"mapVillage":{"width":1152,"height":768},"mapSecond":{"width":1152,"height":768},"mapCave":{"width":1152,"height":768},"mapDesert":{"width":1152,"height":768},"mapTemple":{"width":1152,"height":768},"mapHarbor":{"width":1152,"height":768},"mapNextHarbor":{"width":1152,"height":768},"mapAcropolis":{"width":1152,"height":768},"battleCave":{"width":1152,"height":768},"battleForest":{"width":1152,"height":768},"battlePlains":{"width":1152,"height":768},"battleComposite":{"width":1152,"height":1152},"battleGym":{"width":1152,"height":768},"sheet":{"width":1400,"height":1509}};
+const ASSET_SOURCES = {"cloak1":"../assets/c6e9b23ef6cc6ab34e7cc12b61988f4cb37625357b433c5c74942d9cf212a4d1.png","cloak2":"../assets/33057b5e1af27b90c5aa15ed155f8d85877de7994face54a601f601ab63cba71.png","cloak3":"../assets/450e475a931e43b9ba6c86e5cc8392cfad9b084079117d555dfd4ed7cdee66f0.png","warrior1":"../assets/ef5b63046ca7e978ef7b5c45c1fd6874793a4a441231c1728fb4f004070ae645.png","warrior2":"../assets/780a0803db31ba775adaf86c6ffd58ac8b71eae247ab2334983d3f5ac3bc8e66.png","warrior3":"../assets/153db6a1e8c244b19eda4f2cc1de685cf6af7446b5b52eecb79549e32d3416c0.png","wheat1":"../assets/7483bbd631060051123f2ed5450791173ee39648dbed24b9758621cf31f5d1dc.png","wheat2":"../assets/f7f77b7dfd2e8b28aee43274d6d18de273315f5abce588a73f5e7a49736dcf5c.png","wheat3":"../assets/ce91f0ec91480d5bb36a0112ed5799538a08426387016b3b705eed49bc59b8bb.png","mantis1":"../assets/69443c19c3ba0322f1881e5f01b1caf9249f43ad378e234fbdf693035f9d1b62.png","mantis2":"../assets/9e00b1cf4609b33dbcf54703882ba1b0a2fdb613830a28571db8b4915b5c4b07.png","mantis3":"../assets/0e2652f9fc7ef0f037d7ac3bc6686f5102441c250a78b7e2b4b5a31aff750565.png","cyclops1":"../assets/924f569c5c8a388b8bda0847f7fcbb875b6ae7fc0b4db82e926976efd9ad5d01.png","cyclops2":"../assets/f6f09f694d862065df251699786a4daf4d0413bfcc664e59ff79e17eec9b22d0.png","cyclops3":"../assets/9f7ae133faa17161aad403e02512156f7d9b976dc8286f582e8df556b4e63550.png","satyr1":"../assets/bb73c1af3e2f07f3f936c0f31e393cd1d4571c6fa8533f619cca0a4e5b9905f2.png","satyr2":"../assets/cbfc27b47ea50c33b822ae32775422b573c26d61924c839d9b9e2d4c1fb36caf.png","minotaur":"../assets/24bc7b07573bc4206648bfb04d9ce9ab8cfb18ad3d9b00d9afe5f4719ed0561c.png","gorgon1":"../assets/da132aa4f317eefa2c650e4bab135ec9ad3fc6cfbedeed7d85fc3ee577c3a711.png","gorgon2":"../assets/6f221eefb49862649347706f242cedafeb5094cfcdff45c36e74e4442696660a.png","gorgon3":"../assets/dfad962ce7ca6c262fe411059a5784c1feff5bdeb762e6f5e07659b8fbb7351e.png","ent1":"../assets/00a04868c83b3b9be85258d5c3fab271a6f9796e7cf1f6341a5a6d65156e68e0.png","ent2":"../assets/e5c54f6451effbe08ae4a7c09253cbb3983b42299881a68ba245a7204638ed7d.png","ent3":"../assets/7fce366cb542738159463451a35ad1a4330466c9f621bf210ed7b58e046a1ad8.png","nautilus1":"../assets/4a966501eb4dc5461c6eb7ad88b10bbbc7fe9c580590b0e6b1278743e781ad49.png","nautilus2":"../assets/8597babe9c5bf01222dc515cb1bdc62d3d1ff2a5bc91377cb2f61b30927c262e.png","octopus":"../assets/9a31a31fdd3ce6e2676e1445aee429fcca591ff83d09b4c6cd6e1435135a79da.png","rockman":"../assets/986f9676d2593c93704c8aed1e9b1f6a5f2660d53dcea51fa622c22a3c372c86.png","pug":"../assets/bff684111bd1d7ee3159e1c381080590a22f47a8a24e8427c3c004128a3219c1.png","siren1":"../assets/91ad5ea81cc97b924e09ecccbdd7c16c576a38fc871a84ab212e039546198b7c.png","professor":"../assets/82eaf540cf145954c7c2400e5833683e4b70eac2aa38aa6b830baf974ff7e93e.png","mapWorld":"../assets/bbcdd8ac1dcc58e7b959ed81768a5733dc7140df0e958d62e5f2ecdd45d4ed01.png","mapVillage":"../assets/af1fda092d40008955af1ecde1ee8e6781f1ea1f6121937e4ef249dc89275a1e.png","mapSecond":"../assets/231c4f369f04ab544453a53631cf1ec7b3878576554b54617655953bdef68ea7.png","mapCave":"../assets/6409663b63a65548bd6c6e137ae9e879c0d77b69a452ad6c04b0ee2c2d02015f.png","mapDesert":"../assets/17015dc72fb86f5e12a98fbe0ff7ae8f2fe7c688540a9a4b7a802291c73193f5.png","mapTemple":"../assets/8a23d71d16b907e985a9c938c9e8fccac87b6c47dbfc4f47e23fc531a89f89ab.png","mapHarbor":"../assets/202a4180f547f134ae132ce0e52cfa80efc4d53d3b919be6d5418d3d48953e7e.png","mapNextHarbor":"../assets/6b54b9191f9d6c97e80e9211bafafd1d4e6975d2df70a10d282983f36daf98c5.png","mapAcropolis":"../assets/d45aa08b6bd994e6b054dc0fb3d20b4018ec6c1bcb75a6698943dc7b7dd3400c.png","battleCave":"../assets/4fd1178848933ed7a741cbc6d0eced9783c4ee5f85399db053dd18227181380f.png","battleForest":"../assets/67c379f104b86872b3b07bb93cc3bf24784d9555578a87bf24f5d32d2b374a6d.png","battlePlains":"../assets/c7bb3b3efc671407a51c3ca8581898ab779cb86c30677b15c13d8e1dd02a1b32.png","battleComposite":"../assets/305f8d504e4f2f0f3490cb57c54523f8b664ca55c4141c1f6095fe6bf028825e.png","battleGym":"../assets/ca17e03a9e1bf6e5a86b0fd0badac32a1168df401cdc92affa57c14633851d29.png","sheet":"../assets/5e46969f73e9c2ba146b740e81435e3c4d991ca2439b3ca9087e651e6988eb24.png","hippocamp1":"../assets/922c50b1815c91debe324a96559672584e298a3ccdd26cfb603f68595a682e39.png","hippocamp2":"../assets/2dfc0345b048247699831c79815acf5f3c3fae98e34db6d73a7c36b2ea756d0c.png","hippocamp3":"../assets/9d26fdee5081b5218d3dd745576706324f3d359dda6d90284e7fabc93cc21cd5.png","triton1":"../assets/622370e174407497e478c4d65e2f59417377d0c2177dbda2822058854dc09f41.png","triton2":"../assets/e1586fec8e29768b1e9b434c29e599794773143090406b9fe286ce6f91048c14.png","triton3":"../assets/3ba5b6a81d9a36224c9e8df830b9630b80b400361fb1f8e1b1c0ce91a04690be.png","siren2":"../assets/8146e5b9bf1fe01f2a69767f9f5fdbeb73296bd27af3fc0dda4422bee359d660.png","siren3":"../assets/3924ef9215cf8c215a26b9a775b752f2c1744fdb7d3a351546602a9b5764cf81.png","naiad":"../assets/02406dfb6c9e6662311c00eab32463d20b655273b307e2b8a62b2e5738a320b0.png","nereid":"../assets/eec6c840cd341d3b8f2aeb3e908b95d074228587f6ead1d17294caa65faa488d.png","poseidon":"../assets/1a05cb248c5760be4b72f65079570f2453e797f0b444271616bbd1d975efb734.png","battleAtlantis":"../assets/2293fdcefd7660a03bda350e2a2662ec6628fab071d6e392d3f9e361dc427179.png","chimera1":"../assets/63821c8e66ab5ee61eade8effb40551c4afa5e03b60bd96e7cfa2d4baa67fff4.png","chimera2":"../assets/cd8919c9a8bb89dd25ad2115c7d9f45d76d427d6085c8c345ce9f1974eaf9eea.png","chimera3":"../assets/a8bee6ef30ee49f52621f32bb6f085363a7ca3df7522667aa6004b289febecce.png","hermit":"../assets/2049d939a612906fe642ada3d27f6d4f024553d373ca7366f42f0b3f249e22d8.png","hephaestus":"../assets/5677b175118c3135da063a1041b71ca8c6ba2028536fed262eb36f7cd0f3a770.png","zeus":"../assets/71dd21872e3334ea40f554288dde088cb80a5988ce0fc77f2a2055be497d076c.png","oread":"../assets/1495992882c5e583286d18005b60ee0e3cc88f2505277dbe8186b23d589780f2.png","athena":"../assets/19d7d07e45e827bfdf814d8d2e80cd1fffe8826a5a14274bdc738269f44a42c3.png","hermes":"../assets/70d29dca8e403268d3e50a1ba08f1295ed1ab81c5830626df83ef6b6460f39d1.png"};
+const DATA = {"id":"experimental","release":"experimental","version":2,"schemaVersion":2,"saveKey":"fakemon-jefferson-experimental-v2","title":"Jefferson's Experimental version","species":{"cloak1":{"id":"cloak1","number":1,"name":"Ice Wizard 1","family":"ice-wizard","asset":"cloak1","type":"Frost","stage":1,"next":"cloak2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 1 can be found around caves and old ruins.","displayScale":0.6,"portraitScale":0.4909090909090909},"cloak2":{"id":"cloak2","number":17,"name":"Ice Wizard 2","family":"ice-wizard","asset":"cloak2","type":"Frost","stage":2,"next":"cloak3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 2 can be found around caves and old ruins.","displayScale":0.78,"portraitScale":0.9242424242424242},"cloak3":{"id":"cloak3","number":18,"name":"Ice Wizard 3","family":"ice-wizard","asset":"cloak3","type":"Frost","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 3 can be found around caves and old ruins.","displayScale":1.0,"portraitScale":0.9666666666666667},"warrior1":{"id":"warrior1","number":19,"name":"Blue Warrior 1","family":"blue-warrior","asset":"warrior1","type":"Metal","stage":1,"next":"warrior2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 1 can be found around marble towns.","displayScale":0.6,"portraitScale":0.4484848484848485},"warrior2":{"id":"warrior2","number":3,"name":"Blue Warrior 2","family":"blue-warrior","asset":"warrior2","type":"Metal","stage":2,"next":"warrior3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 2 can be found around marble towns.","displayScale":0.78,"portraitScale":0.5848484848484848},"warrior3":{"id":"warrior3","number":4,"name":"Golden Warrior 3","family":"blue-warrior","asset":"warrior3","type":"Metal","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Golden Warrior 3 can be found around marble towns.","displayScale":1.0,"portraitScale":1.0},"wheat1":{"id":"wheat1","number":6,"name":"Wheat 1","family":"wheat","asset":"wheat1","type":"Leaf","stage":1,"next":"wheat2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Wheat fields","description":"Wheat 1 can be found around wheat fields.","displayScale":0.6,"portraitScale":0.6},"wheat2":{"id":"wheat2","number":7,"name":"Wheat 2","family":"wheat","asset":"wheat2","type":"Leaf","stage":2,"next":"wheat3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat 2 can be found around wheat fields.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat3":{"id":"wheat3","number":8,"name":"Wheat Wagon 3","family":"wheat","asset":"wheat3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat Wagon 3 can be found around wheat fields.","displayScale":1.0,"portraitScale":1.0},"mantis1":{"id":"mantis1","number":9,"name":"White-Belt Mantis 1","family":"mantis","asset":"mantis1","type":"Fight","stage":1,"next":"mantis2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"White-Belt Mantis 1 can be found around temple grass.","displayScale":0.6,"portraitScale":0.6},"mantis2":{"id":"mantis2","number":10,"name":"Black-Belt Mantis 2","family":"mantis","asset":"mantis2","type":"Fight","stage":2,"next":"mantis3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Black-Belt Mantis 2 can be found around temple grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"mantis3":{"id":"mantis3","number":22,"name":"Mantis Master 3","family":"mantis","asset":"mantis3","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Mantis Master 3 can be found around temple grass.","displayScale":1.0,"portraitScale":1.0},"cyclops1":{"id":"cyclops1","number":11,"name":"Cyclops 1","family":"cyclops","asset":"cyclops1","type":"Stone","stage":1,"next":"cyclops2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 1 can be found around outer harbor grass.","displayScale":0.6,"portraitScale":0.49393939393939396},"cyclops2":{"id":"cyclops2","number":23,"name":"Cyclops 2","family":"cyclops","asset":"cyclops2","type":"Stone","stage":2,"next":"cyclops3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 2 can be found around outer harbor grass.","displayScale":0.78,"portraitScale":0.6484848484848484},"cyclops3":{"id":"cyclops3","number":24,"name":"Cyclops 3","family":"cyclops","asset":"cyclops3","type":"Stone","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 3 can be found around outer harbor grass.","displayScale":1.0,"portraitScale":1.0},"satyr1":{"id":"satyr1","number":14,"name":"Satyr 1","family":"satyr-minotaur","asset":"satyr1","type":"Fight","stage":1,"next":"satyr2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 1 can be found around village grass.","displayScale":0.6,"portraitScale":0.6},"satyr2":{"id":"satyr2","number":15,"name":"Satyr 2","family":"satyr-minotaur","asset":"satyr2","type":"Fight","stage":2,"next":"minotaur","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 2 can be found around village grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"minotaur":{"id":"minotaur","number":16,"name":"Minotaur 3","family":"satyr-minotaur","asset":"minotaur","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Acropolis grass","description":"Minotaur 3 can be found around acropolis grass.","displayScale":1.0,"portraitScale":1.0},"gorgon1":{"id":"gorgon1","number":25,"name":"Snake Gorgon 1","family":"gorgon","asset":"gorgon1","type":"Venom","stage":1,"next":"gorgon2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 1 can be found around desert and ruins.","displayScale":0.6,"portraitScale":0.6},"gorgon2":{"id":"gorgon2","number":26,"name":"Snake Gorgon 2","family":"gorgon","asset":"gorgon2","type":"Venom","stage":2,"next":"gorgon3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 2 can be found around desert and ruins.","displayScale":0.78,"portraitScale":0.7787878787878788},"gorgon3":{"id":"gorgon3","number":27,"name":"Snake Gorgon 3","family":"gorgon","asset":"gorgon3","type":"Venom","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 3 can be found around desert and ruins.","displayScale":1.0,"portraitScale":1.0},"ent1":{"id":"ent1","number":28,"name":"Ent 1","family":"ent","asset":"ent1","type":"Leaf","stage":1,"next":"ent2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Green grass","description":"Ent 1 can be found around green grass.","displayScale":0.6,"portraitScale":0.5484848484848485},"ent2":{"id":"ent2","number":29,"name":"Ent 2","family":"ent","asset":"ent2","type":"Leaf","stage":2,"next":"ent3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 2 can be found around green grass.","displayScale":0.78,"portraitScale":0.7121212121212122},"ent3":{"id":"ent3","number":30,"name":"Ent 3","family":"ent","asset":"ent3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 3 can be found around green grass.","displayScale":1.0,"portraitScale":0.9151515151515152},"nautilus1":{"id":"nautilus1","number":31,"name":"Nautilus 1","family":"nautilus","asset":"nautilus1","type":"Water","stage":1,"next":"nautilus2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 1 can be found around harbor shores.","displayScale":0.6,"portraitScale":0.4575757575757576},"nautilus2":{"id":"nautilus2","number":32,"name":"Nautilus 2","family":"nautilus","asset":"nautilus2","type":"Water","stage":2,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 2 can be found around harbor shores.","displayScale":1.0,"portraitScale":0.7636363636363637},"octopus":{"id":"octopus","number":33,"name":"Octopus","family":"octopus","asset":"octopus","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Acropolis coast","description":"Octopus can be found around acropolis coast.","displayScale":0.85,"portraitScale":0.8484848484848485},"rockman":{"id":"rockman","number":34,"name":"Rock Man","family":"rock-man","asset":"rockman","type":"Stone","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Rocky desert","description":"Rock Man can be found around rocky desert.","displayScale":1.0,"portraitScale":1.0},"pug":{"id":"pug","number":2,"name":"Black-Red Pug","family":"pug","asset":"pug","type":"Flame","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"Black-Red Pug can be found around village grass.","displayScale":0.85,"portraitScale":0.8484848484848485},"siren1":{"id":"siren1","number":12,"name":"Siren 1","family":"siren","asset":"siren1","type":"Water","stage":1,"next":"siren2","evolveAt":18,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Harbor shores","description":"Siren 1 can be found around harbor shores.","displayScale":0.46,"portraitScale":0.46},"hippocamp1":{"id":"hippocamp1","number":35,"name":"Foam Foal","family":"hippocamp","asset":"hippocamp1","type":"Water","stage":1,"next":"hippocamp2","evolveAt":18,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":0.46,"portraitScale":0.46},"hippocamp2":{"id":"hippocamp2","number":36,"name":"Reef Courser","family":"hippocamp","asset":"hippocamp2","type":"Water","stage":2,"next":"hippocamp3","evolveAt":26,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":0.7,"portraitScale":0.7},"hippocamp3":{"id":"hippocamp3","number":37,"name":"Tide Charger","family":"hippocamp","asset":"hippocamp3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":1.0,"portraitScale":1.0},"triton1":{"id":"triton1","number":38,"name":"Shell Pip","family":"triton","asset":"triton1","type":"Water","stage":1,"next":"triton2","evolveAt":18,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":0.46,"portraitScale":0.46},"triton2":{"id":"triton2","number":39,"name":"Reef Herald","family":"triton","asset":"triton2","type":"Water","stage":2,"next":"triton3","evolveAt":26,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":0.7,"portraitScale":0.7},"triton3":{"id":"triton3","number":40,"name":"Conch Warden","family":"triton","asset":"triton3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":1.0,"portraitScale":1.0},"siren2":{"id":"siren2","number":41,"name":"Reef Siren","family":"siren","asset":"siren2","type":"Water","stage":2,"next":"siren3","evolveAt":26,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis and the singing reef","description":"A siren whose songs carry between the shore and the homes of Atlantis.","displayScale":0.7,"portraitScale":0.7},"siren3":{"id":"siren3","number":42,"name":"Ocean Siren","family":"siren","asset":"siren3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis and the singing reef","description":"A siren whose songs carry between the shore and the homes of Atlantis.","displayScale":1.0,"portraitScale":1.0},"chimera1":{"id":"chimera1","number":43,"name":"Cinder Cub","family":"chimera","asset":"chimera1","type":"Flame","stage":1,"next":"chimera2","evolveAt":24,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":0.46,"displayScale":0.46},"chimera2":{"id":"chimera2","number":44,"name":"Crag Chimera","family":"chimera","asset":"chimera2","type":"Flame","stage":2,"next":"chimera3","evolveAt":32,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":0.7,"displayScale":0.7},"chimera3":{"id":"chimera3","number":45,"name":"Embermane","family":"chimera","asset":"chimera3","type":"Flame","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":1.0,"displayScale":1.0}},"moves":{"tap":{"id":"tap","name":"Quick Strike","type":"Normal","power":26,"accuracy":1,"kind":"attack"},"guard":{"id":"guard","name":"Guard","type":"Normal","power":0,"accuracy":1,"kind":"guard"},"recover":{"id":"recover","name":"Catch Breath","type":"Normal","power":0,"accuracy":1,"kind":"heal","healRatio":0.28},"heavy":{"id":"heavy","name":"Power Strike","type":"Normal","power":44,"accuracy":0.85,"kind":"attack"},"megaPunch":{"id":"megaPunch","name":"Mega Punch","type":"Fight","power":55,"accuracy":0.9,"kind":"attack"},"megaKick":{"id":"megaKick","name":"Mega Kick","type":"Fight","power":65,"accuracy":0.8,"kind":"attack"},"frostSpark":{"id":"frostSpark","name":"Blue Flame","type":"Frost","power":38,"accuracy":1,"kind":"attack"},"bronzeSlash":{"id":"bronzeSlash","name":"Bronze Slash","type":"Metal","power":38,"accuracy":1,"kind":"attack"},"leafWhirl":{"id":"leafWhirl","name":"Leaf Whirl","type":"Leaf","power":38,"accuracy":1,"kind":"attack"},"karateStrike":{"id":"karateStrike","name":"Karate Strike","type":"Fight","power":38,"accuracy":1,"kind":"attack"},"stoneToss":{"id":"stoneToss","name":"Stone Toss","type":"Stone","power":38,"accuracy":1,"kind":"attack"},"venomFang":{"id":"venomFang","name":"Venom Fang","type":"Venom","power":38,"accuracy":1,"kind":"attack"},"wave":{"id":"wave","name":"Wave","type":"Water","power":38,"accuracy":1,"kind":"attack"},"ember":{"id":"ember","name":"Ember","type":"Flame","power":38,"accuracy":1,"kind":"attack"}},"typeChart":{"Frost":{"Leaf":1.5,"Water":0.7,"Flame":0.7},"Metal":{"Stone":1.5,"Frost":1.5,"Flame":0.7},"Leaf":{"Water":1.5,"Stone":1.5,"Flame":0.7,"Venom":0.7},"Fight":{"Metal":1.5,"Stone":1.5,"Venom":0.7},"Stone":{"Flame":1.5,"Frost":1.5,"Leaf":0.7},"Venom":{"Leaf":1.5,"Fight":1.5,"Metal":0.7},"Water":{"Flame":1.5,"Stone":1.5,"Leaf":0.7,"Frost":0.7},"Flame":{"Leaf":1.5,"Frost":1.5,"Water":0.7,"Stone":0.7}},"starters":["cloak1","wheat1","nautilus1"],"levelCap":99,"families":[["cloak1","cloak2","cloak3"],["warrior1","warrior2","warrior3"],["wheat1","wheat2","wheat3"],["mantis1","mantis2","mantis3"],["cyclops1","cyclops2","cyclops3"],["satyr1","satyr2","minotaur"],["gorgon1","gorgon2","gorgon3"],["ent1","ent2","ent3"],["nautilus1","nautilus2"],["pug"],["siren1","siren2","siren3"],["octopus"],["rockman"],["hippocamp1","hippocamp2","hippocamp3"],["triton1","triton2","triton3"],["chimera1","chimera2","chimera3"]],"badges":{"temple":{"name":"Laurel Badge"},"acropolis":{"name":"Marble Badge"}},"buildVersion":7,"intro":"Explore the Greek coast, discover Atlantis beneath the sea, and climb Mount Olympus. Meet Melia at Harbor Town's spring to dive, or take the Olympus turnoff from Summit Trail.","tagline":"Dive to Atlantis. Climb to the gods. Ride home.","atlasCaption":"Original coastal region. The expedition continues beyond the Acropolis; use the connected area guide above.","shop":{"ballPrice":30,"potionPrice":50},"characters":{"naiad":{"name":"Melia the Naiad","asset":"naiad"},"nereid":{"name":"Galene the Nereid","asset":"nereid"},"poseidon":{"name":"Poseidon","asset":"poseidon"},"hermit":{"name":"Dorian the Mountain Hermit","asset":"hermit"},"hephaestus":{"name":"Hephaestus","asset":"hephaestus"},"zeus":{"name":"Zeus","asset":"zeus"},"oread":{"name":"Phaedra the Oread","asset":"oread"},"athena":{"name":"Athena","asset":"athena"},"hermes":{"name":"Hermes","asset":"hermes"}}};
+const DIMENSIONS = {"cloak1":{"width":294,"height":280},"cloak2":{"width":252,"height":280},"cloak3":{"width":289,"height":280},"warrior1":{"width":312,"height":280},"warrior2":{"width":331,"height":280},"warrior3":{"width":271,"height":280},"wheat1":{"width":274,"height":280},"wheat2":{"width":185,"height":280},"wheat3":{"width":259,"height":280},"mantis1":{"width":262,"height":280},"mantis2":{"width":268,"height":280},"mantis3":{"width":263,"height":280},"cyclops1":{"width":280,"height":280},"cyclops2":{"width":270,"height":280},"cyclops3":{"width":269,"height":280},"satyr1":{"width":276,"height":280},"satyr2":{"width":226,"height":280},"minotaur":{"width":262,"height":280},"gorgon1":{"width":215,"height":280},"gorgon2":{"width":188,"height":280},"gorgon3":{"width":186,"height":280},"ent1":{"width":257,"height":280},"ent2":{"width":272,"height":280},"ent3":{"width":306,"height":280},"nautilus1":{"width":340,"height":231},"nautilus2":{"width":340,"height":259},"octopus":{"width":273,"height":280},"rockman":{"width":261,"height":280},"pug":{"width":327,"height":280},"siren1":{"width":230,"height":280},"professor":{"width":185,"height":280},"mapWorld":{"width":1152,"height":934},"mapVillage":{"width":1152,"height":768},"mapSecond":{"width":1152,"height":768},"mapCave":{"width":1152,"height":768},"mapDesert":{"width":1152,"height":768},"mapTemple":{"width":1152,"height":768},"mapHarbor":{"width":1152,"height":768},"mapNextHarbor":{"width":1152,"height":768},"mapAcropolis":{"width":1152,"height":768},"battleCave":{"width":1152,"height":768},"battleForest":{"width":1152,"height":768},"battlePlains":{"width":1152,"height":768},"battleComposite":{"width":1152,"height":1152},"battleGym":{"width":1152,"height":768},"sheet":{"width":1400,"height":1509},"hippocamp1":{"width":291,"height":280},"hippocamp2":{"width":277,"height":280},"hippocamp3":{"width":277,"height":280},"triton1":{"width":274,"height":280},"triton2":{"width":279,"height":280},"triton3":{"width":274,"height":280},"siren2":{"width":184,"height":280},"siren3":{"width":188,"height":280},"naiad":{"width":194,"height":280},"nereid":{"width":169,"height":280},"poseidon":{"width":166,"height":280},"battleAtlantis":{"width":1152,"height":768},"chimera1":{"width":304,"height":280},"chimera2":{"width":303,"height":280},"chimera3":{"width":340,"height":228},"hermit":{"width":187,"height":280},"hephaestus":{"width":178,"height":280},"zeus":{"width":182,"height":280},"oread":{"width":175,"height":280},"athena":{"width":176,"height":280},"hermes":{"width":167,"height":280}};
 /* Pixel coordinates below annotate the reviewed 1536 x 1024 map art. */
 const World = (() => {
   const R = (x,y,w,h) => ({x,y,w,h});
@@ -1517,10 +1517,10 @@ const ExperimentalCampaign = (() => {
   const leaderSpecs = {
     aqueduct:{name:'Leader Thalia',badge:'spring',levels:[16,17,18],species:['nautilus2','wheat2','cloak2']},
     quarry:{name:'Leader Petros',badge:'chisel',levels:[20,21,22],species:['cyclops2','warrior2','rockman']},
-    cistern:{name:'Leader Melina',badge:'echo',levels:[23,24,25],species:['siren1','gorgon2','nautilus2']},
+    cistern:{name:'Leader Melina',badge:'echo',levels:[23,24,25],species:['siren2','gorgon2','nautilus2']},
     windTemple:{name:'Leader Zephyros',badge:'gale',levels:[26,27,27,28],species:['wheat3','pug','cloak3','ent3']},
-    observatory:{name:'Leader Astraia',badge:'star',levels:[29,30,31,32],species:['gorgon3','warrior3','cyclops3','siren1']},
-    league:{name:'Champion Eleni',badge:'horizon',levels:[33,34,35,35,36,36],species:['cloak3','mantis3','wheat3','nautilus2','gorgon3','minotaur']}
+    observatory:{name:'Leader Astraia',badge:'star',levels:[29,30,31,32],species:['gorgon3','warrior3','cyclops3','siren3']},
+    league:{name:'Champion Eleni',badge:'horizon',levels:[33,34,35,35,36,36],species:['cloak3','mantis3','wheat3','nautilus2','gorgon3','siren3']}
   };
   const areaLevels = {oliveRoad:15,oliveTown:16,aqueduct:17,marblePass:18,quarryTown:19,quarry:21,saltRoad:22,cistern:24,windRoad:25,windTown:26,windTemple:27,summitRoad:29,observatory:31,league:34};
   const teamPools = {
@@ -1530,14 +1530,14 @@ const ExperimentalCampaign = (() => {
     marblePass:[['cyclops2','ent2'],['warrior2','gorgon2'],['cloak2','wheat2']],
     quarryTown:[['warrior2','mantis2'],['rockman','nautilus2']],
     quarry:[['cyclops2','warrior2'],['ent2','gorgon2'],['pug','cloak2']],
-    saltRoad:[['nautilus2','gorgon2'],['wheat3','rockman'],['pug','siren1']],
-    cistern:[['siren1','cloak3'],['nautilus2','gorgon2'],['mantis2','rockman']],
+    saltRoad:[['nautilus2','gorgon2'],['wheat3','rockman'],['pug','siren2']],
+    cistern:[['siren2','cloak3'],['nautilus2','gorgon2'],['mantis2','rockman']],
     windRoad:[['wheat3','pug'],['ent3','cyclops2'],['cloak3','nautilus2']],
-    windTown:[['mantis3','warrior3'],['wheat3','siren1']],
+    windTown:[['mantis3','warrior3'],['wheat3','siren2']],
     windTemple:[['cloak3','pug'],['ent3','gorgon3'],['nautilus2','cyclops3']],
     summitRoad:[['cyclops3','mantis3'],['cloak3','warrior3'],['wheat3','gorgon3']],
-    observatory:[['gorgon3','siren1'],['warrior3','cloak3'],['minotaur','ent3']],
-    league:[['mantis3','cyclops3','nautilus2'],['warrior3','gorgon3','wheat3'],['cloak3','minotaur','siren1']]
+    observatory:[['gorgon3','siren3'],['warrior3','cloak3'],['minotaur','ent3']],
+    league:[['mantis3','cyclops3','nautilus2'],['warrior3','gorgon3','wheat3'],['cloak3','minotaur','siren3']]
   };
   const guideText = {
     oliveRoad:'The expedition path begins beyond the terraces. Olive Town is visible ahead.',
@@ -1566,7 +1566,7 @@ const ExperimentalCampaign = (() => {
     windTemple:'The Gale Badge records your victory. The aligned vanes keep Windmill Town’s windmills turning steadily.'
   };
   const trainerTitles = ['Olive Keeper','Field Researcher','Ruins Scout','Coast Walker','Workshop Battler','Trail Ranger','Temple Student','Mountain Guide'];
-  const trainerNames = ['Dimitra','Yannis','Katerina','Spiros','Eleni','Manolis','Sofia','Andreas','Nefeli','Kostas','Iro','Panos','Marina','Themis','Lena','Aris'];
+  const trainerNames = ['Dimitra','Yannis','Katerina','Spiros','Elpida','Manolis','Sofia','Andreas','Nefeli','Kostas','Iro','Panos','Marina','Themis','Lena','Aris'];
   const areaBattleText = {
     oliveRoad:'These terraces reward careful turns. Want to test yours?',oliveTown:'I train beside the olive press before the roads get busy.',
     aqueduct:'I have been practicing beside the old aqueduct. Want to try a battle?',marblePass:'Stone on one side, leaves on the other. My team uses both.',
@@ -1609,7 +1609,8 @@ const ExperimentalCampaign = (() => {
     const pool=teamPools[area]||teamPools.oliveRoad;
     const chosen=pool[index%pool.length];
     const base=areaLevels[area]||16;
-    return chosen.filter(id=>data.species[id]).map((species,slot)=>({species,level:clamp(base+((index+slot)%2),14,35)}));
+    const lateBonus=area==='league'&&index===0?1:0;
+    return chosen.filter(id=>data.species[id]).map((species,slot)=>({species,level:clamp(base+((index+slot)%2)+lateBonus,14,35)}));
   }
   function setup(api) {
     const firstBattler=api.world.areas.second?.interactions?.find(item=>item.id==='villageYoungster');
@@ -2354,6 +2355,964 @@ const ExperimentalMusic = (() => {
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=ExperimentalMusic;
 
+/* Experimental-only Atlantis: code-native underwater maps. */
+const AtlantisWorld = (() => {
+  const TILE=32,COLS=40,ROWS=28,W=COLS*TILE,H=ROWS*TILE;
+  const mapIds=Object.freeze(['atlantisReef','atlantis','sirenHouse','tideArchive','coralCave','pearlGrotto','poseidonTemple']);
+  const pt=(x,y)=>({x:x*TILE+16,y:y*TILE+16});
+  const rect=(x,y,w=1,h=1)=>({x:x*TILE,y:y*TILE,w:w*TILE,h:h*TILE});
+  const grid=fill=>Array.from({length:ROWS},()=>Array(COLS).fill(fill));
+  const put=(g,x,y,ch)=>{if(x>=0&&x<COLS&&y>=0&&y<ROWS)g[y][x]=ch;};
+  const box=(g,x,y,w,h,ch)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)put(g,xx,yy,ch);};
+  const lineH=(g,x1,x2,y,ch,w=1)=>box(g,Math.min(x1,x2),y,Math.abs(x2-x1)+1,w,ch);
+  const lineV=(g,x,y1,y2,ch,w=1)=>box(g,x,Math.min(y1,y2),w,Math.abs(y2-y1)+1,ch);
+  const frame=(g,ch)=>{box(g,0,0,COLS,1,ch);box(g,0,ROWS-1,COLS,1,ch);box(g,0,0,1,ROWS,ch);box(g,COLS-1,0,1,ROWS,ch);};
+  const stamp=(g,points,ch)=>points.forEach(([x,y])=>put(g,x,y,ch));
+  const anchor=(values={})=>({entry:null,exit:null,guide:null,heal:null,mart:null,challenge:null,reward:null,nereid:null,poseidon:null,beacon:null,healer:null,archivist:null,puzzle:[],trainers:[],...values});
+  const trainers=(id,...points)=>points.map(([x,y],i)=>({id:`atlantis_${id}_trainer_${i+1}`,...pt(x,y)}));
+  const puzzle=(id,x,y)=>({id,...pt(x,y)});
+  const maps={};
+  function define(id,name,kind,levels,battle,palette,build,anchors,pool=[]){
+    const tiles=kind==='interior'?grid('X'):grid('w');build(tiles);
+    maps[id]={id,name,kind,levels,battle,palette,tiles:tiles.map(row=>row.join('')),anchors:anchor(anchors),pool};
+  }
+
+  define('atlantisReef','Azure Reef','route',[14,16],'battleAtlantis','reef',g=>{
+    frame(g,'R');box(g,0,12,40,4,'=');box(g,4,7,31,2,'s');box(g,6,19,29,2,'s');box(g,18,4,4,20,'=');
+    box(g,2,3,7,4,'E');box(g,29,3,8,3,'E');box(g,3,22,9,3,'E');box(g,29,22,8,3,'E');
+    stamp(g,[[4,4],[7,5],[31,4],[35,5],[5,23],[9,24],[31,23],[35,24],[12,9],[27,18],[11,20],[28,8]],'C');
+    stamp(g,[[8,8],[10,6],[29,7],[33,9],[6,18],[9,21],[31,19],[34,21],[14,5],[25,22]],'F');
+    stamp(g,[[15,10],[24,10],[15,17],[24,17],[20,5]],'A');
+  },{entry:pt(2,14),exit:pt(37,14),guide:pt(18,11),beacon:pt(20,5),reward:pt(8,6),trainers:trainers('reef',[12,14],[28,14])},['nautilus1','nautilus2','octopus','siren1','siren2','hippocamp1','hippocamp2','triton1','triton2']);
+
+  define('atlantis','Atlantis','town',[14,17],'battleAtlantis','city',g=>{
+    frame(g,'R');box(g,1,1,38,26,'w');box(g,0,12,40,4,'=');box(g,18,1,4,26,'=');box(g,9,9,22,10,'m');
+    box(g,3,3,9,5,'B');put(g,7,8,'D');box(g,28,3,9,5,'B');put(g,32,8,'D');box(g,3,20,9,5,'B');put(g,7,24,'D');box(g,28,20,9,5,'B');put(g,32,24,'D');
+    box(g,14,11,3,3,'s');box(g,23,11,3,3,'s');box(g,14,15,3,3,'s');box(g,23,15,3,3,'s');
+    stamp(g,[[2,10],[5,9],[12,6],[27,6],[36,10],[4,18],[11,22],[28,22],[35,18]],'K');
+    stamp(g,[[13,8],[26,8],[13,19],[26,19],[17,7],[22,7]],'C');stamp(g,[[16,12],[24,12],[16,16],[24,16]],'A');
+  },{entry:pt(2,14),exit:pt(37,14),guide:pt(19,16),heal:pt(7,9),mart:pt(32,9),nereid:pt(19,12),poseidon:pt(20,4),trainers:trainers('town',[12,14],[27,14])},[]);
+
+  define('sirenHouse','Siren House','interior',[14,16],'battleAtlantis','home',g=>{
+    box(g,4,4,32,22,'m');box(g,7,7,26,15,'q');box(g,17,22,6,4,'m');box(g,18,25,4,3,'=');
+    box(g,7,7,26,1,'B');box(g,7,7,1,15,'B');box(g,32,7,1,15,'B');box(g,7,21,10,1,'B');box(g,23,21,10,1,'B');
+    stamp(g,[[11,10],[28,10],[11,18],[28,18]],'A');stamp(g,[[14,12],[25,12],[14,17],[25,17]],'F');
+  },{entry:pt(20,25),exit:pt(20,25),guide:pt(20,18),healer:pt(12,15),reward:pt(28,15)},[]);
+
+  define('tideArchive','Tide Archive','interior',[15,17],'battleAtlantis','archive',g=>{
+    box(g,4,4,32,22,'m');box(g,7,7,26,15,'q');box(g,17,22,6,4,'m');box(g,18,25,4,3,'=');
+    box(g,7,7,26,1,'B');box(g,7,7,1,15,'B');box(g,32,7,1,15,'B');box(g,7,21,10,1,'B');box(g,23,21,10,1,'B');
+    stamp(g,[[10,10],[12,10],[14,10],[26,10],[28,10],[30,10],[10,18],[12,18],[28,18],[30,18]],'L');stamp(g,[[19,11],[20,11],[19,17],[20,17]],'A');
+  },{entry:pt(20,25),exit:pt(20,25),guide:pt(20,18),archivist:pt(20,14),reward:pt(28,15)},[]);
+
+  define('coralCave','Coral Current Cave','dungeon',[16,18],'battleAtlantis','cave',g=>{
+    frame(g,'R');box(g,1,1,38,26,'X');box(g,18,22,4,6,'m');box(g,6,19,28,5,'m');box(g,5,5,8,16,'m');box(g,27,5,8,16,'m');box(g,10,4,20,6,'m');box(g,12,12,16,5,'m');
+    box(g,12,10,16,2,'w');box(g,18,11,4,7,'=');stamp(g,[[8,8],[8,16],[31,8],[31,16],[14,6],[25,6]],'C');stamp(g,[[11,13],[28,13],[20,15]],'A');box(g,7,11,4,3,'E');box(g,29,11,4,3,'E');
+  },{entry:pt(20,25),exit:pt(20,25),guide:pt(17,22),beacon:pt(11,13),challenge:pt(20,5),puzzle:[puzzle('coral_current',11,13)],trainers:trainers('coralCave',[8,18],[31,18])},['siren1','siren2','nautilus2','octopus','triton1','triton2']);
+
+  define('pearlGrotto','Pearl Grotto','dungeon',[17,19],'battleAtlantis','grotto',g=>{
+    frame(g,'R');box(g,1,1,38,26,'X');box(g,18,22,4,6,'m');box(g,6,19,28,5,'m');box(g,5,5,8,16,'m');box(g,27,5,8,16,'m');box(g,10,4,20,6,'m');box(g,12,12,16,5,'m');
+    box(g,12,10,16,2,'w');box(g,18,11,4,7,'=');stamp(g,[[8,8],[8,16],[31,8],[31,16],[14,6],[25,6]],'P');stamp(g,[[11,13],[28,13],[20,15]],'A');box(g,7,11,4,3,'E');box(g,29,11,4,3,'E');
+  },{entry:pt(20,25),exit:pt(20,25),guide:pt(17,22),beacon:pt(28,13),challenge:pt(20,5),puzzle:[puzzle('pearl_resonance',28,13)],trainers:trainers('pearlGrotto',[8,18],[31,18])},['nautilus1','nautilus2','octopus','siren1','siren2','siren3','hippocamp1','hippocamp2']);
+
+  define('poseidonTemple','Poseidon Temple','interior',[18,20],'battleAtlantis','temple',g=>{
+    frame(g,'R');box(g,1,1,38,26,'X');box(g,17,22,6,6,'m');box(g,7,19,26,5,'m');box(g,5,12,30,8,'m');box(g,9,6,22,7,'m');box(g,13,2,14,5,'m');
+    box(g,18,3,4,23,'=');box(g,9,14,22,3,'=');stamp(g,[[10,8],[29,8],[8,15],[31,15],[14,4],[25,4]],'K');stamp(g,[[17,9],[22,9],[17,18],[22,18]],'F');put(g,20,4,'T');
+  },{entry:pt(20,25),exit:pt(20,25),guide:pt(17,22),poseidon:pt(20,5),challenge:pt(20,5),trainers:trainers('poseidonTemple',[10,17],[29,17])},[]);
+
+  const blocked=ch=>['X','R','B','D','C','F','K','L','T'].includes(ch);
+  const walkable=ch=>!blocked(ch);
+  const encounterTile=ch=>ch==='E';
+  function runs(rows,predicate){
+    const out=[];for(let y=0;y<ROWS;y++){let x=0;while(x<COLS){while(x<COLS&&!predicate(rows[y][x]))x++;const begin=x;while(x<COLS&&predicate(rows[y][x]))x++;if(x>begin)out.push(rect(begin,y,x-begin));}}return out;
+  }
+  const clone=value=>JSON.parse(JSON.stringify(value));
+  const portal=(x,y,w,to,target,label)=>({rect:rect(x,y,w,2),area:to,...target,label});
+  function install(world,data){
+    if(!world?.areas)throw Error('AtlantisWorld.install needs a world with areas.');
+    for(const id of mapIds){
+      const m=maps[id],pool=m.pool.filter(species=>data?.species?.[species]);
+      if(m.pool.length&&!pool.length)throw Error(`Atlantis has no installed encounter species for ${id}`);
+      world.areas[id]={id,name:m.name,asset:null,w:W,h:H,spawn:{...m.anchors.entry},walkable:runs(m.tiles,walkable),solids:runs(m.tiles,blocked),levels:[...m.levels],battle:m.battle,portals:[],interactions:[],npcs:[],encounters:pool.length?runs(m.tiles,encounterTile).map(zone=>({rect:zone,pool:[...pool],minLevel:m.levels[0],maxLevel:m.levels[1]})):[],anchors:clone(m.anchors),tiles:[...m.tiles],tileSize:TILE,terrain:m.palette,kind:m.kind};
+    }
+    const a=world.areas;if(!a.harbor)throw Error('Harbor must exist before installing Atlantis.');
+    const link=(from,x,y,w,to,target,label)=>a[from].portals.push(portal(x,y,w,to,target,label));
+    link('atlantisReef',0,13,2,'harbor',a.harbor.spawn,'Harbor Town');
+    link('atlantisReef',38,13,2,'atlantis',a.atlantis.anchors.entry,'Atlantis');
+    link('atlantis',0,13,2,'atlantisReef',a.atlantisReef.anchors.exit,'Azure Reef');
+    link('atlantis',38,13,2,'atlantisReef',a.atlantisReef.anchors.exit,'Azure Reef');
+    link('atlantis',6,8,3,'sirenHouse',a.sirenHouse.anchors.entry,'Siren House');
+    link('sirenHouse',19,26,3,'atlantis',{x:7*TILE+16,y:10*TILE+16},'Atlantis');
+    link('atlantis',31,8,3,'tideArchive',a.tideArchive.anchors.entry,'Tide Archive');
+    link('tideArchive',19,26,3,'atlantis',{x:32*TILE+16,y:10*TILE+16},'Atlantis');
+    link('atlantis',18,0,4,'coralCave',a.coralCave.anchors.entry,'Coral Current Cave');
+    link('coralCave',19,26,3,'atlantis',{x:20*TILE+16,y:2*TILE+16},'Atlantis');
+    link('coralCave',18,4,4,'pearlGrotto',a.pearlGrotto.anchors.entry,'Pearl Grotto');
+    link('pearlGrotto',19,26,3,'coralCave',{x:20*TILE+16,y:6*TILE+16},'Coral Current Cave');
+    link('pearlGrotto',18,4,4,'poseidonTemple',a.poseidonTemple.anchors.entry,'Poseidon Temple');
+    link('poseidonTemple',19,26,3,'pearlGrotto',{x:20*TILE+16,y:6*TILE+16},'Pearl Grotto');
+    world.graph=world.graph||[];
+    const edges=[['harbor','atlantisReef'],['atlantisReef','atlantis'],['atlantis','sirenHouse'],['atlantis','tideArchive'],['atlantis','coralCave'],['coralCave','pearlGrotto'],['pearlGrotto','poseidonTemple']];
+    for(const edge of edges)if(!world.graph.some(e=>(e[0]===edge[0]&&e[1]===edge[1])||(e[0]===edge[1]&&e[1]===edge[0])))world.graph.push(edge);
+    return world;
+  }
+
+  const palette={reef:{water:'#087b9c',deep:'#07546f',sand:'#d6bf82',marble:'#a8d7d0'},city:{water:'#086c91',deep:'#064762',sand:'#d9c58c',marble:'#c5dfd6'},home:{water:'#0a5274',deep:'#073b55',sand:'#d4be89',marble:'#bfd3cf'},archive:{water:'#07506f',deep:'#06374e',sand:'#cdb57f',marble:'#b7ceca'},cave:{water:'#075170',deep:'#042e45',sand:'#c3a974',marble:'#9bc2bf'},grotto:{water:'#09526d',deep:'#06354d',sand:'#d7bd87',marble:'#c4d9d0'},temple:{water:'#06496a',deep:'#032d45',sand:'#c5ab73',marble:'#d3e0d5'}};
+  const hash=(x,y,id)=>{let n=(x*374761393+y*668265263+id.length*69069)>>>0;n=(n^(n>>>13))*1274126177>>>0;return n^(n>>>16);};
+  function tile(ctx,ch,x,y,p,id,time){
+    const px=x*TILE,py=y*TILE,n=hash(x,y,id);ctx.fillStyle=ch==='X'||ch==='R'?p.deep:p.water;ctx.fillRect(px,py,TILE,TILE);
+    if(ch==='w'||ch==='q'){ctx.fillStyle='#69d6dc22';const drift=(Math.floor(time/170)*4+n)%27;ctx.fillRect(px+drift-8,py+7,18,2);ctx.fillRect(px+((drift+13)%29)-6,py+23,12,2);if((n&31)===0){ctx.fillStyle='#c1f5e7aa';ctx.fillRect(px+8,py+9,3,3);ctx.fillRect(px+9,py+5,1,3);}if((n&127)===3){ctx.fillStyle='#183f5b99';ctx.fillRect(px+7,py+14,12,4);ctx.fillRect(px+17,py+11,4,10);ctx.fillRect(px+3,py+12,4,3);ctx.fillRect(px+3,py+18,4,3);}}
+    if(ch==='s'||ch==='E'){ctx.fillStyle=p.sand;ctx.fillRect(px,py,TILE,TILE);for(let i=0;i<4;i++){ctx.fillStyle=i%2?'#ead99c':'#aa9566';ctx.fillRect(px+3+((n>>(i*4))%25),py+5+((n>>(i*5+3))%23),2+(i%2),2);}}
+    if(ch==='m'||ch==='='){ctx.fillStyle=p.marble;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#6e9797';ctx.fillRect(px,py+15,TILE,2);ctx.fillRect(px+((x+y)&1?9:23),py,2,15);ctx.fillRect(px+((x+y)&1?21:7),py+17,2,15);ctx.fillStyle='#e6f3df';ctx.fillRect(px+3,py+3,12,2);ctx.fillRect(px+18,py+19,10,2);}
+    if(ch==='E'){ctx.fillStyle='#e38179';for(let i=0;i<5;i++){const xx=px+3+((n>>(i*5))%25),yy=py+18-(i%3)*5;ctx.fillRect(xx,yy,3,9);ctx.fillRect(xx-3,yy+4,3,3);ctx.fillRect(xx+3,yy+2,3,3);}}
+    if(ch==='C'||ch==='P'){ctx.fillStyle='#703f65';ctx.fillRect(px+10,py+20,12,9);ctx.fillStyle=ch==='P'?'#f3e7cd':'#f18478';for(let i=0;i<5;i++){ctx.fillRect(px+4+i*5,py+10+(i%2)*4,5,13);ctx.fillRect(px+7+i*5,py+6+(i%3)*3,3,7);}ctx.fillStyle='#ffd09a';ctx.fillRect(px+13,py+14,6,5);}
+    if(ch==='A'){ctx.fillStyle='#6d467f';ctx.fillRect(px+11,py+15,10,14);ctx.fillStyle='#be85d7';for(let i=0;i<5;i++){ctx.fillRect(px+4+i*5,py+9+(i%2)*5,6,10);ctx.fillRect(px+7+i*4,py+5+(i%3)*4,4,7);}ctx.fillStyle='#f5d5e9';ctx.fillRect(px+14,py+13,4,4);}
+    if(ch==='F'){ctx.fillStyle='#8d557c';ctx.fillRect(px+14,py+11,4,19);ctx.fillStyle='#dc8bac';for(let i=0;i<5;i++){ctx.fillRect(px+3+i*6,py+8+(i%2)*5,6,3);ctx.fillRect(px+5+i*5,py+16+(i%3)*3,5,3);}}
+    if(ch==='K'){ctx.fillStyle='#164d4b';ctx.fillRect(px+13,py+10,6,20);ctx.fillStyle='#39966d';for(let i=0;i<5;i++){ctx.fillRect(px+4+i*5,py+7+(i%2)*5,5,11);ctx.fillRect(px+7+i*4,py+15-(i%3)*3,5,9);}}
+    if(ch==='L'){ctx.fillStyle='#5d4d55';ctx.fillRect(px+5,py+7,22,22);ctx.fillStyle='#d6b976';for(let i=0;i<3;i++)ctx.fillRect(px+8,py+10+i*6,16,3);}
+  }
+  function buildings(ctx,m){
+    const rows=m.tiles;for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)if(rows[y][x]==='B'){
+      const px=x*TILE,py=y*TILE,above=y&&rows[y-1][x]==='B',left=x&&rows[y][x-1]==='B';ctx.fillStyle='#77918c';ctx.fillRect(px+2,py+4,28,28);ctx.fillStyle='#d9e2d5';ctx.fillRect(px+5,py+8,22,22);if(!above){ctx.fillStyle='#3e806e';ctx.fillRect(px,py+2,32,7);ctx.fillStyle='#7fc39a';ctx.fillRect(px+3,py,26,4);ctx.fillStyle='#a2cf91';for(let xx=px+4;xx<px+29;xx+=8)ctx.fillRect(xx,py+3,5,3);}if(!left){ctx.fillStyle='#6d847d';ctx.fillRect(px+2,py+7,4,25);ctx.fillStyle='#38745c';ctx.fillRect(px,py+11,5,14);ctx.fillRect(px+3,py+17,6,4);}ctx.fillStyle='#326a70';ctx.fillRect(px+10,py+15,12,9);ctx.fillStyle='#9fe6d7';ctx.fillRect(px+12,py+16,8,3);
+    } else if(rows[y][x]==='D'){
+      const px=x*TILE,py=y*TILE;ctx.fillStyle='#4d6a66';ctx.fillRect(px+4,py+2,24,30);ctx.fillStyle='#b5e1d1';ctx.fillRect(px+8,py+7,16,25);ctx.fillStyle='#497f7a';ctx.fillRect(px+10,py+9,12,3);ctx.fillStyle='#f5d376';ctx.fillRect(px+20,py+20,3,3);
+    }
+  }
+  function landmarks(ctx,m,time){
+    const drawBeacon=p=>{const pulse=Math.floor(time/250)%2;ctx.fillStyle='#5f6d6a';ctx.fillRect(p.x-9,p.y-4,18,19);ctx.fillStyle='#e6c768';ctx.fillRect(p.x-5,p.y-18-pulse,10,12);ctx.fillStyle='#fff3b1';ctx.fillRect(p.x-2,p.y-15-pulse,4,5);};
+    if(m.anchors.beacon)drawBeacon(m.anchors.beacon);
+    if(m.id==='atlantis'){const p=m.anchors.nereid;ctx.fillStyle='#426b86';ctx.fillRect(p.x-18,p.y+8,36,18);ctx.fillStyle='#74d7d0';ctx.fillRect(p.x-10,p.y-18,20,31);ctx.fillStyle='#e4c4a1';ctx.fillRect(p.x-5,p.y-25,10,10);ctx.fillStyle='#6c4d78';ctx.fillRect(p.x-7,p.y-31,14,7);}
+    if(m.id==='poseidonTemple'){const p=m.anchors.poseidon;ctx.fillStyle='#779a9d';ctx.fillRect(p.x-45,p.y+14,90,10);ctx.fillStyle='#cbded1';ctx.fillRect(p.x-22,p.y-5,44,32);ctx.fillStyle='#377c99';ctx.fillRect(p.x-10,p.y-28,20,27);ctx.fillStyle='#d2b660';ctx.fillRect(p.x-3,p.y-39,6,55);ctx.fillRect(p.x-18,p.y-31,36,6);}
+  }
+  function draw(api,ctx,cam={x:0,y:0},time=0){
+    const m=maps[api?.state?.area];if(!m)return false;const p=palette[m.palette];ctx.save();ctx.translate(-cam.x,-cam.y);
+    const cw=ctx.canvas?.width||W,ch=ctx.canvas?.height||H,x0=Math.max(0,Math.floor(cam.x/TILE)-1),y0=Math.max(0,Math.floor(cam.y/TILE)-1),x1=Math.min(COLS,Math.ceil((cam.x+cw)/TILE)+1),y1=Math.min(ROWS,Math.ceil((cam.y+ch)/TILE)+1);
+    for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)tile(ctx,m.tiles[y][x],x,y,p,m.id,time);buildings(ctx,m);landmarks(ctx,m,time);ctx.restore();return true;
+  }
+  return {install,draw,isArea:id=>mapIds.includes(id),mapIds,_test:{maps,TILE,COLS,ROWS,walkable,blocked,encounterTile}};
+})();
+if(typeof globalThis!=='undefined')globalThis.AtlantisWorld=AtlantisWorld;
+if(typeof module!=='undefined'&&module.exports)module.exports=AtlantisWorld;
+
+/* Jefferson Experimental-only Atlantis discovery, quest, services, and guardian battle. */
+const Atlantis = (() => {
+  const harbor = 'harbor';
+  const areaIds = ['atlantisReef','atlantis','sirenHouse','tideArchive','coralCave','pearlGrotto','poseidonTemple'];
+  const travelIds = [harbor,...areaIds];
+  const beaconAreas = ['atlantisReef','coralCave','pearlGrotto'];
+  const beaconNames = {
+    atlantisReef:'Reef Current Beacon',
+    coralCave:'Coral Echo Beacon',
+    pearlGrotto:'Pearl Song Beacon'
+  };
+  const guardianId = 'atlas_poseidon';
+  const guardianReward = 175;
+  const title = 'Keeper of the Three Currents';
+  let api = null;
+  let harborSpawn = {x:576,y:600};
+
+  const record = value => value&&typeof value==='object'&&!Array.isArray(value)?value:{};
+  const point = (value,fallback={x:576,y:600}) => {
+    const source=Array.isArray(value)?{x:value[0],y:value[1]}:record(value);
+    const base=Array.isArray(fallback)?{x:fallback[0],y:fallback[1]}:record(fallback);
+    return {
+      x:Number.isFinite(Number(source.x))?Number(source.x):Number(base.x)||576,
+      y:Number.isFinite(Number(source.y))?Number(source.y):Number(base.y)||600
+    };
+  };
+  const isUnderwater = id => areaIds.includes(id);
+  const allLit = beacons => beaconAreas.every(id=>beacons[id]===true);
+
+  function normalize(raw) {
+    const source=record(raw?.atlantis),rawBeacons=record(source.beacons);
+    const learned=source.learned===true;
+    const gear=source.gear===true;
+    const greeted=gear&&source.greeted===true;
+    const questStarted=greeted&&source.questStarted===true;
+    const beacons={};
+    for(const id of beaconAreas)beacons[id]=questStarted&&rawBeacons[id]===true;
+    const restored=questStarted&&allLit(beacons);
+    const won=restored&&record(raw?.trainers)[guardianId]===true;
+    const discovered=[];
+    const requested=Array.isArray(source.discovered)?source.discovered:[];
+    for(const id of travelIds)if(requested.includes(id)&&(id===harbor?(learned||gear):gear))discovered.push(id);
+    if((learned||gear)&&!discovered.includes(harbor))discovered.unshift(harbor);
+    if(gear&&isUnderwater(raw?.area)&&!discovered.includes(raw.area))discovered.push(raw.area);
+    const state={learned,gear,greeted,questStarted,beacons,restored,discovered,titleEarned:won};
+    if(isUnderwater(raw?.area)&&!gear){
+      const safe=point(harborSpawn);
+      return {area:harbor,x:safe.x,y:safe.y,atlantis:state};
+    }
+    return {atlantis:state};
+  }
+
+  function saved(game=api) {
+    if(!game?.state)return normalize({}).atlantis;
+    if(!game.state.atlantis)game.state.atlantis=normalize(game.state).atlantis;
+    return game.state.atlantis;
+  }
+
+  function addInteraction(area,descriptor) {
+    area.interactions=area.interactions||[];
+    if(!area.interactions.some(item=>item.id===descriptor.id))area.interactions.push(descriptor);
+  }
+  function addNpc(area,id,position,asset,color,options={}) {
+    area.npcs=area.npcs||[];
+    if(!area.npcs.some(item=>item.id===id))area.npcs.push({id,...position,asset,height:52,color,painted:false,...options});
+  }
+  function anchor(area,key) {
+    const value=area?.anchors?.[key];
+    if(!value)throw Error(`Atlantis requires ${area?.id||'area'}.anchors.${key}`);
+    return point(value,area.spawn);
+  }
+  const optionalAnchor=(area,key,fallback)=>area?.anchors?.[key]?anchor(area,key):point(fallback,area?.spawn);
+
+  function setup(game) {
+    api=game;
+    if(typeof AtlantisWorld!=='undefined')AtlantisWorld.install?.(api.world,api.data);
+    const missing=areaIds.filter(id=>!api.world.areas[id]);
+    if(missing.length)throw Error(`Atlantis requires area ${missing[0]}`);
+    const port=api.world.areas[harbor];
+    if(!port)throw Error('Atlantis requires Harbor Town');
+    harborSpawn=point(port.spawn,harborSpawn);
+    port.anchors=port.anchors||{};
+    if(!port.anchors.atlantisSpring)port.anchors.atlantisSpring={x:660,y:650};
+    if(!port.anchors.atlantisDive)port.anchors.atlantisDive=api.world.safePosition?.(harbor,850,620)||{x:850,y:620};
+    const spring=anchor(port,'atlantisSpring'),dive=anchor(port,'atlantisDive');
+    addInteraction(port,{id:'atlantis_naiad_melia',kind:'atlantis_naiad',label:'Melia at the Freshwater Spring',...spring,radius:58});
+    addNpc(port,'atlantis_naiad_melia_npc',spring,'naiad','#74b9c5');
+    addInteraction(port,{id:'atlantis_dive_station',kind:'atlantis_dive',label:'Atlantis Dive Station',...dive,radius:62});
+    addNpc(port,'atlantis_dive_guide_npc',dive,null,'#326b83');
+
+    const town=api.world.areas.atlantis,nereid=anchor(town,'nereid');
+    addInteraction(town,{id:'atlantis_nereid_galene',kind:'atlantis_nereid',label:'Galene the Nereid',...nereid,radius:60});
+    addNpc(town,'atlantis_nereid_galene_npc',nereid,'nereid','#6cc7c7');
+    addInteraction(town,{id:'atlantis_town_guide',kind:'dialogue',label:'Atlantis Wayfinder',...anchor(town,'guide'),radius:56,
+      dialogue:['The Siren House restores tired companions. The Tide Archive keeps maps of the reef and both caves.','Poseidon teaches at the temple beyond the town gates.']});
+    addNpc(town,'atlantis_town_guide_npc',anchor(town,'guide'),null,'#4f8292');
+    addInteraction(town,{id:'atlantis_town_heal',kind:'heal',label:'Current Clinic',...anchor(town,'heal'),radius:58,dialogue:'Rest your team and replenish your basic supplies.'});
+    addNpc(town,'atlantis_town_healer_npc',anchor(town,'heal'),null,'#75a9a0');
+    addInteraction(town,{id:'atlantis_town_mart',kind:'mart',label:'Pearl Market',...anchor(town,'mart'),radius:58});
+    addNpc(town,'atlantis_town_merchant_npc',anchor(town,'mart'),null,'#9a7390');
+
+    const house=api.world.areas.sirenHouse,healer=anchor(house,'healer');
+    addInteraction(house,{id:'atlantis_siren_residents',kind:'atlantis_siren_house',label:'Siren House',...healer,radius:62});
+    addNpc(house,'atlantis_siren_resident_npc',healer,'siren1','#7e77a9',{floating:true,bobAmplitude:4,bobPeriod:720,height:60});
+    addNpc(house,'atlantis_siren_resident_2_npc',optionalAnchor(house,'reward',{x:healer.x+96,y:healer.y}),'siren2','#7e77a9',{floating:true,bobAmplitude:5,bobPeriod:820,height:64,bobPhase:1.7});
+    const archive=api.world.areas.tideArchive,archivist=anchor(archive,'archivist');
+    addInteraction(archive,{id:'atlantis_tide_archive',kind:'atlantis_archive',label:'Tide Archive',...archivist,radius:62});
+    addNpc(archive,'atlantis_archivist_npc',archivist,'triton2','#5b7f91',{floating:true,bobAmplitude:3,bobPeriod:900,height:58});
+
+    const reef=api.world.areas.atlantisReef;
+    addNpc(reef,'atlantis_reef_siren_npc',optionalAnchor(reef,'guide',{x:reef.spawn.x+160,y:reef.spawn.y-64}),'siren1','#7e77a9',{floating:true,bobAmplitude:5,bobPeriod:760,height:56,bobPhase:.8});
+    const coral=api.world.areas.coralCave;
+    addNpc(coral,'atlantis_coral_triton_npc',optionalAnchor(coral,'guide',{x:coral.spawn.x-96,y:coral.spawn.y-64}),'triton1','#5b7f91',{floating:true,bobAmplitude:4,bobPeriod:840,height:56,bobPhase:2.2});
+
+    for(const id of beaconAreas){
+      const area=api.world.areas[id],position=anchor(area,'beacon');
+      addInteraction(area,{id:`atlantis_beacon_${id}`,kind:'atlantis_beacon',label:beaconNames[id],beacon:id,...position,radius:64});
+    }
+    const temple=api.world.areas.poseidonTemple,poseidon=anchor(temple,'poseidon');
+    addInteraction(temple,{id:'atlantis_poseidon',kind:'atlantis_poseidon',label:'Poseidon, Guardian of Atlantis',...poseidon,radius:68});
+    addNpc(temple,'atlantis_poseidon_npc',poseidon,'poseidon','#78b8c9');
+  }
+
+  function reveal(api) {
+    const state=saved(api),fresh=!state.learned;
+    state.learned=true;
+    if(!state.discovered.includes(harbor))state.discovered.unshift(harbor);
+    api.persist?.();
+    api.dialog('Melia’s sea story',fresh?[
+      '“I’m Melia, a naiad of this freshwater spring. My cousin Galene is a Nereid, so her home is in the sea—inside Atlantis.”',
+      '“The free dive station is near Harbor Town’s east dock. Take its scuba gear, then follow the pale stone road through the reef. Please tell Galene I sent you.”'
+    ]:[
+      '“My cousin Galene is waiting in Atlantis. She is the sea Nereid; I keep this freshwater spring.”',
+      '“The dive station is on the east dock. Your Atlantis journal remembers the route.”'
+    ],[],{character:'naiad'});
+    return true;
+  }
+
+  function diveStation(api) {
+    const state=saved(api);
+    if(!state.gear){
+      api.dialog('Free scuba lesson',[
+        'Maro fits a mask, air tank, and fins. “This gear keeps every dive safe. There is no air timer; surface whenever you choose.”',
+        '“Follow the pale stone road, press E beside people or beacons, and swim to the reef’s west edge whenever you want Harbor Town.”'
+      ],[
+        {label:'Take the scuba gear',primary:true,run:()=>{
+          state.gear=true;state.learned=true;
+          if(!state.discovered.includes(harbor))state.discovered.unshift(harbor);
+          api.persist?.();
+          api.dialog('Ready to dive',['The scuba gear is now part of your travel kit. Atlantis remains optional, and Harbor Town is always a safe return.'],[
+            {label:'Dive to Atlantis Reef',primary:true,run:()=>diveToReef(api)},
+            {label:'Stay ashore',run:()=>api.closePanel?.()}
+          ]);
+        }},
+        {label:'Maybe later',run:()=>api.closePanel?.()}
+      ]);
+      return true;
+    }
+    api.dialog('Atlantis Dive Station',['Your scuba gear is ready. Dive to Atlantis Reef; its west edge returns straight to Harbor Town.'],[
+      {label:'Dive to Atlantis Reef',primary:true,run:()=>diveToReef(api)},
+      {label:'Stay ashore',run:()=>api.closePanel?.()}
+    ]);
+    return true;
+  }
+
+  function greetGalene(api) {
+    const state=saved(api),first=!state.greeted;
+    state.greeted=true;
+    if(!state.discovered.includes('atlantis'))state.discovered.push('atlantis');
+    api.persist?.();
+    api.dialog('Galene of Atlantis',first?[
+      '“Melia sent you? My naiad cousin knows every freshwater ripple. I’m Galene, a Nereid of the sea. Welcome to Atlantis.”',
+      '“Poseidon is our guardian and our most patient teacher. Find him in the temple. The Siren House and Tide Archive are open on the way.”'
+    ]:[
+      '“The Siren House can heal your team, and the Tide Archive has a route map.”',
+      '“Poseidon is waiting in the temple when you are ready.”'
+    ],[],{character:'nereid'});
+    return true;
+  }
+
+  function remaining(state) {return beaconAreas.filter(id=>!state.beacons[id]);}
+  function currentGuide(state) {
+    if(!state.questStarted)return 'Meet Galene in Atlantis, then visit Poseidon in the temple.';
+    const left=remaining(state);
+    if(!left.length)return 'All three beacons are singing. Return to Poseidon’s temple.';
+    return `Next beacon: ${beaconNames[left[0]]}. ${left.length} of 3 remain.`;
+  }
+
+  function visitArchive(api) {
+    const state=saved(api),lines=[
+      'The archive map links Atlantis Town to the reef, Coral Cave, Pearl Grotto, the Siren House, and Poseidon’s Temple.',
+      'Nereids are sea nymphs; naiads guard freshwater springs. Old maps show both guiding travelers without commanding the sea.',
+      currentGuide(state)
+    ];
+    api.dialog('Tide Archive',lines);
+    return true;
+  }
+
+  function visitSirenHouse(api) {
+    api.healAll?.();
+    api.persist?.();
+    api.dialog('The Siren House',[
+      'The siren residents tune a quiet resting song while your companions recover completely.',
+      'Your basic supplies are replenished. You may return here through the Atlantis journal after discovering this house.'
+    ]);
+    return true;
+  }
+
+  function lightBeacon(api,descriptor) {
+    if(!beaconAreas.includes(descriptor?.beacon))return false;
+    const state=saved(api),id=descriptor.beacon;
+    if(state.beacons[id]){
+      api.dialog(beaconNames[id],[`This beacon is steady. ${3-remaining(state).length} of 3 currents are restored.`,currentGuide(state)]);
+      return true;
+    }
+    if(!state.questStarted){
+      api.dialog(beaconNames[id],['A shell-shaped dial is silent, but its current marks are still bright.','Find Galene in Atlantis, then ask Poseidon in the temple how the beacons work.']);
+      return true;
+    }
+    const first=!Object.values(state.beacons).some(Boolean);
+    const lesson=first?[
+      'Poseidon’s practice shell glows beside the dial. Choose Follow the lesson to set this first beacon.',
+      'Nothing is consumed, and you can leave at any time.'
+    ]:[
+      'The shell-shaped dial is ready.',
+      'Nothing is consumed. Set the beacon when you are ready.'
+    ];
+    api.dialog(beaconNames[id],lesson,[
+      {label:first?'Follow the lesson':'Set the beacon',primary:true,run:()=>{
+        state.beacons[id]=true;state.restored=allLit(state.beacons);api.persist?.();
+        const left=remaining(state);
+        api.dialog(state.restored?'The three currents answer':'Beacon restored',state.restored?[
+          'Reef current, coral echo, and pearl song join in one clear chord.',
+          'Return to Poseidon. His final trainer challenge is optional.'
+        ]:[
+          `${beaconNames[id]} joins the song. ${left.length} of 3 remain.`,
+          `Next: ${beaconNames[left[0]]}. The Tide Archive map shows the route.`
+        ]);
+      }},
+      {label:'Leave it for now',run:()=>api.closePanel?.()}
+    ]);
+    return true;
+  }
+
+  function guardianSpecies(data) {
+    const priority=['hippocamp3','triton3','siren3','nautilus2','octopus','siren1','hippocamp2','triton2','nautilus1'];
+    const chosen=[];
+    for(const id of priority){
+      if(data?.species?.[id]?.type==='Water'&&!chosen.includes(id))chosen.push(id);
+      if(chosen.length===3)break;
+    }
+    return chosen;
+  }
+  function guardianEncounter(api) {
+    const ids=guardianSpecies(api.data);
+    if(ids.length<3)return null;
+    const partyLevels=(api.state.party||[]).map(mon=>Number(mon.level)||1);
+    const base=Math.max(10,Math.min(24,Math.max(1,...partyLevels)+1));
+    return {kind:'trainer',enemyTeam:ids.map((species,index)=>({species,level:base+index})),trainerId:guardianId,rewards:{money:guardianReward}};
+  }
+
+  function visitPoseidon(api) {
+    const state=saved(api);
+    if(!state.greeted){
+      api.dialog('Poseidon, Guardian of Atlantis',['“A good explorer first listens to the people of a place. Find Galene in Atlantis Town; she will show you how this city fits together.”'],[],{character:'poseidon'});
+      return true;
+    }
+    if(!state.questStarted){
+      state.questStarted=true;api.persist?.();
+      api.dialog('Poseidon’s current lesson',[
+        '“Welcome. Atlantis is steadied by three old beacons: reef current, coral echo, and pearl song.”',
+        '“Begin at the Reef Current Beacon. I left a practice shell there to demonstrate each step. After that, the Tide Archive map will guide you to the two caves. Every route stays open for retreat.”'
+      ],[],{character:'poseidon'});
+      return true;
+    }
+    if(!state.restored){
+      api.dialog('Poseidon’s current lesson',[`“A careful researcher always names the next observation: ${currentGuide(state)}”`,'“Rest at the Siren House whenever your team needs it. There is no time limit.”'],[],{character:'poseidon'});
+      return true;
+    }
+    if(state.titleEarned||api.state.trainers?.[guardianId]){
+      state.titleEarned=true;
+      api.dialog('Poseidon at Atlantis',[`“${title}, the three currents still answer one another because you listened before acting.”`,'“Atlantis, its caves, and every safe return route remain open.”'],[],{character:'poseidon'});
+      return true;
+    }
+    const encounter=guardianEncounter(api);
+    if(!encounter){
+      api.dialog('Poseidon’s final lesson',['“The beacons are restored. My trainer team is still gathering, so keep exploring and return later.”'],[],{character:'poseidon'});
+      return true;
+    }
+    api.dialog('Poseidon’s optional challenge',[
+      '“You restored all three beacons. If you choose, meet my three water companions in a final trainer battle.”',
+      `“Victory earns 175 coins and the title ${title}. It is not a campaign badge, and saying no changes nothing.”`
+    ],[
+      {label:'Begin the challenge',primary:true,run:()=>{api.closePanel?.();api.startBattle?.(encounter);}},
+      {label:'Keep exploring',run:()=>api.closePanel?.()}
+    ],{character:'poseidon'});
+    return true;
+  }
+
+  function travel(api,id) {
+    const state=saved(api);
+    if(!travelIds.includes(id)||!state.discovered.includes(id))return false;
+    if(isUnderwater(id)&&!state.gear){api.toast?.('Collect the free scuba gear at Harbor Town first.');return false;}
+    const area=api.world.areas[id];if(!area)return false;
+    let destination=area.spawn;
+    if(id===harbor)destination=area.anchors?.atlantisDive||destination;
+    else if(id==='sirenHouse')destination=area.anchors?.healer||destination;
+    else if(id==='tideArchive')destination=area.anchors?.archivist||destination;
+    else destination=area.anchors?.entry||destination;
+    const safe=point(destination,area.spawn);
+    const moved=api.enterArea?.(id,safe.x,safe.y,false)!==false;
+    if(moved){api.closePanel?.();api.persist?.();}
+    return moved;
+  }
+
+  function diveToReef(api) {
+    const state=saved(api),area=api.world.areas.atlantisReef;
+    if(!state.gear||!area)return false;
+    const destination=point(area.anchors?.entry||area.spawn,area.spawn);
+    const moved=api.enterArea?.('atlantisReef',destination.x,destination.y,false)!==false;
+    if(moved){api.closePanel?.();api.persist?.();}
+    return moved;
+  }
+
+  function openJournal(api) {
+    const state=saved(api),goal=objective(api.state)||'Optional discovery: in Harbor Town, visit Melia at the freshwater spring near the dive station.';
+    const destinations=state.discovered.filter(id=>travelIds.includes(id)&&id!==api.state.area&&api.world.areas[id]);
+    api.dialog('Atlantis journal',[
+      goal,
+      state.questStarted?`${3-remaining(state).length} of 3 current-and-song beacons restored.`:'Melia’s naiad spring and the east-dock dive station begin the route.',
+      'Travel is available only to places you have already discovered. Walking routes and return markers remain open.'
+    ],[
+      ...destinations.map(id=>({label:`Travel to ${api.world.areas[id].name}`,run:()=>travel(api,id)})),
+      {label:'Keep exploring',primary:true,run:()=>api.closePanel?.()}
+    ]);
+  }
+
+  function interact(game,descriptor) {
+    if(game)api=game;
+    switch(descriptor?.kind){
+      case 'atlantis_naiad':return reveal(api);
+      case 'atlantis_dive':return diveStation(api);
+      case 'atlantis_nereid':return greetGalene(api);
+      case 'atlantis_archive':return visitArchive(api);
+      case 'atlantis_siren_house':return visitSirenHouse(api);
+      case 'atlantis_beacon':return lightBeacon(api,descriptor);
+      case 'atlantis_poseidon':return visitPoseidon(api);
+      default:return false;
+    }
+  }
+
+  function objective(state) {
+    if(!state?.starter)return null;
+    const a=state.atlantis||normalize(state).atlantis;
+    if(!isUnderwater(state.area)&&state.area!==harbor)return null;
+    if(state.area===harbor&&a.titleEarned)return null;
+    if(state.area===harbor&&!a.gear&&!(Array.isArray(state.badges)&&state.badges.includes('acropolis')))return null;
+    if(!a.learned&&!a.gear)return null;
+    if(!a.gear)return 'Visit the east-dock Atlantis Dive Station in Harbor Town for free scuba gear.';
+    if(!a.discovered.includes('atlantisReef'))return 'Return to Harbor Town’s dive station and descend to Atlantis Reef.';
+    if(!a.greeted)return 'Follow the pale stone road to Atlantis Town and find Galene, Melia’s Nereid cousin.';
+    if(!a.questStarted)return 'Visit Poseidon, Atlantis’s guardian and teacher, in the temple beyond town.';
+    const left=remaining(a);
+    if(left.length)return `Restore ${beaconNames[left[0]]}. ${left.length} of 3 beacons remain.`;
+    if(!a.titleEarned&&!record(state.trainers)[guardianId])return `Return to Poseidon. His three-creature final challenge is optional; the beacons are already safe.`;
+    return `${title}: Atlantis and every discovered return route remain open.`;
+  }
+
+  function onTravel(game) {
+    if(game)api=game;
+    const state=saved(api),id=api.state.area;
+    if(isUnderwater(id)&&!state.gear){
+      const safe=point(api.world.areas[harbor]?.spawn,harborSpawn);
+      api.enterArea?.(harbor,safe.x,safe.y,false);
+      api.toast?.('You returned safely to Harbor Town. Collect scuba gear before diving.');
+      return;
+    }
+    if((id===harbor&&(state.learned||state.gear))||isUnderwater(id)){
+      if(!state.discovered.includes(id)){state.discovered.push(id);api.persist?.();}
+    }
+  }
+
+  function onOutcome(game,outcome) {
+    if(game)api=game;
+    if(outcome?.type==='defeat'&&isUnderwater(api.state.area)){
+      const state=saved(api),id=state.gear&&api.world.areas.sirenHouse?'sirenHouse':harbor;
+      const area=api.world.areas[id],destination=id==='sirenHouse'?(area.anchors?.healer||area.spawn):area.spawn,safe=point(destination,area.spawn);
+      api.healAll?.();api.enterArea?.(id,safe.x,safe.y,false);api.persist?.();
+      api.dialog('Safe recovery',[id==='sirenHouse'?'The Siren House residents brought your team back and restored everyone completely.':'The dive crew brought your team safely to Harbor Town and restored everyone completely.','No beacon progress, discoveries, or rewards were lost.']);
+      return true;
+    }
+    if(outcome?.type==='victory'&&outcome.trainerId===guardianId){
+      const state=saved(api);state.titleEarned=true;state.restored=allLit(state.beacons);api.persist?.();
+      api.dialog(title,[
+        `Poseidon names you ${title}. The battle award of ${guardianReward} coins is already in your bag.`,
+        'This is an Atlantis title, not a campaign badge. The city and its safe return routes remain open.'
+      ],[],{character:'poseidon'});
+      return true;
+    }
+    return false;
+  }
+
+  function actions(game) {
+    if(game)api=game;
+    if(!api?.state?.starter||api.battle||api.state.mode!=='explore')return [];
+    const state=saved(api);if(!state.learned&&!state.gear)return [];
+    return [{id:'atlantis-journal',label:'Atlantis journal',run:()=>openJournal(api)}];
+  }
+
+  return {setup,normalize,interact,actions,objective,onTravel,onOutcome,
+    _test:{areaIds,travelIds,beaconAreas,beaconNames,guardianId,guardianReward,title,guardianSpecies,guardianEncounter,travel,openJournal,currentGuide}};
+})();
+if(typeof module!=='undefined'&&module.exports)module.exports=Atlantis;
+
+/* Experimental-only Olympus chapter: native pixel maps, no external art dependency. */
+const OlympusWorld=(()=>{
+  const TILE=32,COLS=40,ROWS=28,W=COLS*TILE,H=ROWS*TILE;
+  const mapIds=Object.freeze(['olympusTrail','hermitHut','olympusCave','cloudPass','olympusGate','olympusSummit']);
+  const pt=(x,y)=>({x:x*TILE+16,y:y*TILE+16}),rect=(x,y,w=1,h=1)=>({x:x*TILE,y:y*TILE,w:w*TILE,h:h*TILE});
+  const grid=fill=>Array.from({length:ROWS},()=>Array(COLS).fill(fill));
+  const put=(g,x,y,ch)=>{if(x>=0&&x<COLS&&y>=0&&y<ROWS)g[y][x]=ch;};
+  const box=(g,x,y,w,h,ch)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)put(g,xx,yy,ch);};
+  const stamp=(g,items,ch)=>items.forEach(([x,y])=>put(g,x,y,ch));
+  const frame=(g,ch)=>{box(g,0,0,COLS,1,ch);box(g,0,ROWS-1,COLS,1,ch);box(g,0,0,1,ROWS,ch);box(g,COLS-1,0,1,ROWS,ch);};
+  const anchors=(values={})=>({entry:null,exit:null,guide:null,hermit:null,forge:null,oread:null,puzzleWater:null,puzzleStone:null,athena:null,hermes:null,zeus:null,bike:null,cyclistStart:null,cyclistEnd:null,puzzle:[],trainers:[],...values});
+  const trainers=(id,...spots)=>spots.map(([x,y],i)=>({id:`olympus_${id}_trainer_${i+1}`,...pt(x,y)}));
+  const maps={};
+  function define(id,name,kind,levels,battle,palette,build,anchorData,pool=[]){const g=grid(kind==='interior'||kind==='dungeon'?'X':'g');build(g);maps[id]={id,name,kind,levels,battle,palette,tiles:g.map(row=>row.join('')),anchors:anchors(anchorData),pool};}
+
+  define('olympusTrail','Olympus Trail','route',[20,23],'battlePlains','trail',g=>{
+    frame(g,'c');box(g,0,21,18,4,'=');box(g,15,16,4,7,'=');box(g,16,15,16,4,'=');box(g,28,8,4,10,'=');box(g,29,4,11,4,'=');box(g,4,20,13,2,'>');
+    box(g,4,4,8,5,'B');put(g,8,9,'D');stamp(g,[[3,5],[7,12],[12,7],[21,6],[24,12],[34,10],[36,17],[5,25],[24,23],[31,23]],'r');stamp(g,[[2,15],[10,16],[14,5],[23,8],[26,20],[34,5],[36,14]],'S');stamp(g,[[10,22],[13,22],[20,16],[24,16]],'N');
+  },{entry:pt(2,22),exit:pt(37,5),guide:pt(17,18),hermit:pt(12,20),cyclistStart:pt(5,22),cyclistEnd:pt(17,18),trainers:trainers('trail',[13,18],[27,16])},['rockman','cyclops1','cyclops2','chimera1','chimera2']);
+
+  define('hermitHut','Hermit Hut','interior',[20,22],'battlePlains','hut',g=>{
+    box(g,4,4,32,22,'m');box(g,7,7,26,15,'p');box(g,17,22,6,4,'m');box(g,18,25,4,3,'=');box(g,7,7,26,1,'B');box(g,7,7,1,15,'B');box(g,32,7,1,15,'B');box(g,7,21,10,1,'B');box(g,23,21,10,1,'B');stamp(g,[[11,11],[28,11],[12,18],[27,18]],'N');
+  },{entry:pt(20,25),exit:pt(20,25),hermit:pt(20,14),guide:pt(20,18)},[]);
+
+  define('olympusCave','Hephaestus Forge','dungeon',[22,25],'battleCave','forge',g=>{
+    frame(g,'X');box(g,18,22,4,6,'m');box(g,6,19,28,5,'m');box(g,5,5,8,16,'m');box(g,27,5,8,16,'m');box(g,10,4,20,7,'m');box(g,12,12,16,6,'m');box(g,18,5,4,20,'=');box(g,12,10,6,2,'L');box(g,22,10,6,2,'L');box(g,18,10,4,2,'b');stamp(g,[[8,8],[8,16],[31,8],[31,16],[14,6],[25,6]],'r');stamp(g,[[12,13],[28,13]],'O');stamp(g,[[20,15]],'F');box(g,7,11,4,3,'E');box(g,29,11,4,3,'E');
+  },{entry:pt(20,25),exit:pt(20,6),guide:pt(17,22),forge:pt(20,14),oread:pt(30,10),puzzleWater:pt(13,13),puzzleStone:pt(27,13),puzzle:[{id:'cooled_bridge',...pt(20,10)}],trainers:trainers('cave',[8,18],[31,18])},['rockman','cyclops2','gorgon2','chimera1','chimera2']);
+
+  define('cloudPass','Cloud Pass','route',[24,27],'battlePlains','cloud',g=>{
+    frame(g,'c');box(g,0,21,16,4,'=');box(g,13,15,4,8,'=');box(g,14,14,16,4,'=');box(g,27,7,4,10,'=');box(g,28,4,12,4,'=');box(g,8,5,11,3,'p');stamp(g,[[3,8],[7,16],[12,11],[20,8],[24,14],[34,12],[36,20],[5,25]],'r');stamp(g,[[2,15],[10,17],[14,6],[23,9],[26,21],[34,5]],'S');stamp(g,[[17,15],[25,15],[30,9]],'N');
+  },{entry:pt(2,22),exit:pt(37,5),guide:pt(15,17),oread:pt(18,15),trainers:trainers('cloud',[12,17],[28,15])},['cyclops2','rockman','cloak3','chimera1','chimera2']);
+
+  define('olympusGate','Olympus Gate','interior',[27,30],'battleGym','gate',g=>{
+    frame(g,'X');box(g,17,22,6,6,'m');box(g,7,19,26,5,'m');box(g,5,11,30,9,'m');box(g,9,5,22,7,'m');box(g,13,2,14,4,'m');box(g,18,3,4,23,'=');box(g,9,14,22,3,'=');stamp(g,[[9,8],[30,8],[8,15],[31,15],[14,4],[25,4]],'K');stamp(g,[[13,13],[27,13]],'A');
+  },{entry:pt(20,25),exit:pt(20,25),guide:pt(17,22),athena:pt(14,13),hermes:pt(26,13),trainers:trainers('gate',[10,17],[29,17])},[]);
+
+  define('olympusSummit','Olympus Summit','interior',[30,33],'battleGym','summit',g=>{
+    frame(g,'X');box(g,17,22,6,6,'m');box(g,7,19,26,5,'m');box(g,5,11,30,9,'m');box(g,9,5,22,7,'m');box(g,13,2,14,4,'m');box(g,18,3,4,23,'=');box(g,9,14,22,3,'=');stamp(g,[[9,8],[30,8],[8,15],[31,15],[14,4],[25,4]],'K');put(g,20,4,'Z');
+  },{entry:pt(20,25),exit:pt(20,25),guide:pt(17,22),zeus:pt(20,5),bike:pt(20,18),trainers:trainers('summit',[10,17],[29,17])},[]);
+
+  const blocked=ch=>['X','c','r','S','B','D','L','O','F','K','A','Z','N'].includes(ch),walkable=ch=>!blocked(ch),encounterTile=ch=>ch==='g'||ch==='E';
+  const clone=value=>JSON.parse(JSON.stringify(value));
+  function runs(rows,predicate){const out=[];for(let y=0;y<ROWS;y++){let x=0;while(x<COLS){while(x<COLS&&!predicate(rows[y][x]))x++;const start=x;while(x<COLS&&predicate(rows[y][x]))x++;if(x>start)out.push(rect(start,y,x-start));}}return out;}
+  const jump=(x,y,w,to,target,label)=>({rect:rect(x,y,w,2),area:to,...target,label});
+  function install(world,data){
+    if(!world?.areas)throw Error('OlympusWorld.install needs a world with areas.');
+    for(const id of mapIds){const m=maps[id],pool=m.pool.filter(species=>data?.species?.[species]);if(m.pool.length&&!pool.length)throw Error(`Olympus has no installed encounter species for ${id}`);world.areas[id]={id,name:m.name,asset:null,w:W,h:H,spawn:{...m.anchors.entry},walkable:runs(m.tiles,walkable),solids:runs(m.tiles,blocked),levels:[...m.levels],battle:m.battle,portals:[],interactions:[],npcs:[],encounters:pool.length?runs(m.tiles,encounterTile).map(zone=>({rect:zone,pool:[...pool],minLevel:m.levels[0],maxLevel:m.levels[1]})):[],anchors:clone(m.anchors),tiles:[...m.tiles],tileSize:TILE,terrain:m.palette,kind:m.kind};}
+    const a=world.areas,road=a.summitRoad;if(!road)throw Error('Summit Trail must exist before installing Olympus.');
+    const link=(from,x,y,w,to,target,label)=>a[from].portals.push(jump(x,y,w,to,target,label));
+    road.anchors=road.anchors||{};road.anchors.olympusTurnoff=road.anchors.olympusTurnoff||pt(11,5);
+    link('olympusTrail',0,21,2,'summitRoad',{x:11*TILE+16,y:6*TILE+16},'Summit Trail');link('olympusTrail',37,4,3,'olympusCave',a.olympusCave.anchors.entry,'Hephaestus Forge');link('olympusTrail',7,9,3,'hermitHut',a.hermitHut.anchors.entry,'Hermit Hut');
+    link('hermitHut',19,26,3,'olympusTrail',{x:8*TILE+16,y:11*TILE+16},'Olympus Trail');link('olympusCave',19,26,3,'olympusTrail',{x:37*TILE+16,y:6*TILE+16},'Olympus Trail');
+    link('cloudPass',0,21,2,'olympusCave',{x:20*TILE+16,y:5*TILE+16},'Hephaestus Forge');link('olympusGate',19,26,3,'cloudPass',{x:37*TILE+16,y:5*TILE+16},'Cloud Pass');link('olympusSummit',19,26,3,'olympusGate',{x:20*TILE+16,y:4*TILE+16},'Olympus Gate');
+    world.graph=world.graph||[];for(const edge of [['summitRoad','olympusTrail'],['olympusTrail','hermitHut'],['olympusTrail','olympusCave'],['olympusCave','cloudPass'],['cloudPass','olympusGate'],['olympusGate','olympusSummit']])if(!world.graph.some(e=>(e[0]===edge[0]&&e[1]===edge[1])||(e[0]===edge[1]&&e[1]===edge[0])))world.graph.push(edge);
+    return world;
+  }
+  const palettes={trail:{base:'#9ca77b',rock:'#626961',light:'#d7c89d',path:'#b99d6c'},hut:{base:'#908b78',rock:'#555550',light:'#d8d0b5',path:'#bca77d'},forge:{base:'#5d5b58',rock:'#302f33',light:'#aaa48d',path:'#b98f61'},cloud:{base:'#b0b69d',rock:'#6b6e68',light:'#e5dfc3',path:'#c3a976'},gate:{base:'#868980',rock:'#4d5153',light:'#dbe0d0',path:'#c5b37f'},summit:{base:'#78858b',rock:'#3f4d56',light:'#e3e5d8',path:'#c5b37f'}};
+  const hash=(x,y,id)=>{let n=(x*374761393+y*668265263+id.length*69069)>>>0;n=(n^(n>>>13))*1274126177>>>0;return n^(n>>>16);};
+  function paintTile(ctx,ch,x,y,p,id,time){const px=x*TILE,py=y*TILE,n=hash(x,y,id);ctx.fillStyle=blocked(ch)?p.rock:p.base;ctx.fillRect(px,py,TILE,TILE);
+    if(ch==='g'||ch==='p'){ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#6f8757';for(let i=0;i<4;i++){const xx=px+3+((n>>(i*5))%25),yy=py+10+((n>>(i*4+2))%17);ctx.fillRect(xx,yy,3,7);ctx.fillRect(xx-2,yy+3,3,2);}}
+    if(ch==='m'||ch==='='){ctx.fillStyle=ch==='='?p.path:p.light;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#717369';ctx.fillRect(px,py+15,TILE,2);ctx.fillRect(px+((x+y)&1?9:23),py,2,15);ctx.fillRect(px+((x+y)&1?21:7),py+17,2,15);ctx.fillStyle='#f0e7c9';ctx.fillRect(px+3,py+3,11,2);}
+    if(ch==='>'){ctx.fillStyle='#b6a16f';ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#3c7193';ctx.fillRect(px,py+7,TILE,4);ctx.fillRect(px,py+21,TILE,4);ctx.fillStyle='#e4d086';ctx.fillRect(px+7,py+14,18,3);}
+    if(ch==='r'||ch==='c'||ch==='X'){ctx.fillStyle=ch==='X'?p.rock:'#565b59';ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#92968a';ctx.fillRect(px+4+(n%16),py+5+((n>>4)%18),8,4);ctx.fillRect(px+2+((n>>9)%17),py+23,11,3);ctx.fillStyle='#393e41';ctx.fillRect(px+5+((n>>14)%17),py+28,8,2);}
+    if(ch==='S'){ctx.fillStyle='#53744b';ctx.fillRect(px+12,py+12,8,18);ctx.fillStyle='#88a55f';for(let i=0;i<4;i++)ctx.fillRect(px+4+i*6,py+8+(i%2)*5,6,7);}
+    if(ch==='L'){ctx.fillStyle='#8b2f24';ctx.fillRect(px,py,TILE,TILE);const drift=(Math.floor(time/140)*5+n)%21;ctx.fillStyle='#ed762f';ctx.fillRect(px+drift-8,py+6,20,5);ctx.fillRect(px+((drift+11)%24)-6,py+20,17,6);ctx.fillStyle='#ffd266';ctx.fillRect(px+drift,py+8,9,2);ctx.fillRect(px+((drift+9)%25),py+22,8,2);}
+    if(ch==='b'){ctx.fillStyle='#605750';ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#c1b7a0';ctx.fillRect(px,py+5,TILE,6);ctx.fillRect(px,py+20,TILE,6);ctx.fillStyle='#e8ddbd';ctx.fillRect(px+4,py+7,24,12);}
+    if(ch==='O'||ch==='F'||ch==='A'||ch==='K'||ch==='Z'||ch==='N'){ctx.fillStyle=ch==='Z'?'#6d8cac':ch==='F'?'#6f3d2d':ch==='A'?'#7794ad':ch==='K'?'#c0b06d':'#6d645a';ctx.fillRect(px+7,py+6,18,24);ctx.fillStyle='#e7d17b';if(ch==='F'){ctx.fillRect(px+11,py+10,10,13);ctx.fillStyle='#ff9a3f';ctx.fillRect(px+13,py+13,6,7);}else {ctx.fillRect(px+11,py+4,10,7);ctx.fillRect(px+4,py+27,24,3);}}
+  }
+  function buildings(ctx,m){const rows=m.tiles;for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++)if(rows[y][x]==='B'){const px=x*TILE,py=y*TILE,top=!y||rows[y-1][x]!=='B';ctx.fillStyle='#d7d0b4';ctx.fillRect(px+3,py+7,26,25);ctx.fillStyle='#847250';ctx.fillRect(px,py+4,32,6);if(top){ctx.fillStyle='#bf774e';ctx.fillRect(px+2,py,28,6);ctx.fillStyle='#e49a62';for(let xx=px+4;xx<px+29;xx+=8)ctx.fillRect(xx,py+2,5,2);}ctx.fillStyle='#42627a';ctx.fillRect(px+10,py+16,12,8);}else if(rows[y][x]==='D'){const px=x*TILE,py=y*TILE;ctx.fillStyle='#5c4c3d';ctx.fillRect(px+5,py+3,22,29);ctx.fillStyle='#c99f68';ctx.fillRect(px+9,py+7,14,25);ctx.fillStyle='#f2cf77';ctx.fillRect(px+20,py+20,3,3);}}
+  function landmarks(ctx,m,time,api){const mark=(p,color)=>{ctx.fillStyle='#5a554b';ctx.fillRect(p.x-14,p.y+13,28,5);ctx.fillStyle=color;ctx.fillRect(p.x-8,p.y-17,16,31);ctx.fillStyle='#f5deb0';ctx.fillRect(p.x-4,p.y-25,8,10);};const forge=api?.state?.olympus?.forge||{};
+    if(m.anchors.forge){const p=m.anchors.forge;ctx.fillStyle='#312d2c';ctx.fillRect(p.x-42,p.y-36,84,54);ctx.fillStyle='#9c3d24';ctx.fillRect(p.x-34,p.y-28,68,39);ctx.fillStyle=forge.lavaChannelOpen?'#ffb24b':'#e7662d';ctx.fillRect(p.x-22,p.y-17,44,17);ctx.fillStyle='#ffe18a';ctx.fillRect(p.x-13,p.y-12,26,7);ctx.fillStyle='#62594e';ctx.fillRect(p.x-56,p.y+16,112,8);if(forge.waterCooled||forge.repaired){ctx.fillStyle='#86cbd0';ctx.fillRect(18*TILE,10*TILE,4*TILE,12);ctx.fillStyle='#d4eee6';ctx.fillRect(18*TILE+6,10*TILE+5,116,3);}}
+    if(m.anchors.oread)mark(m.anchors.oread,'#769e7c');if(m.anchors.athena)mark(m.anchors.athena,'#748faa');if(m.anchors.hermes)mark(m.anchors.hermes,'#c89a58');if(m.anchors.zeus){const p=m.anchors.zeus,reduced=api?.state?.reducedMotion===true||api?.state?.settings?.reducedMotion===true,flash=reduced?true:Math.floor(time/360)%3===0;mark(p,'#7996b6');if(flash){ctx.fillStyle='#e6c65d';ctx.fillRect(p.x-3,p.y-52,6,18);ctx.fillRect(p.x-10,p.y-40,13,5);ctx.fillRect(p.x-5,p.y-34,6,16);ctx.fillRect(p.x-16,p.y-27,14,4);ctx.fillStyle='#8cc8df';ctx.fillRect(p.x+4,p.y-39,10,4);ctx.fillRect(p.x+10,p.y-35,4,10);}}
+    if(m.id==='olympusTrail'){const p=m.anchors.cyclistStart;ctx.fillStyle='#263f59';ctx.fillRect(p.x-10,p.y-5,20,5);ctx.fillRect(p.x-8,p.y+4,5,5);ctx.fillRect(p.x+3,p.y+4,5,5);}
+    if(m.id==='olympusSummit'){const p=m.anchors.bike;ctx.strokeStyle='#273b4a';ctx.lineWidth=3;for(const dx of [-11,11]){ctx.beginPath();ctx.arc(p.x+dx,p.y+8,7,0,Math.PI*2);ctx.stroke();}ctx.strokeStyle='#d95c3f';ctx.beginPath();ctx.moveTo(p.x-11,p.y+8);ctx.lineTo(p.x,p.y-2);ctx.lineTo(p.x+11,p.y+8);ctx.lineTo(p.x-4,p.y+7);ctx.lineTo(p.x+5,p.y-6);ctx.stroke();ctx.fillStyle='#f0c84b';ctx.fillRect(p.x-5,p.y-13,10,5);}}
+  function draw(api,ctx,cam={x:0,y:0},time=0){const m=maps[api?.state?.area];if(!m)return false;const p=palettes[m.palette];ctx.save();ctx.translate(-cam.x,-cam.y);const vw=ctx.canvas?.width||W,vh=ctx.canvas?.height||H,x0=Math.max(0,Math.floor(cam.x/TILE)-1),y0=Math.max(0,Math.floor(cam.y/TILE)-1),x1=Math.min(COLS,Math.ceil((cam.x+vw)/TILE)+1),y1=Math.min(ROWS,Math.ceil((cam.y+vh)/TILE)+1);for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)paintTile(ctx,m.tiles[y][x],x,y,p,m.id,time);buildings(ctx,m);landmarks(ctx,m,time,api);ctx.restore();return true;}
+  return {install,draw,isArea:id=>mapIds.includes(id),mapIds,_test:{maps,TILE,COLS,ROWS,blocked,walkable,encounterTile}};
+})();
+if(typeof globalThis!=='undefined')globalThis.OlympusWorld=OlympusWorld;
+if(typeof module!=='undefined'&&module.exports)module.exports=OlympusWorld;
+
+/* Jefferson Experimental-only Mount Olympus chapter, forge puzzle, trials, and Zeus challenge. */
+const Olympus = (() => {
+  const entryArea='summitRoad';
+  const areaIds=['olympusTrail','hermitHut','olympusCave','cloudPass','olympusGate','olympusSummit'];
+  const upperAreas=['cloudPass','olympusGate','olympusSummit'];
+  const zeusId='olympus_zeus';
+  const zeusReward=250;
+  const title='Olympian Pathfinder';
+  const hermesRoute=['Winged sandal','Olive branch','Twin serpents'];
+  let api=null,caveEntry={x:656,y:816},gateEntry={x:656,y:816},cyclistCue=null;
+
+  const record=value=>value&&typeof value==='object'&&!Array.isArray(value)?value:{};
+  const clamp=(value,min,max)=>Math.max(min,Math.min(max,Number.isFinite(Number(value))?Math.floor(Number(value)):min));
+  const point=(value,fallback={x:656,y:816})=>{
+    const source=Array.isArray(value)?{x:value[0],y:value[1]}:record(value),base=Array.isArray(fallback)?{x:fallback[0],y:fallback[1]}:record(fallback);
+    return {x:Number.isFinite(Number(source.x))?Number(source.x):Number(base.x)||656,y:Number.isFinite(Number(source.y))?Number(source.y):Number(base.y)||816};
+  };
+  const isArea=id=>areaIds.includes(id);
+
+  function normalize(raw){
+    const source=record(raw?.olympus),forgeSource=record(source.forge);
+    const waterCooled=forgeSource.waterCooled===true,lavaChannelOpen=forgeSource.lavaChannelOpen===true,repaired=waterCooled&&lavaChannelOpen;
+    const gear=repaired&&source.gear===true,backpack=gear;
+    const athenaPassed=gear&&source.athenaPassed===true;
+    const hermesStep=athenaPassed?clamp(source.hermesStep,0,3):0;
+    const hermesPassed=athenaPassed&&hermesStep===3&&source.hermesPassed===true;
+    const zeusTitle=hermesPassed&&record(raw?.trainers)[zeusId]===true;
+    const visited=[];
+    for(const id of areaIds)if(Array.isArray(source.visited)&&source.visited.includes(id)&&(!upperAreas.includes(id)||gear))visited.push(id);
+    if(isArea(raw?.area)&&(!upperAreas.includes(raw.area)||gear)&&!visited.includes(raw.area))visited.push(raw.area);
+    const checkpoint=['hermitHut','olympusCave'].includes(source.checkpoint)?source.checkpoint:'hermitHut';
+    const olympus={metHermit:source.metHermit===true,metForge:source.metForge===true,forge:{waterCooled,lavaChannelOpen,repaired},gear,backpack,
+      athenaPassed,hermesStep,hermesPassed,cyclistSeen:source.cyclistSeen===true,visited,checkpoint,zeusTitle,bikeRidden:zeusTitle&&source.bikeRidden===true};
+    if(upperAreas.includes(raw?.area)&&!gear)return {area:'olympusCave',x:caveEntry.x,y:caveEntry.y,olympus};
+    if(raw?.area==='olympusSummit'&&!hermesPassed)return {area:'olympusGate',x:gateEntry.x,y:gateEntry.y,olympus};
+    return {olympus};
+  }
+
+  function saved(game=api){
+    if(!game?.state)return normalize({}).olympus;
+    if(!game.state.olympus)game.state.olympus=normalize(game.state).olympus;
+    return game.state.olympus;
+  }
+  function anchor(area,key){const value=area?.anchors?.[key];if(!value)throw Error(`Olympus requires ${area?.id||'area'}.anchors.${key}`);return point(value,area.spawn);}
+  function addInteraction(area,descriptor){area.interactions=area.interactions||[];if(!area.interactions.some(item=>item.id===descriptor.id))area.interactions.push(descriptor);}
+  function addNpc(area,id,position,asset,color){area.npcs=area.npcs||[];if(!area.npcs.some(item=>item.id===id))area.npcs.push({id,...position,...(asset?{asset}:{}),height:52,color,painted:false});}
+
+  function setup(game){
+    api=game;
+    if(typeof OlympusWorld!=='undefined')OlympusWorld.install?.(api.world,api.data);
+    const missing=areaIds.filter(id=>!api.world.areas[id]);if(missing.length)throw Error(`Olympus requires area ${missing[0]}`);
+    const road=api.world.areas.summitRoad,turnoff=point(road.anchors?.olympusTurnoff,{x:368,y:176});
+    addInteraction(road,{id:'olympus_trail_turnoff',kind:'olympus_entry',label:'Olympus Trail turnoff',...turnoff,radius:62});
+    const trail=api.world.areas.olympusTrail,trailHermit=anchor(trail,'hermit');
+    addInteraction(trail,{id:'olympus_hermit_trail',kind:'olympus_hermit',label:'Dorian, Mountain Hermit',...trailHermit,radius:60});
+    addNpc(trail,'olympus_hermit_trail_npc',trailHermit,'hermit','#7c705c');
+    const hut=api.world.areas.hermitHut,hutHermit=anchor(hut,'hermit');
+    addInteraction(hut,{id:'olympus_hermit_hut',kind:'olympus_hermit',label:'Dorian’s Resting Hut',...hutHermit,radius:62});
+    addNpc(hut,'olympus_hermit_hut_npc',hutHermit,'hermit','#7c705c');
+
+    const cave=api.world.areas.olympusCave,forge=anchor(cave,'forge'),oread=anchor(cave,'oread');caveEntry=point(cave.anchors.entry,cave.spawn);
+    addInteraction(cave,{id:'olympus_hephaestus_forge',kind:'olympus_forge',label:'Hephaestus’s Lava Forge',...forge,radius:64});
+    addNpc(cave,'olympus_hephaestus_npc',forge,'hephaestus','#c66c42');
+    addInteraction(cave,{id:'olympus_oread_cave',kind:'olympus_oread',label:'Phaedra the Oread',...oread,radius:58});
+    addNpc(cave,'olympus_oread_cave_npc',oread,'oread','#7e9872');
+    addInteraction(cave,{id:'olympus_forge_water',kind:'olympus_forge_step',forgeStep:'water',label:'Overheated Work Platform',...anchor(cave,'puzzleWater'),radius:62});
+    addInteraction(cave,{id:'olympus_forge_stone',kind:'olympus_forge_step',forgeStep:'stone',label:'Blocked Lava Channel',...anchor(cave,'puzzleStone'),radius:62});
+    addInteraction(cave,{id:'olympus_upper_ascent',kind:'olympus_ascent',label:'Upper Olympus Ascent',...anchor(cave,'exit'),radius:66});
+
+    const cloud=api.world.areas.cloudPass,cloudOread=anchor(cloud,'oread');
+    addInteraction(cloud,{id:'olympus_oread_cloud',kind:'olympus_oread',label:'Phaedra the Oread',...cloudOread,radius:58});
+    addNpc(cloud,'olympus_oread_cloud_npc',cloudOread,'oread','#7e9872');
+    addInteraction(cloud,{id:'olympus_cloud_gate',kind:'olympus_gate_entry',label:'Olympus Gate Approach',...anchor(cloud,'exit'),radius:66});
+
+    const gate=api.world.areas.olympusGate,athena=anchor(gate,'athena'),hermes=anchor(gate,'hermes');gateEntry=point(gate.anchors.entry,gate.spawn);
+    addInteraction(gate,{id:'olympus_athena',kind:'olympus_athena',label:'Athena’s Observation',...athena,radius:62});
+    addNpc(gate,'olympus_athena_npc',athena,'athena','#7482a5');
+    addInteraction(gate,{id:'olympus_hermes',kind:'olympus_hermes',label:'Hermes’s Navigation Trial',...hermes,radius:64});
+    addNpc(gate,'olympus_hermes_npc',hermes,'hermes','#c8a247');
+
+    const summit=api.world.areas.olympusSummit,zeus=anchor(summit,'zeus'),bike=anchor(summit,'bike');
+    addInteraction(summit,{id:'olympus_zeus',kind:'olympus_zeus',label:'Zeus at the Summit',...zeus,radius:70});
+    addNpc(summit,'olympus_zeus_npc',zeus,'zeus','#e3c968');
+    addInteraction(summit,{id:'olympus_summit_bike',kind:'olympus_bike',label:'Summit Trail Bike',...bike,radius:58});
+  }
+
+  function visitHermit(api){
+    const state=saved(api),atHut=api.state.area==='hermitHut';state.metHermit=true;
+    if(atHut){state.checkpoint='hermitHut';api.healAll?.();}
+    api.persist?.();
+    api.dialog(atHut?'Dorian’s Resting Hut':'Dorian on the Lower Slopes',atHut?[
+      'Dorian shares warm tea while your companions recover completely and your basic supplies are replenished.',
+      '“Hephaestus’s forge is in Olympus Cave. Reopen its lava channel with Stone strength, then cool the work platform with Water.”'
+    ]:[
+      '“The upper path is closed because Hephaestus cannot finish safe climbing gear.”',
+      '“Visit his lava-powered forge in Olympus Cave. An Oread named Phaedra can point out the repair stations.”'
+    ],[],{character:'hermit'});return true;
+  }
+  function visitOread(api){
+    const state=saved(api),inCave=api.state.area==='olympusCave';
+    api.dialog('Phaedra the Oread',inCave?[
+      '“I’m an Oread, a nymph of these mountain slopes. Hephaestus’s forge uses lava, but its channel is blocked and its work platform is too hot.”',
+      state.forge.repaired?'“Both repairs are complete. Return to Hephaestus at the forge.”':'“The two repair stations are marked on opposite sides of the cave. Your helpers may complete them in either order.”'
+    ]:[
+      '“Your new climbing gear is holding well. Follow the pale stone road through Cloud Pass to Athena and Hermes at Olympus Gate.”',
+      '“Every fork reconnects, and the lower return path stays open.”'
+    ],[],{character:'oread'});return true;
+  }
+
+  const typeMatches=(type,wanted)=>wanted==='stone'?['Stone','Rock'].includes(type):type==='Water';
+  function helper(api,wanted){
+    const mon=(api.state.party||[]).find(item=>item.hp>0&&typeMatches(api.data.species?.[item.species]?.type,wanted));
+    if(mon)return {name:api.data.species[mon.species].name,borrowed:false};
+    const candidates=wanted==='water'?['hippocamp1','nautilus1','siren1']:['rockman','cyclops1'];
+    const species=candidates.find(id=>api.data.species?.[id]);
+    return {name:species?`${api.data.species[species].name} from Hephaestus’s workshop`:`borrowed ${wanted==='water'?'Water':'Stone'} helper`,borrowed:true};
+  }
+  function forgeStep(api,descriptor){
+    const state=saved(api),kind=descriptor?.forgeStep;if(!['water','stone'].includes(kind))return false;
+    const key=kind==='water'?'waterCooled':'lavaChannelOpen';
+    if(state.forge[key]){api.dialog(descriptor.label,[kind==='water'?'The work platform is cool and safe.':'Lava flows steadily through the reopened stone channel.',state.forge.repaired?'Return to Hephaestus at the forge for your climbing gear.':'Complete the other marked repair station.']);return true;}
+    const h=helper(api,kind),action=kind==='water'?'cool the overheated work platform':'reopen the blocked lava channel';
+    api.dialog(descriptor.label,[
+      `${h.name} will ${action}. Preview: the companion works from the marked safe ledge; no item is used and no creature is put at risk.`,
+      h.borrowed?'Hephaestus lends this helper for the repair. It does not join your team, and no capture is required.':'Your companion returns to your team immediately after the repair.'
+    ],[
+      {label:`Use ${h.name}`,primary:true,run:()=>{
+        state.forge[key]=true;state.forge.repaired=state.forge.waterCooled&&state.forge.lavaChannelOpen;api.persist?.();
+        api.dialog(state.forge.repaired?'The lava forge runs again':'One forge repair complete',state.forge.repaired?[
+          'The reopened lava channel powers the forge while the cooled platform gives Hephaestus a safe place to work.',
+          'Return to Hephaestus for the climbing gear and hiking backpack.'
+        ]:[kind==='water'?'The work platform is cool. Next, use Stone strength at the blocked lava channel.':'The lava channel is open. Next, use Water at the overheated work platform.']);
+      }},
+      {label:'Leave it for now',run:()=>api.closePanel?.()}
+    ]);return true;
+  }
+  function visitForge(api){
+    const state=saved(api);state.metForge=true;state.checkpoint='olympusCave';api.healAll?.();
+    if(!state.forge.repaired){api.persist?.();api.dialog('Hephaestus’s Lava Forge',[
+      '“Lava powers my forge. A rockfall blocked its channel, and the work platform has become too hot.”',
+      `${state.forge.lavaChannelOpen?'Done':'Needed'}: Stone strength reopens the lava channel. ${state.forge.waterCooled?'Done':'Needed'}: Water cools the work platform.`,
+      '“Phaedra marked both stations. I can lend safe helpers for any type your team does not have. Your team is restored here for free.”'
+    ],[],{character:'hephaestus'});return true;}
+    if(!state.gear){state.gear=true;state.backpack=true;api.persist?.();api.dialog('Ready for the Upper Ascent',[
+      'Hephaestus gives you fitted climbing gear and a sturdy hiking backpack.',
+      '“The upper ascent is unlocked. Your restored team and these supplies are ready for Cloud Pass.”'
+    ],[],{character:'hephaestus'});return true;}
+    api.persist?.();api.dialog('Hephaestus’s Lava Forge',['The repaired lava channel powers the forge, and the cooled platform is safe.','Your team is fully restored. Use the marked upper ascent when you are ready.'],[],{character:'hephaestus'});return true;
+  }
+
+  function moveTo(api,id,location='entry'){
+    const area=api.world.areas[id];if(!area)return false;const destination=point(area.anchors?.[location]||area.spawn,area.spawn);
+    const moved=api.enterArea?.(id,destination.x,destination.y,false)!==false;if(moved){api.closePanel?.();api.persist?.();}return moved;
+  }
+  function enterOlympus(api){
+    api.dialog('Olympus Trail turnoff',['A marked side path climbs toward Mount Olympus. The main Summit Trail stays open.'],[
+      {label:'Enter Olympus Trail',primary:true,run:()=>moveTo(api,'olympusTrail')},{label:'Stay on Summit Trail',run:()=>api.closePanel?.()}
+    ]);return true;
+  }
+  function ascend(api){
+    const state=saved(api);
+    if(!state.gear){api.dialog('Upper Olympus Ascent',['The rock is too steep to climb safely. Repair Hephaestus’s lava forge, then return to him for climbing gear and a backpack.']);return true;}
+    api.dialog('Upper Olympus Ascent',['Your fitted gear is secure. The return path stays open. Follow the pale stone road to Phaedra in Cloud Pass.'],[
+      {label:'Climb to Cloud Pass',primary:true,run:()=>moveTo(api,'cloudPass')},{label:'Stay in the cave',run:()=>api.closePanel?.()}
+    ]);return true;
+  }
+  function approachGate(api){
+    const state=saved(api);if(!state.gear){api.dialog('Olympus Gate Approach','Return to Hephaestus for fitted climbing gear before continuing.');return true;}
+    api.dialog('Olympus Gate Approach',['The pale stone road reaches Athena and Hermes. The lower return path remains open.'],[
+      {label:'Continue to Olympus Gate',primary:true,run:()=>moveTo(api,'olympusGate')},{label:'Stay in Cloud Pass',run:()=>api.closePanel?.()}
+    ]);return true;
+  }
+
+  function visitAthena(api){
+    const state=saved(api);if(!state.gear){api.dialog('Athena’s Observation','Return with safe climbing gear from Hephaestus.');return true;}
+    if(state.athenaPassed){api.dialog('Athena’s Observation',['“You noticed the evidence before choosing. Hermes holds the next trial across the gate.”'],[],{character:'athena'});return true;}
+    api.dialog('Athena’s Observation',[
+      '“Observe first: the bronze owl faces the east arch. That arch alone has three stars cut into its lintel; the north arch has two, and the west arch has none.”',
+      '“Which route matches both clues?”'
+    ],[
+      {label:'North arch · two stars',run:()=>athenaRetry(api)},
+      {label:'East arch · three stars',run:()=>{state.athenaPassed=true;api.persist?.();api.dialog('Observation complete',['“Correct. Two clues agreed, so you did not have to guess.”','Next: meet Hermes across the gate for a short navigation trial.']);}},
+      {label:'West arch · no stars',run:()=>athenaRetry(api)}
+    ],{character:'athena'});return true;
+  }
+  function athenaRetry(api){api.dialog('Look once more',['Nothing is lost. Hint: match both the owl’s direction and the number of stars.'],[{label:'Try again',primary:true,run:()=>visitAthena(api)}],{character:'athena'});}
+
+  function visitHermes(api){
+    const state=saved(api);if(!state.athenaPassed){api.dialog('Hermes’s Navigation Trial',['“Athena’s observation comes first. She is beside the bronze owl at this gate.”']);return true;}
+    if(state.hermesPassed){
+      api.dialog('The summit route',['“You know the route: sandal, branch, twin serpents. The summit stair and the return path are both open.”'],[
+        {label:'Follow the route to Zeus',primary:true,run:()=>moveTo(api,'olympusSummit')},{label:'Stay at the gate',run:()=>api.closePanel?.()}
+      ],{character:'hermes'});return true;
+    }
+    const expected=hermesRoute[state.hermesStep],choices=hermesRoute.filter(label=>label!==expected);choices.splice(1,0,expected);
+    api.dialog('Hermes’s Navigation Trial',[
+      '“No race and no countdown. Read the route aloud: winged sandal, olive branch, twin serpents.”',
+      `“You have followed ${state.hermesStep} of 3 markers. Which marker comes next?”`
+    ],choices.map(label=>({label,run:()=>chooseHermes(api,label)})),{character:'hermes'});return true;
+  }
+  function chooseHermes(api,label){
+    const state=saved(api),expected=hermesRoute[state.hermesStep];
+    if(label!==expected){state.hermesStep=0;state.hermesPassed=false;api.persist?.();api.dialog('Back to the first marker',['Nothing is lost. Hint: sandal → branch → twin serpents.'],[{label:'Try again',primary:true,run:()=>visitHermes(api)}]);return;}
+    state.hermesStep++;
+    if(state.hermesStep===hermesRoute.length){state.hermesPassed=true;api.persist?.();api.dialog('Route learned',['“Good navigation. The summit stair is open; there is no time limit.”'],[{label:'Climb to the summit',primary:true,run:()=>moveTo(api,'olympusSummit')},{label:'Rest first',run:()=>api.closePanel?.()}]);return;}
+    api.persist?.();visitHermes(api);
+  }
+
+  function zeusSpecies(data){
+    const priority=['chimera3','cyclops3','gorgon3','minotaur','siren3','triton3','warrior3'],chosen=[];
+    for(const id of priority){if(data?.species?.[id]&&!chosen.includes(id))chosen.push(id);if(chosen.length===3)break;}return chosen;
+  }
+  function zeusEncounter(api){
+    const ids=zeusSpecies(api.data);if(ids.length<3)return null;
+    const levels=(api.state.party||[]).map(mon=>Number(mon.level)||1),base=Math.max(30,Math.min(34,Math.max(1,...levels)+1));
+    return {kind:'trainer',enemyTeam:ids.map((species,index)=>({species,level:Math.min(36,base+index)})),trainerId:zeusId,rewards:{money:zeusReward}};
+  }
+  function visitZeus(api){
+    const state=saved(api);if(!state.hermesPassed){api.dialog('Zeus at the Summit',['Lightning flashes harmlessly around the summit marker. “Complete Athena’s and Hermes’s lessons at the gate before approaching this challenge.”'],[],{character:'zeus'});return true;}
+    if(state.zeusTitle||api.state.trainers?.[zeusId]){state.zeusTitle=true;api.persist?.();api.dialog('Zeus at the Summit',[`“Welcome back, ${title}. The stair behind you remains a safe return.”`,'“The unclaimed trail bike at the summit rack is available whenever you want the downhill course.”'],[],{character:'zeus'});return true;}
+    const encounter=zeusEncounter(api);if(!encounter){api.dialog('Zeus at the Summit',['“My trainer team is still gathering. The summit and return stair remain open.”'],[],{character:'zeus'});return true;}
+    api.dialog('Zeus’s Optional Challenge',[
+      'Lightning dances across Zeus’s raised bolt. “The summit stair behind you remains open. Rest at Dorian’s hut or Hephaestus’s forge whenever you choose.”',
+      `“My three-creature battle is optional. Victory earns ${zeusReward} coins and the title ${title}, never an extra badge.”`
+    ],[
+      {label:'Begin the challenge',primary:true,run:()=>{api.closePanel?.();api.startBattle?.(encounter);}},{label:'Take the safe return',run:()=>api.closePanel?.()}
+    ],{character:'zeus'});return true;
+  }
+
+  function finishBike(api){const state=saved(api);state.bikeRidden=true;moveTo(api,'olympusTrail','cyclistStart');api.state.mode='explore';api.persist?.();api.renderHUD?.();api.toast?.('Woohoo! You reached the lower trail safely.');}
+  function visitBike(api){
+    const state=saved(api);if(!state.zeusTitle&&!api.state.trainers?.[zeusId]){api.dialog('Summit Trail Bike','The parked bike remains secured until Zeus’s summit lesson is complete.');return true;}
+    api.dialog('The Unclaimed Summit Bike',[
+      'An unclaimed trail bike waits at the marked summit rack, with a helmet and a posted downhill course.',
+      'The first-person ride has steering controls, harmless slowdowns, and a Skip button. It always finishes safely at the lower trail.'
+    ],[
+      {label:'Ride downhill',primary:true,run:()=>{
+        if(typeof MountainRide==='undefined'||typeof MountainRide.start!=='function'){api.toast?.('The downhill course is not available in this build.');return;}
+        MountainRide.start(api,{onFinish:()=>finishBike(api),onSkip:()=>finishBike(api)});
+      }},
+      {label:'Keep exploring',run:()=>api.closePanel?.()}
+    ]);return true;
+  }
+
+  function interact(game,descriptor){if(game)api=game;switch(descriptor?.kind){
+    case 'olympus_entry':return enterOlympus(api);case 'olympus_hermit':return visitHermit(api);case 'olympus_oread':return visitOread(api);case 'olympus_forge':return visitForge(api);
+    case 'olympus_forge_step':return forgeStep(api,descriptor);case 'olympus_ascent':return ascend(api);case 'olympus_gate_entry':return approachGate(api);case 'olympus_athena':return visitAthena(api);
+    case 'olympus_hermes':return visitHermes(api);case 'olympus_zeus':return visitZeus(api);case 'olympus_bike':return visitBike(api);default:return false;
+  }}
+
+  function objective(state){
+    if(!state?.starter||(!isArea(state.area)&&state.area!==entryArea))return null;
+    const o=state.olympus||normalize(state).olympus;
+    if(state.area===entryArea&&!(Array.isArray(state.badges)&&state.badges.includes('star')))return null;
+    if(state.area===entryArea)return !o.visited.length?'Optional Olympus trail: use the marked turnoff on Summit Road and find Dorian on the lower slopes.':null;
+    if(!o.metHermit)return 'Find Dorian, the hermit on the lower Olympus slopes.';
+    if(!o.forge.repaired){
+      if(!o.forge.lavaChannelOpen&&!o.forge.waterCooled)return 'Visit Hephaestus’s lava forge in Olympus Cave; repair its Stone channel and Water-cooled platform.';
+      if(!o.forge.lavaChannelOpen)return 'At the Blocked Lava Channel, preview a Stone helper and reopen the channel.';
+      return 'At the Overheated Work Platform, preview a Water helper and cool the platform.';
+    }
+    if(!o.gear)return 'Return to Hephaestus for climbing gear and a hiking backpack.';
+    if(!o.athenaPassed)return 'Use the unlocked upper ascent, follow Phaedra’s pale stone road, and meet Athena at Olympus Gate.';
+    if(!o.hermesPassed)return `Complete Hermes’s untimed route: ${hermesRoute.join(' → ')}.`;
+    if(!o.zeusTitle&&!record(state.trainers)[zeusId])return 'Follow Hermes’s open route to Zeus. His three-creature summit battle is optional.';
+    if(state.area==='olympusSummit')return `As ${title}, you may try the unclaimed summit bike’s downhill course or take the normal return stair.`;
+    return null;
+  }
+
+  function onTravel(game){
+    if(game)api=game;const state=saved(api),id=api.state.area;
+    if(upperAreas.includes(id)&&!state.gear){moveTo(api,'olympusCave');api.toast?.('You returned safely to Olympus Cave. Climbing gear is required above this point.');return;}
+    if(id==='olympusSummit'&&!state.hermesPassed){moveTo(api,'olympusGate');api.toast?.('Hermes guides you safely back to the navigation gate.');return;}
+    if(!isArea(id))return;
+    if(!state.visited.includes(id)){state.visited.push(id);api.persist?.();}
+    if(id==='hermitHut')state.checkpoint='hermitHut';
+    if(id==='olympusCave'&&state.metForge)state.checkpoint='olympusCave';
+    if(id==='olympusTrail'&&!state.cyclistSeen&&!cyclistCue?.active)cyclistCue={active:true,elapsed:0,shouted:false};
+  }
+
+  function onOutcome(game,outcome){
+    if(game)api=game;
+    if(outcome?.type==='defeat'&&isArea(api.state.area)){
+      const state=saved(api),id=state.checkpoint==='olympusCave'&&api.world.areas.olympusCave?'olympusCave':'hermitHut',area=api.world.areas[id];
+      const location=id==='olympusCave'?'forge':'hermit',safe=point(area.anchors?.[location]||area.spawn,area.spawn);
+      api.healAll?.();api.enterArea?.(id,safe.x,safe.y,false);api.persist?.();
+      api.dialog('Safe mountain recovery',[id==='olympusCave'?'Hephaestus’s forge crew brought your team to the safe ledge and restored everyone.':'Dorian brought your team to the resting hut and restored everyone.','Forge repairs, trials, gear, and discoveries remain safe.']);return true;
+    }
+    if(outcome?.type==='victory'&&outcome.trainerId===zeusId){
+      const state=saved(api);state.zeusTitle=true;api.persist?.();
+      api.dialog(title,[`Zeus names you ${title}. The ${zeusReward}-coin battle award is already in your bag.`,'No badge was added. The regular return stair stays open, and the unclaimed summit bike now offers an optional downhill course.'],[],{character:'zeus'});return true;
+    }
+    return false;
+  }
+
+  function cyclistPosition(){
+    if(!cyclistCue?.active&&cyclistCue?.active!==undefined)return null;if(!cyclistCue)return null;
+    const trail=api?.world?.areas?.olympusTrail,start=trail?.anchors?.cyclistEnd,end=trail?.anchors?.cyclistStart;if(!start||!end)return null;
+    const t=Math.max(0,Math.min(1,cyclistCue.elapsed/3.2));return {x:start.x+(end.x-start.x)*t,y:start.y+(end.y-start.y)*t,progress:t,shouting:cyclistCue.shouted};
+  }
+  function tick(game,dt){
+    if(game)api=game;if(!cyclistCue||api.state.area!=='olympusTrail'||api.state.mode!=='explore')return;
+    cyclistCue.elapsed+=Math.min(.1,Math.max(0,Number(dt)||0));
+    if(!cyclistCue.shouted&&cyclistCue.elapsed>=.55){cyclistCue.shouted=true;saved(api).cyclistSeen=true;api.persist?.();api.toast?.('Woohoo! A helmeted mountain biker sweeps safely past.');}
+    if(cyclistCue.elapsed>=3.2)cyclistCue.active=false;
+  }
+  function drawOverlay(game,ctx,cam){
+    if(game)api=game;if(api?.state?.area!=='olympusTrail')return false;const p=cyclistPosition();if(!p)return false;const x=Math.round(p.x-cam.x),y=Math.round(p.y-cam.y);
+    ctx.save();ctx.translate(x,y);ctx.strokeStyle='#24353c';ctx.lineWidth=3;for(const dx of [-11,11]){ctx.beginPath();ctx.arc(dx,8,7,0,Math.PI*2);ctx.stroke();}
+    ctx.strokeStyle='#e65d3f';ctx.beginPath();ctx.moveTo(-11,8);ctx.lineTo(0,-1);ctx.lineTo(11,8);ctx.lineTo(-4,7);ctx.lineTo(5,-5);ctx.stroke();
+    ctx.fillStyle='#285f9f';ctx.fillRect(-6,-18,12,14);ctx.fillStyle='#f0c5a1';ctx.fillRect(-5,-27,10,9);ctx.fillStyle='#f2ce3f';ctx.fillRect(-7,-30,14,5);
+    if(p.shouting){ctx.fillStyle='#fff8d9';ctx.fillRect(12,-35,62,20);ctx.fillStyle='#22353b';ctx.font='bold 11px sans-serif';ctx.fillText('WOOHOO!',17,-21);}ctx.restore();return true;
+  }
+
+  function openJournal(api){const state=saved(api);api.dialog('Olympus trail notes',[objective(api.state)||'The Olympus paths and their safe returns remain open.',
+    `Forge: ${state.forge.repaired?'repaired':`${state.forge.lavaChannelOpen?'lava channel open':'lava channel blocked'}; ${state.forge.waterCooled?'platform cooled':'platform hot'}`}.`,
+    `Athena: ${state.athenaPassed?'complete':'not complete'}. Hermes: ${state.hermesStep} of 3 markers. Zeus: ${state.zeusTitle?'title earned':'optional challenge unfinished'}.`]);}
+  function actions(game){if(game)api=game;if(!api?.state?.starter||api.battle||api.state.mode!=='explore'||!isArea(api.state.area)||!saved(api).visited.length)return [];
+    return [{id:'olympus-notes',label:'Olympus trail notes',run:()=>openJournal(api)}];}
+
+  return {setup,normalize,interact,actions,objective,onTravel,onOutcome,tick,drawOverlay,isArea,cyclistPosition,
+    _test:{areaIds,upperAreas,zeusId,zeusReward,title,hermesRoute,helper,zeusSpecies,zeusEncounter,chooseHermes,finishBike,openJournal}};
+})();
+if(typeof module!=='undefined'&&module.exports)module.exports=Olympus;
+
 /* Optional companion discoveries. This entire module is omitted from Eli's build. */
 const Extras = (() => {
   const expedition = typeof ExperimentalWorld !== 'undefined' ? ExperimentalWorld : null;
@@ -2363,6 +3322,10 @@ const Extras = (() => {
   const teamwork = typeof ExperimentalTeamwork !== 'undefined' ? ExperimentalTeamwork : null;
   const story = typeof ExperimentalStory !== 'undefined' ? ExperimentalStory : null;
   const music = typeof ExperimentalMusic !== 'undefined' ? ExperimentalMusic : null;
+  const atlantis = typeof Atlantis !== 'undefined' ? Atlantis : null;
+  const seaWorld = typeof AtlantisWorld !== 'undefined' ? AtlantisWorld : null;
+  const olympus = typeof Olympus !== 'undefined' ? Olympus : null;
+  const mountainWorld = typeof OlympusWorld !== 'undefined' ? OlympusWorld : null;
   const island = 'rockisland';
   const puzzles = [
     {id:'frost',name:'The tide channel',x:272,y:325,gate:{x:208,y:259,w:128,h:35},color:'#8bdded',verb:'Freeze the tide',accept:id=>id.startsWith('cloak'),hint:'An Ice Wizard companion can freeze a path across the tide.'},
@@ -2375,6 +3338,7 @@ const Extras = (() => {
     {x:784,y:112,w:48,h:184},{x:928,y:112,w:48,h:184},
     {x:176,y:96,w:192,h:40},{x:480,y:96,w:192,h:40},{x:784,y:96,w:192,h:40}
   ];
+  const forgeBridge={x:18*32,y:10*32,w:4*32,h:2*32};
   let api, lastPosition, portrait;
   const clamp=(n,min,max)=>Math.max(min,Math.min(max,Number(n)||0));
   const inside=(x,y,r,pad=0)=>x>=r.x-pad&&x<=r.x+r.w+pad&&y>=r.y-pad&&y<=r.y+r.h+pad;
@@ -2382,7 +3346,7 @@ const Extras = (() => {
     const e=raw?.experiment||{}, solved={},collected={};
     for(const p of puzzles){solved[p.id]=e.solved?.[p.id]===true;collected[p.id]=solved[p.id]&&e.collected?.[p.id]===true;}
     const trapped=raw?.area===island&&puzzles.some(p=>!solved[p.id]&&inside(Number(raw.x),Number(raw.y),p.gate,7));
-    return {...campaign?.normalize(raw),...research?.normalize(raw),...crossing?.normalize(raw),...story?.normalize(raw),experiment:{clock:clamp(e.clock,0,1e9),boardedAt:clamp(e.boardedAt,0,1e9),shore:typeof e.shore==='string'?e.shore:'harbor',solved,collected,complete:e.complete===true&&puzzles.every(p=>collected[p.id])},...(trapped?{x:576,y:620}:{})};
+    return {...campaign?.normalize(raw),...research?.normalize(raw),...crossing?.normalize(raw),...story?.normalize(raw),...atlantis?.normalize(raw),...olympus?.normalize(raw),experiment:{clock:clamp(e.clock,0,1e9),boardedAt:clamp(e.boardedAt,0,1e9),shore:typeof e.shore==='string'?e.shore:'harbor',solved,collected,complete:e.complete===true&&puzzles.every(p=>collected[p.id])},...(trapped?{x:576,y:620}:{})};
   }
   function extra(){if(!api.state.experiment)Object.assign(api.state,normalize(api.state));return api.state.experiment;}
   function blocked(x,y) {
@@ -2399,22 +3363,27 @@ const Extras = (() => {
     crossing?.setup(api);
     story?.setup(api);
     music?.setup?.(api);
+    seaWorld?.install(api.world, DATA);
+    atlantis?.setup(api);
+    mountainWorld?.install(api.world, DATA);
+    olympus?.setup(api);
     for(const [area,species] of [['second','warrior1'],['temple','mantis1']]){
       const zone=api.world.areas[area]?.encounters?.[0];
       if(zone&&DATA.species[species]&&!zone.pool.includes(species))zone.pool.push(species);
     }
     api.world.areas[island]={id:island,name:'The Walking Mountain',asset:'mapHarbor',w:1152,h:768,spawn:{x:576,y:620},solids:[],walkable:[{x:144,y:104,w:864,h:552}],portals:[],interactions:[],npcs:[],encounters:[],levels:[1,1],battle:'battlePlains'};
     const original={blocked:api.world.blocked,move:api.world.move,safePosition:api.world.safePosition,objective:api.world.objective};
-    api.world.objective=state=>state.area===island?'Explore the three companion paths. Return to the landing to go ashore.':campaign?.objective(state)||original.objective(state);
-    api.world.blocked=(area,x,y)=>area===island?blocked(x,y):original.blocked(area,x,y);
+    api.world.objective=state=>state.area===island?'Explore the three companion paths. Return to the landing to go ashore.':olympus?.objective(state)||atlantis?.objective(state)||campaign?.objective(state)||original.objective(state);
+    const blockedForge=(area,x,y)=>area==='olympusCave'&&!api.state?.olympus?.forge?.repaired&&inside(x,y,forgeBridge,7);
+    api.world.blocked=(area,x,y)=>area===island?blocked(x,y):blockedForge(area,x,y)||original.blocked(area,x,y);
     api.world.move=(area,pos,dx,dy)=>{
-      if(area!==island)return original.move(area,pos,dx,dy);
+      if(area!==island){const moved=original.move(area,pos,dx,dy);return blockedForge(area,moved.x,moved.y)?{x:pos.x,y:pos.y,distance:0}:moved;}
       let x=pos.x,y=pos.y;
       const count=Math.max(1,Math.ceil(Math.hypot(dx,dy)/5));
       for(let i=0;i<count;i++){if(!blocked(x+dx/count,y))x+=dx/count;if(!blocked(x,y+dy/count))y+=dy/count;}
       return {x,y,distance:Math.hypot(x-pos.x,y-pos.y)};
     };
-    api.world.safePosition=(area,x,y)=>area===island?(!Number.isFinite(x)||!Number.isFinite(y)||x<144||x>1008||y<104||y>656||rects.some(r=>inside(x,y,r,7))?{x:576,y:620}:{x,y}):original.safePosition(area,x,y);
+    api.world.safePosition=(area,x,y)=>area===island?(!Number.isFinite(x)||!Number.isFinite(y)||x<144||x>1008||y<104||y>656||rects.some(r=>inside(x,y,r,7))?{x:576,y:620}:{x,y}):blockedForge(area,x,y)?{...api.world.areas[area].spawn}:original.safePosition(area,x,y);
     if(typeof Image!=='undefined'){portrait=new Image();portrait.src=ASSET_SOURCES.rockman;}
   }
   function shores(){return Object.keys(api.world.areas).filter(id=>id!==island&&/harbor|acropolis/i.test(id+' '+api.world.areas[id].name));}
@@ -2425,6 +3394,7 @@ const Extras = (() => {
     return a.spawn;
   }
   function tick(game,dt) {
+    olympus?.tick(game,dt);
     if(!game.state.starter||game.state.mode!=='explore')return;
     const s=game.state,e=extra();
     const moved=lastPosition&&lastPosition.area===s.area?Math.hypot(lastPosition.x-s.x,lastPosition.y-s.y):0;
@@ -2439,7 +3409,7 @@ const Extras = (() => {
     }
     if(!shores().includes(s.area))return null;
     const p=dock(s.area);
-    if(Math.hypot(s.x-p.x,s.y-p.y)<115)return {id:'mountain-board',kind:'extra',label:'Call the walking mountain',x:p.x,y:p.y,radius:115};
+    if(Math.hypot(s.x-p.x,s.y-p.y)<72)return {id:'mountain-board',kind:'extra',label:'Call the walking mountain',x:p.x,y:p.y,radius:72};
     return null;
   }
   function board() {
@@ -2454,6 +3424,8 @@ const Extras = (() => {
   }
   function interact(game,d) {
     if(!d)return false;
+    if(atlantis?.interact(game,d))return true;
+    if(olympus?.interact(game,d))return true;
     if(story?.interact(game,d))return true;
     if(campaign?.interact(game,d))return true;
     if(d.id==='mountain-board'){
@@ -2483,8 +3455,10 @@ const Extras = (() => {
   function journal(){
     const e=extra();api.dialog('Companion discoveries',["A walking mountain travels between the coastal docks. Call it near a boat landing to explore the ruins on its back.",...puzzles.map(p=>(e.collected[p.id]?'Seal restored: ':e.solved[p.id]?'Path open: ':'Unexplored: ')+p.name),"A Frost companion, a strong companion and a Mantis each have a different way to help. Keep them healthy and bring them in your team."]);
   }
-  function actions(){return [...(campaign?.actions(api)||[]),...(research?.actions(api)||[]),...(crossing?.actions(api)||[]),{id:'discoveries',label:'Discoveries',run:journal}];}
+  function actions(){return [...(olympus?.actions(api)||[]),...(atlantis?.actions(api)||[]),...(campaign?.actions(api)||[]),...(research?.actions(api)||[]),...(crossing?.actions(api)||[]),{id:'discoveries',label:'Discoveries',run:journal}];}
   function drawWorld(game,ctx,cam,time) {
+    if(mountainWorld?.draw(game,ctx,cam,time)){olympus?.drawOverlay?.(game,ctx,cam,time);return;}
+    if(seaWorld?.draw(game,ctx,cam,time))return;
     if(expedition?.draw(game,ctx,cam,time))return;
     const s=game.state,e=extra();
     if(s.area!==island){
@@ -2526,7 +3500,12 @@ const Extras = (() => {
     ctx.fillStyle='#162e37bb';ctx.fillRect(cam.x+13,cam.y+13,270,52);ctx.textAlign='left';ctx.fillStyle='#fff1c9';ctx.font='bold 13px monospace';ctx.fillText('THE WALKING MOUNTAIN',cam.x+25,cam.y+35);ctx.font='11px monospace';ctx.fillText(puzzles.filter(p=>e.collected[p.id]).length+' / 3 ancient seals restored',cam.x+25,cam.y+53);
     ctx.restore();
   }
-  return {setup,normalize,tick,nearby,interact,actions,drawWorld,tickAudio:music?.tick,onSoundChange:game=>{if(game.state.muted)music?.stop();},combatOptions:teamwork?.combatOptions,battleActions:teamwork?.battleActions,onBattleEvent:teamwork?.onBattleEvent,drawBattle:teamwork?.drawBattle,onTravel(game){lastPosition=null;campaign?.onTravel?.(game);},onOutcome(game,outcome){return campaign?.onOutcome(game,outcome)||false;},_test:{puzzles,rects,inside}};
+  function battleOffset(game,mon,side,now){
+    if(!seaWorld?.isArea(game.state.area))return null;
+    const reduced=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return {x:0,y:-9+(reduced?0:Math.sin(now/620+(side==='enemy'?1.4:0))*3)};
+  }
+  return {setup,normalize,tick,nearby,interact,actions,drawWorld,tickAudio:music?.tick,onSoundChange:game=>{if(game.state.muted)music?.stop();},combatOptions:teamwork?.combatOptions,battleActions:teamwork?.battleActions,onBattleEvent:teamwork?.onBattleEvent,drawBattle:teamwork?.drawBattle,battleOffset,drawPlayer(game,ctx,options){if(mountainWorld?.isArea(game.state.area)&&game.state.olympus?.backpack){MountainPlayer.draw(ctx,options);return true;}if(!seaWorld?.isArea(game.state.area))return false;ScubaPlayer.draw(ctx,{...options,reducedMotion:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches});return true;},onTravel(game){lastPosition=null;campaign?.onTravel?.(game);atlantis?.onTravel?.(game);olympus?.onTravel?.(game);},onOutcome(game,outcome){return olympus?.onOutcome(game,outcome)||atlantis?.onOutcome(game,outcome)||campaign?.onOutcome(game,outcome)||false;},_test:{puzzles,rects,forgeBridge,inside}};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=Extras;
 
@@ -2696,6 +3675,245 @@ if(typeof module!=='undefined'&&module.exports)module.exports=Extras;
   function getFrame(direction,phase){return cachedFrame(direction,phase).pixels.slice();}
   return {WIDTH,HEIGHT,PALETTE:Object.freeze({...PALETTE}),draw,getFrame};
 });
+
+(function(root,factory){
+  let base=root.PlayerSprite;
+  if(!base&&typeof module!=="undefined"&&module.exports)base=require("./player-sprite.js");
+  const api=factory(base);
+  root.ScubaPlayer=api;
+  if(typeof module!=="undefined"&&module.exports)module.exports=api;
+})(typeof globalThis!=="undefined"?globalThis:this,function(PlayerSprite){
+  "use strict";
+  const WIDTH=24,HEIGHT=32,CACHE=new Map();
+  const PALETTE={
+    outline:"#142832",hairDark:"#39251f",hair:"#5a3527",hairLight:"#8a5234",
+    skinDark:"#995b43",skinShade:"#be7758",skin:"#dfa27a",skinLight:"#f2c39a",
+    suitDeep:"#142d53",suitDark:"#1f4679",suitShade:"#2c64a1",suit:"#3278ba",suitLight:"#68abe0",
+    accentDark:"#15656f",accent:"#248f98",accentLight:"#77d2cf",
+    tankDark:"#53636d",tank:"#8999a0",tankLight:"#c4d1d1",tankGlint:"#edf4ed",
+    goldDark:"#916828",gold:"#d2a641",goldLight:"#f1ce68",
+    glassDark:"#276873",glass:"#70c9d0",glassLight:"#d8fbf2",regulator:"#263b43",
+    finDark:"#142b3c",fin:"#285174",finLight:"#477fa1"
+  };
+  const REMAP={
+    outline:"outline",hairDark:"hairDark",hair:"hair",hairLight:"hairLight",
+    skinDark:"skinDark",skinShade:"skinShade",skin:"skin",skinLight:"skinLight",eye:"outline",
+    creamDark:"suitDark",creamShade:"suitShade",cream:"suit",creamLight:"suitLight",
+    blueDark:"accentDark",blue:"accent",blueLight:"accentLight",
+    packDark:"tankDark",pack:"tank",packLight:"tankLight",
+    trouserDark:"suitDeep",trouser:"suitDark",trouserLight:"suitShade",
+    bootDark:"finDark",boot:"fin",bootLight:"finLight",gold:"gold"
+  };
+
+  function normalizeDirection(value){
+    const d=String(value||"down").toLowerCase();
+    return d==="north"?"up":d==="south"?"down":d==="west"?"left":d==="east"?"right":["up","down","left","right"].includes(d)?d:"down";
+  }
+  function normalizePhase(value){const n=Number(value);return Number.isFinite(n)?((Math.round(n)%4)+4)%4:0;}
+
+  function buildFrame(direction,phase){
+    if(!PlayerSprite||typeof PlayerSprite.getFrame!=="function")throw new Error("ScubaPlayer requires PlayerSprite before atlantis-player.js");
+    const dir=normalizeDirection(direction),p=normalizePhase(phase);
+    const source=PlayerSprite.getFrame(dir,p),pixels=source.map(key=>key?REMAP[key]||"outline":null);
+    const put=(x,y,key)=>{if(x>=0&&x<WIDTH&&y>=0&&y<HEIGHT)pixels[y*WIDTH+x]=key;};
+    const rect=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)put(xx,yy,key);};
+    const span=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)put(x,y,key);};
+    const mirrored=dir==="left",mx=x=>mirrored?WIDTH-1-x:x;
+    const q=(x,y,key)=>put(mx(x),y,key),qr=(x,y,w,h,key)=>{for(let yy=y;yy<y+h;yy++)for(let xx=x;xx<x+w;xx++)q(xx,yy,key);};
+    const qs=(y,x1,x2,key)=>{for(let x=x1;x<=x2;x++)q(x,y,key);};
+
+    function frontGear(){
+      // Twin glass panes leave hair, cheeks, and jaw recognizable.
+      span(7,7,16,"glassDark");rect(8,7,3,2,"glass");rect(13,7,3,2,"glass");
+      put(8,7,"glassLight");put(13,7,"glassLight");put(11,7,"outline");put(12,7,"outline");
+      put(10,10,"outline");put(11,10,"regulator");put(12,10,"regulator");put(13,10,"outline");
+      put(13,11,"regulator");put(14,11,"regulator");put(14,12,"accentDark");put(15,13,"accentDark");put(16,14,"accentDark");put(17,15,"accentDark");
+      // Tank shoulders and harness stay behind the face and read at native size.
+      rect(5,13,2,9,"tankDark");rect(6,14,1,7,"tank");rect(17,13,2,9,"tankDark");rect(17,14,1,7,"tankLight");
+      put(5,16,"gold");put(18,16,"gold");put(5,20,"goldDark");put(18,20,"goldDark");
+      rect(7,14,1,7,"goldDark");rect(16,14,1,7,"gold");span(21,8,15,"gold");put(11,15,"suitLight");put(11,16,"suitLight");put(11,17,"accentLight");
+    }
+    function rearGear(){
+      // Rounded silver air cylinder, valve, twin gold clamps, and center glint.
+      rect(10,11,4,2,"outline");put(11,11,"tankLight");put(12,11,"tankGlint");
+      rect(7,13,10,10,"outline");rect(8,13,8,9,"tankDark");rect(9,13,6,9,"tank");rect(10,14,2,7,"tankLight");put(10,14,"tankGlint");
+      span(16,8,15,"gold");span(17,9,14,"goldDark");span(20,8,15,"gold");put(9,20,"goldLight");
+      put(7,14,"suitDeep");put(16,14,"suitDeep");put(7,21,"suitDeep");put(16,21,"suitDeep");
+      span(7,6,17,"glassDark");put(7,7,"glass");put(16,7,"glassLight");
+    }
+    function profileGear(){
+      // Rear cylinder changes the profile; the mirrored lens and hose preserve facing.
+      qr(4,13,6,10,"outline");qr(5,13,4,9,"tankDark");qr(6,14,3,8,"tank");q(7,14,"tankGlint");
+      qs(16,5,8,"gold");qs(20,5,8,"goldDark");q(7,12,"tankLight");q(8,12,"outline");
+      qs(7,8,17,"glassDark");qr(14,7,4,2,"glass");q(15,7,"glassLight");
+      q(17,9,"outline");q(18,9,"regulator");q(19,10,"regulator");q(18,11,"accentDark");q(17,12,"accentDark");q(16,13,"accentDark");q(15,14,"accentDark");q(14,15,"accentDark");q(13,16,"accentDark");q(12,17,"accentDark");q(11,18,"accentDark");q(10,19,"accentDark");
+      qs(21,9,15,"gold");q(10,15,"suitLight");q(10,16,"accentLight");
+    }
+    function finRow(y,x1,x2){span(y,x1,x2,"finDark");if(x2-x1>2)span(y,x1+1,x2-1,"fin");put(x1+1,y,"finLight");}
+    function finsForwardBack(){
+      if(p===1){finRow(31,4,10);finRow(30,13,18);}
+      else if(p===3){finRow(30,5,11);finRow(31,13,19);}
+      else{finRow(31,5,10);finRow(31,13,18);}
+    }
+    function sideFins(){
+      const row=(y,a,b)=>{for(let x=a;x<=b;x++)q(x,y,x===a||x===b?"finDark":"fin");q(a+1,y,"finLight");};
+      if(p===1){row(31,9,19);row(30,10,17);}
+      else if(p===3){row(30,8,15);row(31,12,21);}
+      else{row(31,8,16);row(31,13,20);}
+    }
+
+    if(dir==="down"){frontGear();finsForwardBack();}
+    else if(dir==="up"){rearGear();finsForwardBack();}
+    else{profileGear();sideFins();}
+    return pixels;
+  }
+
+  function cachedFrame(direction,phase){
+    const dir=normalizeDirection(direction),p=normalizePhase(phase),key=dir+":"+p;
+    if(CACHE.has(key))return CACHE.get(key);
+    const pixels=buildFrame(dir,p);let canvas=null;
+    try{
+      if(typeof OffscreenCanvas!=="undefined")canvas=new OffscreenCanvas(WIDTH,HEIGHT);
+      else if(typeof document!=="undefined"&&document.createElement){canvas=document.createElement("canvas");canvas.width=WIDTH;canvas.height=HEIGHT;}
+      if(canvas){const c=canvas.getContext("2d");c.imageSmoothingEnabled=false;for(let i=0;i<pixels.length;i++)if(pixels[i]){c.fillStyle=PALETTE[pixels[i]];c.fillRect(i%WIDTH,Math.floor(i/WIDTH),1,1);}}
+    }catch(_){canvas=null;}
+    const result={pixels,canvas};CACHE.set(key,result);return result;
+  }
+  function drawBubbles(ctx,x,y,direction,scale,time,reducedMotion){
+    const dir=normalizeDirection(direction),t=Number.isFinite(Number(time))?Number(time):0;
+    const originX=dir==="right"?9:dir==="left"?-9:dir==="up"?5:1;
+    const originY=-21,staticProgress=[.16,.48,.79];
+    ctx.fillStyle="rgba(190,247,245,.86)";
+    for(let i=0;i<3;i++){
+      const progress=reducedMotion?staticProgress[i]:((t/1800+i*.36)%1+1)%1;
+      const drift=reducedMotion?[0,-2,1][i]:Math.round(Math.sin(t/310+i*2.1)*2);
+      const bx=Math.round(x+(originX+drift)*scale),by=Math.round(y+(originY-4-progress*13)*scale),u=Math.max(1,scale),size=i===1?3:2;
+      ctx.fillRect(bx,by,u*size,u);ctx.fillRect(bx,by+u*(size-1),u*size,u);
+      if(size>2){ctx.fillRect(bx,by+u,u,u);ctx.fillRect(bx+u*(size-1),by+u,u,u);}
+    }
+  }
+  function draw(ctx,options){
+    options=options||{};const requested=Number(options.scale),scale=Number.isFinite(requested)&&requested>0?Math.min(4,requested):1;
+    const x=Math.round(Number(options.x)||0),y=Math.round(Number(options.y)||0),dir=normalizeDirection(options.direction),p=normalizePhase(options.phase);
+    const left=x-WIDTH*scale/2,top=y-HEIGHT*scale;
+    ctx.save();
+    if(options.shadow!==false){ctx.fillStyle="rgba(8,35,46,.26)";ctx.fillRect(x-8*scale,y-2*scale,16*scale,2*scale);ctx.fillRect(x-5*scale,y-3*scale,10*scale,scale);}
+    drawBubbles(ctx,x,y,dir,scale,options.time,options.reducedMotion===true);
+    const asset=cachedFrame(dir,p);ctx.imageSmoothingEnabled=false;
+    if(asset.canvas&&typeof ctx.drawImage==="function")ctx.drawImage(asset.canvas,left,top,WIDTH*scale,HEIGHT*scale);
+    else for(let i=0;i<asset.pixels.length;i++)if(asset.pixels[i]){ctx.fillStyle=PALETTE[asset.pixels[i]];ctx.fillRect(left+(i%WIDTH)*scale,top+Math.floor(i/WIDTH)*scale,scale,scale);}
+    ctx.restore();
+  }
+  function frame(direction,phase){return cachedFrame(direction,phase).pixels.slice();}
+  return {width:WIDTH,height:HEIGHT,WIDTH,HEIGHT,PALETTE:Object.freeze({...PALETTE}),draw,frame};
+});
+
+/* The same young explorer, with Hephaestus's hiking pack. */
+const MountainPlayer = (() => {
+  function draw(ctx,o){
+    PlayerSprite.draw(ctx,o);
+    const s=o.scale||1,dir=o.direction||'down',bob=o.phase===2?-1:0;
+    ctx.save();ctx.translate(Math.round(o.x)-12*s,Math.round(o.y)-32*s+bob*s);ctx.scale(s,s);
+    const r=(x,y,w,h,c)=>{ctx.fillStyle=c;ctx.fillRect(x,y,w,h);};
+    if(dir==='up'){
+      r(4,11,16,14,'#263445');r(5,12,14,12,'#a95734');r(7,14,10,9,'#d38145');
+      r(4,10,16,4,'#35658d');r(5,10,14,1,'#79a4b5');r(7,11,2,3,'#e6c975');r(15,11,2,3,'#e6c975');
+      r(7,17,10,1,'#8e422e');r(11,16,2,3,'#f1d780');r(4,15,2,7,'#753e2d');r(18,15,2,7,'#753e2d');
+      r(19,10,2,14,'#4b5559');r(18,10,5,2,'#b0c3c8');
+    }else if(dir==='left'||dir==='right'){
+      const x=dir==='right'?3:15;
+      r(x,11,7,14,'#263445');r(x+1,12,5,12,'#b76238');r(x+2,13,3,9,'#d78c51');
+      r(x-1,10,9,4,'#35658d');r(x,10,7,1,'#79a4b5');r(x+3,10,1,4,'#e6c975');
+      r(x+1,19,5,1,'#8e422e');r(x+3,18,1,3,'#f1d780');
+    }else{
+      r(4,12,3,10,'#773f2d');r(17,12,3,10,'#773f2d');r(5,12,2,9,'#bd7541');r(17,12,2,9,'#bd7541');
+      r(6,14,1,7,'#d6a15f');r(16,14,1,7,'#d6a15f');r(6,19,11,1,'#8d502e');r(11,18,2,3,'#e4c16e');
+      r(4,10,3,3,'#35658d');r(17,10,3,3,'#35658d');
+    }
+    ctx.restore();
+  }
+  return {draw};
+})();
+if(typeof module!=='undefined'&&module.exports)module.exports=MountainPlayer;
+
+/* Optional first-person downhill ride. No combat damage or failure state. */
+const MountainRide = (() => {
+  const LENGTH=6000,MAX_SPEED=180;
+  let active=null;
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  function create(){return {distance:0,lane:0,speed:120,bumps:0,visualTime:0,paused:false,finished:false,hit:new Set(),rocks:Array.from({length:26},(_,i)=>({z:350+i*215,lane:[-.58,.42,-.05,.65,-.45,.18][i%6]}))};}
+  function advance(s,dt,steer){
+    if(s.paused||s.finished)return;
+    dt=clamp(Number(dt)||0,0,.05);s.visualTime+=dt*1000;s.lane=clamp(s.lane+steer*dt*1.7,-.85,.85);
+    s.speed=Math.min(MAX_SPEED,s.speed+dt*22);s.distance+=s.speed*dt;
+    for(let i=0;i<s.rocks.length;i++){
+      const rock=s.rocks[i],gap=rock.z-s.distance;
+      if(gap<14&&gap>-16&&!s.hit.has(i)){
+        s.hit.add(i);if(Math.abs(rock.lane-s.lane)<.21){s.bumps++;s.speed=Math.max(75,s.speed*.60);}
+      }
+    }
+    if(s.distance>=LENGTH){s.distance=LENGTH;s.finished=true;}
+  }
+  function curve(d){return Math.sin(d/1150)*.38+Math.sin(d/530)*.12;}
+  function draw(ctx,s,time,reduced){
+    const W=320,H=200,horizon=57,travel=s.distance,animationTime=Number.isFinite(s.visualTime)?s.visualTime:time;
+    ctx.fillStyle='#98d5ec';ctx.fillRect(0,0,W,H);
+    const poly=(points,color)=>{ctx.fillStyle=color;ctx.beginPath();points.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();};
+    poly([[0,74],[38,22],[73,51],[112,13],[171,73]],'#7e93ad');poly([[122,77],[188,20],[215,49],[272,6],[320,58],[320,96]],'#677d98');
+    poly([[87,38],[112,13],[129,34],[115,29],[107,32]],'#f6f1de');poly([[252,28],[272,6],[289,25],[275,19],[267,23]],'#f6f1de');
+    ctx.fillStyle='#edf2dd';ctx.fillRect(16,18,34,3);ctx.fillRect(24,15,15,4);ctx.fillRect(190,9,32,3);
+    const centerAt=(y)=>160+(curve(travel+(H-y)*8)-curve(travel))*110-s.lane*(y-horizon)*.50;
+    for(let y=horizon;y<H;y+=2){
+      const depth=(y-horizon)/(H-horizon),half=8+depth*166,center=centerAt(y),stripe=Math.floor(travel/16+25/(depth+.07));
+      ctx.fillStyle=stripe%2?'#a99775':'#a18f6d';ctx.fillRect(0,y,W,2);
+      ctx.fillStyle=stripe%3?'#e0ca96':'#d7bd85';ctx.fillRect(center-half,y,half*2,2);
+      ctx.fillStyle='#ede0b9';ctx.fillRect(center-half,y,Math.max(1,depth*4),2);ctx.fillRect(center+half,y,Math.max(1,depth*4),2);
+      if(stripe%5===0){ctx.fillStyle='#bda271';ctx.fillRect(center+half*.15,y,Math.max(1,depth*7),2);}
+    }
+    const project=(distance,lane)=>{const near=1-clamp(distance/950,0,1),scale=near*near,y=horizon+scale*(H-horizon);return {x:centerAt(y)+lane*(8+scale*166),y,scale};};
+    for(let i=0;i<17;i++){
+      const z=((i*170-travel)%2800+2800)%2800;if(z>950)continue;
+      const side=i%2?1:-1,p=project(z,side*1.2),w=Math.max(2,18*p.scale),h=Math.max(4,65*p.scale);
+      ctx.fillStyle='#514839';ctx.fillRect(p.x-w*.13,p.y-h*.3,w*.26,h*.3);
+      poly([[p.x-w,p.y-h*.22],[p.x,p.y-h],[p.x+w,p.y-h*.22]],i%3?'#4e675b':'#6b7a5a');
+    }
+    for(let i=s.rocks.length-1;i>=0;i--){const r=s.rocks[i],z=r.z-travel;if(z<0||z>950)continue;const p=project(z,r.lane),w=3+p.scale*24,h=3+p.scale*16;
+      poly([[p.x-w,p.y],[p.x-w*.7,p.y-h],[p.x+w*.35,p.y-h*1.1],[p.x+w,p.y-h*.4],[p.x+w,p.y]],'#626976');
+      poly([[p.x-w*.7,p.y-h],[p.x+w*.35,p.y-h*1.1],[p.x+w*.6,p.y-h*.6],[p.x-w*.3,p.y-h*.4]],'#9ca4ad');
+    }
+    if(!reduced&&s.speed>125){
+      ctx.strokeStyle='#f3ecce99';ctx.lineWidth=1;
+      for(let i=0;i<8;i++){const y=68+(i*19+animationTime/18)%108;ctx.beginPath();ctx.moveTo(i%2?314:6,y);ctx.lineTo(i%2?292:28,y-16);ctx.stroke();}
+    }
+    const lean=-s.lane*6,bob=reduced?0:Math.sin(animationTime/65)*Math.min(1.2,s.speed/150);
+    ctx.save();ctx.translate(lean,bob);ctx.strokeStyle='#293849';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(85,197);ctx.lineTo(88,173);ctx.lineTo(120,165);ctx.lineTo(160,181);ctx.lineTo(200,165);ctx.lineTo(232,173);ctx.lineTo(235,197);ctx.stroke();
+    ctx.strokeStyle='#b9c3c7';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(89,174);ctx.lineTo(120,168);ctx.lineTo(160,184);ctx.lineTo(200,168);ctx.lineTo(231,174);ctx.stroke();
+    ctx.fillStyle='#25558a';ctx.fillRect(77,172,18,9);ctx.fillRect(225,172,18,9);ctx.fillStyle='#e1a47c';ctx.fillRect(85,171,12,7);ctx.fillRect(224,171,12,7);ctx.restore();
+    ctx.fillStyle='#17304f';ctx.fillRect(6,6,102,17);ctx.fillStyle='#fff4d6';ctx.font='bold 9px monospace';ctx.fillText(s.paused?'PAUSED':'WOOHOO!',13,18);
+    ctx.fillStyle='#17304f';ctx.fillRect(210,6,103,12);ctx.fillStyle='#edc55e';ctx.fillRect(212,8,99*s.distance/LENGTH,8);
+  }
+  function start(game,options={}){
+    if(active)return false;
+    const s=create(),abort=new AbortController(),pressed=new Set(),reduced=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    game.panel('<h2>Downhill from Olympus</h2><p>Steer with A / D or ← / →. Rocks slow you down; there is no losing.</p><canvas id="mountainRideCanvas" width="320" height="200" aria-label="First-person downhill mountain bike ride" style="display:block;width:100%;image-rendering:pixelated;border:3px solid #223f66;background:#98d5ec"></canvas><p id="rideStatus" aria-live="polite">Follow the trail to the foothills.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button id="rideLeft" style="flex:1;touch-action:none;min-height:54px" aria-label="Steer left">◀ LEFT</button><button id="rideRight" style="flex:1;touch-action:none;min-height:54px" aria-label="Steer right">RIGHT ▶</button><button id="ridePause">Pause</button><button id="rideSkip">Skip ride</button></div>','ride');
+    const canvas=document.getElementById('mountainRideCanvas'),ctx=canvas.getContext('2d'),overlay=document.getElementById('overlay'),status=document.getElementById('rideStatus');
+    let raf=0,last=0,lastBumps=0,done=false;
+    const finish=skipped=>{if(done)return;done=true;cancelAnimationFrame(raf);abort.abort();active=null;game.closePanel();(skipped?options.onSkip||options.onFinish:options.onFinish)?.({skipped,bumps:s.bumps});};
+    const pause=()=>{s.paused=!s.paused;document.getElementById('ridePause').textContent=s.paused?'Resume':'Pause';};
+    for(const [id,key]of[['rideLeft','left'],['rideRight','right']]){
+      const el=document.getElementById(id);el.addEventListener('pointerdown',e=>{e.preventDefault();el.setPointerCapture(e.pointerId);pressed.add(key);},{signal:abort.signal});
+      for(const name of ['pointerup','pointercancel','lostpointercapture'])el.addEventListener(name,()=>pressed.delete(key),{signal:abort.signal});
+    }
+    const keyEvent=(e,down)=>{const key=e.key.toLowerCase();if(['a','d','arrowleft','arrowright','escape',' '].includes(key)){e.preventDefault();e.stopImmediatePropagation();if(key==='escape'&&down)finish(true);else if(key===' '&&down&&!e.repeat)pause();else if(['a','d','arrowleft','arrowright'].includes(key)){const dir=['a','arrowleft'].includes(key)?'left':'right';down?pressed.add(dir):pressed.delete(dir);}}};
+    document.addEventListener('keydown',e=>keyEvent(e,true),{capture:true,signal:abort.signal});document.addEventListener('keyup',e=>keyEvent(e,false),{capture:true,signal:abort.signal});
+    window.addEventListener('blur',()=>pressed.clear(),{signal:abort.signal});document.getElementById('ridePause').addEventListener('click',pause,{signal:abort.signal});document.getElementById('rideSkip').addEventListener('click',()=>finish(true),{signal:abort.signal});
+    active={state:s,finish};
+    const frame=now=>{if(done)return;if(!canvas.isConnected||overlay.hidden){finish(true);return;}const dt=last?Math.min(.05,(now-last)/1000):0;last=now;if(!document.hidden)advance(s,dt,(pressed.has('right')?1:0)-(pressed.has('left')?1:0));draw(ctx,s,now,reduced);if(s.bumps!==lastBumps){status.textContent='Bump! Keep steering—your speed will build back up.';lastBumps=s.bumps;}if(s.finished){finish(false);return;}raf=requestAnimationFrame(frame);};
+    raf=requestAnimationFrame(frame);return true;
+  }
+  return {start,get active(){return !!active;},_test:{create,advance,draw,curve,LENGTH,MAX_SPEED}};
+})();
+if(typeof module!=='undefined'&&module.exports)module.exports=MountainRide;
 
 /* Browser presentation, input, saves and services. World and Combat own rules. */
 const Game = (() => {
@@ -2880,7 +4098,8 @@ const Game = (() => {
   function dialog(title, text, buttons = [], options = {}) {
     const lines = Array.isArray(text) ? text : [text];
     const choices = buttons.length ? buttons : [{label:"Continue",run:closePanel,primary:true}];
-    const art=(options.portraits||[]).filter(known).slice(0,2).map(id=>portrait(id,120)).join('');
+    const character=DATA.characters?.[options.character];
+    const art=character && ASSET_SOURCES[character.asset] ? `<img src="${ASSET_SOURCES[character.asset]}" alt="${esc(character.name)}" style="height:112px;max-width:160px;object-fit:contain;image-rendering:pixelated">` : (options.portraits||[]).filter(known).slice(0,2).map(id=>portrait(id,120)).join('');
     panel(`<div class="eyebrow">Greek adventure</div><h2>${esc(title)}</h2>${art?`<div class="welcome-art">${art}</div>`:''}${lines.map(line => `<p>${esc(line)}</p>`).join("")}<div class="choices">${choices.map((item,i) => button(item.label,`dialog-${i}`,item.primary ? "primary" : "")).join("")}</div>`);
     choices.forEach((item,i) => panelCallbacks.set(`dialog-${i}`, item.run || closePanel));
   }
@@ -3291,7 +4510,7 @@ const Game = (() => {
     renderHUD();
     Extras?.onTravel?.(api);
     persist();
-    if(announce)toast(world.areas[area].name);
+    if(announce)toast(world.areas[state.area]?.name || world.areas[area].name);
     return true;
   }
 
@@ -3407,8 +4626,11 @@ const Game = (() => {
     const closest=state.mode==="explore" ? nearest() : null;
     for(const npc of area.npcs || []) {
       if(npc.painted)continue;
-      const x=(npc.x ?? npc.position?.x)-camX,y=(npc.y ?? npc.position?.y)-camY;
-      if(npc.id==="professor" && images.professor)drawFitted(images.professor,x-19,y-53,38,57);
+      const x=(npc.x ?? npc.position?.x)-camX,baseY=(npc.y ?? npc.position?.y)-camY;
+      const reduced=typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const y=baseY+(npc.floating&&!reduced?Math.sin(now/(npc.bobPeriod||800)+(npc.bobPhase||0))*(npc.bobAmplitude||3):0);
+      if(npc.asset && images[npc.asset]){const h=npc.height||52;drawFitted(images[npc.asset],x-h*.45,y-h+4,h*.9,h);}
+      else if(npc.id==="professor" && images.professor)drawFitted(images.professor,x-19,y-53,38,57);
       else drawPerson(x,y,npc.color || "#708050",false);
     }
     for(const item of area.interactions || []) {
@@ -3417,7 +4639,7 @@ const Game = (() => {
       const near=Math.hypot(x-state.x,y-state.y)<180;
       if(!near)continue;
       const active=closest?.id===item.id;
-      const symbol={heal:"+",mart:"¤",gym:"★",trainer:"!",tutor:"↑",travel:"≈",museum:"i",home:"⌂"}[item.kind] || "·";
+      const symbol={heal:"+",mart:"¤",gym:"★",trainer:"!",tutor:"↑",travel:"≈",museum:"i",home:"⌂",atlantis_beacon:"◇",atlantis_naiad:"?",atlantis_nereid:"?",atlantis_archive:"i",atlantis_siren_house:"♫",atlantis_poseidon:"★",olympus_entry:"↗",olympus_hermit:"?",olympus_oread:"?",olympus_forge:"⚒",olympus_forge_step:"◆",olympus_ascent:"↗",olympus_gate_entry:"↗",olympus_athena:"?",olympus_hermes:"?",olympus_zeus:"★",olympus_bike:"↘"}[item.kind] || "·";
       drawMarker(x-camX,y-camY-18,symbol,active);
     }
     drawPerson(state.x-camX,state.y-camY,"#f2ede0",true,now);
@@ -3436,7 +4658,8 @@ const Game = (() => {
     ctx.fillText(symbol,x,y+.5);ctx.restore();
   }
 
-  function drawPlayerSprite(x,y,direction,phase) {
+  function drawPlayerSprite(x,y,direction,phase,time) {
+    if(Extras?.drawPlayer?.(api,ctx,{x:Math.round(x),y:Math.round(y)+2,direction,phase,scale:1.5,shadow:false,time}))return;
     PlayerSprite.draw(ctx,{x:Math.round(x),y:Math.round(y)+2,direction,phase,scale:1.5,shadow:false});
   }
 
@@ -3446,7 +4669,7 @@ const Game = (() => {
     ctx.restore();
     if(player) {
       const phase=playerMoving ? [1,2,3,2][Math.floor(playerWalkDistance/18)%4] : 0;
-      drawPlayerSprite(x,y,facing,phase);
+      drawPlayerSprite(x,y,facing,phase,now);
       return;
     }
     ctx.save();ctx.translate(Math.round(x),Math.round(y));
@@ -3479,7 +4702,8 @@ const Game = (() => {
       ctx.save();
       if(animation.side===side && now<animation.until && animation.type==="capture")ctx.globalAlpha=.35+.3*Math.sin(now/45);
       const img=images[species[mon.species].asset],drawH=h*(species[mon.species].portraitScale || 1),drawW=drawH*img.width/img.height;
-      drawFitted(img,x+(w-drawW)/2+(animation.side===side ? motion : 0),y+h-drawH,drawW,drawH,side==="player");
+      const offset=Extras?.battleOffset?.(api,mon,side,now)||{x:0,y:0};
+      drawFitted(img,x+(w-drawW)/2+(animation.side===side ? motion : 0)+(Number(offset.x)||0),y+h-drawH+(Number(offset.y)||0),drawW,drawH,side==="player");
       ctx.restore();
     }
     drawMon(enemy,"enemy",420,70,290,260);
