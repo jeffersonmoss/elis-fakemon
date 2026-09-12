@@ -454,9 +454,9 @@ img,canvas{image-rendering:pixelated}
 <div id="toast" role="status" aria-live="polite"></div><input id="importInput" type="file" accept="application/json,.json" hidden>
 <script>
 "use strict";
-const ASSET_SOURCES = {"cloak1":"../assets/c6e9b23ef6cc6ab34e7cc12b61988f4cb37625357b433c5c74942d9cf212a4d1.png","cloak2":"../assets/33057b5e1af27b90c5aa15ed155f8d85877de7994face54a601f601ab63cba71.png","cloak3":"../assets/450e475a931e43b9ba6c86e5cc8392cfad9b084079117d555dfd4ed7cdee66f0.png","warrior1":"../assets/ef5b63046ca7e978ef7b5c45c1fd6874793a4a441231c1728fb4f004070ae645.png","warrior2":"../assets/780a0803db31ba775adaf86c6ffd58ac8b71eae247ab2334983d3f5ac3bc8e66.png","warrior3":"../assets/153db6a1e8c244b19eda4f2cc1de685cf6af7446b5b52eecb79549e32d3416c0.png","wheat1":"../assets/7483bbd631060051123f2ed5450791173ee39648dbed24b9758621cf31f5d1dc.png","wheat2":"../assets/f7f77b7dfd2e8b28aee43274d6d18de273315f5abce588a73f5e7a49736dcf5c.png","wheat3":"../assets/ce91f0ec91480d5bb36a0112ed5799538a08426387016b3b705eed49bc59b8bb.png","mantis1":"../assets/69443c19c3ba0322f1881e5f01b1caf9249f43ad378e234fbdf693035f9d1b62.png","mantis2":"../assets/9e00b1cf4609b33dbcf54703882ba1b0a2fdb613830a28571db8b4915b5c4b07.png","mantis3":"../assets/0e2652f9fc7ef0f037d7ac3bc6686f5102441c250a78b7e2b4b5a31aff750565.png","cyclops1":"../assets/924f569c5c8a388b8bda0847f7fcbb875b6ae7fc0b4db82e926976efd9ad5d01.png","cyclops2":"../assets/f6f09f694d862065df251699786a4daf4d0413bfcc664e59ff79e17eec9b22d0.png","cyclops3":"../assets/9f7ae133faa17161aad403e02512156f7d9b976dc8286f582e8df556b4e63550.png","satyr1":"../assets/bb73c1af3e2f07f3f936c0f31e393cd1d4571c6fa8533f619cca0a4e5b9905f2.png","satyr2":"../assets/cbfc27b47ea50c33b822ae32775422b573c26d61924c839d9b9e2d4c1fb36caf.png","minotaur":"../assets/24bc7b07573bc4206648bfb04d9ce9ab8cfb18ad3d9b00d9afe5f4719ed0561c.png","gorgon1":"../assets/da132aa4f317eefa2c650e4bab135ec9ad3fc6cfbedeed7d85fc3ee577c3a711.png","gorgon2":"../assets/6f221eefb49862649347706f242cedafeb5094cfcdff45c36e74e4442696660a.png","gorgon3":"../assets/dfad962ce7ca6c262fe411059a5784c1feff5bdeb762e6f5e07659b8fbb7351e.png","ent1":"../assets/00a04868c83b3b9be85258d5c3fab271a6f9796e7cf1f6341a5a6d65156e68e0.png","ent2":"../assets/e5c54f6451effbe08ae4a7c09253cbb3983b42299881a68ba245a7204638ed7d.png","ent3":"../assets/7fce366cb542738159463451a35ad1a4330466c9f621bf210ed7b58e046a1ad8.png","nautilus1":"../assets/4a966501eb4dc5461c6eb7ad88b10bbbc7fe9c580590b0e6b1278743e781ad49.png","nautilus2":"../assets/8597babe9c5bf01222dc515cb1bdc62d3d1ff2a5bc91377cb2f61b30927c262e.png","octopus":"../assets/9a31a31fdd3ce6e2676e1445aee429fcca591ff83d09b4c6cd6e1435135a79da.png","rockman":"../assets/986f9676d2593c93704c8aed1e9b1f6a5f2660d53dcea51fa622c22a3c372c86.png","pug":"../assets/bff684111bd1d7ee3159e1c381080590a22f47a8a24e8427c3c004128a3219c1.png","siren1":"../assets/91ad5ea81cc97b924e09ecccbdd7c16c576a38fc871a84ab212e039546198b7c.png","professor":"../assets/82eaf540cf145954c7c2400e5833683e4b70eac2aa38aa6b830baf974ff7e93e.png","mapWorld":"../assets/bbcdd8ac1dcc58e7b959ed81768a5733dc7140df0e958d62e5f2ecdd45d4ed01.png","mapVillage":"../assets/af1fda092d40008955af1ecde1ee8e6781f1ea1f6121937e4ef249dc89275a1e.png","mapSecond":"../assets/231c4f369f04ab544453a53631cf1ec7b3878576554b54617655953bdef68ea7.png","mapCave":"../assets/6409663b63a65548bd6c6e137ae9e879c0d77b69a452ad6c04b0ee2c2d02015f.png","mapDesert":"../assets/17015dc72fb86f5e12a98fbe0ff7ae8f2fe7c688540a9a4b7a802291c73193f5.png","mapTemple":"../assets/8a23d71d16b907e985a9c938c9e8fccac87b6c47dbfc4f47e23fc531a89f89ab.png","mapHarbor":"../assets/202a4180f547f134ae132ce0e52cfa80efc4d53d3b919be6d5418d3d48953e7e.png","mapNextHarbor":"../assets/6b54b9191f9d6c97e80e9211bafafd1d4e6975d2df70a10d282983f36daf98c5.png","mapAcropolis":"../assets/d45aa08b6bd994e6b054dc0fb3d20b4018ec6c1bcb75a6698943dc7b7dd3400c.png","battleCave":"../assets/4fd1178848933ed7a741cbc6d0eced9783c4ee5f85399db053dd18227181380f.png","battleForest":"../assets/67c379f104b86872b3b07bb93cc3bf24784d9555578a87bf24f5d32d2b374a6d.png","battlePlains":"../assets/c7bb3b3efc671407a51c3ca8581898ab779cb86c30677b15c13d8e1dd02a1b32.png","battleComposite":"../assets/305f8d504e4f2f0f3490cb57c54523f8b664ca55c4141c1f6095fe6bf028825e.png","battleGym":"../assets/ca17e03a9e1bf6e5a86b0fd0badac32a1168df401cdc92affa57c14633851d29.png","sheet":"../assets/5e46969f73e9c2ba146b740e81435e3c4d991ca2439b3ca9087e651e6988eb24.png","hippocamp1":"../assets/922c50b1815c91debe324a96559672584e298a3ccdd26cfb603f68595a682e39.png","hippocamp2":"../assets/2dfc0345b048247699831c79815acf5f3c3fae98e34db6d73a7c36b2ea756d0c.png","hippocamp3":"../assets/9d26fdee5081b5218d3dd745576706324f3d359dda6d90284e7fabc93cc21cd5.png","triton1":"../assets/622370e174407497e478c4d65e2f59417377d0c2177dbda2822058854dc09f41.png","triton2":"../assets/e1586fec8e29768b1e9b434c29e599794773143090406b9fe286ce6f91048c14.png","triton3":"../assets/3ba5b6a81d9a36224c9e8df830b9630b80b400361fb1f8e1b1c0ce91a04690be.png","siren2":"../assets/8146e5b9bf1fe01f2a69767f9f5fdbeb73296bd27af3fc0dda4422bee359d660.png","siren3":"../assets/3924ef9215cf8c215a26b9a775b752f2c1744fdb7d3a351546602a9b5764cf81.png","naiad":"../assets/02406dfb6c9e6662311c00eab32463d20b655273b307e2b8a62b2e5738a320b0.png","nereid":"../assets/eec6c840cd341d3b8f2aeb3e908b95d074228587f6ead1d17294caa65faa488d.png","poseidon":"../assets/1a05cb248c5760be4b72f65079570f2453e797f0b444271616bbd1d975efb734.png","battleAtlantis":"../assets/2293fdcefd7660a03bda350e2a2662ec6628fab071d6e392d3f9e361dc427179.png","chimera1":"../assets/63821c8e66ab5ee61eade8effb40551c4afa5e03b60bd96e7cfa2d4baa67fff4.png","chimera2":"../assets/cd8919c9a8bb89dd25ad2115c7d9f45d76d427d6085c8c345ce9f1974eaf9eea.png","chimera3":"../assets/a8bee6ef30ee49f52621f32bb6f085363a7ca3df7522667aa6004b289febecce.png","hermit":"../assets/2049d939a612906fe642ada3d27f6d4f024553d373ca7366f42f0b3f249e22d8.png","hephaestus":"../assets/5677b175118c3135da063a1041b71ca8c6ba2028536fed262eb36f7cd0f3a770.png","zeus":"../assets/71dd21872e3334ea40f554288dde088cb80a5988ce0fc77f2a2055be497d076c.png","oread":"../assets/1495992882c5e583286d18005b60ee0e3cc88f2505277dbe8186b23d589780f2.png","athena":"../assets/19d7d07e45e827bfdf814d8d2e80cd1fffe8826a5a14274bdc738269f44a42c3.png","hermes":"../assets/70d29dca8e403268d3e50a1ba08f1295ed1ab81c5830626df83ef6b6460f39d1.png"};
-const DATA = {"id":"experimental","release":"experimental","version":2,"schemaVersion":2,"saveKey":"fakemon-jefferson-experimental-v2","title":"Jefferson's Experimental version","species":{"cloak1":{"id":"cloak1","number":1,"name":"Ice Wizard 1","family":"ice-wizard","asset":"cloak1","type":"Frost","stage":1,"next":"cloak2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 1 can be found around caves and old ruins.","displayScale":0.6,"portraitScale":0.4909090909090909},"cloak2":{"id":"cloak2","number":17,"name":"Ice Wizard 2","family":"ice-wizard","asset":"cloak2","type":"Frost","stage":2,"next":"cloak3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 2 can be found around caves and old ruins.","displayScale":0.78,"portraitScale":0.9242424242424242},"cloak3":{"id":"cloak3","number":18,"name":"Ice Wizard 3","family":"ice-wizard","asset":"cloak3","type":"Frost","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 3 can be found around caves and old ruins.","displayScale":1.0,"portraitScale":0.9666666666666667},"warrior1":{"id":"warrior1","number":19,"name":"Blue Warrior 1","family":"blue-warrior","asset":"warrior1","type":"Metal","stage":1,"next":"warrior2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 1 can be found around marble towns.","displayScale":0.6,"portraitScale":0.4484848484848485},"warrior2":{"id":"warrior2","number":3,"name":"Blue Warrior 2","family":"blue-warrior","asset":"warrior2","type":"Metal","stage":2,"next":"warrior3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 2 can be found around marble towns.","displayScale":0.78,"portraitScale":0.5848484848484848},"warrior3":{"id":"warrior3","number":4,"name":"Golden Warrior 3","family":"blue-warrior","asset":"warrior3","type":"Metal","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Golden Warrior 3 can be found around marble towns.","displayScale":1.0,"portraitScale":1.0},"wheat1":{"id":"wheat1","number":6,"name":"Wheat 1","family":"wheat","asset":"wheat1","type":"Leaf","stage":1,"next":"wheat2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Wheat fields","description":"Wheat 1 can be found around wheat fields.","displayScale":0.6,"portraitScale":0.6},"wheat2":{"id":"wheat2","number":7,"name":"Wheat 2","family":"wheat","asset":"wheat2","type":"Leaf","stage":2,"next":"wheat3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat 2 can be found around wheat fields.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat3":{"id":"wheat3","number":8,"name":"Wheat Wagon 3","family":"wheat","asset":"wheat3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat Wagon 3 can be found around wheat fields.","displayScale":1.0,"portraitScale":1.0},"mantis1":{"id":"mantis1","number":9,"name":"White-Belt Mantis 1","family":"mantis","asset":"mantis1","type":"Fight","stage":1,"next":"mantis2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"White-Belt Mantis 1 can be found around temple grass.","displayScale":0.6,"portraitScale":0.6},"mantis2":{"id":"mantis2","number":10,"name":"Black-Belt Mantis 2","family":"mantis","asset":"mantis2","type":"Fight","stage":2,"next":"mantis3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Black-Belt Mantis 2 can be found around temple grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"mantis3":{"id":"mantis3","number":22,"name":"Mantis Master 3","family":"mantis","asset":"mantis3","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Mantis Master 3 can be found around temple grass.","displayScale":1.0,"portraitScale":1.0},"cyclops1":{"id":"cyclops1","number":11,"name":"Cyclops 1","family":"cyclops","asset":"cyclops1","type":"Stone","stage":1,"next":"cyclops2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 1 can be found around outer harbor grass.","displayScale":0.6,"portraitScale":0.49393939393939396},"cyclops2":{"id":"cyclops2","number":23,"name":"Cyclops 2","family":"cyclops","asset":"cyclops2","type":"Stone","stage":2,"next":"cyclops3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 2 can be found around outer harbor grass.","displayScale":0.78,"portraitScale":0.6484848484848484},"cyclops3":{"id":"cyclops3","number":24,"name":"Cyclops 3","family":"cyclops","asset":"cyclops3","type":"Stone","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 3 can be found around outer harbor grass.","displayScale":1.0,"portraitScale":1.0},"satyr1":{"id":"satyr1","number":14,"name":"Satyr 1","family":"satyr-minotaur","asset":"satyr1","type":"Fight","stage":1,"next":"satyr2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 1 can be found around village grass.","displayScale":0.6,"portraitScale":0.6},"satyr2":{"id":"satyr2","number":15,"name":"Satyr 2","family":"satyr-minotaur","asset":"satyr2","type":"Fight","stage":2,"next":"minotaur","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 2 can be found around village grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"minotaur":{"id":"minotaur","number":16,"name":"Minotaur 3","family":"satyr-minotaur","asset":"minotaur","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Acropolis grass","description":"Minotaur 3 can be found around acropolis grass.","displayScale":1.0,"portraitScale":1.0},"gorgon1":{"id":"gorgon1","number":25,"name":"Snake Gorgon 1","family":"gorgon","asset":"gorgon1","type":"Venom","stage":1,"next":"gorgon2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 1 can be found around desert and ruins.","displayScale":0.6,"portraitScale":0.6},"gorgon2":{"id":"gorgon2","number":26,"name":"Snake Gorgon 2","family":"gorgon","asset":"gorgon2","type":"Venom","stage":2,"next":"gorgon3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 2 can be found around desert and ruins.","displayScale":0.78,"portraitScale":0.7787878787878788},"gorgon3":{"id":"gorgon3","number":27,"name":"Snake Gorgon 3","family":"gorgon","asset":"gorgon3","type":"Venom","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 3 can be found around desert and ruins.","displayScale":1.0,"portraitScale":1.0},"ent1":{"id":"ent1","number":28,"name":"Ent 1","family":"ent","asset":"ent1","type":"Leaf","stage":1,"next":"ent2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Green grass","description":"Ent 1 can be found around green grass.","displayScale":0.6,"portraitScale":0.5484848484848485},"ent2":{"id":"ent2","number":29,"name":"Ent 2","family":"ent","asset":"ent2","type":"Leaf","stage":2,"next":"ent3","evolveAt":14,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 2 can be found around green grass.","displayScale":0.78,"portraitScale":0.7121212121212122},"ent3":{"id":"ent3","number":30,"name":"Ent 3","family":"ent","asset":"ent3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 3 can be found around green grass.","displayScale":1.0,"portraitScale":0.9151515151515152},"nautilus1":{"id":"nautilus1","number":31,"name":"Nautilus 1","family":"nautilus","asset":"nautilus1","type":"Water","stage":1,"next":"nautilus2","evolveAt":8,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 1 can be found around harbor shores.","displayScale":0.6,"portraitScale":0.4575757575757576},"nautilus2":{"id":"nautilus2","number":32,"name":"Nautilus 2","family":"nautilus","asset":"nautilus2","type":"Water","stage":2,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 2 can be found around harbor shores.","displayScale":1.0,"portraitScale":0.7636363636363637},"octopus":{"id":"octopus","number":33,"name":"Octopus","family":"octopus","asset":"octopus","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Acropolis coast","description":"Octopus can be found around acropolis coast.","displayScale":0.85,"portraitScale":0.8484848484848485},"rockman":{"id":"rockman","number":34,"name":"Rock Man","family":"rock-man","asset":"rockman","type":"Stone","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Rocky desert","description":"Rock Man can be found around rocky desert.","displayScale":1.0,"portraitScale":1.0},"pug":{"id":"pug","number":2,"name":"Black-Red Pug","family":"pug","asset":"pug","type":"Flame","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"Black-Red Pug can be found around village grass.","displayScale":0.85,"portraitScale":0.8484848484848485},"siren1":{"id":"siren1","number":12,"name":"Siren 1","family":"siren","asset":"siren1","type":"Water","stage":1,"next":"siren2","evolveAt":18,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Harbor shores","description":"Siren 1 can be found around harbor shores.","displayScale":0.46,"portraitScale":0.46},"hippocamp1":{"id":"hippocamp1","number":35,"name":"Foam Foal","family":"hippocamp","asset":"hippocamp1","type":"Water","stage":1,"next":"hippocamp2","evolveAt":18,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":0.46,"portraitScale":0.46},"hippocamp2":{"id":"hippocamp2","number":36,"name":"Reef Courser","family":"hippocamp","asset":"hippocamp2","type":"Water","stage":2,"next":"hippocamp3","evolveAt":26,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":0.7,"portraitScale":0.7},"hippocamp3":{"id":"hippocamp3","number":37,"name":"Tide Charger","family":"hippocamp","asset":"hippocamp3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":1.0,"portraitScale":1.0},"triton1":{"id":"triton1","number":38,"name":"Shell Pip","family":"triton","asset":"triton1","type":"Water","stage":1,"next":"triton2","evolveAt":18,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":0.46,"portraitScale":0.46},"triton2":{"id":"triton2","number":39,"name":"Reef Herald","family":"triton","asset":"triton2","type":"Water","stage":2,"next":"triton3","evolveAt":26,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":0.7,"portraitScale":0.7},"triton3":{"id":"triton3","number":40,"name":"Conch Warden","family":"triton","asset":"triton3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":1.0,"portraitScale":1.0},"siren2":{"id":"siren2","number":41,"name":"Reef Siren","family":"siren","asset":"siren2","type":"Water","stage":2,"next":"siren3","evolveAt":26,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis and the singing reef","description":"A siren whose songs carry between the shore and the homes of Atlantis.","displayScale":0.7,"portraitScale":0.7},"siren3":{"id":"siren3","number":42,"name":"Ocean Siren","family":"siren","asset":"siren3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis and the singing reef","description":"A siren whose songs carry between the shore and the homes of Atlantis.","displayScale":1.0,"portraitScale":1.0},"chimera1":{"id":"chimera1","number":43,"name":"Cinder Cub","family":"chimera","asset":"chimera1","type":"Flame","stage":1,"next":"chimera2","evolveAt":24,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":0.46,"displayScale":0.46},"chimera2":{"id":"chimera2","number":44,"name":"Crag Chimera","family":"chimera","asset":"chimera2","type":"Flame","stage":2,"next":"chimera3","evolveAt":32,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":0.7,"displayScale":0.7},"chimera3":{"id":"chimera3","number":45,"name":"Embermane","family":"chimera","asset":"chimera3","type":"Flame","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":1.0,"displayScale":1.0}},"moves":{"tap":{"id":"tap","name":"Quick Strike","type":"Normal","power":26,"accuracy":1,"kind":"attack"},"guard":{"id":"guard","name":"Guard","type":"Normal","power":0,"accuracy":1,"kind":"guard"},"recover":{"id":"recover","name":"Catch Breath","type":"Normal","power":0,"accuracy":1,"kind":"heal","healRatio":0.28},"heavy":{"id":"heavy","name":"Power Strike","type":"Normal","power":44,"accuracy":0.85,"kind":"attack"},"megaPunch":{"id":"megaPunch","name":"Mega Punch","type":"Fight","power":55,"accuracy":0.9,"kind":"attack"},"megaKick":{"id":"megaKick","name":"Mega Kick","type":"Fight","power":65,"accuracy":0.8,"kind":"attack"},"frostSpark":{"id":"frostSpark","name":"Blue Flame","type":"Frost","power":38,"accuracy":1,"kind":"attack"},"bronzeSlash":{"id":"bronzeSlash","name":"Bronze Slash","type":"Metal","power":38,"accuracy":1,"kind":"attack"},"leafWhirl":{"id":"leafWhirl","name":"Leaf Whirl","type":"Leaf","power":38,"accuracy":1,"kind":"attack"},"karateStrike":{"id":"karateStrike","name":"Karate Strike","type":"Fight","power":38,"accuracy":1,"kind":"attack"},"stoneToss":{"id":"stoneToss","name":"Stone Toss","type":"Stone","power":38,"accuracy":1,"kind":"attack"},"venomFang":{"id":"venomFang","name":"Venom Fang","type":"Venom","power":38,"accuracy":1,"kind":"attack"},"wave":{"id":"wave","name":"Wave","type":"Water","power":38,"accuracy":1,"kind":"attack"},"ember":{"id":"ember","name":"Ember","type":"Flame","power":38,"accuracy":1,"kind":"attack"}},"typeChart":{"Frost":{"Leaf":1.5,"Water":0.7,"Flame":0.7},"Metal":{"Stone":1.5,"Frost":1.5,"Flame":0.7},"Leaf":{"Water":1.5,"Stone":1.5,"Flame":0.7,"Venom":0.7},"Fight":{"Metal":1.5,"Stone":1.5,"Venom":0.7},"Stone":{"Flame":1.5,"Frost":1.5,"Leaf":0.7},"Venom":{"Leaf":1.5,"Fight":1.5,"Metal":0.7},"Water":{"Flame":1.5,"Stone":1.5,"Leaf":0.7,"Frost":0.7},"Flame":{"Leaf":1.5,"Frost":1.5,"Water":0.7,"Stone":0.7}},"starters":["cloak1","wheat1","nautilus1"],"levelCap":99,"families":[["cloak1","cloak2","cloak3"],["warrior1","warrior2","warrior3"],["wheat1","wheat2","wheat3"],["mantis1","mantis2","mantis3"],["cyclops1","cyclops2","cyclops3"],["satyr1","satyr2","minotaur"],["gorgon1","gorgon2","gorgon3"],["ent1","ent2","ent3"],["nautilus1","nautilus2"],["pug"],["siren1","siren2","siren3"],["octopus"],["rockman"],[],["hippocamp1","hippocamp2","hippocamp3"],["triton1","triton2","triton3"],["chimera1","chimera2","chimera3"]],"badges":{"temple":{"name":"Laurel Badge"},"acropolis":{"name":"Marble Badge"}},"buildVersion":8,"intro":"Explore the Greek coast, discover Atlantis beneath the sea, and climb Mount Olympus. Meet Melia at Harbor Town's spring to dive, or take the Olympus turnoff from Summit Trail.","tagline":"Dive to Atlantis. Climb to the gods. Ride home.","atlasCaption":"Original coastal region. The expedition continues beyond the Acropolis; use the connected area guide above.","shop":{"ballPrice":30,"potionPrice":50},"characters":{"naiad":{"name":"Melia the Naiad","asset":"naiad"},"nereid":{"name":"Galene the Nereid","asset":"nereid"},"poseidon":{"name":"Poseidon","asset":"poseidon"},"hermit":{"name":"Dorian the Mountain Hermit","asset":"hermit"},"hephaestus":{"name":"Hephaestus","asset":"hephaestus"},"zeus":{"name":"Zeus","asset":"zeus"},"oread":{"name":"Phaedra the Oread","asset":"oread"},"athena":{"name":"Athena","asset":"athena"},"hermes":{"name":"Hermes","asset":"hermes"}}};
-const DIMENSIONS = {"cloak1":{"width":294,"height":280},"cloak2":{"width":252,"height":280},"cloak3":{"width":289,"height":280},"warrior1":{"width":312,"height":280},"warrior2":{"width":331,"height":280},"warrior3":{"width":271,"height":280},"wheat1":{"width":274,"height":280},"wheat2":{"width":185,"height":280},"wheat3":{"width":259,"height":280},"mantis1":{"width":262,"height":280},"mantis2":{"width":268,"height":280},"mantis3":{"width":263,"height":280},"cyclops1":{"width":280,"height":280},"cyclops2":{"width":270,"height":280},"cyclops3":{"width":269,"height":280},"satyr1":{"width":276,"height":280},"satyr2":{"width":226,"height":280},"minotaur":{"width":262,"height":280},"gorgon1":{"width":215,"height":280},"gorgon2":{"width":188,"height":280},"gorgon3":{"width":186,"height":280},"ent1":{"width":257,"height":280},"ent2":{"width":272,"height":280},"ent3":{"width":306,"height":280},"nautilus1":{"width":340,"height":231},"nautilus2":{"width":340,"height":259},"octopus":{"width":273,"height":280},"rockman":{"width":261,"height":280},"pug":{"width":327,"height":280},"siren1":{"width":230,"height":280},"professor":{"width":185,"height":280},"mapWorld":{"width":1152,"height":934},"mapVillage":{"width":1152,"height":768},"mapSecond":{"width":1152,"height":768},"mapCave":{"width":1152,"height":768},"mapDesert":{"width":1152,"height":768},"mapTemple":{"width":1152,"height":768},"mapHarbor":{"width":1152,"height":768},"mapNextHarbor":{"width":1152,"height":768},"mapAcropolis":{"width":1152,"height":768},"battleCave":{"width":1152,"height":768},"battleForest":{"width":1152,"height":768},"battlePlains":{"width":1152,"height":768},"battleComposite":{"width":1152,"height":1152},"battleGym":{"width":1152,"height":768},"sheet":{"width":1400,"height":1509},"hippocamp1":{"width":291,"height":280},"hippocamp2":{"width":277,"height":280},"hippocamp3":{"width":277,"height":280},"triton1":{"width":274,"height":280},"triton2":{"width":279,"height":280},"triton3":{"width":274,"height":280},"siren2":{"width":184,"height":280},"siren3":{"width":188,"height":280},"naiad":{"width":194,"height":280},"nereid":{"width":169,"height":280},"poseidon":{"width":166,"height":280},"battleAtlantis":{"width":1152,"height":768},"chimera1":{"width":304,"height":280},"chimera2":{"width":303,"height":280},"chimera3":{"width":340,"height":228},"hermit":{"width":187,"height":280},"hephaestus":{"width":178,"height":280},"zeus":{"width":182,"height":280},"oread":{"width":175,"height":280},"athena":{"width":176,"height":280},"hermes":{"width":167,"height":280}};
+const ASSET_SOURCES = {"cloak1":"../assets/c6e9b23ef6cc6ab34e7cc12b61988f4cb37625357b433c5c74942d9cf212a4d1.png","cloak2":"../assets/33057b5e1af27b90c5aa15ed155f8d85877de7994face54a601f601ab63cba71.png","cloak3":"../assets/450e475a931e43b9ba6c86e5cc8392cfad9b084079117d555dfd4ed7cdee66f0.png","warrior1":"../assets/ef5b63046ca7e978ef7b5c45c1fd6874793a4a441231c1728fb4f004070ae645.png","warrior2":"../assets/780a0803db31ba775adaf86c6ffd58ac8b71eae247ab2334983d3f5ac3bc8e66.png","warrior3":"../assets/153db6a1e8c244b19eda4f2cc1de685cf6af7446b5b52eecb79549e32d3416c0.png","wheat1":"../assets/7483bbd631060051123f2ed5450791173ee39648dbed24b9758621cf31f5d1dc.png","wheat2":"../assets/f7f77b7dfd2e8b28aee43274d6d18de273315f5abce588a73f5e7a49736dcf5c.png","wheat3":"../assets/ce91f0ec91480d5bb36a0112ed5799538a08426387016b3b705eed49bc59b8bb.png","mantis1":"../assets/69443c19c3ba0322f1881e5f01b1caf9249f43ad378e234fbdf693035f9d1b62.png","mantis2":"../assets/9e00b1cf4609b33dbcf54703882ba1b0a2fdb613830a28571db8b4915b5c4b07.png","mantis3":"../assets/0e2652f9fc7ef0f037d7ac3bc6686f5102441c250a78b7e2b4b5a31aff750565.png","cyclops1":"../assets/924f569c5c8a388b8bda0847f7fcbb875b6ae7fc0b4db82e926976efd9ad5d01.png","cyclops2":"../assets/f6f09f694d862065df251699786a4daf4d0413bfcc664e59ff79e17eec9b22d0.png","cyclops3":"../assets/9f7ae133faa17161aad403e02512156f7d9b976dc8286f582e8df556b4e63550.png","satyr1":"../assets/bb73c1af3e2f07f3f936c0f31e393cd1d4571c6fa8533f619cca0a4e5b9905f2.png","satyr2":"../assets/cbfc27b47ea50c33b822ae32775422b573c26d61924c839d9b9e2d4c1fb36caf.png","minotaur":"../assets/24bc7b07573bc4206648bfb04d9ce9ab8cfb18ad3d9b00d9afe5f4719ed0561c.png","gorgon1":"../assets/da132aa4f317eefa2c650e4bab135ec9ad3fc6cfbedeed7d85fc3ee577c3a711.png","gorgon2":"../assets/6f221eefb49862649347706f242cedafeb5094cfcdff45c36e74e4442696660a.png","gorgon3":"../assets/dfad962ce7ca6c262fe411059a5784c1feff5bdeb762e6f5e07659b8fbb7351e.png","ent1":"../assets/00a04868c83b3b9be85258d5c3fab271a6f9796e7cf1f6341a5a6d65156e68e0.png","ent2":"../assets/e5c54f6451effbe08ae4a7c09253cbb3983b42299881a68ba245a7204638ed7d.png","ent3":"../assets/7fce366cb542738159463451a35ad1a4330466c9f621bf210ed7b58e046a1ad8.png","nautilus1":"../assets/4a966501eb4dc5461c6eb7ad88b10bbbc7fe9c580590b0e6b1278743e781ad49.png","nautilus2":"../assets/8597babe9c5bf01222dc515cb1bdc62d3d1ff2a5bc91377cb2f61b30927c262e.png","octopus":"../assets/9a31a31fdd3ce6e2676e1445aee429fcca591ff83d09b4c6cd6e1435135a79da.png","rockman":"../assets/986f9676d2593c93704c8aed1e9b1f6a5f2660d53dcea51fa622c22a3c372c86.png","pug":"../assets/bff684111bd1d7ee3159e1c381080590a22f47a8a24e8427c3c004128a3219c1.png","siren1":"../assets/91ad5ea81cc97b924e09ecccbdd7c16c576a38fc871a84ab212e039546198b7c.png","professor":"../assets/82eaf540cf145954c7c2400e5833683e4b70eac2aa38aa6b830baf974ff7e93e.png","pug2":"../assets/a2c9a625b502a9b2976ef562edccfe18400e3175757efaa2b164ecc8b4253111.png","pug3":"../assets/9a91d3d37a8f46aa0dc42f6a7083aded7f6f490b9fdb6b72cbfd6a747b8f03e8.png","siren2":"../assets/8146e5b9bf1fe01f2a69767f9f5fdbeb73296bd27af3fc0dda4422bee359d660.png","siren3":"../assets/f45ed3dd8acb56753820f38663aead6b273b32003492b3c8494ea9b4cf2cd300.png","mapWorld":"../assets/bbcdd8ac1dcc58e7b959ed81768a5733dc7140df0e958d62e5f2ecdd45d4ed01.png","mapVillage":"../assets/af1fda092d40008955af1ecde1ee8e6781f1ea1f6121937e4ef249dc89275a1e.png","mapSecond":"../assets/231c4f369f04ab544453a53631cf1ec7b3878576554b54617655953bdef68ea7.png","mapCave":"../assets/6409663b63a65548bd6c6e137ae9e879c0d77b69a452ad6c04b0ee2c2d02015f.png","mapDesert":"../assets/17015dc72fb86f5e12a98fbe0ff7ae8f2fe7c688540a9a4b7a802291c73193f5.png","mapTemple":"../assets/8a23d71d16b907e985a9c938c9e8fccac87b6c47dbfc4f47e23fc531a89f89ab.png","mapHarbor":"../assets/202a4180f547f134ae132ce0e52cfa80efc4d53d3b919be6d5418d3d48953e7e.png","mapNextHarbor":"../assets/6b54b9191f9d6c97e80e9211bafafd1d4e6975d2df70a10d282983f36daf98c5.png","mapAcropolis":"../assets/d45aa08b6bd994e6b054dc0fb3d20b4018ec6c1bcb75a6698943dc7b7dd3400c.png","battleCave":"../assets/4fd1178848933ed7a741cbc6d0eced9783c4ee5f85399db053dd18227181380f.png","battleForest":"../assets/67c379f104b86872b3b07bb93cc3bf24784d9555578a87bf24f5d32d2b374a6d.png","battlePlains":"../assets/c7bb3b3efc671407a51c3ca8581898ab779cb86c30677b15c13d8e1dd02a1b32.png","battleComposite":"../assets/305f8d504e4f2f0f3490cb57c54523f8b664ca55c4141c1f6095fe6bf028825e.png","battleGym":"../assets/ca17e03a9e1bf6e5a86b0fd0badac32a1168df401cdc92affa57c14633851d29.png","sheet":"../assets/5e46969f73e9c2ba146b740e81435e3c4d991ca2439b3ca9087e651e6988eb24.png","mapAtlantisReef":"../assets/e5fd3451d7e80f1c40a853eb9ae158de21be17b711e35d4a1e888b93178da8cc.png","mapAtlantis":"../assets/90ea8f74e0eab68963e07d0eeb66f461811ed36c500bac3471859c4b927add01.png","mapSirenHouse":"../assets/958d5f75ff2c3ef7e3c78a0e219568f441a2e4a290bb72c1afea36135f40460b.png","mapTideArchive":"../assets/4d70aa66d39f67f5dbad53040dc92fc3c02b949354d1a997e2b08f9f2eff82c9.png","mapCoralCave":"../assets/574c54f26bb16ab0352286bc33eae2e33a7bcc86c0fd12ec0a27c0f13cde8adc.png","mapPearlGrotto":"../assets/a7b0d6ed5769df8b151219fc5a9bc4d50f458239a3fa625810c0dbffb0ea834e.png","mapPoseidonTemple":"../assets/77f619f407430e89bdc37f9d192a3b9709b26dabcec38d1224f397741fe36a1c.png","hippocamp1":"../assets/922c50b1815c91debe324a96559672584e298a3ccdd26cfb603f68595a682e39.png","hippocamp2":"../assets/2dfc0345b048247699831c79815acf5f3c3fae98e34db6d73a7c36b2ea756d0c.png","hippocamp3":"../assets/9d26fdee5081b5218d3dd745576706324f3d359dda6d90284e7fabc93cc21cd5.png","triton1":"../assets/622370e174407497e478c4d65e2f59417377d0c2177dbda2822058854dc09f41.png","triton2":"../assets/e1586fec8e29768b1e9b434c29e599794773143090406b9fe286ce6f91048c14.png","triton3":"../assets/3ba5b6a81d9a36224c9e8df830b9630b80b400361fb1f8e1b1c0ce91a04690be.png","naiad":"../assets/02406dfb6c9e6662311c00eab32463d20b655273b307e2b8a62b2e5738a320b0.png","nereid":"../assets/eec6c840cd341d3b8f2aeb3e908b95d074228587f6ead1d17294caa65faa488d.png","poseidon":"../assets/1a05cb248c5760be4b72f65079570f2453e797f0b444271616bbd1d975efb734.png","battleAtlantis":"../assets/2293fdcefd7660a03bda350e2a2662ec6628fab071d6e392d3f9e361dc427179.png","mapOlympusTrail":"../assets/ed449cb3fa8b020948e39f472e04f07dc468092ecd08fa4b458a13cb132a6880.png","mapHermitHut":"../assets/ab81ad8dca9a6c4622e60d1e7715cd7d8ce775bcf06052b05de398405822e7c8.png","mapOlympusCave":"../assets/a6412956bee450ba3a44c4f9f8fe73838b8bca16c53a5a0abe61b616c3056b11.png","mapCloudPass":"../assets/ed9e2183c505db8923b306d26505505786966424012b8d50fe8045fea4eac5e3.png","mapOlympusGate":"../assets/de4831cdd9a54d6b327268232c96ffc03e6d844b619fcad49d534a9932848bbe.png","mapOlympusSummit":"../assets/7dc741a3607740ae1b86f7afba2cab810e9be6f38f20662ff450b7b242cde164.png","chimera1":"../assets/63821c8e66ab5ee61eade8effb40551c4afa5e03b60bd96e7cfa2d4baa67fff4.png","chimera2":"../assets/cd8919c9a8bb89dd25ad2115c7d9f45d76d427d6085c8c345ce9f1974eaf9eea.png","chimera3":"../assets/a8bee6ef30ee49f52621f32bb6f085363a7ca3df7522667aa6004b289febecce.png","hermit":"../assets/2049d939a612906fe642ada3d27f6d4f024553d373ca7366f42f0b3f249e22d8.png","hephaestus":"../assets/5677b175118c3135da063a1041b71ca8c6ba2028536fed262eb36f7cd0f3a770.png","zeus":"../assets/71dd21872e3334ea40f554288dde088cb80a5988ce0fc77f2a2055be497d076c.png","oread":"../assets/1495992882c5e583286d18005b60ee0e3cc88f2505277dbe8186b23d589780f2.png","athena":"../assets/19d7d07e45e827bfdf814d8d2e80cd1fffe8826a5a14274bdc738269f44a42c3.png","hermes":"../assets/70d29dca8e403268d3e50a1ba08f1295ed1ab81c5830626df83ef6b6460f39d1.png","mapExpeditionTerrainAtlas":"../assets/f8200ecd830a5bd42f3933c3d1852168273ba5f2371de482827321178241f7f5.png","mapExpeditionPropsAtlas":"../assets/d9893079f6222f8d4ce7fb5e22035d346740013c5b6cf0690923e0b704a1ecb5.png","mapExpeditionHouse":"../assets/1aaad80ea8e32f23fb485bc549510d876ab61de3e0ddc5a35366840e179b5714.png","mapExpeditionRuin":"../assets/ac3fb1e1724f9c78fca3984c264e63c1c9443c86bb0e899cb3b7a7ca6ed1f792.png","mapExpeditionWindmill":"../assets/3a4ceb2a2109158c9206b509770c531c08770d539fcff65dd95225533c3a6564.png","mapExpeditionCrag":"../assets/bb18d14bad67997669a7009094534cbe31890ae60a0aa7407b28e5830580dd78.png"};
+const DATA = {"id":"experimental","release":"experimental","version":2,"schemaVersion":2,"saveKey":"fakemon-jefferson-experimental-v2","title":"Jefferson's Experimental version","species":{"cloak1":{"id":"cloak1","number":1,"name":"Ice Wizard 1","family":"ice-wizard","asset":"cloak1","type":"Frost","stage":1,"next":"cloak2","evolveAt":20,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 1 can be found around caves and old ruins.","displayScale":0.6,"portraitScale":0.4909090909090909},"cloak2":{"id":"cloak2","number":17,"name":"Ice Wizard 2","family":"ice-wizard","asset":"cloak2","type":"Frost","stage":2,"next":"cloak3","evolveAt":40,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 2 can be found around caves and old ruins.","displayScale":0.78,"portraitScale":0.9242424242424242},"cloak3":{"id":"cloak3","number":18,"name":"Ice Wizard 3","family":"ice-wizard","asset":"cloak3","type":"Frost","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","frostSpark","heavy","guard"],"habitat":"Caves and old ruins","description":"Ice Wizard 3 can be found around caves and old ruins.","displayScale":1.0,"portraitScale":0.9666666666666667},"warrior1":{"id":"warrior1","number":19,"name":"Blue Warrior 1","family":"blue-warrior","asset":"warrior1","type":"Metal","stage":1,"next":"warrior2","evolveAt":25,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 1 can be found around marble towns.","displayScale":0.6,"portraitScale":0.4484848484848485},"warrior2":{"id":"warrior2","number":3,"name":"Blue Warrior 2","family":"blue-warrior","asset":"warrior2","type":"Metal","stage":2,"next":"warrior3","evolveAt":42,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Blue Warrior 2 can be found around marble towns.","displayScale":0.78,"portraitScale":0.5848484848484848},"warrior3":{"id":"warrior3","number":4,"name":"Golden Warrior 3","family":"blue-warrior","asset":"warrior3","type":"Metal","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","bronzeSlash","heavy","guard"],"habitat":"Marble towns","description":"Golden Warrior 3 can be found around marble towns.","displayScale":1.0,"portraitScale":1.0},"wheat1":{"id":"wheat1","number":6,"name":"Wheat 1","family":"wheat","asset":"wheat1","type":"Leaf","stage":1,"next":"wheat2","evolveAt":28,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Wheat fields","description":"Wheat 1 can be found around wheat fields.","displayScale":0.6,"portraitScale":0.6},"wheat2":{"id":"wheat2","number":7,"name":"Wheat 2","family":"wheat","asset":"wheat2","type":"Leaf","stage":2,"next":"wheat3","evolveAt":48,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat 2 can be found around wheat fields.","displayScale":0.78,"portraitScale":0.7787878787878788},"wheat3":{"id":"wheat3","number":8,"name":"Wheat Wagon 3","family":"wheat","asset":"wheat3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Wheat fields","description":"Wheat Wagon 3 can be found around wheat fields.","displayScale":1.0,"portraitScale":1.0},"mantis1":{"id":"mantis1","number":9,"name":"White-Belt Mantis 1","family":"mantis","asset":"mantis1","type":"Fight","stage":1,"next":"mantis2","evolveAt":20,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"White-Belt Mantis 1 can be found around temple grass.","displayScale":0.6,"portraitScale":0.6},"mantis2":{"id":"mantis2","number":10,"name":"Black-Belt Mantis 2","family":"mantis","asset":"mantis2","type":"Fight","stage":2,"next":"mantis3","evolveAt":38,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Black-Belt Mantis 2 can be found around temple grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"mantis3":{"id":"mantis3","number":22,"name":"Mantis Master 3","family":"mantis","asset":"mantis3","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Temple grass","description":"Mantis Master 3 can be found around temple grass.","displayScale":1.0,"portraitScale":1.0},"cyclops1":{"id":"cyclops1","number":11,"name":"Cyclops 1","family":"cyclops","asset":"cyclops1","type":"Stone","stage":1,"next":"cyclops2","evolveAt":25,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 1 can be found around outer harbor grass.","displayScale":0.6,"portraitScale":0.49393939393939396},"cyclops2":{"id":"cyclops2","number":23,"name":"Cyclops 2","family":"cyclops","asset":"cyclops2","type":"Stone","stage":2,"next":"cyclops3","evolveAt":40,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 2 can be found around outer harbor grass.","displayScale":0.78,"portraitScale":0.6484848484848484},"cyclops3":{"id":"cyclops3","number":24,"name":"Cyclops 3","family":"cyclops","asset":"cyclops3","type":"Stone","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Outer harbor grass","description":"Cyclops 3 can be found around outer harbor grass.","displayScale":1.0,"portraitScale":1.0},"satyr1":{"id":"satyr1","number":14,"name":"Satyr 1","family":"satyr-minotaur","asset":"satyr1","type":"Fight","stage":1,"next":"satyr2","evolveAt":28,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 1 can be found around village grass.","displayScale":0.6,"portraitScale":0.6},"satyr2":{"id":"satyr2","number":15,"name":"Satyr 2","family":"satyr-minotaur","asset":"satyr2","type":"Fight","stage":2,"next":"minotaur","evolveAt":42,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Village grass","description":"Satyr 2 can be found around village grass.","displayScale":0.78,"portraitScale":0.7787878787878788},"minotaur":{"id":"minotaur","number":16,"name":"Minotaur 3","family":"satyr-minotaur","asset":"minotaur","type":"Fight","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","karateStrike","heavy","guard"],"habitat":"Acropolis grass","description":"Minotaur 3 can be found around acropolis grass.","displayScale":1.0,"portraitScale":1.0},"gorgon1":{"id":"gorgon1","number":25,"name":"Green Snake","family":"gorgon","asset":"gorgon1","type":"Venom","stage":1,"next":"gorgon2","evolveAt":16,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 1 can be found around desert and ruins.","displayScale":0.6,"portraitScale":0.6},"gorgon2":{"id":"gorgon2","number":26,"name":"Snake Gorgon 2","family":"gorgon","asset":"gorgon2","type":"Venom","stage":2,"next":"gorgon3","evolveAt":36,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 2 can be found around desert and ruins.","displayScale":0.78,"portraitScale":0.7787878787878788},"gorgon3":{"id":"gorgon3","number":27,"name":"Snake Gorgon 3","family":"gorgon","asset":"gorgon3","type":"Venom","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","venomFang","heavy","guard"],"habitat":"Desert and ruins","description":"Snake Gorgon 3 can be found around desert and ruins.","displayScale":1.0,"portraitScale":1.0},"ent1":{"id":"ent1","number":28,"name":"Ent 1","family":"ent","asset":"ent1","type":"Leaf","stage":1,"next":"ent2","evolveAt":20,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","leafWhirl","heavy","recover"],"habitat":"Green grass","description":"Ent 1 can be found around green grass.","displayScale":0.6,"portraitScale":0.5484848484848485},"ent2":{"id":"ent2","number":29,"name":"Ent 2","family":"ent","asset":"ent2","type":"Leaf","stage":2,"next":"ent3","evolveAt":38,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 2 can be found around green grass.","displayScale":0.78,"portraitScale":0.7121212121212122},"ent3":{"id":"ent3","number":30,"name":"Ent 3","family":"ent","asset":"ent3","type":"Leaf","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","leafWhirl","heavy","guard"],"habitat":"Green grass","description":"Ent 3 can be found around green grass.","displayScale":1.0,"portraitScale":0.9151515151515152},"nautilus1":{"id":"nautilus1","number":31,"name":"Nautilus 1","family":"nautilus","asset":"nautilus1","type":"Water","stage":1,"next":"nautilus2","evolveAt":25,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 1 can be found around harbor shores.","displayScale":0.6,"portraitScale":0.4575757575757576},"nautilus2":{"id":"nautilus2","number":32,"name":"Nautilus 2","family":"nautilus","asset":"nautilus2","type":"Water","stage":2,"next":null,"evolveAt":99,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Harbor shores","description":"Nautilus 2 can be found around harbor shores.","displayScale":1.0,"portraitScale":0.7636363636363637},"octopus":{"id":"octopus","number":33,"name":"Octopus","family":"octopus","asset":"octopus","type":"Water","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Acropolis coast","description":"Octopus can be found around acropolis coast.","displayScale":0.85,"portraitScale":0.8484848484848485},"rockman":{"id":"rockman","number":34,"name":"Rock Man","family":"rock-man","asset":"rockman","type":"Stone","stage":1,"next":null,"evolveAt":99,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","stoneToss","heavy","guard"],"habitat":"Rocky desert","description":"Rock Man can be found around rocky desert.","displayScale":1.0,"portraitScale":1.0},"pug":{"id":"pug","number":2,"name":"Red Pug","family":"pug","asset":"pug","type":"Flame","stage":1,"next":"pug2","evolveAt":16,"base":{"hp":30,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"Red Pug can be found around village grass.","displayScale":0.46,"portraitScale":0.46},"siren1":{"id":"siren1","number":12,"name":"Siren Baby","family":"siren","asset":"siren1","type":"Water","stage":1,"next":"siren2","evolveAt":16,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Harbor shores","description":"Siren 1 can be found around harbor shores.","displayScale":0.46,"portraitScale":0.46},"pug2":{"id":"pug2","number":46,"name":"Two-Headed Hound","family":"pug","asset":"pug2","type":"Flame","stage":2,"next":"pug3","evolveAt":36,"base":{"hp":37,"atk":17,"def":13,"speed":14},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"The red-and-black hound grows extra heads as it becomes a guardian of the old paths.","displayScale":0.7,"portraitScale":0.7},"pug3":{"id":"pug3","number":47,"name":"Cerberus","family":"pug","asset":"pug3","type":"Flame","stage":3,"next":null,"evolveAt":99,"base":{"hp":44,"atk":21,"def":16,"speed":16},"moves":["tap","ember","heavy","guard"],"habitat":"Village grass","description":"The red-and-black hound grows extra heads as it becomes a guardian of the old paths.","displayScale":1.0,"portraitScale":1.0},"siren2":{"id":"siren2","number":41,"name":"Reef Siren","family":"siren","asset":"siren2","type":"Water","stage":2,"next":"siren3","evolveAt":36,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis and the singing reef","description":"A siren whose songs carry between the shore and the homes of Atlantis.","displayScale":0.7,"portraitScale":0.7},"siren3":{"id":"siren3","number":42,"name":"Ocean Siren","family":"siren","asset":"siren3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis and the singing reef","description":"A siren whose songs carry between the shore and the homes of Atlantis.","displayScale":1.0,"portraitScale":1.0},"hippocamp1":{"id":"hippocamp1","number":35,"name":"Foam Foal","family":"hippocamp","asset":"hippocamp1","type":"Water","stage":1,"next":"hippocamp2","evolveAt":20,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":0.46,"portraitScale":0.46},"hippocamp2":{"id":"hippocamp2","number":36,"name":"Reef Courser","family":"hippocamp","asset":"hippocamp2","type":"Water","stage":2,"next":"hippocamp3","evolveAt":38,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":0.7,"portraitScale":0.7},"hippocamp3":{"id":"hippocamp3","number":37,"name":"Tide Charger","family":"hippocamp","asset":"hippocamp3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","guard"],"habitat":"Atlantis Reef and sea caves","description":"The hippocamps follow warm sea currents. Their coral manes brighten as they grow.","displayScale":1.0,"portraitScale":1.0},"triton1":{"id":"triton1","number":38,"name":"Shell Pip","family":"triton","asset":"triton1","type":"Water","stage":1,"next":"triton2","evolveAt":25,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":0.46,"portraitScale":0.46},"triton2":{"id":"triton2","number":39,"name":"Reef Herald","family":"triton","asset":"triton2","type":"Water","stage":2,"next":"triton3","evolveAt":40,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":0.7,"portraitScale":0.7},"triton3":{"id":"triton3","number":40,"name":"Conch Warden","family":"triton","asset":"triton3","type":"Water","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","wave","heavy","recover"],"habitat":"Atlantis Reef and sea caves","description":"Conch musicians guide lost travelers by sending clear notes through the water.","displayScale":1.0,"portraitScale":1.0},"chimera1":{"id":"chimera1","number":43,"name":"Cinder Cub","family":"chimera","asset":"chimera1","type":"Flame","stage":1,"next":"chimera2","evolveAt":25,"base":{"hp":29,"atk":13,"def":10,"speed":12},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":0.46,"displayScale":0.46},"chimera2":{"id":"chimera2","number":44,"name":"Crag Chimera","family":"chimera","asset":"chimera2","type":"Flame","stage":2,"next":"chimera3","evolveAt":40,"base":{"hp":36,"atk":17,"def":13,"speed":14},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":0.7,"displayScale":0.7},"chimera3":{"id":"chimera3","number":45,"name":"Embermane","family":"chimera","asset":"chimera3","type":"Flame","stage":3,"next":null,"evolveAt":99,"base":{"hp":43,"atk":21,"def":16,"speed":16},"moves":["tap","ember","heavy","guard"],"habitat":"Mount Olympus and the lava-heated forge caves","description":"Lion, goat and serpent share one stubborn mountain creature. Its mane grows fiery with age.","portraitScale":1.0,"displayScale":1.0}},"moves":{"tap":{"id":"tap","name":"Quick Strike","type":"Normal","power":26,"accuracy":1,"kind":"attack"},"guard":{"id":"guard","name":"Guard","type":"Normal","power":0,"accuracy":1,"kind":"guard"},"recover":{"id":"recover","name":"Catch Breath","type":"Normal","power":0,"accuracy":1,"kind":"heal","healRatio":0.28},"heavy":{"id":"heavy","name":"Power Strike","type":"Normal","power":44,"accuracy":0.85,"kind":"attack"},"megaPunch":{"id":"megaPunch","name":"Mega Punch","type":"Fight","power":55,"accuracy":0.9,"kind":"attack"},"megaKick":{"id":"megaKick","name":"Mega Kick","type":"Fight","power":65,"accuracy":0.8,"kind":"attack"},"frostSpark":{"id":"frostSpark","name":"Blue Flame","type":"Frost","power":38,"accuracy":1,"kind":"attack"},"bronzeSlash":{"id":"bronzeSlash","name":"Bronze Slash","type":"Metal","power":38,"accuracy":1,"kind":"attack"},"leafWhirl":{"id":"leafWhirl","name":"Leaf Whirl","type":"Leaf","power":38,"accuracy":1,"kind":"attack"},"karateStrike":{"id":"karateStrike","name":"Karate Strike","type":"Fight","power":38,"accuracy":1,"kind":"attack"},"stoneToss":{"id":"stoneToss","name":"Stone Toss","type":"Stone","power":38,"accuracy":1,"kind":"attack"},"venomFang":{"id":"venomFang","name":"Venom Fang","type":"Venom","power":38,"accuracy":1,"kind":"attack"},"wave":{"id":"wave","name":"Wave","type":"Water","power":38,"accuracy":1,"kind":"attack"},"ember":{"id":"ember","name":"Ember","type":"Flame","power":38,"accuracy":1,"kind":"attack"}},"typeChart":{"Frost":{"Leaf":1.5,"Water":0.7,"Flame":0.7},"Metal":{"Stone":1.5,"Frost":1.5,"Flame":0.7},"Leaf":{"Water":1.5,"Stone":1.5,"Flame":0.7,"Venom":0.7},"Fight":{"Metal":1.5,"Stone":1.5,"Venom":0.7},"Stone":{"Flame":1.5,"Frost":1.5,"Leaf":0.7},"Venom":{"Leaf":1.5,"Fight":1.5,"Metal":0.7},"Water":{"Flame":1.5,"Stone":1.5,"Leaf":0.7,"Frost":0.7},"Flame":{"Leaf":1.5,"Frost":1.5,"Water":0.7,"Stone":0.7}},"starters":["pug","gorgon1","siren1"],"levelCap":99,"families":[["cloak1","cloak2","cloak3"],["warrior1","warrior2","warrior3"],["wheat1","wheat2","wheat3"],["mantis1","mantis2","mantis3"],["cyclops1","cyclops2","cyclops3"],["satyr1","satyr2","minotaur"],["gorgon1","gorgon2","gorgon3"],["ent1","ent2","ent3"],["nautilus1","nautilus2"],["pug","pug2","pug3"],["siren1","siren2","siren3"],["octopus"],["rockman"],["hippocamp1","hippocamp2","hippocamp3"],["triton1","triton2","triton3"],["chimera1","chimera2","chimera3"]],"badges":{"temple":{"name":"Laurel Badge"},"acropolis":{"name":"Marble Badge"}},"buildVersion":9,"intro":"Explore the Greek coast, discover Atlantis beneath the sea, and climb Mount Olympus. Meet Melia at Harbor Town's spring to dive, or take the Olympus turnoff from Summit Trail.","tagline":"Dive to Atlantis. Climb to the gods. Ride home.","atlasCaption":"Original coastal region. The expedition continues beyond the Acropolis; use the connected area guide above.","shop":{"ballPrice":30,"potionPrice":50},"characters":{"naiad":{"name":"Melia the Naiad","asset":"naiad"},"nereid":{"name":"Galene the Nereid","asset":"nereid"},"poseidon":{"name":"Poseidon","asset":"poseidon"},"hermit":{"name":"Dorian the Mountain Hermit","asset":"hermit"},"hephaestus":{"name":"Hephaestus","asset":"hephaestus"},"zeus":{"name":"Zeus","asset":"zeus"},"oread":{"name":"Phaedra the Oread","asset":"oread"},"athena":{"name":"Athena","asset":"athena"},"hermes":{"name":"Hermes","asset":"hermes"}}};
+const DIMENSIONS = {"cloak1":{"width":294,"height":280},"cloak2":{"width":252,"height":280},"cloak3":{"width":289,"height":280},"warrior1":{"width":312,"height":280},"warrior2":{"width":331,"height":280},"warrior3":{"width":271,"height":280},"wheat1":{"width":274,"height":280},"wheat2":{"width":185,"height":280},"wheat3":{"width":259,"height":280},"mantis1":{"width":262,"height":280},"mantis2":{"width":268,"height":280},"mantis3":{"width":263,"height":280},"cyclops1":{"width":280,"height":280},"cyclops2":{"width":270,"height":280},"cyclops3":{"width":269,"height":280},"satyr1":{"width":276,"height":280},"satyr2":{"width":226,"height":280},"minotaur":{"width":262,"height":280},"gorgon1":{"width":215,"height":280},"gorgon2":{"width":188,"height":280},"gorgon3":{"width":186,"height":280},"ent1":{"width":257,"height":280},"ent2":{"width":272,"height":280},"ent3":{"width":306,"height":280},"nautilus1":{"width":340,"height":231},"nautilus2":{"width":340,"height":259},"octopus":{"width":273,"height":280},"rockman":{"width":261,"height":280},"pug":{"width":327,"height":280},"siren1":{"width":230,"height":280},"professor":{"width":185,"height":280},"pug2":{"width":340,"height":228},"pug3":{"width":336,"height":280},"siren2":{"width":184,"height":280},"siren3":{"width":187,"height":280},"mapWorld":{"width":1152,"height":934},"mapVillage":{"width":1152,"height":768},"mapSecond":{"width":1152,"height":768},"mapCave":{"width":1152,"height":768},"mapDesert":{"width":1152,"height":768},"mapTemple":{"width":1152,"height":768},"mapHarbor":{"width":1152,"height":768},"mapNextHarbor":{"width":1152,"height":768},"mapAcropolis":{"width":1152,"height":768},"battleCave":{"width":1152,"height":768},"battleForest":{"width":1152,"height":768},"battlePlains":{"width":1152,"height":768},"battleComposite":{"width":1152,"height":1152},"battleGym":{"width":1152,"height":768},"sheet":{"width":1400,"height":1509},"mapAtlantisReef":{"width":1280,"height":896},"mapAtlantis":{"width":1280,"height":896},"mapSirenHouse":{"width":1280,"height":896},"mapTideArchive":{"width":1280,"height":896},"mapCoralCave":{"width":1280,"height":896},"mapPearlGrotto":{"width":1280,"height":896},"mapPoseidonTemple":{"width":1280,"height":896},"hippocamp1":{"width":291,"height":280},"hippocamp2":{"width":277,"height":280},"hippocamp3":{"width":277,"height":280},"triton1":{"width":274,"height":280},"triton2":{"width":279,"height":280},"triton3":{"width":274,"height":280},"naiad":{"width":194,"height":280},"nereid":{"width":169,"height":280},"poseidon":{"width":166,"height":280},"battleAtlantis":{"width":1152,"height":768},"mapOlympusTrail":{"width":1280,"height":896},"mapHermitHut":{"width":1280,"height":896},"mapOlympusCave":{"width":1280,"height":896},"mapCloudPass":{"width":1280,"height":896},"mapOlympusGate":{"width":1280,"height":896},"mapOlympusSummit":{"width":1280,"height":896},"chimera1":{"width":304,"height":280},"chimera2":{"width":303,"height":280},"chimera3":{"width":340,"height":228},"hermit":{"width":187,"height":280},"hephaestus":{"width":178,"height":280},"zeus":{"width":182,"height":280},"oread":{"width":175,"height":280},"athena":{"width":176,"height":280},"hermes":{"width":167,"height":280},"mapExpeditionTerrainAtlas":{"width":1152,"height":1152},"mapExpeditionPropsAtlas":{"width":1152,"height":1053},"mapExpeditionHouse":{"width":627,"height":627},"mapExpeditionRuin":{"width":550,"height":606},"mapExpeditionWindmill":{"width":627,"height":627},"mapExpeditionCrag":{"width":610,"height":627}};
 /* Pixel coordinates below annotate the reviewed 1536 x 1024 map art. */
 const World = (() => {
   const R = (x,y,w,h) => ({x,y,w,h});
@@ -511,7 +511,20 @@ const World = (() => {
       const a=areas[id],r=repairBox(a,old),index=a.solids.findIndex(s=>['x','y','w','h'].every(k=>Math.abs(s[k]-r[k])<.1));
       if(index>=0)a.solids.splice(index,1,...rects.map(v=>repairBox(a,v)));
     };
-    openPaths('village',[[779,879,57,57],[690,917,522,61]]);
+    openPaths('village',[
+      [779,879,57,57],[690,917,522,61],
+      // The eastern lawn is visibly level grass joined to both village roads.
+      [1184,315,294,613],
+      // The ruined courtyard has a painted stair and a clear stone aisle.
+      [365,194,72,136],[348,270,92,160]
+    ]);
+    replaceSolid('village',[110,95,455,295],[
+      // Ruin perimeter, with the south stair left open.
+      [110,95,455,62],[110,95,74,295],[515,95,50,295],
+      [110,328,238,62],[440,328,125,62],
+      // Standing columns and the central broken plinth.
+      [168,157,59,171],[247,213,42,102],[316,190,43,130],[448,202,46,111],[360,150,46,43]
+    ]);
     areas.village.walkable.push({points:[[1102,570],[1155,570],[1155,678],[1105,735],[1095,810],[1205,810],[1205,978],[1035,978],[1035,755],[1082,694],[1102,650]].map(([x,y])=>[x*areas.village.w/1536,y*areas.village.h/1024])});
     openPaths('second',[[984,0,90,342]]);
     openPaths('temple',[[760,548,462,56],[1157,477,72,160],[339,866,49,73],[338,172,35,171]]);
@@ -525,14 +538,24 @@ const World = (() => {
     replaceSolid('nextHarbor',[1294,127,166,314],[[1294,127,166,227],[1294,354,66,87],[1417,354,43,87]]);
     // Reviewed large props block their footprints while surrounding paths stay open.
     for(const [id,rects] of Object.entries({
-      village:[[552,456,52,52]],second:[[352,510,42,92]],cave:[[828,620,68,60]],
+      village:[
+        [552,456,52,52],
+        // Eastern-lawn scenery: block the painted rock and tree trunks while
+        // allowing the surrounding grass and tall-grass patch to be explored.
+        [1282,330,112,94],[1268,256,50,52],[1407,245,49,55],
+        [1328,392,52,55],[1430,397,48,55],[1260,452,48,55],
+        [1390,520,50,55],[1432,650,46,56],[1330,810,49,55],[1435,850,43,55]
+      ],second:[[352,510,42,92]],cave:[[828,620,68,60]],
       harbor:[[1080,864,62,48]],
       nextHarbor:[[540,200,72,108],[710,220,135,90],[815,100,110,120],[975,175,65,125]]
     }))areas[id].solids.push(...rects.map(rect=>repairBox(areas[id],rect)));
     const xy=(id,x,y)=>({x:x*areas[id].w/1536,y:y*areas[id].h/1024});
     const inter=(id,kind,key,label,x,y,extra={})=>{const a=areas[id]; const i={id:key,kind,label,...xy(id,x,y),radius:75*a.w/1536,...extra}; a.interactions.push(i);return i;};
     const dialogue=(id,key,label,x,y,text)=>inter(id,'dialogue',key,label,x,y,{dialogue:text});
-    const heal=(id,key,x,y,buildingEntrance=true)=>inter(id,'heal',key,'Healing Center',x,y,{dialogue:'Rest your team and replenish your basic supplies.',buildingEntrance});
+    const heal=(id,key,x,y,buildingEntrance=true,door)=>{
+      const a=areas[id],scaledDoor=door?{x:door[0]*a.w/1536,y:door[1]*a.h/1024,width:door[2]*a.w/1536,height:door[3]*a.h/1024}:undefined;
+      return inter(id,'heal',key,'Healing Center',x,y,{dialogue:'Rest your team and replenish your basic supplies.',buildingEntrance,...(scaledDoor?{door:scaledDoor}:{})});
+    };
     const home=(id,key,label,x,y,text)=>inter(id,'home',key,label,x,y,{dialogue:text});
     const trainer=(id,key,label,x,y,team,money=100)=>inter(id,'trainer',key,label,x,y,{dialogue:'Ready for a friendly battle?',encounter:{kind:'trainer',enemyTeam:team.map(([species,level])=>({species,level})),trainerId:key,rewards:{money}}});
     const gym=(id,key,label,x,y,team,badge,requiresBadge)=>inter(id,'gym',key,label,x,y,{dialogue:requiresBadge?'The Acropolis challenge awaits your team.':'Welcome to your first gym challenge.',requiresBadge,encounter:{kind:'gym',enemyTeam:team.map(([species,level])=>({species,level})),trainerId:key,rewards:{money:badge==='temple'?240:400,badge}}});
@@ -541,7 +564,7 @@ const World = (() => {
     home('village','playerHome','Your Home',853,526,'Your family welcomes you home. Rest your team before leaving.');
     home('village','rivalHome','Rival’s Home',1100,271,'Your rival has gone ahead. The second village is north of here.');
     heal('village','professorRecovery',800,922,false);
-    heal('second','secondCenter',620,621);
+    heal('second','secondCenter',620,621,true,[590,472,64,100]);
     inter('second','mart','secondMart','Village Mart',1150,371);
     home('second','secondHome','Village Home',1220,602,'The cave entrance is to the west. Hikers can help you find the northern exit.');
     trainer('second','villageYoungster','Youngster',775,953,[['pug',4]],60);
@@ -550,7 +573,7 @@ const World = (() => {
     trainer('cave','caveExplorer','Explorer',626,642,[['cyclops1',7]],110);
     trainer('cave','caveYoungster','Youngster',1347,498,[['pug',6],['cloak1',6]],95);
     dialogue('cave','caveExitGuide','Hiker',675,145,'Temple Town is through the northern exit. Return south for Second Village.');
-    heal('temple','templeCenter',205,287);
+    heal('temple','templeCenter',205,287,true,[188,188,53,82]);
     inter('temple','mart','templeMart','Temple Mart',490,565);
     home('temple','templeHome','Town Home',861,572,'Two martial artists teach Mega Punch and Mega Kick. Speak with either one on the road.');
     inter('temple','tutor','megaPunchTutor','Mega Punch Teacher',407,380,{moveId:'megaPunch',dialogue:'I can teach one companion Mega Punch.'});
@@ -560,7 +583,7 @@ const World = (() => {
     trainer('desert','desertHiker','Desert Hiker',747,792,[['rockman',10],['cloak2',10]],135);
     dialogue('desert','mirageTower','Mirage Sand Tower',808,584,'A tiered sandstone tower rises from the desert. The road north leads to Harbor Town.');
     dialogue('desert','fossil','Fossil Stone',1065,847,'A fossil impression remains in the stone.');
-    heal('harbor','harborCenter',744,309);
+    heal('harbor','harborCenter',744,309,true,[717,205,62,82]);
     inter('harbor','mart','harborMart','Harbor Market',825,716);
     inter('harbor','museum','harborMuseum','Harbor Museum',1255,430,{dialogue:['The museum preserves objects found in the coastal ruins.','The sailor on the eastern dock can take you to the next harbor.']});
     dialogue('harbor','harborCitizen','Townsperson',942,319,'The eastern dock serves the ruined coast. The Acropolis lies beyond it.');
@@ -568,7 +591,7 @@ const World = (() => {
     home('harbor','harborHome','Harbor Home',514,942,'Rest before your journey.');
     inter('harbor','travel','sailor','Sail to Outer Harbor',1218,721,{travel:{area:'nextHarbor',...xy('nextHarbor',300,406)},dialogue:'Ready to sail to the ruined coast?'});
     inter('nextHarbor','travel','returnBoat','Return Boat',300,406,{travel:{area:'harbor',...xy('harbor',1160,702)},dialogue:'Take the moored boat back to Harbor Town.'});
-    heal('acropolis','acropolisCenter',1300,286);
+    heal('acropolis','acropolisCenter',1300,286,true,[1278,132,58,90]);
     inter('acropolis','mart','acropolisMart','Acropolis Mart',452,296);
     gym('acropolis','acropolisGym','Acropolis Gym',862,289,[['warrior3',13],['nautilus2',13],['gorgon2',14]],'acropolis','temple');
     home('acropolis','acropolisHome','Coastal Home',721,542,'The healing center is beside the Acropolis. Rest here whenever you need.');
@@ -801,6 +824,8 @@ const Combat = (() => {
       const playerIndex = playerParty.findIndex(mon => mon.hp > 0);
       if (playerIndex < 0) throw new Error('Your team needs healing before a battle.');
       const kind = encounter.kind || 'wild';
+      const difficulty = ['easy', 'standard', 'challenge'].includes(encounter.difficulty)
+        ? encounter.difficulty : 'standard';
       if (!['wild', 'trainer', 'gym'].includes(kind)) throw new Error(`Invalid battle kind: ${kind}`);
       if (!Array.isArray(encounter.enemyTeam) || !encounter.enemyTeam.length ||
           encounter.enemyTeam.length > 6 || (kind === 'wild' && encounter.enemyTeam.length !== 1)) {
@@ -815,6 +840,7 @@ const Combat = (() => {
         id: uid('battle'), playerParty, enemyParty, playerIndex, enemyIndex: 0,
         phase: 'action', kind, trainerId: encounter.trainerId || null,
         rewards: copy(encounter.rewards || {}), ballsUsed: 0, potionsUsed: 0,
+        difficulty,
         playerGuard: false, enemyGuard: false,
         participants: [playerParty[playerIndex].uid], turn: 0
       };
@@ -837,7 +863,9 @@ const Combat = (() => {
         const experience = battle.enemyParty.reduce((total, mon) => total + 18 + mon.level * 7, 0);
         battle.playerParty = battle.playerParty.map(mon => {
           if (mon.hp <= 0) return mon;
-          const amount = Math.floor(experience * (battle.participants.includes(mon.uid) ? 1 : 0.55));
+          // Bench partners keep enough pace with Eli's later evolution curve
+          // without receiving the full experience earned by active battlers.
+          const amount = Math.floor(experience * (battle.participants.includes(mon.uid) ? 1 : 0.58));
           const result = applyExperience(mon, amount);
           evolutions.push(...result.evolutions);
           events.push(event('experience', `${name(mon)} gained ${amount} experience.`, {
@@ -917,13 +945,16 @@ const Combat = (() => {
       // leave room to weaken and capture, rather than decide a fight in one turn.
       const raw = Math.max(2, finite(move.power, 8) * 0.32 + stat(mon, 'atk') * 0.5 - stat(target, 'def') * 0.28);
       const guarded = battle[`${targetSide}Guard`];
-      const amount = mult === 0 ? 0 : Math.max(1, Math.floor(raw * mult * (0.9 + roll() * 0.2) * (guarded ? 0.5 : 1)));
+      const difficultyMultiplier = side === 'enemy'
+        ? ({easy: 0.75, standard: 1, challenge: 1.25}[battle.difficulty] || 1)
+        : 1;
+      const amount = mult === 0 ? 0 : Math.max(1, Math.floor(raw * mult * difficultyMultiplier * (0.9 + roll() * 0.2) * (guarded ? 0.5 : 1)));
       const dealt = Math.min(target.hp, amount);
       target.hp -= dealt;
       if (amount > 0) battle[`${targetSide}Guard`] = false;
       const effectText = mult === 0 ? ' It had no effect.' : mult > 1 ? ' Very effective!' : mult < 1 ? ' Resisted.' : '';
       events.push(event('damage', `${name(mon)} used ${move.name}: ${dealt} damage.${effectText}`, {
-        side, targetSide, amount: dealt, multiplier: mult, guarded, moveId
+        side, targetSide, amount: dealt, multiplier: mult, difficultyMultiplier, guarded, moveId
       }));
       return checkFaint(battle, targetSide, events);
     }
@@ -1060,6 +1091,7 @@ const ExperimentalWorld = (() => {
     'oliveRoad','oliveTown','aqueduct','marblePass','quarryTown','quarry','saltRoad',
     'cistern','windRoad','windTown','windTemple','summitRoad','observatory','league'
   ];
+  const TERRAIN_ATLAS_KEY='mapExpeditionTerrainAtlas',PROP_ATLAS_KEY='mapExpeditionPropsAtlas';
   const W=COLS*TILE,H=ROWS*TILE;
   const pt=(x,y)=>({x:x*TILE+TILE/2,y:y*TILE+TILE/2});
   const rect=(x,y,w,h)=>({x:x*TILE,y:y*TILE,w:w*TILE,h:h*TILE});
@@ -1247,38 +1279,61 @@ const ExperimentalWorld = (() => {
     league:{base:'#77776e',dark:'#45494c',light:'#c0b79b',road:'#d2bd89',stone:'#69645d',water:'#467d93'}
   };
   const hash=(x,y,id)=>{let n=(x*374761393+y*668265263+id.length*2246822519)>>>0;n=(n^(n>>>13))*1274126177>>>0;return n^(n>>>16);};
-  function paintTile(ctx,ch,x,y,p,id,now){
+  const terrainByPalette={olive:0,village:0,aqueduct:5,quarry:7,marbleTown:5,deepQuarry:7,salt:3,cistern:6,windFields:9,windTown:9,windTemple:5,summit:10,stars:11,league:11};
+  const textureCache=typeof WeakMap!=='undefined'?new WeakMap():null;
+  function terrainIndex(ch,palette){
+    if(ch==='~')return null;if(ch==='=')return 2;if(ch==='g')return palette==='salt'?3:1;if(ch==='f')return 8;if(ch===',')return 3;
+    return terrainByPalette[palette]??0;
+  }
+  function paintAtlasTexture(ctx,image,index,px,py,n){
+    if(!image?.complete||!image.naturalWidth||!image.naturalHeight||index==null)return false;
+    const cw=image.naturalWidth/4,ch=image.naturalHeight/4,pad=Math.max(3,Math.floor(Math.min(cw,ch)*.018)),sample=Math.min(cw-pad*2,ch-pad*2)*(index===3?.36:.46);
+    const variant=(n>>>16)&7,roomX=Math.max(0,(index===3?cw*.59:cw-pad)-pad-sample),roomY=Math.max(0,ch-pad*2-sample),sx=(index%4)*cw+pad+((variant*73%251)/251)*roomX,sy=Math.floor(index/4)*ch+pad+((variant*137%251)/251)*roomY;
+    let tile=null;
+    if(textureCache&&typeof document!=='undefined'){
+      let cache=textureCache.get(image);if(!cache){cache=new Map();textureCache.set(image,cache);}const key=index+':'+variant;tile=cache.get(key);
+      if(!tile){tile=document.createElement('canvas');tile.width=TILE;tile.height=TILE;const tileCtx=tile.getContext('2d');tileCtx.imageSmoothingEnabled=true;tileCtx.imageSmoothingQuality='high';tileCtx.drawImage(image,sx,sy,sample,sample,0,0,TILE,TILE);cache.set(key,tile);}
+    }
+    ctx.save();ctx.globalAlpha=.82;ctx.imageSmoothingEnabled=false;if(tile)ctx.drawImage(tile,px,py);else ctx.drawImage(image,sx,sy,sample,sample,px,py,TILE,TILE);ctx.restore();return true;
+  }
+  function paintProp(ctx,image,index,cx,bottom,w,h){
+    if(!image?.complete||!image.naturalWidth||!image.naturalHeight)return false;
+    const sw=image.naturalWidth/2,sh=image.naturalHeight/2,sx=(index%2)*sw,sy=Math.floor(index/2)*sh;
+    ctx.save();ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(image,sx,sy,sw,sh,Math.round(cx-w/2),Math.round(bottom-h),w,h);ctx.restore();return true;
+  }
+  function paintTile(ctx,ch,x,y,p,id,now,terrainAtlas,propsAtlas){
     const px=x*TILE,py=y*TILE,n=hash(x,y,id),speck=n%5;
     ctx.fillStyle=walkable(ch)?p.base:p.dark;ctx.fillRect(px,py,TILE,TILE);
+    const textured=paintAtlasTexture(ctx,terrainAtlas,terrainIndex(ch,maps[id].palette),px,py,n);
     if(ch==='='){
-      ctx.fillStyle=p.road;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#6b625142';ctx.fillRect(px,py+14,TILE,2);ctx.fillRect(px,py+29,TILE,3);
+      if(!textured){ctx.fillStyle=p.road;ctx.fillRect(px,py,TILE,TILE);}ctx.fillStyle='#6b625142';ctx.fillRect(px,py+14,TILE,2);ctx.fillRect(px,py+29,TILE,3);
       for(let row=0;row<2;row++){const yy=py+2+row*15,shift=((x+y+row)&1)*7;for(let xx=px-7+shift;xx<px+TILE;xx+=15){ctx.fillStyle=row?'#b0996f':'#cdb681';ctx.fillRect(xx,yy,13,11);ctx.fillStyle='#e0c995';ctx.fillRect(xx+2,yy+1,9,2);ctx.fillStyle='#88755e';ctx.fillRect(xx+3,yy+10,9,1);}}
       ctx.fillStyle='#6d6456';for(let i=0;i<2;i++)ctx.fillRect(px+4+((n>>(i*8))%24),py+5+i*16,2+(n%3),2);
     } else if(ch==='s'||ch==='b'||ch==='A'||ch==='+'||ch==='*'){
-      ctx.fillStyle=p.light;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle=p.stone;ctx.fillRect(px,py+14,TILE,2);ctx.fillRect(px,py+30,TILE,2);ctx.fillRect(px+((x+y)&1?10:21),py,2,15);ctx.fillRect(px+((x+y)&1?22:8),py+16,2,14);ctx.fillStyle='#e4dab4';ctx.fillRect(px+3,py+3,11,2);ctx.fillRect(px+18,py+19,10,2);ctx.fillStyle='#6f6b61';ctx.fillRect(px+5+(n%18),py+9+(n%12),4,2);
+      if(!textured){ctx.fillStyle=p.light;ctx.fillRect(px,py,TILE,TILE);}ctx.fillStyle=p.stone+'88';ctx.fillRect(px,py+14,TILE,2);ctx.fillRect(px,py+30,TILE,2);ctx.fillRect(px+((x+y)&1?10:21),py,2,15);ctx.fillRect(px+((x+y)&1?22:8),py+16,2,14);ctx.fillStyle='#e4dab488';ctx.fillRect(px+3,py+3,11,2);ctx.fillRect(px+18,py+19,10,2);ctx.fillStyle='#6f6b6188';ctx.fillRect(px+5+(n%18),py+9+(n%12),4,2);
       if(ch==='b'){ctx.fillStyle='#8d7558';ctx.fillRect(px,py+25,TILE,5);ctx.fillStyle='#e5d4a4';ctx.fillRect(px,py+3,TILE,3);}
       if(ch==='*'){ctx.fillStyle='#313a4a';ctx.fillRect(px+5,py+5,22,22);ctx.fillStyle='#f2d479';ctx.fillRect(px+14,py+8,4,16);ctx.fillRect(px+8,py+14,16,4);ctx.fillRect(px+11,py+11,10,10);}
       if(ch==='+'){ctx.fillStyle='#dce9df';ctx.fillRect(px+5,py+5,22,22);ctx.fillStyle='#4aa0a7';ctx.fillRect(px+13,py+7,6,18);ctx.fillRect(px+7,py+13,18,6);}
     } else if(ch==='g'||ch==='f'){
-      ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle=p.dark;ctx.fillRect(px+(n%21),py+8+(n%15),8,3);ctx.fillStyle=p.light;
+      if(!textured){ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);}ctx.fillStyle=p.dark+'88';ctx.fillRect(px+(n%21),py+8+(n%15),8,3);ctx.fillStyle=p.light+'99';
       for(let i=0;i<7;i++){const xx=px+3+((n>>(i*3))%27),yy=py+6+((n>>(i*4+1))%23),tall=5+(i%4);ctx.fillRect(xx,yy,2,tall);ctx.fillRect(xx-2,yy+2,3,2);ctx.fillRect(xx+1,yy+4,3,2);}
       if((n&7)===0){ctx.fillStyle=['#e7d669','#e49779','#ddd8ef'][n%3];ctx.fillRect(px+8+(n%16),py+7+(n%13),4,4);ctx.fillStyle='#eee6b8';ctx.fillRect(px+9+(n%16),py+8+(n%13),2,2);}
       if(ch==='f'){ctx.fillStyle='#d9bd4b';for(const xx of [px+7,px+16,px+25]){ctx.fillRect(xx,py+3,2,26);ctx.fillRect(xx-3,py+9,4,3);ctx.fillRect(xx+1,py+15,4,3);ctx.fillStyle='#f0d86b';ctx.fillRect(xx-1,py+2,4,6);ctx.fillStyle='#d9bd4b';}}
     } else if(ch===','||ch==='.'){
-      ctx.fillStyle=ch===','?'#d9c68f':p.base;ctx.fillRect(px,py,TILE,TILE);
+      if(!textured){ctx.fillStyle=ch===','?'#d9c68f':p.base;ctx.fillRect(px,py,TILE,TILE);}
       if(ch===','){ctx.fillStyle='#aa9369';for(let i=0;i<3+speck;i++){const xx=px+3+((n>>(i*4))%26),yy=py+4+((n>>(i*3+2))%24);ctx.fillRect(xx,yy,3+(i%3),2);ctx.fillStyle='#eadba8';ctx.fillRect(xx+1,yy,2,1);ctx.fillStyle='#aa9369';}}
       else {ctx.fillStyle=p.dark;ctx.fillRect(px+4+(n%20),py+20+(n%7),5,2);ctx.fillStyle=p.light;for(let i=0;i<4;i++){const xx=px+3+((n>>(i*5))%27),yy=py+4+((n>>(i*4+2))%24);ctx.fillRect(xx,yy,2,4+(i%3));ctx.fillRect(xx-1,yy+2,3,1);}if((n%11)===0){ctx.fillStyle=['#f0d35b','#e58a75','#f0edf3'][n%3];ctx.fillRect(px+8+(n%14),py+9+(n%11),5,5);ctx.fillStyle='#fff4c3';ctx.fillRect(px+10+(n%14),py+11+(n%11),1,1);}}
     }
     else if(ch==='~'){ctx.fillStyle=p.water;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#8ed1d4';ctx.fillRect(px+((Math.floor(now/180)*4+n)%18),py+9,13,2);ctx.fillRect(px+((Math.floor(now/240)*3+n)%21),py+23,9,2);}
-    else if(ch==='T'){ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#4a392b';ctx.fillRect(px+13,py+16,7,16);ctx.fillStyle='#2e5034';ctx.fillRect(px-7,py+7,46,17);ctx.fillRect(px-2,py-1,36,31);ctx.fillStyle='#47703c';ctx.fillRect(px-3,py+4,38,18);ctx.fillRect(px+3,py-6,27,28);ctx.fillStyle='#658747';ctx.fillRect(px+1,py+1,29,13);ctx.fillRect(px+7,py-8,18,12);ctx.fillStyle='#91a55a';ctx.fillRect(px+6,py-4,14,7);ctx.fillRect(px-1,py+7,13,6);ctx.fillStyle='#c3aa45';ctx.fillRect(px+2+(n%22),py+6+(n%10),4,4);ctx.fillRect(px+20-(n%12),py+1,3,3);ctx.fillStyle='#223d2a';ctx.fillRect(px-5,py+22,42,4);}
-    else if(ch==='H'||ch==='D'||ch==='M'){ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);}
+    else if(ch==='T'){if(!textured){ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);}if((n%3)===0&&paintProp(ctx,propsAtlas,0,px+16,py+38,64,64)){}else{ctx.fillStyle='#4a392b';ctx.fillRect(px+13,py+16,7,16);ctx.fillStyle='#2e5034';ctx.fillRect(px-7,py+7,46,17);ctx.fillRect(px-2,py-1,36,31);ctx.fillStyle='#47703c';ctx.fillRect(px-3,py+4,38,18);ctx.fillRect(px+3,py-6,27,28);ctx.fillStyle='#658747';ctx.fillRect(px+1,py+1,29,13);ctx.fillRect(px+7,py-8,18,12);ctx.fillStyle='#91a55a';ctx.fillRect(px+6,py-4,14,7);ctx.fillRect(px-1,py+7,13,6);ctx.fillStyle='#c3aa45';ctx.fillRect(px+2+(n%22),py+6+(n%10),4,4);ctx.fillRect(px+20-(n%12),py+1,3,3);ctx.fillStyle='#223d2a';ctx.fillRect(px-5,py+22,42,4);}}
+    else if(ch==='H'||ch==='D'||ch==='M'){if(!textured){ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);}}
     else if(ch==='^'||ch==='#'||ch==='O'||ch==='C'){
-      ctx.fillStyle=ch==='#'?p.dark:p.stone;ctx.fillRect(px,py,TILE,TILE);
-      if(ch==='O'){ctx.fillStyle='#4e4f48';ctx.fillRect(px+7,py+11,20,17);ctx.fillRect(px+10,py+6,14,22);ctx.fillStyle=p.light;ctx.fillRect(px+11,py+7,10,5);ctx.fillStyle='#343a38';ctx.fillRect(px+8,py+25,19,4);}
+      if(!textured){ctx.fillStyle=ch==='#'?p.dark:p.stone;ctx.fillRect(px,py,TILE,TILE);}
+      if(ch==='O'){if(!paintProp(ctx,propsAtlas,3,px+16,py+35,43,43)){ctx.fillStyle='#4e4f48';ctx.fillRect(px+7,py+11,20,17);ctx.fillRect(px+10,py+6,14,22);ctx.fillStyle=p.light;ctx.fillRect(px+11,py+7,10,5);ctx.fillStyle='#343a38';ctx.fillRect(px+8,py+25,19,4);}}
       else if(ch==='C'){ctx.fillStyle='#202b2e';ctx.fillRect(px+4,py+10,24,22);ctx.fillRect(px+8,py+6,16,26);ctx.fillStyle=p.light;ctx.fillRect(px+4,py+5,21,4);ctx.fillStyle='#151d20';ctx.fillRect(px+10,py+13,13,19);}
       else {const xx=px+3+(n%17),yy=py+4+((n>>>6)%19);ctx.fillStyle=p.light;ctx.fillRect(xx,yy,5+(n%8),3);if((n&3)===0){ctx.fillRect(px+2+((n>>>11)%20),py+21,9,3);ctx.fillStyle=p.stone;ctx.fillRect(xx+3,yy+5,7,2);}ctx.fillStyle=ch==='#'?'#3b4442':p.dark;ctx.fillRect(px+5+((n>>>15)%19),py+27,4+(n%6),2);}
     }
-    else if(ch==='h'){ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);ctx.fillStyle='#42663c';ctx.fillRect(px,py+6,TILE,22);ctx.fillStyle='#7f9f50';for(let i=0;i<4;i++)ctx.fillRect(px+2+i*8,py+3+(i%2)*4,7,12);}
+    else if(ch==='h'){if(!textured){ctx.fillStyle=p.base;ctx.fillRect(px,py,TILE,TILE);}ctx.fillStyle='#42663c99';ctx.fillRect(px,py+20,TILE,8);ctx.fillStyle='#a8bd6f99';for(let i=0;i<4;i++)ctx.fillRect(px+2+i*8,py+8+(i%2)*4,3,13);}
     else if(ch==='V'){ctx.fillStyle=p.light;ctx.fillRect(px+13,py+5,6,24);ctx.fillStyle='#ede4c1';ctx.fillRect(px+3,py+7,26,4);ctx.fillRect(px+14,py,4,26);}
   }
   function components(rows,chars){
@@ -1291,9 +1346,10 @@ const ExperimentalWorld = (() => {
     }
     return out;
   }
-  function paintHouses(ctx,m){
+  function paintHouses(ctx,m,art){
     for(const cells of components(m.tiles,'HD')){
       const xs=cells.map(c=>c[0]),ys=cells.map(c=>c[1]),x=Math.min(...xs)*TILE,y=Math.min(...ys)*TILE,w=(Math.max(...xs)-Math.min(...xs)+1)*TILE,h=(Math.max(...ys)-Math.min(...ys)+1)*TILE;
+      if(art?.complete&&art.naturalWidth){ctx.drawImage(art,x-4,y-18,w+8,h+26);continue;}
       ctx.fillStyle='#344a3c55';ctx.fillRect(x+9,y+15,w,h-1);
       ctx.fillStyle='#f2edd9';ctx.fillRect(x+3,y+24,w-6,h-27);ctx.fillStyle='#fff9e8';ctx.fillRect(x+7,y+29,w-14,7);ctx.fillStyle='#d6d0bb';ctx.fillRect(x+3,y+h-17,w-6,14);
       ctx.fillStyle='#9f4937';ctx.beginPath();ctx.moveTo(x-6,y+27);ctx.lineTo(x+w*.18,y+2);ctx.lineTo(x+w*.82,y+2);ctx.lineTo(x+w+6,y+27);ctx.closePath();ctx.fill();
@@ -1309,9 +1365,10 @@ const ExperimentalWorld = (() => {
         for(const side of [-1,1]){const potX=px+16+side*29;ctx.fillStyle='#b86243';ctx.fillRect(potX-7,py+25,14,10);ctx.fillStyle='#6d3c31';ctx.fillRect(potX-9,py+23,18,4);ctx.fillStyle='#4f7842';ctx.fillRect(potX-2,py+12,4,12);ctx.fillRect(potX-8,py+15,8,5);ctx.fillRect(potX+1,py+10,8,5);ctx.fillStyle='#7ea052';ctx.fillRect(potX-5,py+12,7,4);}}
     }
   }
-  function paintWindmills(ctx,m,now){
+  function paintWindmills(ctx,m,now,art){
     for(const cells of components(m.tiles,'M')){
       const xs=cells.map(c=>c[0]),ys=cells.map(c=>c[1]),x=Math.min(...xs)*TILE,y=Math.min(...ys)*TILE,w=(Math.max(...xs)-Math.min(...xs)+1)*TILE,h=(Math.max(...ys)-Math.min(...ys)+1)*TILE,cx=x+w/2,hubY=y+h*.38;
+      if(art?.complete&&art.naturalWidth){ctx.drawImage(art,x-10,y-20,w+20,h+24);continue;}
       ctx.fillStyle='#48594855';ctx.fillRect(x+w*.25+8,y+h*.22+10,w*.5,h*.75);
       ctx.fillStyle='#eee6ce';ctx.beginPath();ctx.moveTo(x+w*.3,y+h);ctx.lineTo(x+w*.38,y+h*.24);ctx.lineTo(x+w*.62,y+h*.24);ctx.lineTo(x+w*.7,y+h);ctx.closePath();ctx.fill();
       ctx.fillStyle='#b75d43';ctx.beginPath();ctx.moveTo(x+w*.3,y+h*.28);ctx.lineTo(cx,y+3);ctx.lineTo(x+w*.7,y+h*.28);ctx.closePath();ctx.fill();
@@ -1450,13 +1507,28 @@ const ExperimentalWorld = (() => {
   function draw(api,ctx,cam,now=0){
     const id=api?.state?.area;if(!maps[id])return false;const m=maps[id],p=palettes[m.palette];
     ctx.save();ctx.translate(-cam.x,-cam.y);
+    const terrainAtlas=api?.images?.[TERRAIN_ATLAS_KEY],propsAtlas=api?.images?.[PROP_ATLAS_KEY];
     const viewW=ctx.canvas?.width||W,viewH=ctx.canvas?.height||H,x0=Math.max(0,Math.floor(cam.x/TILE)-2),y0=Math.max(0,Math.floor(cam.y/TILE)-2),x1=Math.min(COLS,Math.ceil((cam.x+viewW)/TILE)+2),y1=Math.min(ROWS,Math.ceil((cam.y+viewH)/TILE)+2);
-    for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)paintTile(ctx,m.tiles[y][x],x,y,p,id,now);
-    paintHouses(ctx,m);paintWindmills(ctx,m,now);paintLandmarks(ctx,api,m,now);paintMechanism(ctx,api,m,now);paintPuzzleState(ctx,api,m,now);
+    for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)paintTile(ctx,m.tiles[y][x],x,y,p,id,now,terrainAtlas,propsAtlas);
+    // Draw crowns after the ground so the next row cannot cut off their foliage.
+    if(propsAtlas?.complete&&propsAtlas.naturalWidth)for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)if(m.tiles[y][x]==='T'){
+      const variation=hash(x,y,id)%7;paintProp(ctx,propsAtlas,0,x*TILE+16,y*TILE+32,60+variation,62+variation);
+    }
+    const crag=api?.images?.mapExpeditionCrag;
+    if(crag?.complete&&crag.naturalWidth){
+      for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)if(['^','#'].includes(m.tiles[y][x])){
+        ctx.fillStyle='#17242b88';ctx.fillRect(x*TILE,y*TILE,TILE,TILE);
+        ctx.drawImage(crag,x*TILE,y*TILE,TILE,TILE);
+        for(const [dx,dy]of [[1,0],[-1,0],[0,1],[0,-1]])if(m.tiles[y+dy]?.[x+dx]&&walkable(m.tiles[y+dy][x+dx])){
+          ctx.fillStyle='#192b3299';ctx.fillRect(x*TILE+(dx>0?27:0),y*TILE+(dy>0?27:0),dx?5:TILE,dy?5:TILE);
+        }
+      }
+    }
+    paintHouses(ctx,m,api?.images?.mapExpeditionHouse);paintWindmills(ctx,m,now,api?.images?.mapExpeditionWindmill);paintLandmarks(ctx,api,m,now);paintMechanism(ctx,api,m,now);paintPuzzleState(ctx,api,m,now);
     ctx.restore();return true;
   }
   const isArea=id=>mapIds.includes(id);
-  return {install,draw,isArea,mapIds:Object.freeze([...mapIds]),_test:{maps,TILE,COLS,ROWS,walkable,encounterTile,puzzleOrder,puzzleAreas,puzzleStatus,routeGuides,detailBounds}};
+  return {install,draw,isArea,mapIds:Object.freeze([...mapIds]),_test:{maps,TILE,COLS,ROWS,walkable,encounterTile,puzzleOrder,puzzleAreas,puzzleStatus,routeGuides,detailBounds,TERRAIN_ATLAS_KEY,PROP_ATLAS_KEY,terrainIndex}};
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=ExperimentalWorld;
 
@@ -1636,7 +1708,13 @@ const ExperimentalCampaign = (() => {
       const area=api.world.areas[id],anchors=area.anchors||{},fallback=area.spawn;
       area.interactions=area.interactions||[];
       if(anchors.guide){const p=safePoint(anchors.guide,fallback);addInteraction(area,{id:`exp_${id}_guide`,kind:'dialogue',label:id==='oliveTown'?'Iris, Expedition Guide':'Local Guide',...p,radius:58,dialogue:guideText[id]});addNpc(area,`exp_${id}_guide_npc`,p,'#3d7f86');}
-      if(anchors.heal)addInteraction(area,{id:`exp_${id}_heal`,kind:'heal',label:'Expedition Recovery',...safePoint(anchors.heal,fallback),radius:62,dialogue:'Restore your companions and basic supplies.'});
+      if(anchors.heal){
+        const location=safePoint(anchors.heal,fallback),doors=[];
+        if(area.kind==='town')for(let y=0;y<(area.tiles||[]).length;y++)for(let x=0;x<area.tiles[y].length;x++)if(area.tiles[y][x]==='D')doors.push({x:x*32+5,y:y*32,width:22,height:30});
+        doors.sort((a,b)=>Math.hypot(a.x+a.width/2-location.x,a.y+a.height-location.y)-Math.hypot(b.x+b.width/2-location.x,b.y+b.height-location.y));
+        const door=doors[0];
+        addInteraction(area,{id:`exp_${id}_heal`,kind:'heal',label:'Expedition Recovery',...location,radius:62,buildingEntrance:!!door,door,dialogue:'Restore your companions and basic supplies.'});
+      }
       if(anchors.mart)addInteraction(area,{id:`exp_${id}_mart`,kind:'mart',label:'Expedition Supplies',...safePoint(anchors.mart,fallback),radius:62});
       const trainerAnchors=Array.isArray(anchors.trainers)?anchors.trainers:[];
       trainerAnchors.forEach((anchor,index)=>{
@@ -2357,6 +2435,443 @@ const ExperimentalMusic = (() => {
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=ExperimentalMusic;
 
+/* Floor polygons traced against the reviewed 1280 x 896 paintings.
+ * Coordinates are image pixels; cliffs, open sky, pools, furniture and lava are
+ * deliberately excluded. Keep the narrow rock bridge and the winding roads. */
+const REGION_MAP_COLLISIONS=(()=>{
+  const spec=(walkable,blocked=[],encounters=[])=>({version:'painted-floor-v2',cellSize:8,walkable,blocked,encounters});
+  const trail=spec([
+    [[0,634],[125,611],[232,579],[306,548],[354,511],[400,484],[430,462],[466,466],[459,495],[409,541],[375,563],[425,584],[503,594],[572,607],[647,602],[694,580],[759,556],[806,527],[853,509],[885,515],[863,547],[807,561],[763,585],[697,613],[652,636],[569,640],[494,622],[419,615],[365,588],[339,573],[301,583],[239,610],[158,629],[100,655],[0,674]],
+    [[244,188],[266,189],[293,218],[306,246],[301,277],[299,303],[317,327],[349,345],[378,365],[415,390],[463,421],[477,450],[466,477],[431,481],[440,451],[430,431],[401,411],[369,387],[342,370],[307,350],[282,329],[268,308],[275,280],[279,254],[271,231],[250,214]],
+    [[840,528],[876,520],[906,492],[911,456],[892,426],[865,410],[861,387],[887,362],[937,336],[982,315],[1046,297],[1114,282],[1174,253],[1222,224],[1280,207],[1280,165],[1234,181],[1194,208],[1158,231],[1102,254],[1044,264],[978,279],[935,302],[885,328],[840,363],[824,394],[839,428],[870,449],[876,472],[856,498]],
+    [[211,577],[220,555],[259,538],[290,535],[305,550],[281,576]],
+    [[754,558],[773,531],[801,522],[822,531],[805,551]],
+    [[297,548],[319,521],[348,493],[377,482],[401,486],[374,513],[346,545]],
+    /* Widen the painted switchbacks to a two-cell player corridor.  The source
+     * painting already has these roads; the first polygon trace pinched at
+     * their turns, so real keyboard movement could not follow them. */
+    [[112,600],[222,578],[316,564],[351,594],[330,632],[224,650],[126,664]],
+    [[338,628],[391,617],[434,582],[460,536],[457,492],[432,456],[390,422],[345,391],[304,357],[276,322],[269,239],[294,221],[311,322],[341,350],[385,378],[431,410],[472,447],[497,490],[501,545],[475,598],[431,638]],
+    [[434,570],[516,570],[574,587],[638,583],[706,553],[774,526],[826,493],[845,448],[875,403],[930,359],[1007,325],[1081,298],[1161,265],[1230,222],[1280,190],[1280,241],[1238,260],[1176,290],[1101,323],[1030,351],[969,383],[921,421],[901,467],[899,510],[851,548],[788,578],[716,609],[650,641],[573,640],[503,620],[456,614]],
+    [[281,311],[320,311],[335,350],[301,368],[274,344]],
+    [[858,452],[875,396],[890,348],[926,319],[973,295],[1040,273],[1118,255],[1156,238],[1172,272],[1123,296],[1053,314],[988,336],[938,359],[910,389],[900,438]],
+    [[1109,230],[1168,219],[1181,252],[1137,283]]
+  ],[],[[[229,558],[265,546],[283,546],[274,561],[247,573],[228,575]],[[312,531],[338,505],[362,495],[368,501],[343,527],[324,541]]]);
+  const cloud=spec([
+    [[0,652],[71,670],[123,679],[171,674],[212,650],[238,612],[273,572],[318,543],[366,515],[413,491],[454,461],[475,432],[455,416],[470,398],[501,394],[522,411],[555,430],[612,441],[663,453],[689,469],[733,469],[777,454],[824,436],[875,417],[910,393],[923,366],[907,343],[879,325],[877,304],[908,287],[972,271],[1024,250],[1074,224],[1117,203],[1146,160],[1179,127],[1227,102],[1280,80],[1280,121],[1241,128],[1206,147],[1172,177],[1161,211],[1133,236],[1090,258],[1049,284],[994,303],[939,316],[923,324],[940,343],[958,368],[955,398],[935,425],[901,450],[851,460],[804,474],[761,490],[712,495],[679,491],[650,479],[615,477],[577,477],[535,488],[494,508],[445,534],[396,559],[353,587],[320,619],[288,660],[258,696],[217,721],[159,731],[105,725],[53,708],[0,701]],
+    [[454,419],[466,400],[498,392],[515,390],[526,412],[554,426],[570,443],[540,455],[500,444]],
+    [[366,542],[410,548],[454,550],[482,534],[511,532],[517,552],[490,568],[456,574],[409,578],[384,567]],
+    [[941,311],[970,335],[1002,333],[1024,322],[1038,302],[1007,299]],
+    [[982,195],[1018,183],[1060,190],[1093,207],[1085,223],[1056,235],[1024,232],[989,220],[970,210]],
+    /* The stone bridge and final stair turn are visibly broad enough to walk.
+     * Keep the cairns closed, but give the avatar's footprint room at each
+     * painted bottleneck. */
+    [[672,455],[719,449],[754,459],[777,478],[817,488],[861,477],[899,455],[932,430],[953,403],[949,373],[969,361],[983,394],[971,430],[941,465],[901,487],[850,504],[802,506],[749,491],[718,474],[680,486]],
+    [[1111,196],[1144,166],[1170,129],[1209,105],[1254,87],[1280,80],[1280,128],[1243,139],[1211,163],[1184,195],[1161,223],[1129,244],[1092,259],[1070,225]],
+    [[786,462],[839,440],[887,419],[930,394],[960,363],[982,383],[962,422],[931,457],[891,484],[842,505],[800,502]],
+    [[875,316],[911,300],[944,325],[932,361],[899,386],[871,369]],
+    [[448,533],[489,524],[527,536],[523,569],[486,582],[455,570]]
+  ],[[520,390,41,33],[1005,175,29,43]],[[[414,552],[452,554],[486,541],[500,543],[483,560],[450,570],[418,568]],[[982,316],[1007,309],[1026,307],[1018,323],[998,328]]]);
+  const hut=spec([
+    [[599,896],[689,896],[679,814],[670,778],[681,731],[701,682],[712,650],[749,626],[821,619],[882,603],[918,592],[946,551],[971,513],[995,477],[1009,430],[1004,382],[983,340],[959,311],[945,274],[927,246],[891,240],[878,215],[825,212],[792,222],[752,227],[712,215],[670,220],[632,211],[591,206],[558,219],[526,226],[493,244],[457,259],[433,291],[402,312],[373,345],[331,365],[295,386],[253,399],[207,411],[208,427],[240,445],[273,465],[304,489],[341,508],[363,544],[401,566],[434,585],[467,598],[512,610],[545,628],[567,666],[575,721],[592,763],[594,802]]
+  ],[[[620,354],[690,351],[724,377],[726,425],[690,449],[634,444],[610,420],[608,382]], [558,403,39,43],[617,437,41,40],[732,404,35,50]]);
+  const forge=spec([
+    [[608,896],[674,896],[674,829],[681,808],[673,763],[686,715],[724,677],[776,659],[823,641],[859,616],[888,589],[907,562],[931,535],[964,511],[1001,492],[1035,473],[1054,453],[1071,419],[1069,390],[1063,370],[1043,357],[1008,353],[988,340],[973,314],[946,300],[913,293],[882,279],[851,269],[824,258],[786,244],[771,225],[771,208],[718,209],[673,211],[671,265],[684,298],[713,319],[727,346],[725,365],[708,378],[692,395],[696,422],[708,440],[738,452],[784,462],[824,477],[862,488],[876,507],[869,538],[851,565],[833,590],[801,612],[755,631],[700,644],[668,634],[666,604],[663,571],[660,539],[619,538],[615,576],[610,606],[609,638],[579,644],[531,638],[489,624],[457,602],[433,574],[419,540],[407,511],[390,493],[354,478],[311,457],[271,436],[246,415],[220,395],[232,370],[265,353],[293,326],[321,297],[349,276],[383,261],[431,251],[480,249],[512,246],[566,244],[605,246],[605,211],[568,210],[517,211],[478,217],[430,216],[388,216],[349,207],[322,194],[307,168],[307,133],[289,124],[251,121],[247,179],[260,210],[282,230],[299,249],[301,270],[274,287],[250,310],[214,338],[191,345],[158,350],[136,359],[118,357],[119,385],[150,406],[180,428],[213,453],[240,477],[271,493],[300,516],[316,544],[322,574],[345,611],[367,640],[402,661],[449,676],[505,682],[556,688],[590,709],[605,742],[612,773],[608,806]],
+    [[605,320],[675,320],[674,154],[690,137],[722,122],[763,112],[782,92],[768,65],[740,48],[709,36],[678,30],[597,26],[548,33],[512,51],[482,72],[463,99],[483,116],[528,129],[572,138],[605,152]],
+    [[573,326],[600,309],[673,309],[699,333],[710,351],[693,375],[678,394],[675,443],[610,443],[610,398],[591,381],[565,365],[552,343]],
+    [[429,415],[453,403],[492,406],[519,425],[535,444],[498,468],[458,486],[410,491],[370,476],[371,451]],
+    [[790,401],[830,404],[848,421],[849,452],[834,470],[789,457],[750,443],[742,424]],
+    [[887,278],[931,239],[974,218],[1026,207],[1092,183],[1118,176],[1129,207],[1139,231],[1127,254],[1101,270],[1095,293],[1107,322],[1098,345],[1072,359],[1036,348],[1013,322],[988,308],[946,297]],
+    [[278,430],[315,441],[371,444],[425,437],[461,420],[491,419],[513,433],[515,454],[478,471],[430,486],[379,491],[338,474],[300,459]]
+  ],[[[615,445],[682,445],[706,458],[685,486],[685,514],[599,514],[599,487],[576,461]], [490,54,45,36],[545,30,36,53],[660,48,30,45],[689,34,36,57],[1033,221,54,34],[1080,296,40,61],[1058,344,42,20],[[712,270],[751,269],[784,273],[815,284],[813,318],[761,322],[714,308]],[[736,307],[798,280],[869,279],[900,323],[918,361],[953,379],[970,418],[947,448],[902,443],[889,416],[853,412],[827,398],[787,401],[752,398]],[[1002,296],[1062,292],[1096,307],[1089,347],[1049,358],[1019,337]],[[301,369],[335,356],[368,371],[420,370],[433,409],[402,427],[366,433],[332,436],[300,416]],[[326,548],[350,541],[374,548],[392,565],[388,602],[366,620],[341,612],[321,590]]],[[[439,434],[477,419],[506,434],[509,447],[478,463],[454,475],[433,467]],[[961,236],[994,223],[1018,222],[1022,243],[993,263],[972,265]]]);
+  const gate=spec([
+    [[600,896],[687,896],[688,849],[707,832],[741,811],[758,792],[725,770],[692,749],[683,719],[683,678],[690,654],[706,631],[690,607],[679,575],[687,552],[709,530],[724,501],[730,471],[753,443],[769,414],[767,384],[746,354],[720,336],[698,317],[695,279],[699,241],[696,196],[694,150],[588,150],[586,193],[584,244],[583,279],[585,306],[568,327],[539,347],[518,378],[516,415],[531,448],[550,471],[564,501],[580,530],[595,554],[602,577],[594,608],[578,630],[593,655],[600,687],[599,729],[588,751],[551,773],[531,789],[547,811],[579,832],[601,849]],
+    [[242,399],[278,382],[281,354],[332,348],[338,380],[376,405],[399,421],[427,433],[455,447],[492,460],[529,460],[543,434],[524,403],[519,377],[530,351],[495,345],[434,350],[391,365],[367,381],[323,403],[282,418],[246,430]],
+    [[744,350],[779,346],[819,350],[864,360],[903,378],[944,355],[991,354],[1001,388],[1042,405],[1046,431],[1009,450],[971,463],[932,483],[891,497],[861,499],[838,480],[828,455],[804,441],[766,449],[752,418],[767,385]],
+    [[367,355],[398,337],[451,324],[508,316],[547,316],[577,307],[586,331],[552,344],[512,342],[467,347],[421,355],[384,376]],
+    [[700,310],[739,320],[790,324],[831,326],[869,344],[904,359],[915,379],[879,377],[834,351],[786,346],[735,351],[708,337]],
+    [[263,419],[308,430],[335,451],[362,471],[396,492],[410,505],[434,510],[437,483],[421,453],[398,430],[375,411],[330,398],[284,403]],
+    /* Paved side walks pass below the two planted courts.  These small joins
+     * reconnect them to the central plaza without making the trees or pools
+     * walkable. */
+    [[420,440],[457,438],[480,458],[511,475],[551,478],[575,454],[599,443],[611,473],[575,501],[526,515],[476,500],[441,480]],
+    [[669,442],[706,438],[734,456],[761,477],[800,492],[839,493],[870,478],[902,458],[916,482],[881,508],[837,520],[788,518],[741,499],[704,476]],
+    [[396,470],[432,459],[466,479],[498,503],[540,517],[577,500],[615,473],[632,502],[590,532],[544,547],[493,536],[448,516]],
+    [[660,471],[700,475],[731,499],[766,524],[817,536],[867,523],[916,503],[970,484],[1016,471],[1032,503],[980,520],[925,540],[869,553],[810,555],[755,541],[709,516],[673,497]],
+    [[772,484],[805,484],[805,520],[772,520]]
+  ],[[[438,351],[488,354],[513,386],[508,420],[483,442],[452,433],[438,406]],[[775,351],[816,351],[844,384],[831,420],[805,440],[774,424],[763,392]]]);
+  const summit=spec([
+    [[580,896],[678,896],[668,860],[666,819],[666,776],[667,739],[673,714],[682,689],[697,662],[703,637],[692,611],[674,589],[669,566],[683,541],[706,519],[739,503],[785,486],[821,466],[849,444],[868,411],[872,381],[866,353],[851,325],[829,307],[799,291],[768,274],[741,254],[720,234],[707,208],[698,186],[697,156],[679,141],[603,141],[584,157],[581,184],[570,206],[556,225],[534,240],[510,259],[485,278],[456,294],[434,315],[419,340],[411,368],[416,398],[429,425],[449,448],[471,467],[504,485],[542,502],[572,516],[593,538],[599,560],[597,584],[607,609],[630,633],[631,653],[617,674],[600,699],[593,724],[597,756],[606,796],[609,833],[601,866]],
+    [[520,244],[547,248],[568,236],[582,215],[588,188],[574,178],[549,171],[520,165],[493,151],[490,131],[471,130],[468,162],[481,184],[501,202],[515,220]],
+    [[577,161],[574,138],[554,126],[532,128],[513,136],[505,149],[514,162],[538,158],[555,160]],
+    [[691,153],[714,140],[739,137],[764,128],[792,128],[805,139],[800,153],[781,164],[762,162],[745,153],[729,158],[711,175],[696,178]],
+    [[789,270],[824,265],[848,275],[870,282],[859,302],[839,318],[810,296]],
+    [[824,290],[844,262],[872,247],[899,235],[930,216],[948,206],[963,226],[979,249],[991,278],[992,306],[979,331],[961,348],[939,360],[931,346],[947,323],[956,300],[950,272],[936,251],[918,251],[894,268],[872,285],[852,312]]
+  ],[[418,413,42,41],[821,412,42,43],[[509,171],[538,158],[558,178],[555,203],[529,217],[512,195]],[[721,177],[746,169],[768,171],[763,198],[737,214],[724,199]],[498,233,52,64],[734,232,39,65]]);
+  return Object.freeze({olympusTrail:trail,cloudPass:cloud,hermitHut:hut,olympusCave:forge,olympusGate:gate,olympusSummit:summit});
+})();
+if(typeof globalThis!=='undefined')globalThis.REGION_MAP_COLLISIONS=REGION_MAP_COLLISIONS;
+if(typeof module!=='undefined'&&module.exports)module.exports=REGION_MAP_COLLISIONS;
+
+/* Art-aligned Atlantis collision shapes for the 1280 x 896 redesign maps. */
+const ATLANTIS_MAP_COLLISIONS=(()=>{
+  const P=(...points)=>points;
+  const R=(x,y,w,h)=>[x,y,w,h];
+  const V=1,cellSize=16;
+  return Object.freeze({
+    atlantisReef:{version:V,cellSize,
+      anchors:{guide:{x:590,y:380},beacon:{x:660,y:216},reward:{x:400,y:448},trainers:[{id:'atlantis_reef_trainer_1',x:400,y:464},{id:'atlantis_reef_trainer_2',x:904,y:472}]},
+      walkable:[
+        P([0,398],[150,398],[260,380],[390,392],[510,424],[620,410],[760,398],[900,416],[1030,394],[1160,408],[1280,396],[1280,520],[1130,520],[1010,505],[880,528],[750,510],[640,544],[510,518],[380,530],[230,508],[100,522],[0,510]),
+        P([540,896],[730,896],[720,800],[750,700],[730,610],[680,530],[600,482],[570,416],[600,344],[626,300],[620,226],[560,205],[558,145],[600,85],[750,84],[778,172],[714,226],[696,304],[730,356],[714,424],[680,474],[720,535],[774,610],[772,704],[730,804]),
+        P([0,245],[150,228],[300,225],[430,258],[540,320],[592,386],[548,432],[450,420],[330,390],[210,414],[90,414],[0,390]),
+        P([688,350],[760,294],[870,250],[1005,228],[1140,240],[1280,250],[1280,405],[1160,405],[1040,388],[920,415],[810,430],[720,420]),
+        P([82,594],[210,565],[350,550],[480,586],[580,646],[580,728],[500,760],[390,742],[286,720],[190,770],[95,748]),
+        P([700,632],[805,584],[930,552],[1070,568],[1190,610],[1250,690],[1210,770],[1100,748],[1005,710],[900,742],[780,736],[704,704]),
+        /* Narrow pale-sand links visible between the lower habitats and the central route. */
+        P([430,500],[520,500],[600,548],[636,610],[622,680],[576,682],[558,620],[500,566],[430,548]),
+        R(592,676,112,220)
+      ],
+      blocked:[R(596,86,168,112),R(712,300,94,120),R(472,414,80,88),R(604,462,88,72),R(858,392,64,70),R(300,366,55,54),R(1005,390,54,52),R(560,654,64,62),R(690,732,54,54)],
+      closed:[
+        R(768,160,16,16),R(720,784,16,16),
+        P([52,270],[132,252],[176,312],[154,382],[82,392],[42,336]),
+        P([174,282],[250,270],[298,326],[274,382],[202,374],[164,330]),
+        P([282,270],[356,258],[404,312],[382,384],[308,394],[270,344]),
+        P([932,246],[1210,242],[1280,276],[1280,390],[1190,398],[1110,364],[1038,382],[944,348]),
+        P([694,258],[842,258],[904,330],[874,422],[736,414],[696,350]),
+        P([72,570],[222,562],[290,626],[262,724],[126,752],[58,682]),
+        P([286,548],[448,552],[520,612],[494,704],[354,724],[274,658]),
+        P([824,558],[1002,544],[1080,612],[1042,704],[902,720],[806,660]),
+        P([1010,548],[1188,570],[1240,648],[1200,730],[1064,714],[1000,642]),
+        R(976,224,80,16),R(1216,240,32,16),R(1248,256,32,16),R(224,560,64,16),R(240,576,48,16),R(256,592,32,16),R(1232,672,16,16),R(1216,688,32,16),R(976,704,16,16),R(1008,704,48,16),R(1216,704,16,16),R(240,720,32,16),R(1056,720,128,16),R(1200,720,32,16),R(96,736,16,16),R(160,736,80,16),R(1088,736,128,16),R(144,752,64,16),R(1152,752,64,16)
+      ],
+      encounters:[
+        P([25,258],[180,238],[305,250],[390,296],[370,370],[250,390],[110,388],[20,360]),
+        P([878,258],[1030,235],[1200,255],[1260,285],[1260,380],[1110,382],[990,365],[900,390],[830,350]),
+        P([110,600],[250,570],[390,572],[478,610],[488,680],[390,710],[280,684],[180,732],[108,700]),
+        P([810,606],[940,570],[1085,584],[1190,630],[1205,700],[1110,716],[1000,684],[900,710],[814,684])
+      ]},
+    atlantis:{version:V,cellSize,
+      anchors:{guide:{x:520,y:540},heal:{x:200,y:744},mart:{x:1048,y:296},nereid:{x:640,y:540},poseidon:{x:650,y:150},trainers:[{id:'atlantis_town_trainer_1',x:400,y:464},{id:'atlantis_town_trainer_2',x:880,y:464}]},
+      walkable:[
+        R(0,404,1280,126),R(588,0,126,430),
+        P([360,330],[480,294],[590,304],[704,300],[826,320],[920,390],[920,532],[860,620],[740,668],[600,676],[470,646],[365,560]),
+        P([170,210],[292,210],[318,300],[360,360],[430,412],[360,470],[278,414],[205,330],[168,286]),
+        P([1110,208],[988,208],[962,300],[914,360],[850,412],[920,470],[1002,414],[1078,330],[1112,286]),
+        P([110,682],[238,650],[360,574],[470,540],[502,622],[430,694],[310,750],[176,782],[105,754]),R(145,650,175,120),
+        P([1170,682],[1042,650],[920,574],[810,540],[778,622],[850,694],[970,750],[1104,782],[1175,754])
+      ],
+      blocked:[
+        P([575,326],[640,300],[704,334],[711,447],[675,492],[602,480],[566,430]),
+        R(430,306,54,132),R(800,304,54,132),R(444,510,54,116),R(786,512,54,116),
+        R(165,190,130,92),R(985,188,130,94),R(96,650,60,108),R(220,650,60,108),R(1084,650,100,108)
+      ],
+      /* Keep streets on the painted floor, not on shell roofs or outer walls. */
+      closed:[
+        P([100,82],[216,58],[330,78],[400,130],[414,194],[384,230],[284,238],[274,246],[204,246],[192,236],[108,224],[72,176]),
+        P([880,82],[996,58],[1112,78],[1182,130],[1206,194],[1174,230],[1074,238],[1064,246],[994,246],[982,236],[898,224],[866,176])
+      ],encounters:[]},
+    sirenHouse:{version:V,cellSize,
+      anchors:{guide:{x:640,y:620},healer:{x:500,y:560},reward:{x:780,y:560}},
+      walkable:[
+        P([590,896],[700,896],[704,712],[760,666],[935,642],[1060,570],[1144,454],[1140,286],[1058,174],[900,96],[640,56],[380,84],[214,174],[130,298],[120,452],[196,570],[350,636],[530,670],[584,714]),
+        R(560,650,170,246)
+      ],
+      blocked:[
+        P([312,144],[474,146],[506,230],[466,310],[322,300],[280,232]),
+        P([786,140],[954,150],[988,230],[950,310],[802,300],[766,226]),
+        P([190,350],[356,326],[408,430],[380,552],[222,574],[165,480]),
+        P([390,342],[494,336],[520,454],[486,530],[390,510]),
+        P([810,326],[936,344],[970,490],[920,544],[820,510]),
+        P([960,420],[1112,430],[1130,548],[1030,626],[946,574]),
+        R(525,102,92,122),R(660,108,82,112)
+      ],closed:[
+        /* The upper shell is ceiling and furniture, not a second floor. */
+        R(0,0,1280,256),
+        P([452,250],[536,230],[724,230],[826,252],[818,320],[738,350],[540,348],[446,320]),
+        R(128,256,352,288),
+        R(192,544,16,16),R(192,560,32,16)
+      ],encounters:[]},
+    tideArchive:{version:V,cellSize,
+      anchors:{guide:{x:640,y:660},archivist:{x:640,y:450},reward:{x:640,y:600}},
+      walkable:[
+        P([586,896],[704,896],[712,696],[782,650],[988,632],[1090,540],[1140,390],[1120,220],[1000,136],[820,96],[640,106],[450,100],[272,148],[150,250],[120,410],[164,554],[290,640],[520,680],[578,708]),
+        R(554,638,188,258),R(570,146,142,180)
+      ],
+      blocked:[
+        P([154,202],[354,156],[448,234],[424,340],[242,394],[134,340]),
+        P([830,226],[920,162],[1112,210],[1142,340],[1034,392],[854,340]),
+        P([280,338],[448,302],[536,378],[520,548],[410,620],[290,550]),
+        P([748,374],[838,304],[1002,342],[1000,544],[872,616],[756,542]),
+        R(448,548,72,112),R(760,548,72,112),R(220,520,82,92),R(978,516,92,96)
+      ],
+      /* Pearl displays, shelf backs, and alcoves are visibly enclosed, even where the broad room outline overlaps them. */
+      closed:[R(0,0,1280,272),R(224,176,16,16),R(1072,192,16,16),R(128,336,16,16),R(128,352,48,16),R(1104,352,32,16),R(128,368,80,16),R(1072,368,64,16),R(128,384,112,16),R(256,384,32,16),R(1008,384,128,48),R(128,400,160,64),R(1008,432,112,48),R(144,464,144,48),R(1008,480,96,32),R(1072,512,32,16),R(1072,528,16,16),R(160,512,64,48),R(192,560,32,16),R(960,560,16,16),R(208,576,16,16),R(928,576,48,16),R(832,592,16,16),R(896,592,80,16),R(832,608,176,16),R(832,624,160,16)],encounters:[]},
+    coralCave:{version:V,cellSize,
+      anchors:{guide:{x:520,y:680},beacon:{x:300,y:450},challenge:{x:656,y:160},puzzle:[{id:'coral_current',x:300,y:450}],trainers:[{id:'atlantis_coralCave_trainer_1',x:264,y:448},{id:'atlantis_coralCave_trainer_2',x:1030,y:448}]},
+      walkable:[
+        R(584,66,144,176),
+        P([588,184],[516,198],[430,238],[342,300],[286,388],[282,486],[330,566],[420,624],[532,662],[604,714],[588,812],[558,896],[736,896],[720,808],[742,716],[824,650],[928,620],[1010,548],[1040,448],[1018,352],[958,274],[852,224],[724,188]),
+        P([286,368],[205,374],[172,426],[196,486],[286,508],[340,468],[348,406]),
+        P([1012,364],[1088,372],[1120,428],[1090,490],[1010,508],[958,464],[952,404]),
+        P([410,608],[330,650],[310,720],[366,760],[470,742],[544,690]),
+        P([850,620],[934,652],[966,718],[914,758],[810,742],[738,690])
+      ],
+      blocked:[
+        P([620,228],[680,200],[778,224],[836,330],[814,410],[730,450],[598,438],[510,366],[486,282],[530,235]),
+        P([414,380],[512,354],[594,430],[586,536],[500,604],[402,560],[370,470]),
+        P([714,438],[816,370],[914,414],[926,524],[850,608],[752,582],[688,520]),
+        R(600,626,90,74),R(302,500,50,48),R(955,502,48,50)
+      ],
+      encounters:[
+        /* Sand pockets only: adjacent large rocks and coral remain solid. */
+        P([194,408],[266,392],[310,420],[300,462],[252,482],[202,462]),
+        P([978,402],[1042,390],[1084,426],[1068,468],[1018,486],[980,460]),
+        P([338,654],[400,634],[454,664],[438,704],[382,724],[336,696]),
+        P([798,664],[862,632],[924,672],[904,712],[834,726],[790,700])
+      ]},
+    pearlGrotto:{version:V,cellSize,
+      anchors:{guide:{x:640,y:800},beacon:{x:900,y:448},challenge:{x:570,y:176},puzzle:[{id:'pearl_resonance',x:900,y:448}],trainers:[{id:'atlantis_pearlGrotto_trainer_1',x:552,y:520},{id:'atlantis_pearlGrotto_trainer_2',x:928,y:536}]},
+      walkable:[
+        P([584,0],[724,0],[740,126],[832,144],[1000,116],[1148,142],[1210,248],[1190,420],[1220,548],[1160,670],[1040,726],[858,704],[760,744],[724,896],[552,896],[520,754],[430,704],[250,726],[120,650],[70,520],[98,380],[68,244],[134,138],[300,116],[450,146],[566,126]),
+        R(568,0,172,220)
+      ],
+      blocked:[
+        P([220,104],[390,92],[478,154],[466,260],[390,320],[248,300],[184,218]),
+        P([640,180],[720,170],[780,220],[800,280],[744,356],[620,388],[540,340],[520,270],[560,220]),
+        P([816,110],[986,96],[1090,158],[1080,262],[994,312],[850,290],[782,210]),
+        P([78,300],[226,288],[300,360],[282,470],[174,520],[74,458]),
+        P([318,358],[486,342],[566,416],[548,526],[458,590],[326,550],[278,464]),
+        P([628,386],[796,348],[888,414],[872,526],[782,584],[654,552],[600,472]),
+        P([914,310],[1082,300],[1208,384],[1206,500],[1110,556],[968,526],[896,438]),
+        P([140,520],[300,506],[390,586],[370,696],[250,732],[130,660]),
+        P([420,548],[602,526],[690,608],[660,718],[540,750],[416,684]),
+        P([748,548],[908,524],[990,604],[960,714],[842,736],[720,676]),
+        P([1008,520],[1168,510],[1230,590],[1170,692],[1048,722],[974,650]),
+        P([862,254],[1018,244],[1076,320],[1030,410],[900,424],[836,356])
+      ],clear:[
+        P([592,136],[628,128],[640,208],[596,252],[548,286],[526,250],[552,210]),
+        P([620,560],[680,540],[748,492],[824,450],[910,416],[958,432],[930,490],[842,506],[770,552],[706,616],[650,650],[606,620]),
+        P([338,548],[402,538],[458,570],[446,614],[382,620],[344,590]),
+        P([872,500],[944,492],[978,538],[950,578],[894,570],[866,542])
+      ],
+      /* Exact cell closures keep shells, rock shelves, and dead-water pockets solid. */
+      closed:[R(144,128,64,16),R(1056,128,64,16),R(128,144,80,16),R(1072,144,80,16),R(112,160,80,32),R(1088,160,80,32),R(96,192,96,16),R(1088,192,96,32),R(80,208,112,32),R(784,224,16,16),R(1088,224,112,16),R(64,240,144,16),R(784,240,32,16),R(1088,240,128,16),R(80,256,144,16),R(800,256,32,16),R(1072,256,144,16),R(80,272,160,16),R(800,272,48,16),R(80,288,48,16),R(1056,272,144,32),R(784,288,64,32),R(1104,304,96,16),R(768,320,80,16),R(1120,320,80,16),R(752,336,80,16),R(1152,336,48,16),R(816,352,16,16),R(1168,352,32,16),R(832,368,16,16),R(288,384,16,32),R(80,464,16,16),R(272,464,16,16),R(80,480,48,16),R(240,480,48,16),R(80,496,64,16),R(208,496,96,16),R(1200,496,16,16),R(64,512,80,16),R(1168,512,48,16),R(1184,528,32,16),R(80,528,64,32),R(336,544,96,16),R(1200,544,16,16),R(96,560,48,16),R(336,560,112,32),R(96,576,32,32),R(352,592,96,16),R(384,608,48,16),R(112,608,16,48),R(384,624,32,32),R(976,656,16,16),R(368,656,48,32),R(976,672,32,16),R(368,688,64,16),R(960,688,64,16),R(320,704,48,16),R(448,704,16,16),R(960,704,80,16),R(480,720,16,16),R(496,736,32,16)],
+      encounters:[
+        /* Reachable pale-sand habitat pockets bordered by painted kelp and coral. */
+        P([260,350],[360,330],[455,365],[470,425],[410,468],[315,456],[250,410]),
+        P([800,360],[920,350],[1010,395],[1002,468],[930,500],[842,470],[790,414]),
+        P([408,520],[520,498],[590,540],[580,620],[520,652],[440,620],[398,566]),
+        P([680,510],[780,500],[860,548],[850,620],[790,650],[715,615],[670,560])
+      ]},
+    poseidonTemple:{version:V,cellSize,
+      anchors:{guide:{x:560,y:720},poseidon:{x:640,y:220},challenge:{x:640,y:220},trainers:[{id:'atlantis_poseidonTemple_trainer_1',x:480,y:560},{id:'atlantis_poseidonTemple_trainer_2',x:800,y:560}]},
+      walkable:[
+        R(554,672,176,224),
+        P([458,112],[822,112],[896,174],[936,250],[1060,278],[1140,378],[1142,510],[1072,596],[948,656],[790,686],[722,752],[558,752],[490,686],[332,656],[208,596],[138,510],[138,378],[220,284],[348,250],[390,170]),
+        P([104,430],[170,334],[264,290],[346,320],[350,450],[292,574],[190,608],[112,548]),
+        P([1176,430],[1110,334],[1016,290],[934,320],[930,450],[988,574],[1090,608],[1168,548])
+      ],
+      blocked:[
+        P([248,244],[410,232],[488,304],[470,414],[382,468],[256,440],[196,350]),
+        P([792,304],[870,232],[1032,244],[1084,350],[1024,440],[898,468],[810,414]),
+        P([198,430],[350,402],[442,472],[426,596],[320,646],[192,586]),
+        P([838,472],[930,402],[1082,430],[1088,586],[960,646],[854,596]),
+        R(458,94,364,96),R(448,610,70,80),R(762,610,70,80),
+        /* Painted pools, coral islands, and column bases outside the central floor. */
+        P([128,354],[224,320],[340,328],[406,374],[408,438],[356,474],[268,466],[188,430],[126,396]),
+        P([1152,354],[1056,320],[940,328],[874,374],[872,438],[924,474],[1012,466],[1092,430],[1154,396]),
+        P([150,458],[244,432],[354,462],[392,528],[366,592],[286,624],[210,588],[158,536]),
+        P([1130,458],[1036,432],[926,462],[888,528],[914,592],[994,624],[1070,588],[1122,536])
+      ],clear:[
+        /* The cream colonnades visibly join the central floor below each pool. */
+        P([180,500],[244,510],[306,552],[372,592],[430,610],[422,650],[350,638],[286,610],[220,574],[180,552]),
+        P([1100,500],[1036,510],[974,552],[908,592],[850,610],[858,650],[930,638],[994,610],[1060,574],[1100,552])
+      ],closed:[R(176,304,32,32),R(1040,304,64,32),R(208,288,16,16),R(1056,288,16,16)],encounters:[]}
+  });
+})();
+if(typeof globalThis!=='undefined')globalThis.ATLANTIS_MAP_COLLISIONS=ATLANTIS_MAP_COLLISIONS;
+if(typeof module!=='undefined'&&module.exports)module.exports=ATLANTIS_MAP_COLLISIONS;
+
+/* Shared, fail-closed background-art and collision-mask support. */
+const RegionMapArt=(()=>{
+  const WIDTH=1280,HEIGHT=896;
+  const assetKey=id=>'map'+id.charAt(0).toUpperCase()+id.slice(1);
+  const collisionData=()=>({
+    ...(typeof REGION_MAP_COLLISIONS!=='undefined'?REGION_MAP_COLLISIONS:(globalThis.REGION_MAP_COLLISIONS||{})),
+    ...(typeof ATLANTIS_MAP_COLLISIONS!=='undefined'?ATLANTIS_MAP_COLLISIONS:(globalThis.ATLANTIS_MAP_COLLISIONS||{})),
+  });
+  const assetSources=()=>typeof ASSET_SOURCES!=='undefined'?ASSET_SOURCES:(globalThis.ASSET_SOURCES||{});
+  const sourceAvailable=id=>Boolean(assetSources()[assetKey(id)]);
+  const isPoint=value=>value&&Number.isFinite(value.x)&&Number.isFinite(value.y);
+  const pointCell=(point,cellSize)=>[Math.floor(point.x/cellSize),Math.floor(point.y/cellSize)];
+  const cellKey=(x,y)=>x+','+y;
+  const openChar=ch=>ch==='.'||ch==='e';
+  function contains(shape,x,y){
+    if(Array.isArray(shape)&&shape.length===4&&shape.every(Number.isFinite))shape={x:shape[0],y:shape[1],w:shape[2],h:shape[3]};
+    if(!Array.isArray(shape))return x>=shape.x&&y>=shape.y&&x<=shape.x+shape.w&&y<=shape.y+shape.h;
+    let inside=false;
+    for(let i=0,j=shape.length-1;i<shape.length;j=i++){
+      const [ax,ay]=shape[i],[bx,by]=shape[j];
+      if(((ay>y)!==(by>y))&&x<(bx-ax)*(y-ay)/(by-ay)+ax)inside=!inside;
+    }
+    return inside;
+  }
+  function rasterize(spec,cellSize){
+    const walkable=spec.walkable||[],blocked=spec.blocked||[],clear=spec.clear||[],closed=spec.closed||[],encounters=spec.encounters||[];
+    if(!walkable.length)return null;
+    return Array.from({length:HEIGHT/cellSize},(_,row)=>Array.from({length:WIDTH/cellSize},(_,col)=>{
+      const x=col*cellSize+cellSize/2,y=row*cellSize+cellSize/2;
+      if(!walkable.some(shape=>contains(shape,x,y))||closed.some(shape=>contains(shape,x,y))||(blocked.some(shape=>contains(shape,x,y))&&!clear.some(shape=>contains(shape,x,y))))return '#';
+      return encounters.some(shape=>contains(shape,x,y))?'e':'.';
+    }).join(''));
+  }
+  function anchorPoints(value,name='anchor',out=[]){
+    if(isPoint(value))out.push([name,value]);
+    else if(Array.isArray(value))value.forEach((item,index)=>anchorPoints(item,`${name}[${index}]`,out));
+    else if(value&&typeof value==='object')for(const [key,item] of Object.entries(value))anchorPoints(item,`${name}.${key}`,out);
+    return out;
+  }
+  function runs(rows,cellSize,predicate){
+    const out=[];
+    for(let y=0;y<rows.length;y++){
+      let x=0;
+      while(x<rows[y].length){
+        while(x<rows[y].length&&!predicate(rows[y][x]))x++;
+        const start=x;
+        while(x<rows[y].length&&predicate(rows[y][x]))x++;
+        if(x>start)out.push({x:start*cellSize,y:y*cellSize,w:(x-start)*cellSize,h:cellSize});
+      }
+    }
+    return out;
+  }
+  function validate(area,id,spec,incoming=[]){
+    if(!spec)return {ok:false,reason:'collision mask missing'};
+    const cellSize=Number(spec.cellSize||16),rows=Array.isArray(spec.rows)?spec.rows:rasterize(spec,cellSize);
+    if(!rows)return {ok:false,reason:'collision mask has no rows or walkable polygons'};
+    if(!Number.isInteger(cellSize)||cellSize<4||WIDTH%cellSize||HEIGHT%cellSize)return {ok:false,reason:'cellSize must divide 1280 x 896'};
+    const cols=WIDTH/cellSize,expectedRows=HEIGHT/cellSize;
+    if(rows.length!==expectedRows||rows.some(row=>typeof row!=='string'||row.length!==cols))return {ok:false,reason:`expected ${expectedRows} rows of ${cols} cells`};
+    const invalid=[...new Set(rows.join('').replace(/[.#e]/g,''))];
+    if(invalid.length)return {ok:false,reason:'invalid mask characters: '+invalid.join('')};
+    if(!rows.some(row=>/[.e]/.test(row)))return {ok:false,reason:'mask has no walkable cells'};
+    if((area.encounters||[]).length&&!rows.some(row=>row.includes('e')))return {ok:false,reason:'encounter map has no e cells'};
+    if(!(area.encounters||[]).length&&rows.some(row=>row.includes('e')))return {ok:false,reason:'non-encounter map contains e cells'};
+    const footprint={x:6*WIDTH/1536,y:4*HEIGHT/1024};
+    const pointOpen=point=>[[point.x-footprint.x,point.y-footprint.y],[point.x+footprint.x,point.y-footprint.y],[point.x-footprint.x,point.y+footprint.y],[point.x+footprint.x,point.y+footprint.y]].every(([x,y])=>{const [cx,cy]=pointCell({x,y},cellSize);return openChar(rows[cy]?.[cx]);});
+    const [sx,sy]=pointCell(area.spawn,cellSize);
+    if(!pointOpen(area.spawn))return {ok:false,reason:'spawn is blocked for the player footprint'};
+    const seen=new Set([cellKey(sx,sy)]),queue=[[sx,sy]];
+    for(let i=0;i<queue.length;i++){
+      const [x,y]=queue[i];
+      for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){
+        const xx=x+dx,yy=y+dy,key=cellKey(xx,yy);
+        if(seen.has(key)||!openChar(rows[yy]?.[xx]))continue;
+        seen.add(key);queue.push([xx,yy]);
+      }
+    }
+    for(let y=0;y<rows.length;y++)for(let x=0;x<rows[y].length;x++){
+      if(openChar(rows[y][x])&&!seen.has(cellKey(x,y)))return {ok:false,reason:`walkable cell ${x},${y} is disconnected`};
+    }
+    for(const [name,point] of anchorPoints(area.anchors)){
+      const [x,y]=pointCell(point,cellSize);
+      if(!pointOpen(point)||!seen.has(cellKey(x,y)))return {ok:false,reason:`${name} is blocked for the player footprint or disconnected`};
+    }
+    for(const [name,point] of incoming){
+      const [x,y]=pointCell(point,cellSize);
+      if(!pointOpen(point)||!seen.has(cellKey(x,y)))return {ok:false,reason:`${name} arrival is blocked for the player footprint or disconnected`};
+    }
+    for(const portal of area.portals||[]){
+      let reachable=false;
+      const x0=Math.max(0,Math.floor(portal.rect.x/cellSize)),y0=Math.max(0,Math.floor(portal.rect.y/cellSize));
+      const x1=Math.min(cols,Math.ceil((portal.rect.x+portal.rect.w)/cellSize)),y1=Math.min(expectedRows,Math.ceil((portal.rect.y+portal.rect.h)/cellSize));
+      for(let y=y0;y<y1&&!reachable;y++)for(let x=x0;x<x1;x++){const point={x:x*cellSize+cellSize/2,y:y*cellSize+cellSize/2};if(seen.has(cellKey(x,y))&&pointOpen(point)){reachable=true;break;}}
+      if(!reachable)return {ok:false,reason:`portal ${portal.label||portal.area} is blocked or disconnected`};
+    }
+    return {ok:true,cellSize,rows,walkable:runs(rows,cellSize,openChar),encounters:runs(rows,cellSize,ch=>ch==='e')};
+  }
+  function applyAll(world,mapIds){
+    const report={},incoming=Object.fromEntries(mapIds.map(id=>[id,[]]));
+    for(const area of Object.values(world.areas))for(const portal of area.portals||[])if(incoming[portal.area])incoming[portal.area].push([portal.label||area.id,portal]);
+    for(const id of mapIds){
+      const area=world.areas[id],spec=collisionData()[id],candidate={...area,anchors:{...area.anchors,...(spec?.anchors||{})}};
+      if(spec?.spawn)candidate.spawn={...spec.spawn};
+      const result=validate(candidate,id,spec,incoming[id]);
+      const artReady=sourceAvailable(id)&&result.ok;
+      area.mapArt={asset:assetKey(id),active:artReady,collisionVersion:spec?.version||null,reason:artReady?null:(!sourceAvailable(id)?'background asset missing':result.reason)};
+      area.asset=artReady?assetKey(id):null;
+      if(artReady){
+        const priorPool=(area.encounters||[]).flatMap(zone=>zone.pool||[]),pool=[...new Set(priorPool)];
+        area.anchors=candidate.anchors;area.spawn=candidate.spawn;
+        area.walkable=result.walkable;area.solids=[];
+        area.encounters=result.encounters.map(rect=>({rect,pool:[...pool],minLevel:area.levels[0],maxLevel:area.levels[1]}));
+        area.collisionGrid={cellSize:result.cellSize,rows:[...result.rows]};
+      }
+      report[id]={active:artReady,reason:area.mapArt.reason};
+    }
+    return report;
+  }
+  const reducedMotion=api=>api?.state?.reducedMotion===true||api?.state?.settings?.reducedMotion===true||(typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const hash=(id,n)=>{let value=2166136261;for(const ch of id+':'+n){value^=ch.charCodeAt(0);value=Math.imul(value,16777619);}return value>>>0;};
+  function underwater(ctx,id,time,reduced){
+    const t=reduced?0:time,interior=['sirenHouse','tideArchive','poseidonTemple'].includes(id);
+    ctx.save();
+    for(let i=0;i<(interior?8:17);i++){
+      const n=hash(id,i),x=24+n%(WIDTH-48),baseY=32+((n>>>9)%(HEIGHT-64));
+      const y=reduced?baseY:(baseY-(t/(18+(n%17)))%(HEIGHT+80)+HEIGHT+80)%(HEIGHT+80)-40;
+      ctx.globalAlpha=.16+(n%18)/100;ctx.strokeStyle='#d7fff3';ctx.lineWidth=1.2+(n%3)*.45;ctx.beginPath();ctx.arc(x,y,2+(n%5),0,Math.PI*2);ctx.stroke();
+    }
+    for(let i=0;i<(interior?0:9);i++){
+      const n=hash(id,50+i),x=35+n%(WIDTH-70),y=HEIGHT-12-(n%82),s=18+(n%24),sway=reduced?0:Math.sin(t/720+i*1.7)*10;
+      ctx.globalAlpha=.34;ctx.strokeStyle=i%2?'#3e9f76':'#55b58a';ctx.lineWidth=4+(n%3);ctx.lineCap='round';ctx.beginPath();ctx.moveTo(x,HEIGHT);ctx.quadraticCurveTo(x-sway*.3,y+s*.55,x+sway,y);ctx.stroke();
+    }
+    for(let i=0;i<(interior?0:5);i++){
+      const n=hash(id,90+i),direction=n&1?1:-1,s=9+(n%6),baseX=n%WIDTH,x=reduced?baseX:(baseX+direction*t/(13+(n%11))+WIDTH*4)%WIDTH,y=110+(n>>>8)%(HEIGHT-240)+(!reduced?Math.sin(t/430+i)*6:0);
+      ctx.globalAlpha=.22;ctx.fillStyle=i%2?'#b9f1df':'#9ee2dd';ctx.beginPath();ctx.ellipse(x,y,s*1.8,s,0,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.moveTo(x-direction*s*1.5,y);ctx.lineTo(x-direction*s*2.5,y-s*.75);ctx.lineTo(x-direction*s*2.5,y+s*.75);ctx.closePath();ctx.fill();
+    }
+    for(let i=0;i<(interior?0:3);i++){
+      const n=hash(id,120+i),x=100+n%(WIDTH-200),baseY=120+(n>>>7)%(HEIGHT-300),y=baseY+(!reduced?Math.sin(t/850+i*2)*12:0),s=12+(n%8);
+      ctx.globalAlpha=.14;ctx.fillStyle='#dcbef1';ctx.beginPath();ctx.arc(x,y,s,Math.PI,0);ctx.lineTo(x+s,y+s*.45);ctx.lineTo(x-s,y+s*.45);ctx.closePath();ctx.fill();ctx.strokeStyle='#e8d6f4';ctx.lineWidth=1.5;
+      for(let j=-1;j<=1;j++){ctx.beginPath();ctx.moveTo(x+j*s*.55,y+s*.35);ctx.quadraticCurveTo(x+j*s*.8+Math.sin(t/520+j)*4,y+s*1.2,x+j*s*.65,y+s*1.8);ctx.stroke();}
+    }
+    ctx.restore();
+  }
+  function habitat(ctx,area,id,time,reduced){
+    const rows=area?.collisionGrid?.rows,cell=area?.collisionGrid?.cellSize;if(!rows||!cell)return;
+    const t=reduced?0:time;ctx.save();ctx.lineCap='round';
+    for(let y=0;y<rows.length;y++)for(let x=0;x<rows[y].length;x++){
+      const n=hash(id,300+y*rows[y].length+x);if(rows[y][x]!=='e'||n%7)continue;
+      const px=x*cell+3+(n%Math.max(3,cell-6)),py=(y+1)*cell-2,height=5+(n%7),sway=reduced?0:Math.sin(t/620+n%19)*2;
+      ctx.globalAlpha=.28;ctx.strokeStyle=n&1?'#65b982':'#b56f91';ctx.lineWidth=1.4+(n%2);
+      for(let blade=-1;blade<=1;blade++){ctx.beginPath();ctx.moveTo(px+blade*3,py);ctx.quadraticCurveTo(px+blade*2+sway*.5,py-height*.55,px+blade+sway,py-height);ctx.stroke();}
+    }
+    ctx.restore();
+  }
+  function mountain(ctx,id,time,reduced){
+    if(id==='hermitHut'||id==='olympusCave')return;
+    const t=reduced?0:time;
+    ctx.save();
+    for(let i=0;i<7;i++){
+      const n=hash(id,200+i),width=90+n%130,baseX=(n>>>5)%(WIDTH+width)-width,x=reduced?baseX:(baseX+t/(45+(n%30)))%(WIDTH+width)-width,y=30+(n>>>13)%330;
+      ctx.globalAlpha=.07+(n%7)/100;ctx.fillStyle='#fffdf1';
+      ctx.beginPath();ctx.ellipse(x,y,width*.34,20,0,0,Math.PI*2);ctx.ellipse(x+width*.25,y-7,width*.3,25,0,0,Math.PI*2);ctx.ellipse(x+width*.5,y+2,width*.38,18,0,0,Math.PI*2);ctx.fill();
+    }
+    ctx.restore();
+  }
+  function drawAmbient(api,ctx,cam,time,kind){
+    const id=api?.state?.area,area=api?.world?.areas?.[id];
+    if(!area?.mapArt?.active||!api?.images?.[area.asset])return false;
+    const reduced=reducedMotion(api);ctx.save();ctx.translate(-cam.x,-cam.y);
+    if(kind==='underwater'){underwater(ctx,id,time,reduced);habitat(ctx,area,id,time,reduced);}
+    else mountain(ctx,id,time,reduced);
+    ctx.restore();return true;
+  }
+  return {WIDTH,HEIGHT,assetKey,applyAll,drawAmbient,validate,_test:{runs,anchorPoints,openChar,contains,rasterize}};
+})();
+if(typeof globalThis!=='undefined')globalThis.RegionMapArt=RegionMapArt;
+if(typeof module!=='undefined'&&module.exports)module.exports=RegionMapArt;
+
 /* Experimental-only Atlantis: code-native underwater maps. */
 const AtlantisWorld = (() => {
   const TILE=32,COLS=40,ROWS=28,W=COLS*TILE,H=ROWS*TILE;
@@ -2393,7 +2908,7 @@ const AtlantisWorld = (() => {
     box(g,14,11,3,3,'s');box(g,23,11,3,3,'s');box(g,14,15,3,3,'s');box(g,23,15,3,3,'s');
     stamp(g,[[2,10],[5,9],[12,6],[27,6],[36,10],[4,18],[11,22],[28,22],[35,18]],'K');
     stamp(g,[[13,8],[26,8],[13,19],[26,19],[17,7],[22,7]],'C');stamp(g,[[16,12],[24,12],[16,16],[24,16]],'A');
-  },{entry:pt(2,14),exit:pt(37,14),guide:pt(19,16),heal:pt(7,9),mart:pt(32,9),nereid:pt(19,12),poseidon:pt(20,4),trainers:trainers('town',[12,14],[27,14])},[]);
+  },{entry:pt(2,14),exit:pt(37,14),guide:pt(19,16),heal:pt(7,25),mart:pt(32,9),nereid:pt(19,12),poseidon:pt(20,4),trainers:trainers('town',[12,14],[27,14])},[]);
 
   define('sirenHouse','Siren House','interior',[14,16],'battleAtlantis','home',g=>{
     box(g,4,4,32,22,'m');box(g,7,7,26,15,'q');box(g,17,22,6,4,'m');box(g,18,25,4,3,'=');
@@ -2450,12 +2965,13 @@ const AtlantisWorld = (() => {
     link('atlantis',18,0,4,'coralCave',a.coralCave.anchors.entry,'Coral Current Cave');
     link('coralCave',19,26,3,'atlantis',{x:20*TILE+16,y:2*TILE+16},'Atlantis');
     link('coralCave',18,4,4,'pearlGrotto',a.pearlGrotto.anchors.entry,'Pearl Grotto');
-    link('pearlGrotto',19,26,3,'coralCave',{x:20*TILE+16,y:6*TILE+16},'Coral Current Cave');
+    link('pearlGrotto',19,26,3,'coralCave',{x:560,y:208},'Coral Current Cave');
     link('pearlGrotto',18,4,4,'poseidonTemple',a.poseidonTemple.anchors.entry,'Poseidon Temple');
-    link('poseidonTemple',19,26,3,'pearlGrotto',{x:20*TILE+16,y:6*TILE+16},'Pearl Grotto');
+    link('poseidonTemple',19,26,3,'pearlGrotto',{x:558,y:208},'Pearl Grotto');
     world.graph=world.graph||[];
     const edges=[['harbor','atlantisReef'],['atlantisReef','atlantis'],['atlantis','sirenHouse'],['atlantis','tideArchive'],['atlantis','coralCave'],['coralCave','pearlGrotto'],['pearlGrotto','poseidonTemple']];
     for(const edge of edges)if(!world.graph.some(e=>(e[0]===edge[0]&&e[1]===edge[1])||(e[0]===edge[1]&&e[1]===edge[0])))world.graph.push(edge);
+    if(typeof RegionMapArt!=='undefined')RegionMapArt.applyAll(world,mapIds);
     return world;
   }
 
@@ -2486,8 +3002,22 @@ const AtlantisWorld = (() => {
     if(m.id==='atlantis'){const p=m.anchors.nereid;ctx.fillStyle='#426b86';ctx.fillRect(p.x-18,p.y+8,36,18);ctx.fillStyle='#74d7d0';ctx.fillRect(p.x-10,p.y-18,20,31);ctx.fillStyle='#e4c4a1';ctx.fillRect(p.x-5,p.y-25,10,10);ctx.fillStyle='#6c4d78';ctx.fillRect(p.x-7,p.y-31,14,7);}
     if(m.id==='poseidonTemple'){const p=m.anchors.poseidon;ctx.fillStyle='#779a9d';ctx.fillRect(p.x-45,p.y+14,90,10);ctx.fillStyle='#cbded1';ctx.fillRect(p.x-22,p.y-5,44,32);ctx.fillStyle='#377c99';ctx.fillRect(p.x-10,p.y-28,20,27);ctx.fillStyle='#d2b660';ctx.fillRect(p.x-3,p.y-39,6,55);ctx.fillRect(p.x-18,p.y-31,36,6);}
   }
+  // The illustrated reef has a pale cross-current, but the return portal must
+  // remain obvious at play scale. This is visual-only and follows the existing
+  // west-edge Harbor portal; it never changes collision or travel behavior.
+  function harborCurrentCue(ctx,m,time){
+    if(m.id!=='atlantisReef')return;
+    const pulse=Math.floor(time/170)%4;
+    for(let row=0;row<4;row++){
+      const x=16+pulse*5+row*7,y=430+row*13;
+      ctx.fillStyle=row%2?'#a3f8f1':'#ecfff4';
+      ctx.fillRect(x,y,13,4);ctx.fillRect(x+9,y-4,6,12);
+    }
+    ctx.fillStyle='#5dc9d4';ctx.fillRect(2,422,4,60);
+  }
   function draw(api,ctx,cam={x:0,y:0},time=0){
     const m=maps[api?.state?.area];if(!m)return false;const p=palette[m.palette];ctx.save();ctx.translate(-cam.x,-cam.y);
+    if(typeof RegionMapArt!=='undefined'&&RegionMapArt.drawAmbient(api,ctx,{x:0,y:0},time,'underwater')){harborCurrentCue(ctx,m,time);ctx.restore();return true;}
     const cw=ctx.canvas?.width||W,ch=ctx.canvas?.height||H,x0=Math.max(0,Math.floor(cam.x/TILE)-1),y0=Math.max(0,Math.floor(cam.y/TILE)-1),x1=Math.min(COLS,Math.ceil((cam.x+cw)/TILE)+1),y1=Math.min(ROWS,Math.ceil((cam.y+ch)/TILE)+1);
     for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)tile(ctx,m.tiles[y][x],x,y,p,m.id,time);buildings(ctx,m);landmarks(ctx,m,time);ctx.restore();return true;
   }
@@ -2592,8 +3122,7 @@ const Atlantis = (() => {
     addInteraction(town,{id:'atlantis_town_guide',kind:'dialogue',label:'Atlantis Wayfinder',...anchor(town,'guide'),radius:56,
       dialogue:['The Siren House restores tired companions. The Tide Archive keeps maps of the reef and both caves.','Poseidon teaches at the temple beyond the town gates.']});
     addNpc(town,'atlantis_town_guide_npc',anchor(town,'guide'),null,'#4f8292');
-    addInteraction(town,{id:'atlantis_town_heal',kind:'heal',label:'Current Clinic',...anchor(town,'heal'),radius:58,dialogue:'Rest your team and replenish your basic supplies.'});
-    addNpc(town,'atlantis_town_healer_npc',anchor(town,'heal'),null,'#75a9a0');
+    addInteraction(town,{id:'atlantis_town_heal',kind:'heal',label:'Current Clinic',...anchor(town,'heal'),radius:64,buildingEntrance:true,door:{x:178,y:672,width:44,height:80},dialogue:'Rest your team and replenish your basic supplies.'});
     addInteraction(town,{id:'atlantis_town_mart',kind:'mart',label:'Pearl Market',...anchor(town,'mart'),radius:58});
     addNpc(town,'atlantis_town_merchant_npc',anchor(town,'mart'),null,'#9a7390');
 
@@ -2928,27 +3457,27 @@ const OlympusWorld=(()=>{
   define('olympusTrail','Olympus Trail','route',[20,23],'battlePlains','trail',g=>{
     frame(g,'c');box(g,0,21,18,4,'=');box(g,15,16,4,7,'=');box(g,16,15,16,4,'=');box(g,28,8,4,10,'=');box(g,29,4,11,4,'=');box(g,4,20,13,2,'>');
     box(g,4,4,8,5,'B');put(g,8,9,'D');stamp(g,[[3,5],[7,12],[12,7],[21,6],[24,12],[34,10],[36,17],[5,25],[24,23],[31,23]],'r');stamp(g,[[2,15],[10,16],[14,5],[23,8],[26,20],[34,5],[36,14]],'S');stamp(g,[[10,22],[13,22],[20,16],[24,16]],'N');
-  },{entry:pt(2,22),exit:pt(37,5),guide:pt(17,18),hermit:pt(12,20),cyclistStart:pt(5,22),cyclistEnd:pt(17,18),trainers:trainers('trail',[13,18],[27,16])},['rockman','cyclops1','cyclops2','chimera1','chimera2']);
+  },{entry:{x:32,y:650},exit:{x:1240,y:208},guide:{x:400,y:520},hermit:{x:256,y:200},cyclistStart:{x:160,y:616},cyclistEnd:{x:256,y:592},trainers:[{id:'olympus_trail_trainer_1',x:512,y:608},{id:'olympus_trail_trainer_2',x:888,y:480}]},['rockman','cyclops1','cyclops2','chimera1','chimera2']);
 
   define('hermitHut','Hermit Hut','interior',[20,22],'battlePlains','hut',g=>{
     box(g,4,4,32,22,'m');box(g,7,7,26,15,'p');box(g,17,22,6,4,'m');box(g,18,25,4,3,'=');box(g,7,7,26,1,'B');box(g,7,7,1,15,'B');box(g,32,7,1,15,'B');box(g,7,21,10,1,'B');box(g,23,21,10,1,'B');stamp(g,[[11,11],[28,11],[12,18],[27,18]],'N');
-  },{entry:pt(20,25),exit:pt(20,25),hermit:pt(20,14),guide:pt(20,18)},[]);
+  },{entry:{x:640,y:720},exit:{x:640,y:780},hermit:{x:580,y:520},guide:{x:560,y:600}},[]);
 
   define('olympusCave','Hephaestus Forge','dungeon',[22,25],'battleCave','forge',g=>{
     frame(g,'X');box(g,18,22,4,6,'m');box(g,6,19,28,5,'m');box(g,5,5,8,16,'m');box(g,27,5,8,16,'m');box(g,10,4,20,7,'m');box(g,12,12,16,6,'m');box(g,18,5,4,20,'=');box(g,12,10,6,2,'L');box(g,22,10,6,2,'L');box(g,18,10,4,2,'b');stamp(g,[[8,8],[8,16],[31,8],[31,16],[14,6],[25,6]],'r');stamp(g,[[12,13],[28,13]],'O');stamp(g,[[20,15]],'F');box(g,7,11,4,3,'E');box(g,29,11,4,3,'E');
-  },{entry:pt(20,25),exit:pt(20,6),guide:pt(17,22),forge:pt(20,14),oread:pt(30,10),puzzleWater:pt(13,13),puzzleStone:pt(27,13),puzzle:[{id:'cooled_bridge',...pt(20,10)}],trainers:trainers('cave',[8,18],[31,18])},['rockman','cyclops2','gorgon2','chimera1','chimera2']);
+  },{entry:{x:640,y:760},exit:{x:640,y:110},guide:{x:640,y:650},forge:{x:640,y:610},forgeBridge:{x:616,y:168,w:48,h:128},oread:{x:944,y:476},puzzleWater:{x:260,y:448},puzzleStone:{x:1024,y:392},puzzle:[{id:'cooled_bridge',x:640,y:344}],trainers:[{id:'olympus_cave_trainer_1',x:472,y:440},{id:'olympus_cave_trainer_2',x:976,y:248}]},['rockman','cyclops2','gorgon2','chimera1','chimera2']);
 
   define('cloudPass','Cloud Pass','route',[24,27],'battlePlains','cloud',g=>{
     frame(g,'c');box(g,0,21,16,4,'=');box(g,13,15,4,8,'=');box(g,14,14,16,4,'=');box(g,27,7,4,10,'=');box(g,28,4,12,4,'=');box(g,8,5,11,3,'p');stamp(g,[[3,8],[7,16],[12,11],[20,8],[24,14],[34,12],[36,20],[5,25]],'r');stamp(g,[[2,15],[10,17],[14,6],[23,9],[26,21],[34,5]],'S');stamp(g,[[17,15],[25,15],[30,9]],'N');
-  },{entry:pt(2,22),exit:pt(37,5),guide:pt(15,17),oread:pt(18,15),trainers:trainers('cloud',[12,17],[28,15])},['cyclops2','rockman','cloak3','chimera1','chimera2']);
+  },{entry:{x:32,y:680},exit:{x:1240,y:100},guide:{x:616,y:460},oread:{x:840,y:448},trainers:[{id:'olympus_cloud_trainer_1',x:272,y:640},{id:'olympus_cloud_trainer_2',x:944,y:376}]},['cyclops2','rockman','cloak3','chimera1','chimera2']);
 
   define('olympusGate','Olympus Gate','interior',[27,30],'battleGym','gate',g=>{
     frame(g,'X');box(g,17,22,6,6,'m');box(g,7,19,26,5,'m');box(g,5,11,30,9,'m');box(g,9,5,22,7,'m');box(g,13,2,14,4,'m');box(g,18,3,4,23,'=');box(g,9,14,22,3,'=');stamp(g,[[9,8],[30,8],[8,15],[31,15],[14,4],[25,4]],'K');stamp(g,[[13,13],[27,13]],'A');
-  },{entry:pt(20,25),exit:pt(20,25),guide:pt(17,22),athena:pt(14,13),hermes:pt(26,13),trainers:trainers('gate',[10,17],[29,17])},[]);
+  },{entry:{x:640,y:840},exit:{x:640,y:230},guide:{x:640,y:650},athena:{x:544,y:408},hermes:{x:896,y:432},trainers:[{id:'olympus_gate_trainer_1',x:320,y:432},{id:'olympus_gate_trainer_2',x:960,y:432}]},[]);
 
   define('olympusSummit','Olympus Summit','interior',[30,33],'battleGym','summit',g=>{
     frame(g,'X');box(g,17,22,6,6,'m');box(g,7,19,26,5,'m');box(g,5,11,30,9,'m');box(g,9,5,22,7,'m');box(g,13,2,14,4,'m');box(g,18,3,4,23,'=');box(g,9,14,22,3,'=');stamp(g,[[9,8],[30,8],[8,15],[31,15],[14,4],[25,4]],'K');put(g,20,4,'Z');
-  },{entry:pt(20,25),exit:pt(20,25),guide:pt(17,22),zeus:pt(20,5),bike:pt(20,18),trainers:trainers('summit',[10,17],[29,17])},[]);
+  },{entry:{x:640,y:840},exit:{x:640,y:230},guide:{x:640,y:650},zeus:{x:640,y:200},bike:{x:792,y:464},trainers:[{id:'olympus_summit_trainer_1',x:472,y:384},{id:'olympus_summit_trainer_2',x:800,y:368}]},[]);
 
   const blocked=ch=>['X','c','r','S','B','D','L','O','F','K','A','Z','N'].includes(ch),walkable=ch=>!blocked(ch),encounterTile=ch=>ch==='g'||ch==='E';
   const clone=value=>JSON.parse(JSON.stringify(value));
@@ -2960,10 +3489,11 @@ const OlympusWorld=(()=>{
     const a=world.areas,road=a.summitRoad;if(!road)throw Error('Summit Trail must exist before installing Olympus.');
     const link=(from,x,y,w,to,target,label)=>a[from].portals.push(jump(x,y,w,to,target,label));
     road.anchors=road.anchors||{};road.anchors.olympusTurnoff=road.anchors.olympusTurnoff||pt(11,5);
-    link('olympusTrail',0,21,2,'summitRoad',{x:11*TILE+16,y:6*TILE+16},'Summit Trail');link('olympusTrail',37,4,3,'olympusCave',a.olympusCave.anchors.entry,'Hephaestus Forge');link('olympusTrail',7,9,3,'hermitHut',a.hermitHut.anchors.entry,'Hermit Hut');
-    link('hermitHut',19,26,3,'olympusTrail',{x:8*TILE+16,y:11*TILE+16},'Olympus Trail');link('olympusCave',19,26,3,'olympusTrail',{x:37*TILE+16,y:6*TILE+16},'Olympus Trail');
-    link('cloudPass',0,21,2,'olympusCave',{x:20*TILE+16,y:5*TILE+16},'Hephaestus Forge');link('olympusGate',19,26,3,'cloudPass',{x:37*TILE+16,y:5*TILE+16},'Cloud Pass');link('olympusSummit',19,26,3,'olympusGate',{x:20*TILE+16,y:4*TILE+16},'Olympus Gate');
+    link('olympusTrail',0,19,3,'summitRoad',{x:11*TILE+16,y:6*TILE+16},'Summit Trail');link('olympusTrail',37,5,3,'olympusCave',a.olympusCave.anchors.entry,'Hephaestus Forge');link('olympusTrail',7,5,2,'hermitHut',a.hermitHut.anchors.entry,'Hermit Hut');
+    link('hermitHut',19,24,4,'olympusTrail',{x:288,y:256},'Olympus Trail');link('olympusCave',19,26,2,'olympusTrail',{x:1180,y:230},'Olympus Trail');
+    link('cloudPass',0,20,3,'olympusCave',a.olympusCave.anchors.exit,'Hephaestus Forge');link('olympusGate',19,25,4,'cloudPass',{x:1210,y:128},'Cloud Pass');link('olympusSummit',19,25,4,'olympusGate',{x:640,y:230},'Olympus Gate');
     world.graph=world.graph||[];for(const edge of [['summitRoad','olympusTrail'],['olympusTrail','hermitHut'],['olympusTrail','olympusCave'],['olympusCave','cloudPass'],['cloudPass','olympusGate'],['olympusGate','olympusSummit']])if(!world.graph.some(e=>(e[0]===edge[0]&&e[1]===edge[1])||(e[0]===edge[1]&&e[1]===edge[0])))world.graph.push(edge);
+    if(typeof RegionMapArt!=='undefined')RegionMapArt.applyAll(world,mapIds);
     return world;
   }
   const palettes={trail:{base:'#9ca77b',rock:'#626961',light:'#d7c89d',path:'#b99d6c'},hut:{base:'#908b78',rock:'#555550',light:'#d8d0b5',path:'#bca77d'},forge:{base:'#5d5b58',rock:'#302f33',light:'#aaa48d',path:'#b98f61'},cloud:{base:'#b0b69d',rock:'#6b6e68',light:'#e5dfc3',path:'#c3a976'},gate:{base:'#868980',rock:'#4d5153',light:'#dbe0d0',path:'#c5b37f'},summit:{base:'#78858b',rock:'#3f4d56',light:'#e3e5d8',path:'#c5b37f'}};
@@ -2984,7 +3514,7 @@ const OlympusWorld=(()=>{
     if(m.anchors.oread)mark(m.anchors.oread,'#769e7c');if(m.anchors.athena)mark(m.anchors.athena,'#748faa');if(m.anchors.hermes)mark(m.anchors.hermes,'#c89a58');if(m.anchors.zeus){const p=m.anchors.zeus,reduced=api?.state?.reducedMotion===true||api?.state?.settings?.reducedMotion===true,flash=reduced?true:Math.floor(time/360)%3===0;mark(p,'#7996b6');if(flash){ctx.fillStyle='#e6c65d';ctx.fillRect(p.x-3,p.y-52,6,18);ctx.fillRect(p.x-10,p.y-40,13,5);ctx.fillRect(p.x-5,p.y-34,6,16);ctx.fillRect(p.x-16,p.y-27,14,4);ctx.fillStyle='#8cc8df';ctx.fillRect(p.x+4,p.y-39,10,4);ctx.fillRect(p.x+10,p.y-35,4,10);}}
     if(m.id==='olympusTrail'){const p=m.anchors.cyclistStart;ctx.fillStyle='#263f59';ctx.fillRect(p.x-10,p.y-5,20,5);ctx.fillRect(p.x-8,p.y+4,5,5);ctx.fillRect(p.x+3,p.y+4,5,5);}
     if(m.id==='olympusSummit'){const p=m.anchors.bike;ctx.strokeStyle='#273b4a';ctx.lineWidth=3;for(const dx of [-11,11]){ctx.beginPath();ctx.arc(p.x+dx,p.y+8,7,0,Math.PI*2);ctx.stroke();}ctx.strokeStyle='#d95c3f';ctx.beginPath();ctx.moveTo(p.x-11,p.y+8);ctx.lineTo(p.x,p.y-2);ctx.lineTo(p.x+11,p.y+8);ctx.lineTo(p.x-4,p.y+7);ctx.lineTo(p.x+5,p.y-6);ctx.stroke();ctx.fillStyle='#f0c84b';ctx.fillRect(p.x-5,p.y-13,10,5);}}
-  function draw(api,ctx,cam={x:0,y:0},time=0){const m=maps[api?.state?.area];if(!m)return false;const p=palettes[m.palette];ctx.save();ctx.translate(-cam.x,-cam.y);const vw=ctx.canvas?.width||W,vh=ctx.canvas?.height||H,x0=Math.max(0,Math.floor(cam.x/TILE)-1),y0=Math.max(0,Math.floor(cam.y/TILE)-1),x1=Math.min(COLS,Math.ceil((cam.x+vw)/TILE)+1),y1=Math.min(ROWS,Math.ceil((cam.y+vh)/TILE)+1);for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)paintTile(ctx,m.tiles[y][x],x,y,p,m.id,time);buildings(ctx,m);landmarks(ctx,m,time,api);ctx.restore();return true;}
+  function draw(api,ctx,cam={x:0,y:0},time=0){const m=maps[api?.state?.area];if(!m)return false;const p=palettes[m.palette];ctx.save();ctx.translate(-cam.x,-cam.y);if(typeof RegionMapArt!=='undefined'&&RegionMapArt.drawAmbient(api,ctx,{x:0,y:0},time,'mountain')){landmarks(ctx,m,time,api);ctx.restore();return true;}const vw=ctx.canvas?.width||W,vh=ctx.canvas?.height||H,x0=Math.max(0,Math.floor(cam.x/TILE)-1),y0=Math.max(0,Math.floor(cam.y/TILE)-1),x1=Math.min(COLS,Math.ceil((cam.x+vw)/TILE)+1),y1=Math.min(ROWS,Math.ceil((cam.y+vh)/TILE)+1);for(let y=y0;y<y1;y++)for(let x=x0;x<x1;x++)paintTile(ctx,m.tiles[y][x],x,y,p,m.id,time);buildings(ctx,m);landmarks(ctx,m,time,api);ctx.restore();return true;}
   return {install,draw,isArea:id=>mapIds.includes(id),mapIds,_test:{maps,TILE,COLS,ROWS,blocked,walkable,encounterTile}};
 })();
 if(typeof globalThis!=='undefined')globalThis.OlympusWorld=OlympusWorld;
@@ -3340,7 +3870,8 @@ const Extras = (() => {
     {x:784,y:112,w:48,h:184},{x:928,y:112,w:48,h:184},
     {x:176,y:96,w:192,h:40},{x:480,y:96,w:192,h:40},{x:784,y:96,w:192,h:40}
   ];
-  const forgeBridge={x:18*32,y:10*32,w:4*32,h:2*32};
+  const defaultForgeBridge={x:18*32,y:10*32,w:4*32,h:2*32};
+  let forgeBridge={...defaultForgeBridge};
   let api, lastPosition, portrait;
   const clamp=(n,min,max)=>Math.max(min,Math.min(max,Number(n)||0));
   const inside=(x,y,r,pad=0)=>x>=r.x-pad&&x<=r.x+r.w+pad&&y>=r.y-pad&&y<=r.y+r.h+pad;
@@ -3369,6 +3900,8 @@ const Extras = (() => {
     atlantis?.setup(api);
     mountainWorld?.install(api.world, DATA);
     olympus?.setup(api);
+    const paintedForgeBridge=api.world.areas.olympusCave?.anchors?.forgeBridge;
+    if(paintedForgeBridge&&[paintedForgeBridge.x,paintedForgeBridge.y,paintedForgeBridge.w,paintedForgeBridge.h].every(Number.isFinite))forgeBridge={x:paintedForgeBridge.x,y:paintedForgeBridge.y,w:paintedForgeBridge.w,h:paintedForgeBridge.h};
     for(const [area,species] of [['second','warrior1'],['temple','mantis1']]){
       const zone=api.world.areas[area]?.encounters?.[0];
       if(zone&&DATA.species[species]&&!zone.pool.includes(species))zone.pool.push(species);
@@ -3487,6 +4020,8 @@ const Extras = (() => {
     ctx.fillStyle='#c5bd93';ctx.fillRect(234,142,76,391);ctx.fillRect(538,142,76,495);ctx.fillRect(842,142,76,391);ctx.fillRect(234,460,684,76);
     for(let y=144;y<636;y+=16)for(let x=234;x<918;x+=24){const onPath=(x<310&&y<533)||(x>=538&&x<614)||(x>=842&&y<533)||(y>=464&&y<528);if(!onPath)continue;ctx.fillStyle='#aaa786';ctx.fillRect(x,y,22,1);ctx.fillRect(x,y,1,14);ctx.fillStyle='#ded4ac';ctx.fillRect(x+3,y+3,15,1);if((x+y)%5===0){ctx.fillStyle='#b5ad89';ctx.fillRect(x+8,y+8,7,2);}}
     for(const r of rects){ctx.fillStyle='#555e5a';ctx.fillRect(r.x+5,r.y+6,r.w,r.h);ctx.fillStyle='#b7baa4';ctx.fillRect(r.x,r.y,r.w,r.h);ctx.fillStyle='#e1dcc2';ctx.fillRect(r.x,r.y,r.w,6);ctx.fillStyle='#929987';for(let yy=r.y+24;yy<r.y+r.h;yy+=25)ctx.fillRect(r.x,yy,r.w,2);}
+    const ruin=game.images?.mapExpeditionRuin;
+    if(ruin?.complete&&ruin.naturalWidth)for(const x of [176,480,784])ctx.drawImage(ruin,x,96,192,200);
     for(const p of puzzles){
       const g=p.gate;
       if(!e.solved[p.id]){
@@ -3934,7 +4469,13 @@ const Game = (() => {
   const version = DATA.schemaVersion || DATA.version || 2;
   const homeArea = world.areas.village ? "village" : Object.keys(world.areas)[0];
   const starters = DATA.starters || ["cloak1", "wheat1", "nautilus1"];
+  const difficulties = {
+    easy:{label:"Easy",description:"Opponents deal 25% less damage."},
+    standard:{label:"Standard",description:"The original battle balance."},
+    challenge:{label:"Challenge",description:"Opponents deal 25% more damage."}
+  };
   const typeColors = {Frost:"#5aabbc",Water:"#397fb2",Grass:"#628e46",Leaf:"#628e46",Stone:"#9b8972",Rock:"#9b8972",Fighting:"#b27447",Fight:"#b27447",Spirit:"#9975b5",Normal:"#9d9878",Fire:"#c96248",Flame:"#c96248",Metal:"#6e8797",Venom:"#9272a5",Poison:"#9272a5"};
+  const battleScaleOverrides = {pug:0.48};
   let state;
   let battle = null;
   let displayBattle = null;
@@ -4014,16 +4555,17 @@ const Game = (() => {
       for (const [id, value] of Object.entries(raw.trainers)) if (/^[a-zA-Z0-9_-]{1,100}$/.test(id) && value === true) trainers[id] = true;
     }
     const badges = [...new Set((Array.isArray(raw.badges) ? raw.badges : []).filter(id => ["temple", "acropolis", ...Object.keys(DATA.badges || {})].includes(id)))];
+    const difficulty = Object.hasOwn(difficulties, raw.difficulty) ? raw.difficulty : "standard";
     const next = {version,release,area,x:position.x,y:position.y,party,storage,seen,caught,
       balls:bounded(raw.balls,0,9999,10),potions:bounded(raw.potions,0,9999,3),money:bounded(raw.money,0,999999,300),
-      trainers,badges,starter,mode:starter ? "explore" : "starter",muted:raw.muted !== false};
+      trainers,badges,starter,difficulty,mode:starter ? "explore" : "starter",muted:raw.muted !== false};
     if (Extras?.normalize) Object.assign(next, Extras.normalize(raw));
     return next;
   }
 
   function fresh() {
     const spawn = world.areas[homeArea].spawn;
-    return normalize({version,release,area:homeArea,x:spawn.x ?? spawn[0],y:spawn.y ?? spawn[1],party:[],storage:[],seen:[],caught:[],balls:10,potions:3,money:300,trainers:{},badges:[],starter:null,muted:true});
+    return normalize({version,release,area:homeArea,x:spawn.x ?? spawn[0],y:spawn.y ?? spawn[1],party:[],storage:[],seen:[],caught:[],balls:10,potions:3,money:300,trainers:{},badges:[],starter:null,difficulty:"standard",muted:true});
   }
 
   function serialize() { return JSON.stringify(normalize(state), null, 2); }
@@ -4141,7 +4683,21 @@ const Game = (() => {
   }
 
   function chooseStarter() {
-    panel(`<div class="eyebrow">Professor Thales's laboratory</div><h2>Your first companion</h2><p>Every journey starts with a friend. Choose one; you can find the others while exploring.</p><div class="cards">${starters.map(id => {const sp=species[id];return `<div class="moncard">${portrait(id)}<strong>${esc(sp.name)}</strong>${typeTag(sp.type)}<p class="stats">${esc(sp.description || sp.habitat || "Ready for an adventure.")}</p>${button("Choose","starter:"+id,"primary")}</div>`;}).join("")}</div>`,"starter",{closable:false});
+    const selected=difficulties[state.difficulty] || difficulties.standard;
+    panel(`<div class="eyebrow">Professor Thales's laboratory</div><h2>Your first companion</h2><p>Every journey starts with a friend. Choose a difficulty and a companion; you can change difficulty later from the menu.</p><div class="choices" role="group" aria-label="Difficulty">${Object.entries(difficulties).map(([id,item])=>button(item.label,`difficulty:${id}`,state.difficulty===id?"primary":"")).join("")}</div><p class="muted" style="text-align:center;font-size:13px"><b>${esc(selected.label)}:</b> ${esc(selected.description)}</p><div class="cards">${starters.map(id => {const sp=species[id];return `<div class="moncard">${portrait(id)}<strong>${esc(sp.name)}</strong>${typeTag(sp.type)}<p class="stats">${esc(sp.description || sp.habitat || "Ready for an adventure.")}</p>${button("Choose","starter:"+id,"primary")}</div>`;}).join("")}</div>`,"starter",{closable:false});
+  }
+
+  function chooseDifficulty() {
+    const selected=difficulties[state.difficulty] || difficulties.standard;
+    panel(`<div class="panel-head"><div><div class="eyebrow">Battle settings</div><h2>Difficulty</h2></div>${button("Back","menu","quiet small")}</div><p>Choose how hard opponents hit. This does not change creatures, rewards, evolution, or the world.</p><div class="choices">${Object.entries(difficulties).map(([id,item])=>button(`${item.label}${state.difficulty===id?" · selected":""}`,`difficulty:${id}`,state.difficulty===id?"primary":"")).join("")}</div><div class="note"><b>${esc(selected.label)}:</b> ${esc(selected.description)} Changes take effect in the next battle.</div>`,"menu");
+  }
+
+  function setDifficulty(id) {
+    if(!Object.hasOwn(difficulties,id))return;
+    state.difficulty=id;
+    persist();
+    if(state.starter){toast(`Difficulty set to ${difficulties[id].label}.`);saveMenu();}
+    else chooseStarter();
   }
 
   function giveStarter(id) {
@@ -4290,7 +4846,7 @@ const Game = (() => {
         if(descriptor.buildingEntrance)startHealingAnimation(descriptor);
         else {
           healAll();persist();sound(520,.1);
-          dialog(descriptor.label || "Healing center","Your whole team and stored companions are fully restored. We also keep you supplied with at least 6 Capture Orbs and 2 Potions.");
+          toast("Team restored. Supplies replenished.");renderHUD();
         }
         break;
       case "mart": shopPanel(descriptor);break;
@@ -4334,15 +4890,16 @@ const Game = (() => {
   }
 
   function startHealingAnimation(descriptor) {
-    const targetX=Number(descriptor.x),targetY=Number(descriptor.y);
+    const door=descriptor.door||{x:descriptor.x-12,y:descriptor.y-48,width:24,height:38};
+    const targetX=Number(door.x)+(door.width||24)/2,targetY=Number(door.y)+(door.height||38)-8;
     if(!Number.isFinite(targetX)||!Number.isFinite(targetY))return;
     const dx=targetX-state.x,dy=targetY-state.y;
     if(Math.abs(dx)>Math.abs(dy))facing=dx>0?"right":"left";else facing=dy>0?"down":"up";
     keys.clear();playerMoving=false;
     state.mode="service-animation";
     healingAnimation={
-      started:performance.now(),duration:1600,fromX:state.x,fromY:state.y,
-      targetX,targetY,healed:false,label:descriptor.label||"Healing center"
+      started:performance.now(),duration:typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches?1000:2200,fromX:state.x,fromY:state.y,
+      targetX,targetY,door,healed:false,label:descriptor.label||"Healing center"
     };
     renderHUD();
   }
@@ -4357,7 +4914,8 @@ const Game = (() => {
     const label=current.label;
     healingAnimation=null;
     state.mode="explore";
-    dialog(label,"Your whole team and stored companions are fully restored. We also keep you supplied with at least 6 Capture Orbs and 2 Potions.");
+    facing="down";renderHUD();focusGame();
+    toast("Team restored. Ready to explore!");
   }
 
   function healingPose(now) {
@@ -4371,7 +4929,8 @@ const Game = (() => {
     const x=current.fromX+(current.targetX-current.fromX)*eased;
     const y=current.fromY+(current.targetY-current.fromY)*eased;
     const opacity=inward?Math.max(0,1-Math.max(0,(progress-.24)/.14)):outward?Math.min(1,(progress-.62)/.14):0;
-    return {x,y,opacity,inside:progress>=.35&&progress<=.68,pulse:Math.sin(progress*Math.PI*8)};
+    if(opacity>0){const dx=inward?current.targetX-current.fromX:current.fromX-current.targetX,dy=inward?current.targetY-current.fromY:current.fromY-current.targetY;facing=Math.abs(dx)>Math.abs(dy)?(dx>0?'right':'left'):(dy>0?'down':'up');}
+    return {x,y,opacity,inside:progress>=.35&&progress<=.68,pulse:Math.sin(progress*Math.PI*8),door:current.door,open:Math.min(1,progress/.12,(1-progress)/.12)};
   }
 
   function shopPanel(descriptor = {}) {
@@ -4409,7 +4968,7 @@ const Game = (() => {
   function startBattle(encounter) {
     if (battle || !state.starter) return false;
     if (!healthy()) {recoverDefeat();return false;}
-    try {battle=combat.begin(state.party,encounter);} catch(error){toast(error.message);return false;}
+    try {battle=combat.begin(state.party,{...encounter,difficulty:state.difficulty});} catch(error){toast(error.message);return false;}
     displayBattle=clone(battle);
     pendingOutcome=null;
     keys.clear();
@@ -4631,7 +5190,8 @@ const Game = (() => {
       $(`${prefix}Hp`).style.width=`${ratio*100}%`;
       $(`${prefix}Bar`).className=`bar ${ratio<.25 ? "low" : ratio<.5 ? "mid" : ""}`;
     }
-    $("battleTag").textContent=b.kind==="wild" ? "Wild encounter" : `${b.kind==="gym" ? "Gym challenge" : "Trainer battle"} · ${b.enemyIndex+1} / ${b.enemyParty.length}`;
+    const battleKind=b.kind==="wild" ? "Wild encounter" : `${b.kind==="gym" ? "Gym challenge" : "Trainer battle"} · ${b.enemyIndex+1} / ${b.enemyParty.length}`;
+    $("battleTag").textContent=`${battleKind} · ${difficulties[b.difficulty]?.label || "Standard"}`;
     const locked=state.mode==="battle-presentation" || battle.phase!=="action";
     const mon=battle.playerParty[battle.playerIndex];
     $("moveButtons").innerHTML=combat.moveIds(mon).map((id,index)=>{
@@ -4691,6 +5251,12 @@ const Game = (() => {
       drawMarker(x-camX,y-camY-18,symbol,active);
     }
     const healing=healingPose(now);
+    if(healing?.door){
+      const d=healing.door,w=d.width||24,h=d.height||38,x=d.x+w/2-camX,y=d.y+h-camY,open=Math.max(0,healing.open);
+      ctx.save();ctx.fillStyle='#16202a';ctx.fillRect(x-w/2,y-h,w,h);
+      ctx.fillStyle='#80552f';ctx.fillRect(x-w/2,y-h,w*(1-open),h);
+      ctx.fillStyle='#bf9759';ctx.fillRect(x-w/2,y-h,2,h);ctx.fillRect(x-w/2,y-h,w*(1-open),2);ctx.restore();
+    }
     if(healing?.inside) {
       ctx.save();ctx.translate(healing.x-camX,healing.y-camY-24);
       ctx.strokeStyle=`rgba(240,204,103,${.55+Math.abs(healing.pulse)*.35})`;ctx.lineWidth=4;
@@ -4748,12 +5314,15 @@ const Game = (() => {
     const area=currentArea();
     const backgroundKey=b.kind==="gym"&&images.battleGym ? "battleGym" : images[area.battle] ? area.battle : "battlePlains";
     const background=images[backgroundKey];
+    // Each painted arena has its own perspective and platform centers. These
+    // coordinates are the visible standing surfaces, not a shared screen grid.
     const grounds={
-      battlePlains:{player:{x:190,y:405},enemy:{x:575,y:215}},
-      battleCave:{player:{x:190,y:410},enemy:{x:590,y:225}},
-      battleForest:{player:{x:215,y:400},enemy:{x:565,y:195}},
-      battleGym:{player:{x:190,y:425},enemy:{x:550,y:215}}
-    }[backgroundKey]||{player:{x:190,y:405},enemy:{x:575,y:215}};
+      battlePlains:{player:{x:155,y:378,maxHeight:270,maxWidth:360},enemy:{x:575,y:202,maxHeight:185,maxWidth:280}},
+      battleForest:{player:{x:210,y:380,maxHeight:270,maxWidth:360},enemy:{x:570,y:176,maxHeight:170,maxWidth:220}},
+      battleCave:{player:{x:182,y:392,maxHeight:285,maxWidth:330},enemy:{x:585,y:210,maxHeight:190,maxWidth:270}},
+      battleGym:{player:{x:190,y:390,maxHeight:285,maxWidth:340},enemy:{x:558,y:188,maxHeight:170,maxWidth:240}},
+      battleAtlantis:{player:{x:195,y:380,maxHeight:270,maxWidth:360},enemy:{x:585,y:278,maxHeight:185,maxWidth:280}}
+    }[backgroundKey]||{player:{x:155,y:378,maxHeight:270,maxWidth:360},enemy:{x:575,y:202,maxHeight:185,maxWidth:280}};
     ctx.fillStyle="#aac7b3";ctx.fillRect(0,0,width,height);
     if(background) {
       const scale=Math.max(width/background.width,height/background.height);
@@ -4768,7 +5337,10 @@ const Game = (() => {
       if(!mon)return;
       ctx.save();
       if(animation.side===side && now<animation.until && animation.type==="capture")ctx.globalAlpha=.35+.3*Math.sin(now/45);
-      const img=images[species[mon.species].asset],drawH=h*(species[mon.species].portraitScale || 1),drawW=drawH*img.width/img.height;
+      const sp=species[mon.species],img=images[sp.asset];
+      const scale=battleScaleOverrides[mon.species] || sp.battleScale || sp.portraitScale || 1;
+      const aspect=img.width/img.height;
+      const drawH=Math.min(h*scale,ground.maxHeight||h,(ground.maxWidth||Infinity)/aspect),drawW=drawH*aspect;
       const offset=Extras?.battleOffset?.(api,mon,side,now)||{x:0,y:0};
       drawFitted(img,ground.x-drawW/2+(animation.side===side ? motion : 0)+(Number(offset.x)||0),ground.y-drawH+(Number(offset.y)||0),drawW,drawH,side==="player");
       ctx.restore();
@@ -4821,7 +5393,7 @@ const Game = (() => {
 
   function saveMenu() {
     if(battle)return;
-    panel(`<div class="menu-layout"><div><div class="eyebrow">Adventure menu</div><h2>What next?</h2><div class="command-menu" role="group" aria-label="Adventure commands">${button("Team","team")}${button("Catalog","catalog")}${button("Region map","map")}${button("Export save","export")}${button("Import save","import","quiet")}${button(state.muted ? "Turn sound on" : "Turn sound off","sound-settings","quiet")}${button("Back to adventure","close","quiet")}</div></div><aside class="menu-status"><strong>Journey record</strong><span>${esc(currentArea()?.name || "Greece")}</span><span>${state.party.length} / 6 companions</span><span>${state.badges.length} / ${allBadges().length} badges</span><span>${state.money} coins</span><p>${storageAvailable ? "Progress saves automatically on this device." : "Storage is unavailable. Export before closing this page."} Export to move devices. Import replaces this adventure’s current progress.</p><button data-action="restart" class="danger">Start again</button></aside></div>`,"menu");
+    panel(`<div class="menu-layout"><div><div class="eyebrow">Adventure menu</div><h2>What next?</h2><div class="command-menu" role="group" aria-label="Adventure commands">${button("Team","team")}${button("Catalog","catalog")}${button("Region map","map")}${button(`Difficulty: ${difficulties[state.difficulty]?.label || "Standard"}`,"difficulty-menu")}${button("Export save","export")}${button("Import save","import","quiet")}${button(state.muted ? "Turn sound on" : "Turn sound off","sound-settings","quiet")}${button("Back to adventure","close","quiet")}</div></div><aside class="menu-status"><strong>Journey record</strong><span>${esc(currentArea()?.name || "Greece")}</span><span>${state.party.length} / 6 companions</span><span>${state.badges.length} / ${allBadges().length} badges</span><span>${state.money} coins</span><span>${esc(difficulties[state.difficulty]?.label || "Standard")} difficulty</span><p>${storageAvailable ? "Progress saves automatically on this device." : "Storage is unavailable. Export before closing this page."} Export to move devices. Import replaces this adventure’s current progress.</p><button data-action="restart" class="danger">Start again</button></aside></div>`,"menu");
   }
 
   function restartPrompt() {
@@ -4832,6 +5404,7 @@ const Game = (() => {
     unlockAudio();
     if(panelCallbacks.has(id)){panelCallbacks.get(id)();return;}
     const [kind,value]=id.split(":");
+    if(kind==="difficulty"){setDifficulty(value);return;}
     if(kind==="starter"){giveStarter(value);return;}
     if(kind==="switch"){act({kind:"switch",index:Number(value)});return;}
     if(["lead","deposit","withdraw","swap"].includes(kind)){manageTeam(kind,Number(value));return;}
@@ -4847,6 +5420,8 @@ const Game = (() => {
       case "close":closePanel();break;
       case "team":teamPanel();break;
       case "map":worldMapPanel();break;
+      case "menu":saveMenu();break;
+      case "difficulty-menu":chooseDifficulty();break;
       case "sound-settings":
         state.muted=!state.muted;unlockAudio();Extras?.onSoundChange?.(api);renderHUD();persist();saveMenu();break;
       case "new":safeGet() ? restartPrompt() : start();break;
