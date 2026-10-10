@@ -3281,6 +3281,17 @@ const Game = (() => {
     return promise;
   }
 
+  // Warm one less-frequently-used image at a time when the browser is idle.
+  // The game can begin after the starter portraits decode instead of competing
+  // with a 100-image decode burst on slower devices.
+  function warmBackgroundAssets(ids,index=0) {
+    if (index >= ids.length) return Promise.resolve();
+    return loadAsset(ids[index]).catch(()=>null).then(()=>new Promise(resolve=>{
+      const schedule = window.requestIdleCallback || (callback=>setTimeout(callback,0));
+      schedule(()=>resolve(warmBackgroundAssets(ids,index+1)),{timeout:200});
+    }));
+  }
+
   function hpBar(mon) {
     const ratio = Math.max(0,mon.hp / combat.maxHp(mon));
     return `<div class="bar ${ratio < .25 ? "low" : ratio < .5 ? "mid" : ""}"><i style="width:${ratio*100}%"></i></div>`;
@@ -4124,10 +4135,11 @@ const Game = (() => {
     renderHUD();
     titleScreen();
     requestAnimationFrame(frame);
-    // Paint the title screen as soon as the starter portraits are decoded, then
-    // decode maps and less frequently used portraits in the background. Game.ready
-    // still resolves after the complete embedded set for deterministic tests.
-    return new Promise(resolve=>setTimeout(resolve,0)).then(()=>Promise.allSettled(backgroundAssets.map(loadAsset))).then(()=>true);
+    // Keep decoding maps and less frequently used portraits in the background.
+    // Game.ready now means the title screen is usable; individual views still
+    // call loadAsset and remain safe if their image has not warmed yet.
+    void warmBackgroundAssets(backgroundAssets);
+    return true;
   }).catch(error=>{
     panel(`<h2>Unable to load the adventure</h2><p>${esc(error.message)}</p><p>Reload this page, or open the downloaded offline HTML file.</p>`,"title",{closable:false});
     return false;
